@@ -16,24 +16,26 @@
   <meta name="author" content="Aggie Lennon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="avatar:    url: &#x2F;img&#x2F;随身听头像.jpg    rounded: false    opacity: 1    rotated: false">
+    <meta name="description" content="#题目一##买卖股票的最佳时机含手续费给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。‘’’cpp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to set up a sever to enjoy the freedom of the Internet">
-<meta property="og:url" content="http://example.com/2023/11/21/How-to-set-up-a-sever-to-enjoy-the-freedom-of-the-Internet/index.html">
+<meta property="og:title" content="LeedCode-20231208">
+<meta property="og:url" content="http://example.com/2023/12/08/LeedCode-20231208/index.html">
 <meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
-<meta property="og:description" content="avatar:    url: &#x2F;img&#x2F;随身听头像.jpg    rounded: false    opacity: 1    rotated: false">
+<meta property="og:description" content="#题目一##买卖股票的最佳时机含手续费给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。‘’’cpp">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-20T16:39:31.000Z">
-<meta property="article:modified_time" content="2023-11-20T17:51:46.259Z">
+<meta property="og:image" content="http://example.com/img/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png">
+<meta property="article:published_time" content="2023-12-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-08T11:55:17.972Z">
 <meta property="article:author" content="Aggie Lennon">
-<meta property="article:tag" content="Tech">
 <meta property="article:tag" content="Sever">
 <meta property="article:tag" content="Web">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png">
   
   
   
-  <title>How to set up a sever to enjoy the freedom of the Internet - Aggie Lennon&#39;s Blog</title>
+  <title>LeedCode-20231208 - Aggie Lennon&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">How to set up a sever to enjoy the freedom of the Internet</span>
+            <span id="subtitle">LeedCode-20231208</span>
           
         </div>
 
@@ -210,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-21 00:39" pubdate>
-          2023年11月21日 凌晨
+        <time datetime="2023-12-08 00:00" pubdate>
+          2023年12月8日 凌晨
         </time>
       </span>
     
@@ -222,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          70 字
+          1.5k 字
         
       </span>
     
@@ -233,7 +235,7 @@
         
         
         
-          1 分钟
+          13 分钟
         
       </span>
     
@@ -270,12 +272,49 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">How to set up a sever to enjoy the freedom of the Internet</h1>
+            <h1 id="seo-header">LeedCode-20231208</h1>
             
             
               <div class="markdown-body">
                 
-                <p>avatar:<br>    url: &#x2F;img&#x2F;随身听头像.jpg<br>    rounded: false<br>    opacity: 1<br>    rotated: false</p>
+                <p>#题目一<br>##买卖股票的最佳时机含手续费<br>给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。<br>你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。<br>返回获得利润的最大值。<br>注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。<br>‘’’cpp<br>class Solution {<br>public:<br>    int maxProfit(vector<int>&amp; prices, int fee) {<br>        int n &#x3D; prices.size();<br>        int buy &#x3D; -prices[0]-fee;<br>        int sell &#x3D; 0;</p>
+<pre><code class="hljs">    for(int i = 1; i&lt;n; i++)&#123;
+        int newbuy = max(buy, sell-prices[i]-fee);
+        int newsell = max(sell, buy+prices[i]);
+        buy = newbuy;
+        sell = newsell;
+    &#125;
+    return sell;
+
+&#125;
+</code></pre>
+<h2 id="‘’’"><a href="#‘’’" class="headerlink" title="};‘’’"></a>};<br>‘’’</h2><p>#题目二<br>##数组 prices 记录了某芯片近期的交易价格，其中 prices[i] 表示的 i 天该芯片的价格。你只能选择 某一天 买入芯片，并选择在 未来的某一个不同的日子 卖出该芯片。请设计一个算法计算并返回你从这笔交易中能获取的最大利润。<br>如果你不能获取任何利润，返回 0。<br>‘’’cpp<br>class Solution {<br>public:<br>    int bestTiming(vector<int>&amp; prices) {<br>        if(prices.empty()) return 0;<br>        int smallest &#x3D; prices[0];<br>        int result &#x3D; 0;</p>
+<pre><code class="hljs">    for(int i = 1; i&lt;prices.size(); i++)&#123;
+        if(smallest &lt; prices[i]) result = max(result, prices[i]-smallest);
+        else smallest = prices[i]; 
+    &#125;
+    return result;
+
+&#125;
+</code></pre>
+<h2 id="‘’’-1"><a href="#‘’’-1" class="headerlink" title="};‘’’"></a>};<br>‘’’</h2><p>#题目三<br>##给定两个 稀疏矩阵 ：大小为 m x k 的稀疏矩阵 mat1 和大小为 k x n 的稀疏矩阵 mat2 ，返回 mat1 x mat2 的结果。你可以假设乘法总是可能的<br><img src="/img/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png" srcset="/img/loading.gif" lazyload></p>
+<p>‘’’cpp<br>class Solution {<br>public:<br>    vector&lt;vector<int>&gt; multiply(vector&lt;vector<int>&gt;&amp; mat1, vector&lt;vector<int>&gt;&amp; mat2) {<br>        vector&lt;vector<int>&gt; newmat2;<br>        vector&lt;vector<int>&gt; result;<br>        for(int j &#x3D; 0; j&lt;mat2[0].size(); j++){<br>            vector<int> tmp;<br>            for(int i &#x3D; 0; i&lt;mat2.size(); i++){<br>                tmp.push_back(mat2[i][j]);<br>            }<br>            newmat2.push_back(tmp);<br>        }</p>
+<pre><code class="hljs">    for(int i = 0; i&lt;mat1.size(); i++)&#123;
+        vector&lt;int&gt;tmp;
+        for(int j = 0; j&lt;newmat2.size(); j++)&#123;
+            int value = 0;
+            for(int k = 0; k&lt;mat1[0].size(); k++)&#123;
+                value += mat1[i][k]*newmat2[j][k];
+            &#125;
+            tmp.push_back(value);
+        &#125;
+        result.push_back(tmp);
+    &#125;
+
+    return result;
+&#125;
+</code></pre>
+<p>};<br>‘’’</p>
 
                 
               </div>
@@ -294,15 +333,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Tech-Pocket/" class="category-chain-item">Tech Pocket</a>
+  <a href="/categories/Daily-Algorithm/" class="category-chain-item">Daily Algorithm</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/Tech-Pocket/Sever/" class="category-chain-item">Sever</a>
-  
-  
-
   
 
       </span>
@@ -316,11 +348,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Tech/" class="print-no-link">#Tech</a>
-      
         <a href="/tags/Sever/" class="print-no-link">#Sever</a>
       
         <a href="/tags/Web/" class="print-no-link">#Web</a>
+      
+        <a href="/tags/Algorithm/" class="print-no-link">#Algorithm</a>
       
     </div>
   
@@ -332,8 +364,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>How to set up a sever to enjoy the freedom of the Internet</div>
-      <div>http://example.com/2023/11/21/How-to-set-up-a-sever-to-enjoy-the-freedom-of-the-Internet/</div>
+      <div>LeedCode-20231208</div>
+      <div>http://example.com/2023/12/08/LeedCode-20231208/</div>
     </div>
     <div class="license-meta">
       
@@ -345,7 +377,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月21日</div>
+          <div>2023年12月8日</div>
         </div>
       
       
@@ -377,18 +409,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/08/LeedCode-20231208/" title="LeedCode-20231208">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeedCode-20231208</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/21/HEX-useguide/" title="HEX-useguide">
-                        <span class="hidden-mobile">HEX-useguide</span>
+                      <a href="/2023/11/21/How-to-set-up-a-sever-to-enjoy-the-freedom-of-the-Internet/" title="How to set up a sever to enjoy the freedom of the Internet">
+                        <span class="hidden-mobile">How to set up a sever to enjoy the freedom of the Internet</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
