@@ -16,19 +16,17 @@
   <meta name="author" content="Aggie Lennon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="#题目一##买卖股票的最佳时机含手续费给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。‘’’cpp">
+    <meta name="description" content="题目一买卖股票的最佳时机含手续费给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。123456789">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeedCode-20231208">
 <meta property="og:url" content="http://example.com/2023/12/08/LeedCode-20231208/index.html">
 <meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
-<meta property="og:description" content="#题目一##买卖股票的最佳时机含手续费给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。‘’’cpp">
+<meta property="og:description" content="题目一买卖股票的最佳时机含手续费给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。123456789">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png">
 <meta property="article:published_time" content="2023-12-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-08T11:55:17.972Z">
+<meta property="article:modified_time" content="2023-12-08T12:01:52.602Z">
 <meta property="article:author" content="Aggie Lennon">
-<meta property="article:tag" content="Sever">
-<meta property="article:tag" content="Web">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png">
@@ -224,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.7k 字
         
       </span>
     
@@ -235,7 +233,7 @@
         
         
         
-          13 分钟
+          15 分钟
         
       </span>
     
@@ -277,45 +275,8 @@
             
               <div class="markdown-body">
                 
-                <p>#题目一<br>##买卖股票的最佳时机含手续费<br>给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。<br>你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。<br>返回获得利润的最大值。<br>注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。<br>‘’’cpp<br>class Solution {<br>public:<br>    int maxProfit(vector<int>&amp; prices, int fee) {<br>        int n &#x3D; prices.size();<br>        int buy &#x3D; -prices[0]-fee;<br>        int sell &#x3D; 0;</p>
-<pre><code class="hljs">    for(int i = 1; i&lt;n; i++)&#123;
-        int newbuy = max(buy, sell-prices[i]-fee);
-        int newsell = max(sell, buy+prices[i]);
-        buy = newbuy;
-        sell = newsell;
-    &#125;
-    return sell;
-
-&#125;
-</code></pre>
-<h2 id="‘’’"><a href="#‘’’" class="headerlink" title="};‘’’"></a>};<br>‘’’</h2><p>#题目二<br>##数组 prices 记录了某芯片近期的交易价格，其中 prices[i] 表示的 i 天该芯片的价格。你只能选择 某一天 买入芯片，并选择在 未来的某一个不同的日子 卖出该芯片。请设计一个算法计算并返回你从这笔交易中能获取的最大利润。<br>如果你不能获取任何利润，返回 0。<br>‘’’cpp<br>class Solution {<br>public:<br>    int bestTiming(vector<int>&amp; prices) {<br>        if(prices.empty()) return 0;<br>        int smallest &#x3D; prices[0];<br>        int result &#x3D; 0;</p>
-<pre><code class="hljs">    for(int i = 1; i&lt;prices.size(); i++)&#123;
-        if(smallest &lt; prices[i]) result = max(result, prices[i]-smallest);
-        else smallest = prices[i]; 
-    &#125;
-    return result;
-
-&#125;
-</code></pre>
-<h2 id="‘’’-1"><a href="#‘’’-1" class="headerlink" title="};‘’’"></a>};<br>‘’’</h2><p>#题目三<br>##给定两个 稀疏矩阵 ：大小为 m x k 的稀疏矩阵 mat1 和大小为 k x n 的稀疏矩阵 mat2 ，返回 mat1 x mat2 的结果。你可以假设乘法总是可能的<br><img src="/img/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png" srcset="/img/loading.gif" lazyload></p>
-<p>‘’’cpp<br>class Solution {<br>public:<br>    vector&lt;vector<int>&gt; multiply(vector&lt;vector<int>&gt;&amp; mat1, vector&lt;vector<int>&gt;&amp; mat2) {<br>        vector&lt;vector<int>&gt; newmat2;<br>        vector&lt;vector<int>&gt; result;<br>        for(int j &#x3D; 0; j&lt;mat2[0].size(); j++){<br>            vector<int> tmp;<br>            for(int i &#x3D; 0; i&lt;mat2.size(); i++){<br>                tmp.push_back(mat2[i][j]);<br>            }<br>            newmat2.push_back(tmp);<br>        }</p>
-<pre><code class="hljs">    for(int i = 0; i&lt;mat1.size(); i++)&#123;
-        vector&lt;int&gt;tmp;
-        for(int j = 0; j&lt;newmat2.size(); j++)&#123;
-            int value = 0;
-            for(int k = 0; k&lt;mat1[0].size(); k++)&#123;
-                value += mat1[i][k]*newmat2[j][k];
-            &#125;
-            tmp.push_back(value);
-        &#125;
-        result.push_back(tmp);
-    &#125;
-
-    return result;
-&#125;
-</code></pre>
-<p>};<br>‘’’</p>
-
+                <h1 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h1><h2 id="买卖股票的最佳时机含手续费"><a href="#买卖股票的最佳时机含手续费" class="headerlink" title="买卖股票的最佳时机含手续费"></a>买卖股票的最佳时机含手续费</h2><h2 id="给定一个整数数组-prices，其中-prices-i-表示第-i-天的股票价格-；整数-fee-代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。"><a href="#给定一个整数数组-prices，其中-prices-i-表示第-i-天的股票价格-；整数-fee-代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。" class="headerlink" title="给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。返回获得利润的最大值。注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。"></a>给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。<br>你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。<br>返回获得利润的最大值。<br>注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices, <span class="hljs-type">int</span> fee)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = prices.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> buy = -prices[<span class="hljs-number">0</span>]-fee;<br>        <span class="hljs-type">int</span> sell = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i&lt;n; i++)&#123;<br>            <span class="hljs-type">int</span> newbuy = <span class="hljs-built_in">max</span>(buy, sell-prices[i]-fee);<br>            <span class="hljs-type">int</span> newsell = <span class="hljs-built_in">max</span>(sell, buy+prices[i]);<br>            buy = newbuy;<br>            sell = newsell;<br>        &#125;<br>        <span class="hljs-keyword">return</span> sell;<br><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></h2><h2 id="题目二-数组-prices-记录了某芯片近期的交易价格，其中-prices-i-表示的-i-天该芯片的价格。你只能选择-某一天-买入芯片，并选择在-未来的某一个不同的日子-卖出该芯片。请设计一个算法计算并返回你从这笔交易中能获取的最大利润。如果你不能获取任何利润，返回-0。"><a href="#题目二-数组-prices-记录了某芯片近期的交易价格，其中-prices-i-表示的-i-天该芯片的价格。你只能选择-某一天-买入芯片，并选择在-未来的某一个不同的日子-卖出该芯片。请设计一个算法计算并返回你从这笔交易中能获取的最大利润。如果你不能获取任何利润，返回-0。" class="headerlink" title="#题目二##数组 prices 记录了某芯片近期的交易价格，其中 prices[i] 表示的 i 天该芯片的价格。你只能选择 某一天 买入芯片，并选择在 未来的某一个不同的日子 卖出该芯片。请设计一个算法计算并返回你从这笔交易中能获取的最大利润。如果你不能获取任何利润，返回 0。"></a>#题目二<br>##数组 prices 记录了某芯片近期的交易价格，其中 prices[i] 表示的 i 天该芯片的价格。你只能选择 某一天 买入芯片，并选择在 未来的某一个不同的日子 卖出该芯片。请设计一个算法计算并返回你从这笔交易中能获取的最大利润。<br>如果你不能获取任何利润，返回 0。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">bestTiming</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(prices.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> smallest = prices[<span class="hljs-number">0</span>];<br>        <span class="hljs-type">int</span> result = <span class="hljs-number">0</span>;<br>        <br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i&lt;prices.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            <span class="hljs-keyword">if</span>(smallest &lt; prices[i]) result = <span class="hljs-built_in">max</span>(result, prices[i]-smallest);<br>            <span class="hljs-keyword">else</span> smallest = prices[i]; <br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></h2><h1 id="题目三"><a href="#题目三" class="headerlink" title="题目三"></a>题目三</h1><h2 id="给定两个-稀疏矩阵-：大小为-m-x-k-的稀疏矩阵-mat1-和大小为-k-x-n-的稀疏矩阵-mat2-，返回-mat1-x-mat2-的结果。你可以假设乘法总是可能的"><a href="#给定两个-稀疏矩阵-：大小为-m-x-k-的稀疏矩阵-mat1-和大小为-k-x-n-的稀疏矩阵-mat2-，返回-mat1-x-mat2-的结果。你可以假设乘法总是可能的" class="headerlink" title="给定两个 稀疏矩阵 ：大小为 m x k 的稀疏矩阵 mat1 和大小为 k x n 的稀疏矩阵 mat2 ，返回 mat1 x mat2 的结果。你可以假设乘法总是可能的"></a>给定两个 稀疏矩阵 ：大小为 m x k 的稀疏矩阵 mat1 和大小为 k x n 的稀疏矩阵 mat2 ，返回 mat1 x mat2 的结果。你可以假设乘法总是可能的</h2><p><img src="/img/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">multiply</span>(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; mat1, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; mat2) &#123;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; newmat2;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; result;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j&lt;mat2[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++)&#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt; tmp;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i&lt;mat2.<span class="hljs-built_in">size</span>(); i++)&#123;<br>                tmp.<span class="hljs-built_in">push_back</span>(mat2[i][j]);<br>            &#125;<br>            newmat2.<span class="hljs-built_in">push_back</span>(tmp);<br>        &#125;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i&lt;mat1.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt;tmp;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j&lt;newmat2.<span class="hljs-built_in">size</span>(); j++)&#123;<br>                <span class="hljs-type">int</span> value = <span class="hljs-number">0</span>;<br>                <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k&lt;mat1[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); k++)&#123;<br>                    value += mat1[i][k]*newmat2[j][k];<br>                &#125;<br>                tmp.<span class="hljs-built_in">push_back</span>(value);<br>            &#125;<br>            result.<span class="hljs-built_in">push_back</span>(tmp);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -347,10 +308,6 @@
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Sever/" class="print-no-link">#Sever</a>
-      
-        <a href="/tags/Web/" class="print-no-link">#Web</a>
       
         <a href="/tags/Algorithm/" class="print-no-link">#Algorithm</a>
       
