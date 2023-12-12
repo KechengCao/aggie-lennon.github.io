@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Assembly language development environment setup</title>
+    <link href="/2023/12/12/Assembly%20language%20development%20environment%20setup/"/>
+    <url>/2023/12/12/Assembly%20language%20development%20environment%20setup/</url>
+    
+    <content type="html"><![CDATA[<span id="more"></span><h1 id="1-Dpwnload-DOSBox"><a href="#1-Dpwnload-DOSBox" class="headerlink" title="1. Dpwnload DOSBox"></a>1. Dpwnload DOSBox</h1><p>DosBox download link：<a href="https://sourceforge.net/projects/dosbox/">Click to jump</a><br>DosBox offical link：<a href="https://www.dosbox.com/">Click to jump</a></p><h1 id="2-Download-the-assembly-toolkit"><a href="#2-Download-the-assembly-toolkit" class="headerlink" title="2. Download the assembly toolkit"></a>2. Download the assembly toolkit</h1><p>Download link：<a href="https://github.com/xDarkLemon/DOSBox_MASM/tree/master/masm">Click to jump</a><br>At least 4 files must be included in the toolkit<br>*masm.exe id the assembler, used to execute the assembly source code (.asm) and obtain the target program (.obj).<br>*link.exe linkd the program, connect the target program, and get the executable program exe<br>*debug.exe is the debugger, used to debug executable programs (.exe)<br>*exe2bin.exe is a post-compiled command line utility available on MS-DOS and other operating systems to convert DOS MZ executable files to COM files</p><h1 id="3-Install-DOSBox"><a href="#3-Install-DOSBox" class="headerlink" title="3.Install DOSBox"></a>3.Install DOSBox</h1><p><img src="/img/Dosbox%E5%AE%89%E8%A3%851.png"><br>Click Next<br><img src="/img/Dosbox%E5%AE%89%E8%A3%852.png"><br>Click Next<br><img src="/img/Dosbox%E5%AE%89%E8%A3%852.png"><br>Here I choose to install to the D drive.<br>Note: The selection of the directory here will affect the following instructions to mount the working directory.</p><h1 id="4-Create-a-new-working-directory"><a href="#4-Create-a-new-working-directory" class="headerlink" title="4.Create a new working directory"></a>4.Create a new working directory</h1><p><img src="/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png"><br>Create a new working directory DOSBox under the D drive, and cut the installed DOSBox-0.74 to the working directory.<br><img src="/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png"><br>Open the Debug directory, cut the assembly tool package masm to the directory, and create a new folder ASM to store the assembly program you wrote in the future.</p><h1 id="5-Mount-the-working-directory"><a href="#5-Mount-the-working-directory" class="headerlink" title="5.Mount the working directory"></a>5.Mount the working directory</h1><p>The purpose of mounting the working directory here is to enable dosbox to use masm.exe in the configuration tool package<br><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png"><br>*Open the DOSBox installation directory and find the file DOSBox 0.74 Options.bat<br>*Add the following command below [autoexec]:</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros">MOUNT F D:\DOSBox\<span class="hljs-built_in">Debug</span><br><span class="hljs-built_in">set</span> <span class="hljs-attribute">PATH</span>=%PATH%;F:\MASM;<br>F:<br>cd F:\ASM<br><br></code></pre></td></tr></table></figure><p><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png"><br>这么做的目的是每次使用DOSBox的时候不用重新手动挂载<br><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%953.png"><br>Start DOSBox 0.74.exe, and the following automatic program execution will appear to verify the validity of the second part above.</p><h1 id="5-Change-the-size-of-the-DOSBox-command-window"><a href="#5-Change-the-size-of-the-DOSBox-command-window" class="headerlink" title="5.Change the size of the DOSBox command window"></a>5.Change the size of the DOSBox command window</h1><p><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png"><br>Open the DOSBox installation directory and find the file DOSBox 0.74 Options.bat<br><img src="/img/%E6%9B%B4%E6%94%B9DOSBox%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F.png"><br>ind the following code block, change the output to ddraw, and windowresolution to the specific size of the command window. Change it according to your own habits. Here the author chose 1200x640 as the size of the command window.<br>Note: x in 1200x640 is a lowercase letter x</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Operating System</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Environment Setup</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeedCode-Day4</title>
     <link href="/2023/12/12/LeedCode-20231212/"/>
     <url>/2023/12/12/LeedCode-20231212/</url>
