@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Inside the C++ Object Model-1</title>
+    <link href="/2023/12/18/%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/"/>
+    <url>/2023/12/18/%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="C-对象模式"><a href="#C-对象模式" class="headerlink" title="C++对象模式"></a>C++对象模式</h1><span id="more"></span><p>下面是示例代码，以下对于模型的介绍都围绕着示例代码展开</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Point</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Point</span>(<span class="hljs-type">float</span> xval);<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">Point</span>();<br>    <br>    <span class="hljs-function"><span class="hljs-type">float</span> <span class="hljs-title">x</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">PointCount</span><span class="hljs-params">()</span></span>;<br>    <br><span class="hljs-keyword">protected</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> ostream&amp; <span class="hljs-title">print</span><span class="hljs-params">(ostream &amp;os)</span> <span class="hljs-type">const</span></span>;<br>    <br>    <span class="hljs-type">float</span> _x;<br>    <span class="hljs-type">static</span> <span class="hljs-type">int</span> _point_count;<br>&#125;;<br></code></pre></td></tr></table></figure><h2 id="1-简单对象模型"><a href="#1-简单对象模型" class="headerlink" title="1. 简单对象模型"></a>1. 简单对象模型</h2><p>正如名字中的简单二字，简单对象模式的设计初衷是为了降低C++编译器的复杂度，其示例代码(参考深入探索C++对象模型)和设计模型如下图。对于简单对象模式，一个对象被分成了许多slot，slot的个数对应于class中member的个数，从上到下按照在class中的申明顺序进行排列。为了适应class中member的不同类型，slot中存放的是执行具体member的指针。在进行member寻址的时候通过slot的索引值来进行查找。<br>优点：降低了C++编译器的设计复杂度<br>缺点：降低了C++编译器的空间利用率和执行时的效率。</p><h3 id="加上继承"><a href="#加上继承" class="headerlink" title="加上继承"></a>加上继承</h3><p>假设有两个类，base_point和 derived_point，其中base_point为derived_class的父类。那么在简单对象模型中，base_point会被derived_point的一个slot来指出，slot中储存的是base_point的地址。<br>优点：由间接性导致的空间和存取时间上的额外损耗。<br>缺点：derived_point的大小与base_point的大小无关<br><img src="/img/%E7%AE%80%E5%8D%95%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png"></p><h2 id="2-表格驱动对象模型"><a href="#2-表格驱动对象模型" class="headerlink" title="2.表格驱动对象模型"></a>2.表格驱动对象模型</h2><p>表格驱动对象模型也被称为双表格模型。相比与上面的简单对象模式，表格驱动模式将class中的data member和 function member 做了一个区分，将它们分别放在Data Member Table和Function Member Table中。由此Point pt就简化为只拥有两个指针的slot,分别指向两个Table. 这里需要注意的一点是data member直接存放在Data Member Table中，而对于Function Member Table可以类比上述的简单对象模型。其中的不同点在于将Poitn pt替换成了Function Member Table并且每个slot所指向的对象只包含function member.<br><img src="/img/%E8%A1%A8%E6%A0%BC%E9%A9%B1%E5%8A%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png"></p><h3 id="加上继承-1"><a href="#加上继承-1" class="headerlink" title="加上继承"></a>加上继承</h3><p>可以类比于VirtualTable，会产生另一个叫做Base Class Table 的表格。表格中的每个slot都包含一个base class的地址。Derived Class通过一个bptr的指针指向Base Class Table。<br>缺点：由间接性导致的空间和存取时间上的额外损耗。<br>优点：由于每个class在固定位置都会存在一个bptr指针，每一个class对于继承都保持了一致性。由于Base Class Table的存在，做到了与class本身的分离，所以在无需改变class本身的大小就能增加或是减少base class。<br><img src="/img/base_class_table.png"></p><h2 id="3-C-对象模型"><a href="#3-C-对象模型" class="headerlink" title="3.C++对象模型"></a>3.C++对象模型</h2><p>从简单模型到C++对象模型经历了内存空间和存取时间上的优化。相比于上面的双表格模型，C++对象模型对calss的member做了更细的划分。<br>1.Nonstatic data members 放在class之中<br>2.Static data member 放在class之外<br>3.Static和nonstatic function member放在class之外<br>根据上面的示例代码可以画出下面的模型图，读者可以根据C++对象模型各种元素的存放规则去图中一一对应。对于Virtual table 中指针分配的顺序是以type_info开始，并以程序中的申明顺序进行排列。对与type_info的解释，读者可以移步至这篇博客<a href="https://www.cnblogs.com/xuelisheng/p/9479288.html">Click to jump</a>，笔者个人觉得对于RTTI机制，type_info, typeid 和dynamic_cast都做了不错的解释。<br>优点：空间和存取时间效率<br>缺点：对于nonstatic data member的改变需要进行重新编译。<br><img src="/img/C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeedCode-Day8</title>
     <link href="/2023/12/17/LeedCode-20231217/"/>
     <url>/2023/12/17/LeedCode-20231217/</url>
