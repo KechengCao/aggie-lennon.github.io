@@ -16,25 +16,21 @@
   <meta name="author" content="Aggie Lennon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关于C++对象">
+    <meta name="description" content="Default Constructor的构造操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Inside the C++ Object Model-2">
-<meta property="og:url" content="http://example.com/2023/12/31/Inside%20the%20C++%20Object%20Model-2/index.html">
+<meta property="og:title" content="Inside the C++ Object Model-3">
+<meta property="og:url" content="http://example.com/2023/12/31/Inside%20the%20C++%20Object%20Model-3/index.html">
 <meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
-<meta property="og:description" content="关于C++对象">
+<meta property="og:description" content="Default Constructor的构造操作">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1_classobject%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1_derivedclassobject%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/object%E5%92%8Cpointer%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80_%E5%A4%9A%E7%BB%A7%E6%89%BF.png">
 <meta property="article:published_time" content="2023-12-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-31T02:01:10.737Z">
+<meta property="article:modified_time" content="2023-12-31T02:17:19.504Z">
 <meta property="article:author" content="Aggie Lennon">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1_classobject%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
   
   
   
-  <title>Inside the C++ Object Model-2 - Aggie Lennon&#39;s Blog</title>
+  <title>Inside the C++ Object Model-3 - Aggie Lennon&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Inside the C++ Object Model-2</span>
+            <span id="subtitle">Inside the C++ Object Model-3</span>
           
         </div>
 
@@ -255,38 +251,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Inside the C++ Object Model-2</h1>
+            <h1 id="seo-header">Inside the C++ Object Model-3</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="关于C-对象"><a href="#关于C-对象" class="headerlink" title="关于C++对象"></a>关于C++对象</h1><span id="more"></span>
-<ol>
-<li>   一个class object需要多少内存？</li>
-</ol>
-<ul>
-<li>Class object中的nonstatic data member的大小总和</li>
-<li>由于alignment的需求而填补的空间</li>
-<li>为了支持virtual而产生的额外空间</li>
-</ul>
-<p>示例代码及object和pointer内存布局：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ZooAnimal</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">ZooAnimal</span>();<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">ZooAnimal</span>();<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">()</span></span>;<br>    <br><span class="hljs-keyword">protected</span>:<br>    <span class="hljs-type">int</span> loc;<br>    string name;<br>&#125;;<br><br><span class="hljs-function">ZooAnimal <span class="hljs-title">za</span><span class="hljs-params">(<span class="hljs-string">&quot;Zoey&quot;</span>)</span></span>;<br>ZooAnimal *pza = &amp;za;<br></code></pre></td></tr></table></figure>
-<p><img src="/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1_classobject%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png" srcset="/img/loading.gif" lazyload><br>在这个例子中由于使用的是32位机器，所以int类型位4bytes。 而string由两部分组成：4-byte字符指针和字符串长度整数，加起来一共8bytes。最后是vptr指针用来支持virtual。说到指针，读者可能会疑惑对于指向不同类型的指针（如指向整数的指针和指向class的指针）之间会有什么区别。对于指针来说没有什么不同之处，无论是在指针表示法还是在指针内容本身上面。其不同在于根据指针内容所寻址出来的object类型上面，编译器会根据所指定的指针类型来解释通过寻址得到的object的类型。也正是由于这个原因，对于void的类型指针我们无法操作它所指向的object，原因在于我们压根没有告诉编译器指针所指向的类型，更无从谈起对object进行相应的操作。</p>
-<h2 id="单继承"><a href="#单继承" class="headerlink" title="单继承"></a>单继承</h2><p>示例代码及object和pointer内存布局：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ZooAnimal</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">ZooAnimal</span>();<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">ZooAnimal</span>();<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">()</span></span>;<br>    <br><span class="hljs-keyword">protected</span>:<br>    <span class="hljs-type">int</span> loc;<br>    string name;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bear</span>: <span class="hljs-keyword">public</span> ZooAnimal&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Bear</span>();<br>    ~<span class="hljs-built_in">Bear</span>();<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">dance</span><span class="hljs-params">()</span></span>;<br>    <br><span class="hljs-keyword">protected</span>:<br>    <span class="hljs-keyword">enum</span> <span class="hljs-title class_">Dances</span>&#123;...&#125;;<br>    Dances dances_known;<br>    <span class="hljs-type">int</span> cell_block;<br>&#125;;<br><br><span class="hljs-function">Bear <span class="hljs-title">b</span><span class="hljs-params">(<span class="hljs-string">&quot;Yogi&quot;</span>)</span></span>;<br>Bear *pb = &amp;b;<br>Bear &amp;rb = *pb;<br></code></pre></td></tr></table></figure>
-<p><img src="/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1_derivedclassobject%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png" srcset="/img/loading.gif" lazyload><br>我们可以画出上述布局图，其中圆圈内的数字表示所占byte数，灰色部分为class Bear相对于class ZooAnimal多出来的部分，但这只是相较于ZooAnimal多出来的一部分，剩下的在虚函数表中。结合我们之前在C++对象模型中学习的虚函数表的知识，我们也能画出虚表中的布局图像。对于pointer pb亦或是reference rb都只需要一个word的空间，及4bytes在这个例子中，而对于Bear object b则需要24bytes。24bytes可由两部分组成：16bytes的ZooAnimal object和Bear多出来的部分。这里有一点需要注意这里的虚表指针类型仍为ZooAnimal。</p>
-<h2 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h2><p>object和pointer内存布局：<br><img src="/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/object%E5%92%8Cpointer%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80_%E5%A4%9A%E7%BB%A7%E6%89%BF.png" srcset="/img/loading.gif" lazyload><br>在这图中Derived class继承自Base1 class和Base2 class。在derived class中绿色部分有三个含义：1. 左侧部分表示继承自Base1和Base2。2. 右侧表示derived class对于Base1和Base2的override。3. 不论左侧和右侧，绿色部分的排序均按照声明的顺序排列。灰色部分表示derived class自己的部分，对于左侧nonstatic data member来说，derived class自己的data member排在base data member后面。Derived class自己的虚函数放在第一个虚函数表中base虚函数之后。</p>
-<h2 id="关于继承问题的一些讨论"><a href="#关于继承问题的一些讨论" class="headerlink" title="关于继承问题的一些讨论"></a>关于继承问题的一些讨论</h2><h3 id="1-衍生类使用父类member"><a href="#1-衍生类使用父类member" class="headerlink" title="1.	衍生类使用父类member"></a>1.	衍生类使用父类member</h3><p>对于上面单继承给出的例子，我们继续给出一下代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Bear b;<br>ZooAnimal *pz = &amp;b;<br>Bear *pb = &amp;b;<br></code></pre></td></tr></table></figure>
-<p>鉴于Bear是ZooAnimal的衍生类， pb能涵盖的object为Bear，而pz所涵盖的只有Bear中的ZooAnimal。除了virtual和ZooAnimal class中出现的members, pz不能用来处理Bear class中出现的members。但有两种方法可以实现pz对Bear member cell_back的处理：<br>1.	(static_cast&lt;Bear*&gt;(pz))-&gt;cell_back<br>2.	If(Bear *pb2 &#x3D; dynamic_cast&lt;Bear*&gt;(pz)){pb2 -&gt; cell_back;}</p>
-<h3 id="2-衍生类初始化父类"><a href="#2-衍生类初始化父类" class="headerlink" title="2.	衍生类初始化父类"></a>2.	衍生类初始化父类</h3><p>示例代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Bear b;<br>ZooAnimal za = b;<br>za.<span class="hljs-built_in">rotate</span>();<br></code></pre></td></tr></table></figure>
-<p>以上代码会带来两个问题：</p>
-<ul>
-<li>为什么rotate使用的还是ZooAnimal实例？<br>首先ZooAnimal 和 Bear是两个完全不同的object， 但从继承关系上来看，Bear object所占用的内存就比ZooAnimal大，把Bear实例直接赋值给ZooAnimal无疑是十分荒唐的。</li>
-<li>为什么za的vptr不指向Bear的vltb？<br>编译器会在初始化和指定操作之间做出仲裁。对于含有一个或一个以上vptrs的object, 那些vptrs不会被初始化或者改变</li>
-</ul>
+                <h1 id="Default-Constructor的构造操作"><a href="#Default-Constructor的构造操作" class="headerlink" title="Default Constructor的构造操作"></a>Default Constructor的构造操作</h1><span id="more"></span>
+<p>生成nontrivial default constructor的4种情况：</p>
+<h2 id="1-带有Default-Constructor的member-class-object"><a href="#1-带有Default-Constructor的member-class-object" class="headerlink" title="1.	带有Default Constructor的member class object"></a>1.	带有Default Constructor的member class object</h2><p>示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span> &#123;<br>    <span class="hljs-keyword">public</span>: <br>        <span class="hljs-built_in">Foo</span>()<br>        <span class="hljs-built_in">Foo</span>(<span class="hljs-type">int</span>) <br>&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bar</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    Foo foo;<br>    <span class="hljs-type">char</span> *str;<br>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">foo_bar</span><span class="hljs-params">()</span></span>&#123;<br>    Bar bar;<br>    <span class="hljs-keyword">if</span>(str)&#123;&#125;...<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在这个例子中，由于class Foo default constructor的存在，编译器为class Bar合成了一个default constructor。编译器合成Bear default constructor的目的是来调用已经定义的Foo default constructor来处理class Bar中内含的Foo foo，因为这是编译器自身的需要。至于class foo中的str并没有被初始化，因为str的使用是程序员提出的需求，那自然str的初始化是程序员该负责的事情。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> </span><br><span class="hljs-function"><span class="hljs-title">Bar::Bar</span><span class="hljs-params">()</span></span>&#123;<br>    foo.Foo::<span class="hljs-built_in">Foo</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在C++不同的编译模块中，为了避免合成多个default constructor，可以通过把default constructor, copy constructor, destructor, assignment copy operator都已inline的方式完成。如果函数过于复杂，就合成一个explicit non-inline static实例。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Bar::<span class="hljs-built_in">Bar</span>()&#123;str = <span class="hljs-number">0</span>;&#125;<br></code></pre></td></tr></table></figure>
+<p>还记得上文提到的str初始化问题吗，假设现在你在程序中加入了上述代码，细心的读者可能会提出疑问。编译器对于两个不同的default constructor采取什么行动呢？对于Class A, 如果包含一个或一个以上的class object member，Class A的每一个constructor必须调用member class的default constructor，其调用方式是通过扩张已经存在的constructors，在其中安插代码来完成。结合上面的例子我们能得到下面这个扩充后的constructor。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Bar::<span class="hljs-built_in">Bar</span>()&#123;<br>    foo.Foo::<span class="hljs-built_in">Foo</span>();<br>    str = <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<p>那如果Class A中内含了多个class object member，其都需要constructor的初始化操作，那C++编译器会为每一个constructor以class object member 声明顺序来安插每一个class object member 所对应的default constructor代码。并且这些代码会安放在explicit user code 之前。通过下面的示例代码，读者能有一个更为直观的理解。<br>示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//Class定义：</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Snow_White</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    Dopey dopey;<br>    Sneezy sneezy;<br>    Bashful bashful;<br>    <br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> mumble;<br>&#125;<br><span class="hljs-comment">//编辑器中的default constructor:</span><br>Snow_White::<span class="hljs-built_in">Snow_White</span>()&#123;<br>    mumble = <span class="hljs-number">2048</span>;<br>&#125;<br><span class="hljs-comment">//编辑器扩张后的default constructor:</span><br>Snow_White::<span class="hljs-built_in">Snow_White</span>()&#123;<br>    dopey.Dopey::<span class="hljs-built_in">Dopey</span>();<br>    sneezy.Sneezy::<span class="hljs-built_in">Sneezy</span>();<br>    bashful.Bashful::<span class="hljs-built_in">Bashful</span>();<br>    <br>    mumble = <span class="hljs-number">2048</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="2-带有Default-Constructor的Base-Class"><a href="#2-带有Default-Constructor的Base-Class" class="headerlink" title="2.	带有Default Constructor的Base Class"></a>2.	带有Default Constructor的Base Class</h2><p>这里可以分为两种情况：对于本身没有任何constructors的derived class来说，如果base class含有default constructor。那就会根据声明顺序调用上一层base class的default constructor。第二种情况是对于derived class中含有constructors但是不包含base class的default constructor。Derived class面对这种情况不会合成新的default constructor。如果derived class中还存在像string这样同样带有default constructor的class object member。那些default constructor同样会被加入到derived class现有的constructor之中，只不过加入的顺序在base class constructor之后。</p>
+<h2 id="3-带有一个Virtual-Function-的Class"><a href="#3-带有一个Virtual-Function-的Class" class="headerlink" title="3.	带有一个Virtual Function 的Class"></a>3.	带有一个Virtual Function 的Class</h2><p>下面两种情况会合成出default constructor：<br>1.	Class 声明或继承virtual function<br>2.	Class 派生自一个继承串链，其中存在virtual base classes<br>示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Widget</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">flip</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">flip</span><span class="hljs-params">(<span class="hljs-type">const</span> Widget&amp; widget)</span></span>&#123;<br>    widget.<span class="hljs-built_in">flip</span>();<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>&#123;<br>    Bell b;<br>    Whistle w;<br>    <span class="hljs-built_in">flip</span>(b);<br>    <span class="hljs-built_in">flip</span>(w);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>对于上述的代码，Widget为Bell和Whistle的父类。编译器会干两件事情：生成一个virtual function table存放class中virtual function地址。对于每个class object生成vptr来指示virtual function table的地址。<br>对于这个例子中的Bell class object b和Whistle class object w，编译器会通过default constructor为其各的vptr设定初值。如果class object本身存在constructor，编译器则会直接在其中安插代码确保vptr的正确初始化。</p>
+<h2 id="4-带有一个Virtual-Function-的Class"><a href="#4-带有一个Virtual-Function-的Class" class="headerlink" title="4.	带有一个Virtual Function 的Class"></a>4.	带有一个Virtual Function 的Class</h2>
                 
               </div>
             
@@ -324,8 +313,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Inside the C++ Object Model-2</div>
-      <div>http://example.com/2023/12/31/Inside the C++ Object Model-2/</div>
+      <div>Inside the C++ Object Model-3</div>
+      <div>http://example.com/2023/12/31/Inside the C++ Object Model-3/</div>
     </div>
     <div class="license-meta">
       
@@ -369,9 +358,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/31/LeedCode-20231231/" title="LeedCode-Day15">
+                      <a href="/2023/12/31/Inside%20the%20C++%20Object%20Model-2/" title="Inside the C++ Object Model-2">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeedCode-Day15</span>
+                        <span class="hidden-mobile">Inside the C++ Object Model-2</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -379,8 +368,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/31/Inside%20the%20C++%20Object%20Model-3/" title="Inside the C++ Object Model-3">
-                        <span class="hidden-mobile">Inside the C++ Object Model-3</span>
+                      <a href="/2023/12/28/LeedCode-20231228/" title="LeedCode-Day14">
+                        <span class="hidden-mobile">LeedCode-Day14</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
