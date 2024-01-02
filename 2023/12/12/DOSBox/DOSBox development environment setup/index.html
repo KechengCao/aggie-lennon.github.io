@@ -16,26 +16,33 @@
   <meta name="author" content="Aggie Lennon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="C++对象模式">
+    <meta name="description" content="1. Download DOSBoxDosBox download link：Click to jumpDosBox offical link：Click to jump 2. Download the assembly toolkitDownload link：Click to jumpAt least 4 files must be included in the toolkit  masm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Inside the C++ Object Model-1">
-<meta property="og:url" content="http://example.com/2023/12/18/Inside%20the%20C++%20Object%20Model-1/index.html">
+<meta property="og:title" content="DOSBox development environment setup">
+<meta property="og:url" content="http://example.com/2023/12/12/DOSBox/DOSBox%20development%20environment%20setup/index.html">
 <meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
-<meta property="og:description" content="C++对象模式">
+<meta property="og:description" content="1. Download DOSBoxDosBox download link：Click to jumpDosBox offical link：Click to jump 2. Download the assembly toolkitDownload link：Click to jumpAt least 4 files must be included in the toolkit  masm">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E7%AE%80%E5%8D%95%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E8%A1%A8%E6%A0%BC%E9%A9%B1%E5%8A%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/base_class_table.png">
-<meta property="og:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png">
-<meta property="article:published_time" content="2023-12-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-18T06:38:26.010Z">
+<meta property="og:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%851.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%852.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%852.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%953.png">
+<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png">
+<meta property="og:image" content="http://example.com/img/%E6%9B%B4%E6%94%B9DOSBox%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F.png">
+<meta property="article:published_time" content="2023-12-12T12:16:47.000Z">
+<meta property="article:modified_time" content="2023-12-13T16:13:26.508Z">
 <meta property="article:author" content="Aggie Lennon">
+<meta property="article:tag" content="Environment Setup">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E7%AE%80%E5%8D%95%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png">
+<meta name="twitter:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%851.png">
   
   
   
-  <title>Inside the C++ Object Model-1 - Aggie Lennon&#39;s Blog</title>
+  <title>DOSBox development environment setup - Aggie Lennon&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Inside the C++ Object Model-1</span>
+            <span id="subtitle">DOSBox development environment setup</span>
           
         </div>
 
@@ -212,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-18 00:00" pubdate>
-          2023年12月18日 凌晨
+        <time datetime="2023-12-12 20:16" pubdate>
+          2023年12月12日 晚上
         </time>
       </span>
     
@@ -256,19 +263,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Inside the C++ Object Model-1</h1>
+            <h1 id="seo-header">DOSBox development environment setup</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="C-对象模式"><a href="#C-对象模式" class="headerlink" title="C++对象模式"></a>C++对象模式</h1><span id="more"></span>
-<p>下面是示例代码，以下对于模型的介绍都围绕着示例代码展开</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Point</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Point</span>(<span class="hljs-type">float</span> xval);<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">Point</span>();<br>    <br>    <span class="hljs-function"><span class="hljs-type">float</span> <span class="hljs-title">x</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">PointCount</span><span class="hljs-params">()</span></span>;<br>    <br><span class="hljs-keyword">protected</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> ostream&amp; <span class="hljs-title">print</span><span class="hljs-params">(ostream &amp;os)</span> <span class="hljs-type">const</span></span>;<br>    <br>    <span class="hljs-type">float</span> _x;<br>    <span class="hljs-type">static</span> <span class="hljs-type">int</span> _point_count;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h2 id="1-简单对象模型"><a href="#1-简单对象模型" class="headerlink" title="1. 简单对象模型"></a>1. 简单对象模型</h2><p>正如名字中的简单二字，简单对象模式的设计初衷是为了降低C++编译器的复杂度，其示例代码(参考深入探索C++对象模型)和设计模型如下图。对于简单对象模式，一个对象被分成了许多slot，slot的个数对应于class中member的个数，从上到下按照在class中的申明顺序进行排列。为了适应class中member的不同类型，slot中存放的是执行具体member的指针。在进行member寻址的时候通过slot的索引值来进行查找。<br>优点：降低了C++编译器的设计复杂度。<br>缺点：降低了C++编译器的空间利用率和执行时的效率。</p>
-<h3 id="加上继承"><a href="#加上继承" class="headerlink" title="加上继承"></a>加上继承</h3><p>假设有两个类，base_point和 derived_point，其中base_point为derived_class的父类。那么在简单对象模型中，base_point会被derived_point的一个slot来指出，slot中储存的是base_point的地址。<br>优点：由间接性导致的空间和存取时间上的额外损耗。<br>缺点：derived_point的大小与base_point的大小无关。<br><img src="/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E7%AE%80%E5%8D%95%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="2-表格驱动对象模型"><a href="#2-表格驱动对象模型" class="headerlink" title="2.	表格驱动对象模型"></a>2.	表格驱动对象模型</h2><p>表格驱动对象模型也被称为双表格模型。相比与上面的简单对象模式，表格驱动模式将class中的data member和 function member 做了一个区分，将它们分别放在Data Member Table和Function Member Table中。由此Point pt就简化为只拥有两个指针的slot,分别指向两个Table. 这里需要注意的一点是data member直接存放在Data Member Table中，而对于Function Member Table可以类比上述的简单对象模型。其中的不同点在于将Poitn pt替换成了Function Member Table并且每个slot所指向的对象只包含function member.<br><img src="/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/%E8%A1%A8%E6%A0%BC%E9%A9%B1%E5%8A%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="加上继承-1"><a href="#加上继承-1" class="headerlink" title="加上继承"></a>加上继承</h3><p>可以类比于VirtualTable，会产生另一个叫做Base Class Table 的表格。表格中的每个slot都包含一个base class的地址。Derived Class通过一个bptr的指针指向Base Class Table。<br>缺点：由间接性导致的空间和存取时间上的额外损耗。<br>优点：由于每个class在固定位置都会存在一个bptr指针，每一个class对于继承都保持了一致性。由于Base Class Table的存在，做到了与class本身的分离，所以在无需改变class本身的大小就能增加或是减少base class。<br><img src="/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/base_class_table.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="3-C-对象模型"><a href="#3-C-对象模型" class="headerlink" title="3.	C++对象模型"></a>3.	C++对象模型</h2><p>从简单模型到C++对象模型经历了内存空间和存取时间上的优化。相比于上面的双表格模型，C++对象模型对calss的member做了更细的划分。<br>1.	Nonstatic data members 放在class之中。<br>2.	Static data member 放在class之外。<br>3.	Static和nonstatic function member放在class之外。<br>根据上面的示例代码可以画出下面的模型图，读者可以根据C++对象模型各种元素的存放规则去图中一一对应。对于Virtual table 中指针分配的顺序是以type_info开始，并以程序中的申明顺序进行排列。对与type_info的解释，读者可以移步至这篇博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xuelisheng/p/9479288.html">Click to jump</a>，笔者个人觉得对于RTTI机制，type_info, typeid 和dynamic_cast都做了不错的解释。<br>优点：空间和存取时间效率。<br>缺点：对于nonstatic data member的改变需要进行重新编译。<br><img src="/img/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B.png" srcset="/img/loading.gif" lazyload></p>
+                <span id="more"></span>
+<h1 id="1-Download-DOSBox"><a href="#1-Download-DOSBox" class="headerlink" title="1. Download DOSBox"></a>1. Download DOSBox</h1><p>DosBox download link：<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/dosbox/">Click to jump</a><br>DosBox offical link：<a target="_blank" rel="noopener" href="https://www.dosbox.com/">Click to jump</a></p>
+<h1 id="2-Download-the-assembly-toolkit"><a href="#2-Download-the-assembly-toolkit" class="headerlink" title="2. Download the assembly toolkit"></a>2. Download the assembly toolkit</h1><p>Download link：<a target="_blank" rel="noopener" href="https://github.com/xDarkLemon/DOSBox_MASM/tree/master/masm">Click to jump</a><br>At least 4 files must be included in the toolkit</p>
+<ul>
+<li>masm.exe id the assembler, used to execute the assembly source code (.asm) and obtain the target program (.obj).</li>
+<li>link.exe linkd the program, connect the target program, and get the executable program exe</li>
+<li>debug.exe is the debugger, used to debug executable programs (.exe)</li>
+<li>exe2bin.exe is a post-compiled command line utility available on MS-DOS and other operating systems to convert DOS MZ executable files to COM files</li>
+</ul>
+<h1 id="3-Install-DOSBox"><a href="#3-Install-DOSBox" class="headerlink" title="3.	Install DOSBox"></a>3.	Install DOSBox</h1><p><img src="/img/Dosbox%E5%AE%89%E8%A3%851.png" srcset="/img/loading.gif" lazyload><br>Click Next<br><img src="/img/Dosbox%E5%AE%89%E8%A3%852.png" srcset="/img/loading.gif" lazyload><br>Click Next<br><img src="/img/Dosbox%E5%AE%89%E8%A3%852.png" srcset="/img/loading.gif" lazyload><br>Here I choose to install to the D drive.</p>
+<p>Note: The selection of the directory here will affect the following instructions to mount the working directory.</p>
+<h1 id="4-Create-a-new-working-directory"><a href="#4-Create-a-new-working-directory" class="headerlink" title="4.	Create a new working directory"></a>4.	Create a new working directory</h1><p><img src="/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png" srcset="/img/loading.gif" lazyload><br>Create a new working directory DOSBox under the D drive, and cut the installed DOSBox-0.74 to the working directory.<br><img src="/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png" srcset="/img/loading.gif" lazyload><br>Open the Debug directory, cut the assembly tool package masm to the directory, and create a new folder ASM to store the assembly program you wrote in the future.</p>
+<h1 id="5-Mount-the-working-directory"><a href="#5-Mount-the-working-directory" class="headerlink" title="5.	Mount the working directory"></a>5.	Mount the working directory</h1><p>The purpose of mounting the working directory here is to enable dosbox to use masm.exe in the configuration tool package<br><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>Open the DOSBox installation directory and find the file DOSBox 0.74 Options.bat</li>
+<li>Add the following command below [autoexec]:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">MOUNT F D:\DOSBox\Debug<br>set PATH=%PATH%;F:\MASM;<br>F:<br>cd F:\ASM<br><br></code></pre></td></tr></table></figure>
+<img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png" srcset="/img/loading.gif" lazyload><br>The purpose of this is to avoid having to manually mount it again every time you use DOSBox.<br><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%953.png" srcset="/img/loading.gif" lazyload><br>Start DOSBox 0.74.exe, and the following automatic program execution will appear to verify the validity of the second part above.</li>
+</ul>
+<h1 id="5-Change-the-size-of-the-DOSBox-command-window"><a href="#5-Change-the-size-of-the-DOSBox-command-window" class="headerlink" title="5.	Change the size of the DOSBox command window"></a>5.	Change the size of the DOSBox command window</h1><p><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png" srcset="/img/loading.gif" lazyload><br>Open the DOSBox installation directory and find the file DOSBox 0.74 Options.bat<br><img src="/img/%E6%9B%B4%E6%94%B9DOSBox%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F.png" srcset="/img/loading.gif" lazyload><br>Find the above code block, change the output to ddraw, and windowresolution to the specific size of the command window. Change it according to your own habits. Here the author chose 1200x640 as the size of the command window.</p>
+<p>Note: x in 1200x640 is a lowercase letter x</p>
 
                 
               </div>
@@ -287,7 +306,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/Operating-System/" class="category-chain-item">Operating System</a>
   
   
 
@@ -299,6 +318,13 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Environment-Setup/" class="print-no-link">#Environment Setup</a>
+      
+    </div>
+  
 </div>
 
 
@@ -307,8 +333,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Inside the C++ Object Model-1</div>
-      <div>http://example.com/2023/12/18/Inside the C++ Object Model-1/</div>
+      <div>DOSBox development environment setup</div>
+      <div>http://example.com/2023/12/12/DOSBox/DOSBox development environment setup/</div>
     </div>
     <div class="license-meta">
       
@@ -320,7 +346,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月18日</div>
+          <div>2023年12月12日</div>
         </div>
       
       
@@ -352,9 +378,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/20/LeedCode/LeedCode-20231220/" title="LeedCode-Day9">
+                      <a href="/2023/12/13/LeedCode/LeedCode-20231213/" title="LeedCode-Day5">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeedCode-Day9</span>
+                        <span class="hidden-mobile">LeedCode-Day5</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -362,8 +388,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/17/LeedCode/LeedCode-20231217/" title="LeedCode-Day8">
-                        <span class="hidden-mobile">LeedCode-Day8</span>
+                      <a href="/2023/12/12/LeedCode/LeedCode-20231212/" title="LeedCode-Day4">
+                        <span class="hidden-mobile">LeedCode-Day4</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

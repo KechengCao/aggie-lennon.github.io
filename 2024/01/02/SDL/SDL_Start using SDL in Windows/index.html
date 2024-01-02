@@ -16,33 +16,33 @@
   <meta name="author" content="Aggie Lennon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. Download DOSBoxDosBox download link：Click to jumpDosBox offical link：Click to jump 2. Download the assembly toolkitDownload link：Click to jumpAt least 4 files must be included in the toolkit  masm">
+    <meta name="description" content="在介绍SDL环境配置之前先放一些笔者个人觉得有用的链接，有需要的读者自取SDL官网地址：Click to jumpSDL2下载地址：Click to jumpLazy Foo’ Productions: Click to jumpCodeBlocks下载地址：Click to jumpMinGw下载地址：Click to jump 配置SDL    下载SDL头文件和二进制文件下载链接：Clic">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOSBox development environment setup">
-<meta property="og:url" content="http://example.com/2023/12/12/Assembly%20language%20development%20environment%20setup/index.html">
+<meta property="og:title" content="Start using SDL in Windows">
+<meta property="og:url" content="http://example.com/2024/01/02/SDL/SDL_Start%20using%20SDL%20in%20Windows/index.html">
 <meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
-<meta property="og:description" content="1. Download DOSBoxDosBox download link：Click to jumpDosBox offical link：Click to jump 2. Download the assembly toolkitDownload link：Click to jumpAt least 4 files must be included in the toolkit  masm">
+<meta property="og:description" content="在介绍SDL环境配置之前先放一些笔者个人觉得有用的链接，有需要的读者自取SDL官网地址：Click to jumpSDL2下载地址：Click to jumpLazy Foo’ Productions: Click to jumpCodeBlocks下载地址：Click to jumpMinGw下载地址：Click to jump 配置SDL    下载SDL头文件和二进制文件下载链接：Clic">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%851.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%852.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%852.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%953.png">
-<meta property="og:image" content="http://example.com/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png">
-<meta property="og:image" content="http://example.com/img/%E6%9B%B4%E6%94%B9DOSBox%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F.png">
-<meta property="article:published_time" content="2023-12-12T12:16:47.000Z">
-<meta property="article:modified_time" content="2023-12-13T16:13:26.508Z">
+<meta property="og:image" content="http://example.com/img/SDL/SDL2_downloading_github.png">
+<meta property="og:image" content="http://example.com/img/SDL/SDL2_downloading_filelist.png">
+<meta property="og:image" content="http://example.com/img/SDL/creat_new_project_in_CB.png">
+<meta property="og:image" content="http://example.com/img/SDL/CB_project_lists.png">
+<meta property="og:image" content="http://example.com/img/SDL/CB_project_property.png">
+<meta property="og:image" content="http://example.com/img/SDL/CB_search_directories_complier.png">
+<meta property="og:image" content="http://example.com/img/SDL/CB_linker_directory.png">
+<meta property="og:image" content="http://example.com/img/SDL/CB_other_linker.png">
+<meta property="og:image" content="http://example.com/img/SDL/CB_build_type.png">
+<meta property="og:image" content="http://example.com/img/SDL/CB_gcc-v.png">
+<meta property="article:published_time" content="2024-01-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-02T12:06:27.311Z">
 <meta property="article:author" content="Aggie Lennon">
-<meta property="article:tag" content="Environment Setup">
+<meta property="article:tag" content="SDL">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/Dosbox%E5%AE%89%E8%A3%851.png">
+<meta name="twitter:image" content="http://example.com/img/SDL/SDL2_downloading_github.png">
   
   
   
-  <title>DOSBox development environment setup - Aggie Lennon&#39;s Blog</title>
+  <title>Start using SDL in Windows - Aggie Lennon&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -208,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">DOSBox development environment setup</span>
+            <span id="subtitle">Start using SDL in Windows</span>
           
         </div>
 
@@ -219,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-12 20:16" pubdate>
-          2023年12月12日 晚上
+        <time datetime="2024-01-02 00:00" pubdate>
+          2024年1月2日 凌晨
         </time>
       </span>
     
@@ -263,31 +263,37 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">DOSBox development environment setup</h1>
+            <h1 id="seo-header">Start using SDL in Windows</h1>
             
             
               <div class="markdown-body">
                 
                 <span id="more"></span>
-<h1 id="1-Download-DOSBox"><a href="#1-Download-DOSBox" class="headerlink" title="1. Download DOSBox"></a>1. Download DOSBox</h1><p>DosBox download link：<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/dosbox/">Click to jump</a><br>DosBox offical link：<a target="_blank" rel="noopener" href="https://www.dosbox.com/">Click to jump</a></p>
-<h1 id="2-Download-the-assembly-toolkit"><a href="#2-Download-the-assembly-toolkit" class="headerlink" title="2. Download the assembly toolkit"></a>2. Download the assembly toolkit</h1><p>Download link：<a target="_blank" rel="noopener" href="https://github.com/xDarkLemon/DOSBox_MASM/tree/master/masm">Click to jump</a><br>At least 4 files must be included in the toolkit</p>
-<ul>
-<li>masm.exe id the assembler, used to execute the assembly source code (.asm) and obtain the target program (.obj).</li>
-<li>link.exe linkd the program, connect the target program, and get the executable program exe</li>
-<li>debug.exe is the debugger, used to debug executable programs (.exe)</li>
-<li>exe2bin.exe is a post-compiled command line utility available on MS-DOS and other operating systems to convert DOS MZ executable files to COM files</li>
-</ul>
-<h1 id="3-Install-DOSBox"><a href="#3-Install-DOSBox" class="headerlink" title="3.	Install DOSBox"></a>3.	Install DOSBox</h1><p><img src="/img/Dosbox%E5%AE%89%E8%A3%851.png" srcset="/img/loading.gif" lazyload><br>Click Next<br><img src="/img/Dosbox%E5%AE%89%E8%A3%852.png" srcset="/img/loading.gif" lazyload><br>Click Next<br><img src="/img/Dosbox%E5%AE%89%E8%A3%852.png" srcset="/img/loading.gif" lazyload><br>Here I choose to install to the D drive.</p>
-<p>Note: The selection of the directory here will affect the following instructions to mount the working directory.</p>
-<h1 id="4-Create-a-new-working-directory"><a href="#4-Create-a-new-working-directory" class="headerlink" title="4.	Create a new working directory"></a>4.	Create a new working directory</h1><p><img src="/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png" srcset="/img/loading.gif" lazyload><br>Create a new working directory DOSBox under the D drive, and cut the installed DOSBox-0.74 to the working directory.<br><img src="/img/Dosbox%E6%96%B0%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png" srcset="/img/loading.gif" lazyload><br>Open the Debug directory, cut the assembly tool package masm to the directory, and create a new folder ASM to store the assembly program you wrote in the future.</p>
-<h1 id="5-Mount-the-working-directory"><a href="#5-Mount-the-working-directory" class="headerlink" title="5.	Mount the working directory"></a>5.	Mount the working directory</h1><p>The purpose of mounting the working directory here is to enable dosbox to use masm.exe in the configuration tool package<br><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png" srcset="/img/loading.gif" lazyload></p>
-<ul>
-<li>Open the DOSBox installation directory and find the file DOSBox 0.74 Options.bat</li>
-<li>Add the following command below [autoexec]:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">MOUNT F D:\DOSBox\Debug<br>set PATH=%PATH%;F:\MASM;<br>F:<br>cd F:\ASM<br><br></code></pre></td></tr></table></figure>
-<img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%952.png" srcset="/img/loading.gif" lazyload><br>The purpose of this is to avoid having to manually mount it again every time you use DOSBox.<br><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%953.png" srcset="/img/loading.gif" lazyload><br>Start DOSBox 0.74.exe, and the following automatic program execution will appear to verify the validity of the second part above.</li>
-</ul>
-<h1 id="5-Change-the-size-of-the-DOSBox-command-window"><a href="#5-Change-the-size-of-the-DOSBox-command-window" class="headerlink" title="5.	Change the size of the DOSBox command window"></a>5.	Change the size of the DOSBox command window</h1><p><img src="/img/Dosbox%E6%8C%82%E8%BD%BD%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%951.png" srcset="/img/loading.gif" lazyload><br>Open the DOSBox installation directory and find the file DOSBox 0.74 Options.bat<br><img src="/img/%E6%9B%B4%E6%94%B9DOSBox%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F.png" srcset="/img/loading.gif" lazyload><br>Find the above code block, change the output to ddraw, and windowresolution to the specific size of the command window. Change it according to your own habits. Here the author chose 1200x640 as the size of the command window.</p>
-<p>Note: x in 1200x640 is a lowercase letter x</p>
+<h2 id="在介绍SDL环境配置之前先放一些笔者个人觉得有用的链接，有需要的读者自取"><a href="#在介绍SDL环境配置之前先放一些笔者个人觉得有用的链接，有需要的读者自取" class="headerlink" title="在介绍SDL环境配置之前先放一些笔者个人觉得有用的链接，有需要的读者自取"></a>在介绍SDL环境配置之前先放一些笔者个人觉得有用的链接，有需要的读者自取</h2><p>SDL官网地址：<a target="_blank" rel="noopener" href="https://www.libsdl.org/">Click to jump</a><br>SDL2下载地址：<a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL_image/releases">Click to jump</a><br>Lazy Foo’ Productions: <a target="_blank" rel="noopener" href="https://lazyfoo.net/tutorials/SDL/">Click to jump</a><br>CodeBlocks下载地址：<a target="_blank" rel="noopener" href="https://www.codeblocks.org/downloads/">Click to jump</a><br>MinGw下载地址：<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/">Click to jump</a></p>
+<h2 id="配置SDL"><a href="#配置SDL" class="headerlink" title="配置SDL"></a>配置SDL</h2><ol>
+<li>   下载SDL头文件和二进制文件<br>下载链接：<a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL/releases/tag/release-2.28.5">Click to jump</a><br><img src="/img/SDL/SDL2_downloading_github.png" srcset="/img/loading.gif" lazyload></li>
+</ol>
+<p>将文件下载下来并解压得到下列文件。这里需要使用的有两个文件夹，一个是i686-w64-mingw32另一个是x86_64-w64-mingw32.这其中第一个代表32bit binaries而后者为64bit binaries。为了最大化的保证兼容性，我们使用32bit的。不论你主机是32位的还是64位的都可以得到支持。剪切文件夹，笔者将其复制到C盘并为了方便识别加以重命名，最后得到路径C:\mingw_dev_lib。<br><img src="/img/SDL/SDL2_downloading_filelist.png" srcset="/img/loading.gif" lazyload></p>
+<ol start="2">
+<li><p>在CB中新建一个project，笔者在这里将其命名位SDL2<br><img src="/img/SDL/creat_new_project_in_CB.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>添加complier directory<br>首先在project list中右击新建的project进入project&#x2F;targets options<br><img src="/img/SDL/CB_project_lists.png" srcset="/img/loading.gif" lazyload><br>点击project&#x2F;targets options进入oject’s build options<br><img src="/img/SDL/CB_project_property.png" srcset="/img/loading.gif" lazyload><br>进入C:\mingw_dev_lib（详细步骤见（1））其中的include&#x2F;SDL2,复制当前的文件地址拷贝入下列窗口中。<br>注意：在拷贝复制前依次点击search directions-&gt;complier, 确保输入在正确的空白框。<br>左侧框中一定要选择SDL2确保设置能同时作用到Debug和Release。<br>这一步如果出错，在示例代码build时会报 can’t find SDL.h的错误。<br><img src="/img/SDL/CB_search_directories_complier.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>添加linker directory<br>进入C:\mingw_dev_lib（详细步骤见（1））其中的lib,复制当前的文件地址并拷入下列窗口中。<br>注意：在拷贝复制前依次点击search directions-&gt;linker, 确保输入在正确的空白框。<br>左侧框中一定要选择SDL2确保设置能同时作用到Debug和Release。<br>这一步如果出错，在示例代码build时会报 can’t find -ISDL2 or -ISDL2main的错误。<br><img src="/img/SDL/CB_linker_directory.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>添加other linker options<br>点击Linker settings,在other linker options中输入-lmingw32 -lSDL2main -lSDL2<br><img src="/img/SDL/CB_other_linker.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>将build type under build targets 改为Console application<br>这里选择console application主要是为了看到console output，如果读者不想看到可以选择GUI application.<br><img src="/img/SDL/CB_build_type.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>setup the dll file<br>进入C:\mingw_dev_lib\bin（详细步骤见（1））拷贝SDL2.dll至CB项目目录下</p>
+</li>
+<li><p>测试代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;SDL.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>* argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    SDL_Window *window;<br><br>    <span class="hljs-built_in">SDL_Init</span>(SDL_INIT_VIDEO);<br><br>    window = <span class="hljs-built_in">SDL_CreateWindow</span>(<br>        <span class="hljs-string">&quot;Test&quot;</span>,<br>        SDL_WINDOWPOS_UNDEFINED,<br>        SDL_WINDOWPOS_UNDEFINED,<br>        <span class="hljs-number">640</span>,<br>        <span class="hljs-number">480</span>,<br>        SDL_WINDOW_SHOWN<br>    );<br><br>    <span class="hljs-built_in">SDL_Delay</span>(<span class="hljs-number">3000</span>);<br><br>    <span class="hljs-built_in">SDL_DestroyWindow</span>(window);<br>    <span class="hljs-built_in">SDL_Quit</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+</li>
+<li><p>其他注意事项<br>笔者在操作的时候遇到一个大坑，本着前人踩坑，后人避坑的想法，笔者在这里帮大家总结经验。由于在步骤1）的时候选择的是支持32bit的，这对于操作系统的位数确实没有限制，但是对CB的MinGW确实有版本的限制。通过在指定目录下运行gcc -v可以查看当前CB的MinGw的版本。请确保自己CB的MinGw版本是i686开头的，否则会报can’t find -ISDL2 or -ISDL2main的错误。<br><img src="/img/SDL/CB_gcc-v.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ol>
 
                 
               </div>
@@ -306,7 +312,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Operating-System/" class="category-chain-item">Operating System</a>
+  <a href="/categories/Game-Development/" class="category-chain-item">Game Development</a>
   
   
 
@@ -321,7 +327,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Environment-Setup/" class="print-no-link">#Environment Setup</a>
+        <a href="/tags/SDL/" class="print-no-link">#SDL</a>
       
     </div>
   
@@ -333,8 +339,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>DOSBox development environment setup</div>
-      <div>http://example.com/2023/12/12/Assembly language development environment setup/</div>
+      <div>Start using SDL in Windows</div>
+      <div>http://example.com/2024/01/02/SDL/SDL_Start using SDL in Windows/</div>
     </div>
     <div class="license-meta">
       
@@ -346,7 +352,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月12日</div>
+          <div>2024年1月2日</div>
         </div>
       
       
@@ -378,18 +384,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/13/LeedCode/LeedCode-20231213/" title="LeedCode-Day5">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeedCode-Day5</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/12/LeedCode/LeedCode-20231212/" title="LeedCode-Day4">
-                        <span class="hidden-mobile">LeedCode-Day4</span>
+                      <a href="/2023/12/31/LeedCode/LeedCode-20231231/" title="LeedCode-Day15">
+                        <span class="hidden-mobile">LeedCode-Day15</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
