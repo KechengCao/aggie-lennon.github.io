@@ -193,6 +193,438 @@
   
   
   <entry>
+    <title>SDL_GetWindowSize</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_GetWindowSize/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_GetWindowSize/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetWindowSize"><a href="#SDL-GetWindowSize" class="headerlink" title="SDL_GetWindowSize"></a>SDL_GetWindowSize</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetWindowSize">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>得到窗口的客户区大小<br>客户区：指图中的青色部分:即蓝色方框内区域。<br>非客户区：就是指蓝色方框之外的窗口区域,包括程序图标,标题栏,菜单,最大最小&#x2F;关闭按纽,左右两个框和底下的状态条。<br><img src="/img/SDL/%E5%AE%A2%E6%88%B7%E5%8C%BA_%E9%9D%9E%E5%AE%A2%E6%88%B7%E5%8C%BA.png"></p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_GetWindowSize</span><span class="hljs-params">(SDL_Window * window, <span class="hljs-type">int</span> *w, <span class="hljs-type">int</span> *h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要访问的SDL_Window<br>w: 需要的话，指针中将指向窗口的宽度。如果不需要就为Null<br>h: 需要的话，指针中将指向窗口的高度。如果不需要就为Null</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetWindowTitle</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_GetWindowTitle/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_GetWindowTitle/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetWindowTitle"><a href="#SDL-GetWindowTitle" class="headerlink" title="SDL_GetWindowTitle"></a>SDL_GetWindowTitle</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetWindowTitle">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>得到窗口的标题</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">char</span>* <span class="hljs-title">SDL_GetWindowTitle</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要访问的SDL_Window</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_MinimizeWindow</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_MinimizeWindo/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_MinimizeWindo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-MinimizeWindow"><a href="#SDL-MinimizeWindow" class="headerlink" title="SDL_MinimizeWindow"></a>SDL_MinimizeWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MinimizeWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在图像层面一个窗口最小化</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_MinimizeWindow</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要最小化的窗口</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HideWindow</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_HideWindow/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_HideWindow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HideWindow"><a href="#SDL-HideWindow" class="headerlink" title="SDL_HideWindow"></a>SDL_HideWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HideWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>隐藏一个窗口</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_HideWindow</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要访问的SDL_Window</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_MaximizeWindow</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_MaximizeWindow/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_MaximizeWindow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-MaximizeWindow"><a href="#SDL-MaximizeWindow" class="headerlink" title="SDL_MaximizeWindow"></a>SDL_MaximizeWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MaximizeWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使一个窗口尽可能大</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_MaximizeWindow</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要最大化的窗口</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RaiseWindow</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_RaiseWindow/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_RaiseWindow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RaiseWindow"><a href="#SDL-RaiseWindow" class="headerlink" title="SDL_RaiseWindow"></a>SDL_RaiseWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RaiseWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使一个窗口上升至其他窗口之上，并且重新对焦输入</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RaiseWindow</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要上升的窗口</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RestoreWindow</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_RestoreWindow/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_RestoreWindow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RestoreWindow"><a href="#SDL-RestoreWindow" class="headerlink" title="SDL_RestoreWindow"></a>SDL_RestoreWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RestoreWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>恢复一个被最大化或被最小化的窗口的大小和位置</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RestoreWindow</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要恢复的窗口</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowBordered</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowBordered/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowBordered/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowBordered"><a href="#SDL-SetWindowBordered" class="headerlink" title="SDL_SetWindowBordered"></a>SDL_SetWindowBordered</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowBordered">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置窗口的边框状态。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_SetWindowBordered</span><span class="hljs-params">(SDL_Window * window, SDL_bool bordered)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 要更改其边框状态的窗口<br>bordered: SDL_FALSE 删除边框，SDL_TRUE 添加边框</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowData</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowData/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowData/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowData"><a href="#SDL-SetWindowData" class="headerlink" title="SDL_SetWindowData"></a>SDL_SetWindowData</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowData">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将任意命名的指针与窗口关联。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span>* <span class="hljs-title">SDL_SetWindowData</span><span class="hljs-params">(SDL_Window * window, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *name, <span class="hljs-type">void</span> *userdata)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要关联指针的窗口<br>name: 指针的名字<br>userdata: 关联的指针</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowFullscreen</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowFullscreen/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowFullscreen/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowFullscreen"><a href="#SDL-SetWindowFullscreen" class="headerlink" title="SDL_SetWindowFullscreen"></a>SDL_SetWindowFullscreen</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowFullscreen">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置全屏窗口的状态</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetWindowFullscreen</span><span class="hljs-params">(SDL_Window * window, Uint32 flags)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要改变的窗口<br>关于flag的描述可参考<a href="/2024/01/03/SDL/Dictionary/SDL_CreateWindow/" title="SDL_CreateWindow">SDL_CreateWindow</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowGrab</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowGrab/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowGrab/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowGrab"><a href="#SDL-SetWindowGrab" class="headerlink" title="SDL_SetWindowGrab"></a>SDL_SetWindowGrab</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowGrab">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置一个窗口的输入抓取模式</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_SetWindowGrab</span><span class="hljs-params">(SDL_Window * window, SDL_bool grabbed)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 应设置输入抓取模式的窗口<br>grabbed: SDL_TRUE 获取输入或 SDL_FALSE 释放输入</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowIcon</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowIcon/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowIcon/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowIcon"><a href="#SDL-SetWindowIcon" class="headerlink" title="SDL_SetWindowIcon"></a>SDL_SetWindowIcon</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowIcon">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置窗口的图标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_SetWindowIcon</span><span class="hljs-params">(SDL_Window * window, SDL_Surface * icon)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要改变的窗口<br>icon: 包含窗口图标的 SDL_Surface 结构</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowPosition</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowPosition/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowPosition/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowPosition"><a href="#SDL-SetWindowPosition" class="headerlink" title="SDL_SetWindowPosition"></a>SDL_SetWindowPosition</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowPosition">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置窗口的位置。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_SetWindowPosition</span><span class="hljs-params">(SDL_Window * window, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要改变位置的窗口<br>x: 窗口中的x坐标或者SDL_WINDOWPOS_CENTERED或者SDL_WINDOWPOS_UNDEFINED<br>y：窗口中的y坐标或者SDL_WINDOWPOS_CENTERED或者SDL_WINDOWPOS_UNDEFINED</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_ShowWindow</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_ShowWindow/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_ShowWindow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-ShowWindow"><a href="#SDL-ShowWindow" class="headerlink" title="SDL_ShowWindow"></a>SDL_ShowWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_ShowWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>展示一个窗口</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_ShowWindow</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 想要展示的窗口</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowSize</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowSize/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowSize/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowSize"><a href="#SDL-SetWindowSize" class="headerlink" title="SDL_SetWindowSize"></a>SDL_SetWindowSize</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowSize">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置窗口客户区的大小。<br>客户区：指图中的青色部分:即蓝色方框内区域。<br>非客户区：就是指蓝色方框之外的窗口区域,包括程序图标,标题栏,菜单,最大最小&#x2F;关闭按纽,左右两个框和底下的状态条。<br><img src="/img/SDL/%E5%AE%A2%E6%88%B7%E5%8C%BA_%E9%9D%9E%E5%AE%A2%E6%88%B7%E5%8C%BA.png"></p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_SetWindowSize</span><span class="hljs-params">(SDL_Window * window, <span class="hljs-type">int</span> w, <span class="hljs-type">int</span> h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要改变的窗口<br>w: 屏幕坐标中窗口的宽度（以像素为单位）必须 &gt; 0<br>h：屏幕坐标中窗口的高度（以像素为单位）必须 &gt; 0</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetWindowTitle</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_SetWindowTitle/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowTitle/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetWindowTitle"><a href="#SDL-SetWindowTitle" class="headerlink" title="SDL_SetWindowTitle"></a>SDL_SetWindowTitle</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowTitle">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置窗口的标题。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_SetWindowTitle</span><span class="hljs-params">(SDL_Window * window, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *title)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要改变的窗口<br>title：UTF-8 格式的所需窗口标题</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Start using SDL in Windows</title>
     <link href="/2024/01/02/SDL/SDL_Start%20using%20SDL%20in%20Windows/"/>
     <url>/2024/01/02/SDL/SDL_Start%20using%20SDL%20in%20Windows/</url>
