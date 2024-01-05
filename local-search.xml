@@ -870,7 +870,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_Event/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_Event/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-Event"><a href="#SDL-Event" class="headerlink" title="SDL_Event"></a>SDL_Event</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Event">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含不同事件类型的结构的联合。</p><p>Relationships between event types and union members:<br>![](&#x2F;img&#x2F;SDL&#x2F;Relationships between event types and union members.png)</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-Event"><a href="#SDL-Event" class="headerlink" title="SDL_Event"></a>SDL_Event</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Event">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含不同事件类型的结构的联合。</p><p>Relationships between event types and union members:<br><img src="/img/SDL/Relationships_between_event_types_and_union_members.png"></p>]]></content>
     
     
     <categories>
