@@ -4,6 +4,870 @@
   
   
   <entry>
+    <title>SDL_AudioDeviceEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_AudioDeviceEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_AudioDeviceEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-AudioDeviceEvent"><a href="#SDL-AudioDeviceEvent" class="headerlink" title="SDL_AudioDeviceEvent"></a>SDL_AudioDeviceEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_AudioDeviceEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含音频设备事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_AUDIODEVICEADDED</a>, or <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_AUDIODEVICEREMOVED</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 which: SDL_AUDIODEVICEADDED 事件的音频设备索引（在下一次 <a href="/2024/01/07/SDL/Dictionary/SDL_GetNumAudioDevices/" title="SDL_GetNumAudioDevices">SDL_GetNumAudioDevices()</a> 调用之前有效）、SDL_AUDIODEVICEREMOVED 事件的 SDL_AudioDeviceID<br>Uint8 iscapture: 如果是音频输出设备则为零，如果是音频捕获设备则非零</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_ControllerButtonEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_ControllerButtonEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_ControllerButtonEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-ControllerButtonEvent"><a href="#SDL-ControllerButtonEvent" class="headerlink" title="SDL_ControllerButtonEvent"></a>SDL_ControllerButtonEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_ControllerButtonEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含游戏控制器按钮事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_CONTROLLERBUTTONDOWN</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_CONTROLLERBUTTONUP</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_JoystickID which: 操纵杆实例 ID<br>Uint8 button: 控制器按钮 (<a href="/2024/01/07/SDL/Dictionary/SDL_GameControllerButton/" title="SDL_GameControllerButton">SDL_GameControllerButton</a>)<br>Uint8 state: SDL_PRESSED 或 SDL_RELEASED</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_ControllerAxisEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_ControllerAxisEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_ControllerAxisEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-ControllerAxisEvent"><a href="#SDL-ControllerAxisEvent" class="headerlink" title="SDL_ControllerAxisEvent"></a>SDL_ControllerAxisEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_ControllerAxisEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含游戏控制器轴运动事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_CONTROLLERAXISMOTION</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_JoystickID which: 操纵杆实例 ID<br>Uint8 axis: 控制器轴 (<a href="/2024/01/07/SDL/Dictionary/SDL_GameControllerAxis/" title="SDL_GameControllerAxis">SDL_GameControllerAxis</a>)<br>Sint16 value： 轴值（范围：-32768 到 32767）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_DollarGestureEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_DollarGestureEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_DollarGestureEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-DollarGestureEvent"><a href="#SDL-DollarGestureEvent" class="headerlink" title="SDL_DollarGestureEvent"></a>SDL_DollarGestureEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_DollarGestureEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含复杂手势事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_DOLLARGESTUR</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_DOLLARRECORD</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_TouchID touchId: 触摸设备 ID<br>SDL_GestureID gestureId: 与所执行的笔划最接近的手势的唯一 ID<br>Uint32 numFingers: 用于绘制笔划的手指数量<br>float error: 手势模板和实际执行的手势之间的差异（误差越小匹配越好）<br>float x: 标准化手势中心<br>float y: 标准化手势中心</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_ControllerDeviceEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_ControllerDeviceEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_ControllerDeviceEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-ControllerDeviceEvent"><a href="#SDL-ControllerDeviceEvent" class="headerlink" title="SDL_ControllerDeviceEvent"></a>SDL_ControllerDeviceEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_ControllerDeviceEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含控制器设备事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_CONTROLLERDEVICEADDED</a>, <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_CONTROLLERDEVICEREMOVED</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_CONTROLLERDEVICEREMAPPED</a><br>Uint32 timestamp: 事件的时间戳<br>Sint32 which: SDL_CONTROLLERDEVICEADDED 事件的操纵杆设备索引或 SDL_CONTROLLERDEVICEREMOVED 或 SDL_CONTROLLERDEVICEREMAPPED 事件的实例 ID</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_DropEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_DropEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_DropEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-DropEvent"><a href="#SDL-DropEvent" class="headerlink" title="SDL_DropEvent"></a>SDL_DropEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_DropEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含用于请求系统打开文件的事件的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_DROPFILE</a>,<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_DROPTEXT</a>,<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_DROPBEGIN</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_DROPCOMPLETE</a><br>Uint32 timestamp: 事件的时间戳<br>char* file: 文件名在 BEGIN&#x2F;COMPLETE 上为 NULL, 应使用 SDL_free() 释放<br>Uint32 windowID: 掉落的窗户（如果有</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GameControllerAxis</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_GameControllerAxis/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_GameControllerAxis/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GameControllerAxis"><a href="#SDL-GameControllerAxis" class="headerlink" title="SDL_GameControllerAxis"></a>SDL_GameControllerAxis</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GameControllerAxis">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>控制器中可用的枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>SDL_CONTROLLER_AXIS_INVALID： -1<br>SDL_CONTROLLER_AXIS_LEFTX： 0<br>SDL_CONTROLLER_AXIS_LEFTY： 1<br>SDL_CONTROLLER_AXIS_RIGHTX： 2<br>SDL_CONTROLLER_AXIS_RIGHTY： 3<br>SDL_CONTROLLER_AXIS_TRIGGERLEFT： 4<br>SDL_CONTROLLER_AXIS_TRIGGERRIGHT： 5<br>SDL_CONTROLLER_AXIS_MAX： 6</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetNumAudioDevices</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_GetNumAudioDevices/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_GetNumAudioDevices/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetNumAudioDevices"><a href="#SDL-GetNumAudioDevices" class="headerlink" title="SDL_GetNumAudioDevices"></a>SDL_GetNumAudioDevices</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetNumAudioDevices">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取内置音频设备的数量。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetNumAudioDevices</span><span class="hljs-params">(<span class="hljs-type">int</span> iscapture)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>iscapture: 零表示请求播放设备，非零表示请求录音设备</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回当前驱动程序公开的可用设备的数量；如果无法确定显式设备列表，则返回 -1。返回值 -1 并不一定意味着出现错误情况。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GameControllerButton</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_GameControllerButton/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_GameControllerButton/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GameControllerButton"><a href="#SDL-GameControllerButton" class="headerlink" title="SDL_GameControllerButton"></a>SDL_GameControllerButton</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GameControllerButton">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>控制器中可用的枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>SDL_CONTROLLER_BUTTON_INVALID: -1<br>SDL_CONTROLLER_BUTTON_A: 0<br>SDL_CONTROLLER_BUTTON_B: 1<br>SDL_CONTROLLER_BUTTON_X: 2<br>SDL_CONTROLLER_BUTTON_Y: 3<br>SDL_CONTROLLER_BUTTON_BACK: 4<br>SDL_CONTROLLER_BUTTON_GUIDE: 5<br>SDL_CONTROLLER_BUTTON_START: 6<br>SDL_CONTROLLER_BUTTON_LEFTSTICK:7<br>SDL_CONTROLLER_BUTTON_RIGHTSTICK: 8<br>SDL_CONTROLLER_BUTTON_LEFTSHOULDER: 9<br>SDL_CONTROLLER_BUTTON_RIGHTSHOULDER: 10<br>SDL_CONTROLLER_BUTTON_DPAD_UP: 11<br>SDL_CONTROLLER_BUTTON_DPAD_DOWN: 12<br>SDL_CONTROLLER_BUTTON_DPAD_LEFT: 13<br>SDL_CONTROLLER_BUTTON_DPAD_RIGHT: 14<br>SDL_CONTROLLER_BUTTON_MISC1: 15<br>SDL_CONTROLLER_BUTTON_PADDLE1: 16<br>SDL_CONTROLLER_BUTTON_PADDLE2: 17<br>SDL_CONTROLLER_BUTTON_PADDLE3: 18<br>SDL_CONTROLLER_BUTTON_PADDLE4: 19<br>SDL_CONTROLLER_BUTTON_TOUCHPAD: 20<br>SDL_CONTROLLER_BUTTON_MAX: 21</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_JoyAxisEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_JoyAxisEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_JoyAxisEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-JoyAxisEvent"><a href="#SDL-JoyAxisEvent" class="headerlink" title="SDL_JoyAxisEvent"></a>SDL_JoyAxisEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_JoyAxisEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含操纵杆轴运动事件信息的结构</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_JOYAXISMOTION</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_JoystickID which：报告事件的操纵杆实例ID<br>Uint8 axis：发生变化的轴的索引<br>Sint16 value：轴的当前位置（范围：-32768 到 32767）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_JoyButtonEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_JoyButtonEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_JoyButtonEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-JoyButtonEvent"><a href="#SDL-JoyButtonEvent" class="headerlink" title="SDL_JoyButtonEvent"></a>SDL_JoyButtonEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_JoyButtonEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含操纵杆按钮事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: 事件类型<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_JOYBUTTONDOWN</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_JOYBUTTONUP</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_JoystickID which：报告事件的操纵杆的实例ID<br>Uint8 button:发生变化的按钮的索引<br>Uint8 state: 按钮的状态； SDL_PRESSED 或 SDL_RELEASED</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_JoyBallEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_JoyBallEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_JoyBallEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-JoyBallEvent"><a href="#SDL-JoyBallEvent" class="headerlink" title="SDL_JoyBallEvent"></a>SDL_JoyBallEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_JoyBallEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含操纵杆轨迹球运动事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_JOYBALLMOTION</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_JoystickID which：报告事件的操纵杆实例ID<br>Uint8 ball：发生变化的轨迹球的索引<br>Sint16 xrel:X方向的相对运动<br>Sint16 yrel:Y方向的相对运动</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_JoyDeviceEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_JoyDeviceEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_JoyDeviceEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-JoyDeviceEvent"><a href="#SDL-JoyDeviceEvent" class="headerlink" title="SDL_JoyDeviceEvent"></a>SDL_JoyDeviceEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_JoyDeviceEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含操纵杆设备事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: 事件类型<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_JOYDEVICEADDED</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_JOYDEVICEREMOVED</a><br>Uint32 timestamp: 事件的时间戳<br>Sint32 which:SDL_JOYDEVICEADDED 事件的操纵杆设备索引或 SDL_JOYDEVICEREMOVED 事件的实例 ID</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_KeyboardEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_KeyboardEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_KeyboardEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-KeyboardEvent"><a href="#SDL-KeyboardEvent" class="headerlink" title="SDL_KeyboardEvent"></a>SDL_KeyboardEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_KeyboardEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含键盘按钮事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type：事件类型；<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_KEYDOWN</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_KEYUP</a><br>Uint32 timestamp：事件的时间戳<br>Uint32 windowID：具有键盘焦点的窗口（如果有）<br>Uint8 state：the state of the key; SDL_PRESSED or SDL_RELEASED<br>Uint8 repeat：如果这是按键重复则非零<br>SDL_Keysym keysym：表示按下或释放的键的<a href="/2024/01/07/SDL/Dictionary/SDL_Keysym/" title="SDL_Keysym">SDL_Keysym</a> </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_JoyHatEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_JoyHatEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_JoyHatEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-JoyHatEvent"><a href="#SDL-JoyHatEvent" class="headerlink" title="SDL_JoyHatEvent"></a>SDL_JoyHatEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_JoyHatEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含操纵杆帽位置变化事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_JOYHATMOTION</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_JoystickID which：报告事件的操纵杆的实例ID<br>Uint8 hat：改变的帽子索引<br>Uint8 value: 帽子的新位置</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Keycode</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_Keycode/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_Keycode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Keycode"><a href="#SDL-Keycode" class="headerlink" title="SDL_Keycode"></a>SDL_Keycode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Keycode">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>SDL 虚拟键表示。</p><h3 id="key-value"><a href="#key-value" class="headerlink" title="key&amp;&amp;value"></a>key&amp;&amp;value</h3><p><img src="/img/SDL/SDL_Scancode&SDL_Keycode.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode1.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode2.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode3.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode4.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode5.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode6.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode7.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Keymod</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_Keymod/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_Keymod/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Keymod"><a href="#SDL-Keymod" class="headerlink" title="SDL_Keymod"></a>SDL_Keymod</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Keymod">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>键修饰符掩码的枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>KMOD_NONE: 0（无修饰符适用）<br>KMOD_LSHIFT:左 Shift 键已按下<br>KMOD_RSHIFT:右 Shift 键已按下<br>KMOD_LCTRL:左 Ctrl (Control) 键已按下<br>KMOD_RCTRL:按下右侧 Ctrl (Control) 键<br>KMOD_LALT:左 Alt 键按下<br>KMOD_RALT:右 Alt 键按下<br>KMOD_LGUI:左侧 GUI 键（通常是 Windows 键）按下<br>KMOD_RGUI:右 GUI 键（通常是 Windows 键）按下了<br>KMOD_NUM:Num Lock 键（可能位于扩展键盘上）按下<br>KMOD_CAPS:Caps Lock 键已按下<br>KMOD_MODE:!AltGr 键已按下<br>KMOD_SCROLL:Scroll Lock 键按下（自 SDL 2.0.18 起可用）<br>KMOD_CTRL:(KMOD_LCTRL|KMOD_RCTRL)<br>KMOD_SHIFT:(KMOD_LSHIFT|KMOD_RSHIFT)<br>KMOD_ALT:(KMOD_LALT|KMOD_RALT)<br>KMOD_GUI:(KMOD_LGUI|KMOD_RGUI)</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_MouseButtonEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_MouseButtonEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_MouseButtonEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-MouseButtonEvent"><a href="#SDL-MouseButtonEvent" class="headerlink" title="SDL_MouseButtonEvent"></a>SDL_MouseButtonEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MouseButtonEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含鼠标按钮事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: 事件类型<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_MOUSEBUTTONDOWN</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_MOUSEBUTTONUP</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 windowID:具有鼠标焦点的窗口（如果有）<br>Uint32 which:鼠标实例 ID，或 SDL_TOUCH_MOUSEID；<br>Uint8 button:改变的按钮；<br>Uint8 state:按钮的状态； SDL_PRESSED 或 SDL_RELEASED<br>Uint8 clicks:1 表示单击，2 表示双击，等等（&gt;&#x3D; SDL 2.0.2）<br>Sint32 x:X坐标，相对于窗口<br>Sint32 y:Y 坐标，相对于窗口</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Keysym</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_Keysym/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_Keysym/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Keysym"><a href="#SDL-Keysym" class="headerlink" title="SDL_Keysym"></a>SDL_Keysym</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Keysym">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含关键事件中使用的关键信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>SDL_Scancode scancode:SDL 物理键码。关于SDL_Scancode的描述可参考<a href="/2024/01/07/SDL/Dictionary/SDL_Scancode/" title="SDL_Scancode">SDL_Scancode</a><br>SDL_Keycode sym:SDL 虚拟键码。关于SDL_Keycode的描述可参考<a href="/2024/01/07/SDL/Dictionary/SDL_Keycode/" title="SDL_Keycode">SDL_Keycode</a><br>Uint16 mod:当前键修饰符。关于SDL_Keymod的描述可参考<a href="/2024/01/07/SDL/Dictionary/SDL_Keymod/" title="SDL_Keymod">SDL_Keymod</a><br>Uint32 unused</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_MouseWheelEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_MouseWheelEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_MouseWheelEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-MouseWheelEvent"><a href="#SDL-MouseWheelEvent" class="headerlink" title="SDL_MouseWheelEvent"></a>SDL_MouseWheelEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MouseWheelEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含鼠标滚轮事件信息的结构体。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_MOUSEWHEEL</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 windowID:具有鼠标焦点的窗口（如果有）<br>Uint32 which:鼠标实例 ID，或 SDL_TOUCH_MOUSEID；<br>Sint32 x:水平滚动的量，向右为正，向左为负<br>Sint32 y:垂直滚动的量，远离用户为正，朝向用户为负<br>Uint32 direction:SDL_MOUSEWHEEL_NORMAL or SDL_MOUSEWHEEL_FLIPPED;<br>float preciseX:水平滚动量，向右为正，向左为负，浮动精度<br>float preciseY:垂直滚动的量，远离用户为正，朝向用户为负，具有浮动精度</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_MultiGestureEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_MultiGestureEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_MultiGestureEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-MultiGestureEvent"><a href="#SDL-MultiGestureEvent" class="headerlink" title="SDL_MultiGestureEvent"></a>SDL_MultiGestureEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MultiGestureEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含多个手指手势事件信息的结构体。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_MULTIGESTURE</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_TouchID touchId:触摸设备 ID<br>float dTheta:手指在此运动期间旋转的量（以弧度为单位）<br>float dDist:在此动作期间手指捏的量<br>float x:标准化手势中心<br>float y:标准化手势中心<br>Uint16 numFingers:手势中使用的手指数量</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_QuitEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_QuitEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_QuitEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-QuitEvent"><a href="#SDL-QuitEvent" class="headerlink" title="SDL_QuitEvent"></a>SDL_QuitEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_QuitEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含“退出请求”事件的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_QUIT</a><br>Uint32 timestamp: 事件的时间戳</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_MouseMotionEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_MouseMotionEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_MouseMotionEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-MouseMotionEvent"><a href="#SDL-MouseMotionEvent" class="headerlink" title="SDL_MouseMotionEvent"></a>SDL_MouseMotionEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MouseMotionEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含鼠标移动事件信息的结构体。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: 事件类型<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_MOUSEMOTION</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 windowID:具有鼠标焦点的窗口（如果有）<br>Uint32 which:鼠标实例 ID，或 SDL_TOUCH_MOUSEID；<br>Uint32 state:按钮的状态；<br>Sint32 x:X坐标，相对于窗口<br>Sint32 y:Y 坐标，相对于窗口<br>Sint32 xrel:X方向的相对运动<br>Sint32 yrel:Y方向相对运动</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RegisterEvents</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_RegisterEvents/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_RegisterEvents/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RegisterEvents"><a href="#SDL-RegisterEvents" class="headerlink" title="SDL_RegisterEvents"></a>SDL_RegisterEvents</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RegisterEvents">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>分配一组用户定义的事件，并返回该组事件的开始事件编号。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">Uint32 <span class="hljs-title">SDL_RegisterEvents</span><span class="hljs-params">(<span class="hljs-type">int</span> numevents)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>numevents：要分配的事件数</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回开始事件编号，如果没有足够的用户定义事件，则返回 (Uint32)-1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_TextEditingEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-TextEditingEvent"><a href="#SDL-TextEditingEvent" class="headerlink" title="SDL_TextEditingEvent"></a>SDL_TextEditingEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_TextEditingEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含键盘文本编辑事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_TEXTEDITING</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 windowID: 具有键盘焦点的窗口（如果有）<br>char[32] text: UTF-8 编码中以 null 结尾的编辑文本<br>Sint32 start: 开始编辑的位置<br>Sint32 length:从起点开始编辑的字符数</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_TextInputEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_TextInputEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_TextInputEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-TextInputEvent"><a href="#SDL-TextInputEvent" class="headerlink" title="SDL_TextInputEvent"></a>SDL_TextInputEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_TextInputEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含键盘文本输入事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_TEXTINPUT</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 windowID: 具有键盘焦点的窗口（如果有）<br>char[32] text: UTF-8 编码中以 null 结尾的编辑文本</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Scancode</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_Scancode/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_Scancode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Scancode"><a href="#SDL-Scancode" class="headerlink" title="SDL_Scancode"></a>SDL_Scancode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Scancode">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>SDL 键盘扫描码表示的枚举。</p><h3 id="key-value"><a href="#key-value" class="headerlink" title="key&amp;&amp;value"></a>key&amp;&amp;value</h3><p><img src="/img/SDL/SDL_Scancode&SDL_Keycode.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode1.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode2.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode3.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode4.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode5.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode6.png"><br><img src="/img/SDL/SDL_Scancode&SDL_Keycode7.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SysWMEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_SysWMEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_SysWMEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SysWMEvent"><a href="#SDL-SysWMEvent" class="headerlink" title="SDL_SysWMEvent"></a>SDL_SysWMEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SysWMEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含视频驱动程序相关系统事件的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_SYSWMEVENT</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_SysWMmsg* msg: 驱动程序相关数据，在 SDL_syswm.h 中定义</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_TouchFingerEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_TouchFingerEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_TouchFingerEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-TouchFingerEvent"><a href="#SDL-TouchFingerEvent" class="headerlink" title="SDL_TouchFingerEvent"></a>SDL_TouchFingerEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_TouchFingerEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含手指触摸事件信息的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_FINGERMOTION</a>,<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_FINGERDOWN</a>or<a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_FINGERUP</a><br>Uint32 timestamp: 事件的时间戳<br>SDL_TouchID touchId: 触摸设备 ID<br>SDL_FingerID fingerId: 手指 ID<br>float x:触摸事件的 x 轴位置，标准化 (0…1)<br>float y:触摸事件的 y 轴位置，标准化 (0…1)<br>float dx:在 x 轴上移动的距离，标准化 (-1…1)<br>float dy:y 轴移动的距离，标准化 (-1…1)<br>float pressure:施加的压力量，标准化 (0…1)<br>Uint32 windowID:手指下方的窗口（如果有）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_UserEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_UserEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_UserEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-UserEvent"><a href="#SDL-UserEvent" class="headerlink" title="SDL_UserEvent"></a>SDL_UserEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UserEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含应用程序定义的事件类型的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: value obtained from<a href="/2024/01/07/SDL/Dictionary/SDL_RegisterEvents/" title="SDL_RegisterEvents">SDL_RegisterEvents</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 windowID: 关联的窗口（如果有）<br>Sint32 code:用户定义的事件代码<br>void* data1:用户定义的数据指针<br>void* data2:用户定义的数据指针</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_WindowEventID</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_WindowEventID/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_WindowEventID/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-WindowEventID"><a href="#SDL-WindowEventID" class="headerlink" title="SDL_WindowEventID"></a>SDL_WindowEventID</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_WindowEventID">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>窗口事件的枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>SDL_WINDOWEVENT_NONE：（没用过）<br>SDL_WINDOWEVENT_SHOWN：窗口已显示<br>SDL_WINDOWEVENT_HIDDEN：窗口已被隐藏<br>SDL_WINDOWEVENT_EXPOSED：窗口已暴露，应重新绘制<br>SDL_WINDOWEVENT_MOVED：窗口已移动到data1、data2<br>SDL_WINDOWEVENT_RESIZED：窗口大小已调整为 data1xdata2；此事件始终先于 SDL_WINDOWEVENT_SIZE_CHANGED<br>SDL_WINDOWEVENT_SIZE_CHANGED：窗口大小已更改，无论是由于 API 调用还是通过系统或用户更改了窗口大小；如果大小被外部事件（即用户或窗口管理器）更改，则此事件后跟随 SDL_WINDOWEVENT_RESIZED<br>SDL_WINDOWEVENT_MINIMIZED：窗口已最小化<br>SDL_WINDOWEVENT_MAXIMIZED：窗口已最大化<br>SDL_WINDOWEVENT_RESTORED：窗口已恢复到正常大小和位置<br>SDL_WINDOWEVENT_ENTER：窗口已获得鼠标焦点<br>SDL_WINDOWEVENT_LEAVE：窗口失去了鼠标焦点<br>SDL_WINDOWEVENT_FOCUS_GAINED：窗口已获得键盘焦点<br>SDL_WINDOWEVENT_FOCUS_LOST：窗口失去键盘焦点<br>SDL_WINDOWEVENT_CLOSE：窗口管理器请求关闭窗口<br>SDL_WINDOWEVENT_TAKE_FOCUS：窗口正在被提供焦点（应该对其自身或子窗口执行 SDL_SetWindowInputFocus()，或者忽略）(&gt;&#x3D; SDL 2.0.5)<br>SDL_WINDOWEVENT_HIT_TEST：（应该对其自身或子窗口执行 SDL_SetWindowInputFocus()，或者忽略）(&gt;&#x3D; SDL 2.0.5)<br>SDL_WINDOWEVENT_ICCPROF_CHANGED：（应该对其自身或子窗口执行 SDL_SetWindowInputFocus()，或者忽略）(&gt;&#x3D; SDL 2.0.5)<br>SDL_WINDOWEVENT_DISPLAY_CHANGED：窗口已移动到显示 data1。 (&gt;&#x3D; SDL 2.0.18)</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_WindowEvent</title>
+    <link href="/2024/01/07/SDL/Dictionary/SDL_WindowEvent/"/>
+    <url>/2024/01/07/SDL/Dictionary/SDL_WindowEvent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-WindowEvent"><a href="#SDL-WindowEvent" class="headerlink" title="SDL_WindowEvent"></a>SDL_WindowEvent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_WindowEvent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含窗口状态更改事件数据的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Uint32 type: <a href="/2024/01/05/SDL/Dictionary/SDL_Event/" title="SDL_Event">SDL_WINDOWEVENT</a><br>Uint32 timestamp: 事件的时间戳<br>Uint32 windowID: 关联的窗口（如果有）<br>Uint8 event:<a href="/2024/01/07/SDL/Dictionary/SDL_WindowEventID/" title="SDL_WindowEventID">SDL_WindowEventID</a><br>Sint32 data1:事件相关数据<br>Sint32 data2:事件相关数据</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>3.Event Driven Programming</title>
     <link href="/2024/01/06/SDL/3.Event%20Driven%20Programming/"/>
     <url>/2024/01/06/SDL/3.Event%20Driven%20Programming/</url>
@@ -895,7 +1759,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_Event/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_Event/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-Event"><a href="#SDL-Event" class="headerlink" title="SDL_Event"></a>SDL_Event</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Event">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含不同事件类型的结构的联合。</p><p>Relationships between event types and union members:<br><img src="/img/SDL/Relationships_between_event_types_and_union_members.png"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-Event"><a href="#SDL-Event" class="headerlink" title="SDL_Event"></a>SDL_Event</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Event">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含不同事件类型的结构的联合。</p><p>Relationships between event types and union members:<br><img src="/img/SDL/Relationships_between_event_types_and_union_members.png"></p><h3 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h3><p>SDL_Event user_event;</p><table>    <tr>        <td>Event Type</td>         <td>Event Field</td>         <td>Event Structure</td>     </tr>    <tr>        <td>user_event.SDL_AUDIODEVICEADDED<br>user_event.SDL_AUDIODEVICEREMOVED</td>         <td>user_event.adevice</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_AudioDeviceEvent/" title="SDL_AudioDeviceEvent">SDL_AudioDeviceEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_CONTROLLERAXISMOTION</td>         <td>user_event.caxis</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_ControllerAxisEvent/" title="SDL_ControllerAxisEvent">SDL_ControllerAxisEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_CONTROLLERBUTTONDOWN<br>user_event.SDL_CONTROLLERBUTTONUP</td>         <td>user_event.cbutton</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_ControllerButtonEvent/" title="SDL_ControllerButtonEvent">SDL_ControllerButtonEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_CONTROLLERDEVICEADDED<br>user_event.SDL_CONTROLLERDEVICEREMOVED<br>user_event.SDL_CONTROLLERDEVICEREMAPPED</td>         <td>user_event.cdevice</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_ControllerDeviceEvent/" title="SDL_ControllerDeviceEvent">SDL_ControllerDeviceEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_DOLLARGESTURE<br>user_event.SDL_DOLLARGESTURE</td>         <td>user_event.dgesture</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_DollarGestureEvent/" title="SDL_DollarGestureEvent">SDL_DollarGestureEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_DROPFILE<br>user_event.SDL_DROPTEXT<br>user_event.SDL_DROPBEGIN<br>user_event.SDL_DROPCOMPLETE</td>         <td>user_event.drop</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_DropEvent/" title="SDL_DropEvent">SDL_DropEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_FINGERMOTION<br>user_event.SDL_FINGERDOWN<br>user_event.SDL_FINGERUP</td>         <td>user_event.tfinger</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_TouchFingerEvent/" title="SDL_TouchFingerEvent">SDL_TouchFingerEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_KEYDOWN<br>user_event.SDL_KEYUP</td>         <td>user_event.key</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_KeyboardEvent/" title="SDL_KeyboardEvent">SDL_KeyboardEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_JOYAXISMOTION</td>         <td>user_event.jaxis</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyAxisEvent/" title="SDL_JoyAxisEvent">SDL_JoyAxisEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_JOYBALLMOTION</td>         <td>user_event.jball</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyBallEvent/" title="SDL_JoyBallEvent">SDL_JoyBallEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_JOYHATMOTION</td>         <td>user_event.jhat</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyHatEvent/" title="SDL_JoyHatEvent">SDL_JoyHatEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_JOYBUTTONDOWN<br>user_event.SDL_JOYBUTTONUP</td>         <td>user_event.jbutton</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyButtonEvent/" title="SDL_JoyButtonEvent">SDL_JoyButtonEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_JOYDEVICEADDED<br>user_event.SDL_JOYDEVICEREMOVED</td>         <td>user_event.jdevice</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyDeviceEvent/" title="SDL_JoyDeviceEvent">SDL_JoyDeviceEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_MOUSEMOTION</td>         <td>user_event.motion</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_MouseMotionEvent/" title="SDL_MouseMotionEvent">SDL_MouseMotionEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_MOUSEBUTTONDOWN<br>user_event.SDL_MOUSEBUTTONUP</td>         <td>user_event.button</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_MouseButtonEvent/" title="SDL_MouseButtonEvent">SDL_MouseButtonEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_MOUSEWHEEL</td>         <td>user_event.wheel</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_MouseWheelEvent/" title="SDL_MouseWheelEvent">SDL_MouseWheelEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_MULTIGESTURE</td>         <td>user_event.mgesture</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_MultiGestureEvent/" title="SDL_MultiGestureEvent">SDL_MultiGestureEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_QUIT</td>         <td>user_event.quit</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_QuitEvent/" title="SDL_QuitEvent">SDL_QuitEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_SYSWMEVENT</td>         <td>user_event.syswm</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_SysWMEvent/" title="SDL_SysWMEvent">SDL_SysWMEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_TEXTEDITING</td>         <td>user_event.edit</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TextEditingEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_TEXTINPUT</td>         <td>user_event.text</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_TextInputEvent/" title="SDL_TextInputEvent">SDL_TextInputEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_USEREVENT</td>         <td>user_event.user</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_UserEvent/" title="SDL_UserEvent">SDL_UserEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_WINDOWEVENT</td>         <td>user_event.window</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_WindowEvent/" title="SDL_WindowEvent">SDL_WindowEvent</a></td>     </tr>    <tr>        <td>user_event.SDL_TEXTEDITING</td>         <td>user_event.</td>         <td><a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TextEditingEvent</a></td>     </tr></table>]]></content>
     
     
     <categories>
@@ -1136,7 +2000,7 @@
     <link href="/2024/01/03/SDL/Dictionary/SDL_CreateWindow/"/>
     <url>/2024/01/03/SDL/Dictionary/SDL_CreateWindow/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-CreateWindow"><a href="#SDL-CreateWindow" class="headerlink" title="SDL_CreateWindow"></a>SDL_CreateWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>创建一个自定义位置，尺寸和flags的窗口</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Window* <span class="hljs-title">SDL_CreateWindow</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *title, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> w, <span class="hljs-type">int</span> h, Uint32 flags)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>Title: 窗口的标题， UTF-8的格式<br>x: 窗口x的位置<br>y: 窗口y的位置<br>w：窗口的宽度<br>h：窗口的高度<br>flags: 0 或者下列的一个或多个<br>flags的可能组合：<br>1.SDL_WINDOW_FULLSCREEN： 全屏窗口。<br>2.SDL_WINDOW_FULLSCREEN_DESKTOP: 以桌面分辨率的全屏窗口。<br>3.SDL_WINDOW_OPENGL: 可以以为OpenGL为内容的窗口。<br>4.SDL_WINDOW_VULKAN: 可以以Vulkan为实例的窗口。<br>5.SDL_WINDOW_METAL: 可以以Metal为实例的窗口。<br>6.SDL_WINDOW_HIDDEN: 窗口不可见。<br>7.SDL_WINDOW_BORDERLESS: 没有窗口修饰。<br>8.SDL_WINDOW_RESIZABLE: 窗口不能改变大小。<br>9.SDL_WINDOW_MINIMIZED: 最小化窗口。<br>10.SDL_WINDOW_MAXIMIZED: 最大化窗口。<br>11.SDL_WINDOW_INPUT_GRABBED: 窗口已获取输入焦点。<br>12.SDL_WINDOW_ALLOW_HIGHDPI: 如果支持(&gt;&#x3D; SDL 2.0.1)， 应该在高DPI模式下创建窗口。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回已创建的窗口或失败时返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-CreateWindow"><a href="#SDL-CreateWindow" class="headerlink" title="SDL_CreateWindow"></a>SDL_CreateWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>创建一个自定义位置，尺寸和flags的窗口</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Window* <span class="hljs-title">SDL_CreateWindow</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *title, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> w, <span class="hljs-type">int</span> h, Uint32 flags)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>Title: 窗口的标题， UTF-8的格式<br>x: 窗口x的位置， SDL_WINDOWPOS_CENTERED, 或者 SDL_WINDOWPOS_UNDEFINED<br>y: 窗口y的位置，SDL_WINDOWPOS_CENTERED, 或者 SDL_WINDOWPOS_UNDEFINED<br>w：窗口的宽度<br>h：窗口的高度<br>flags: 0 或者下列的一个或多个<br>flags的可能组合：<br>1.SDL_WINDOW_FULLSCREEN： 全屏窗口。<br>2.SDL_WINDOW_FULLSCREEN_DESKTOP: 以桌面分辨率的全屏窗口。<br>3.SDL_WINDOW_OPENGL: 可以以为OpenGL为内容的窗口。<br>4.SDL_WINDOW_VULKAN: 可以以Vulkan为实例的窗口。<br>5.SDL_WINDOW_METAL: 可以以Metal为实例的窗口。<br>6.SDL_WINDOW_HIDDEN: 窗口不可见。<br>7.SDL_WINDOW_BORDERLESS: 没有窗口修饰。<br>8.SDL_WINDOW_RESIZABLE: 窗口不能改变大小。<br>9.SDL_WINDOW_MINIMIZED: 最小化窗口。<br>10.SDL_WINDOW_MAXIMIZED: 最大化窗口。<br>11.SDL_WINDOW_INPUT_GRABBED: 窗口已获取输入焦点。<br>12.SDL_WINDOW_ALLOW_HIGHDPI: 如果支持(&gt;&#x3D; SDL 2.0.1)， 应该在高DPI模式下创建窗口。<br>13. SDL_WINDOW_SHOWN 被 SDL_CreateWindow() 忽略</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回已创建的窗口或失败时返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>

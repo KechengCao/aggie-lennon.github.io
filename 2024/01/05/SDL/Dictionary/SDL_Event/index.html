@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/SDL/Relationships_between_event_types_and_union_members.png">
 <meta property="article:published_time" content="2024-01-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-05T18:37:49.051Z">
+<meta property="article:modified_time" content="2024-01-07T11:30:02.865Z">
 <meta property="article:author" content="Aggie Lennon">
 <meta property="article:tag" content="SDL">
 <meta name="twitter:card" content="summary_large_image">
@@ -263,7 +263,135 @@
 <p>参考链接：<a target="_blank" rel="noopener" href="https://wiki.libsdl.org/SDL2/SDL_Event">Click to jump</a></p>
 <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含不同事件类型的结构的联合。</p>
 <p>Relationships between event types and union members:<br><img src="/img/SDL/Relationships_between_event_types_and_union_members.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h3><p>SDL_Event user_event;</p>
+<table>
+    <tr>
+        <td>Event Type</td> 
+        <td>Event Field</td> 
+        <td>Event Structure</td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_AUDIODEVICEADDED<br>user_event.SDL_AUDIODEVICEREMOVED</td> 
+        <td>user_event.adevice</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_AudioDeviceEvent/" title="SDL_AudioDeviceEvent">SDL_AudioDeviceEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_CONTROLLERAXISMOTION</td> 
+        <td>user_event.caxis</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_ControllerAxisEvent/" title="SDL_ControllerAxisEvent">SDL_ControllerAxisEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_CONTROLLERBUTTONDOWN<br>user_event.SDL_CONTROLLERBUTTONUP</td> 
+        <td>user_event.cbutton</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_ControllerButtonEvent/" title="SDL_ControllerButtonEvent">SDL_ControllerButtonEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_CONTROLLERDEVICEADDED<br>user_event.SDL_CONTROLLERDEVICEREMOVED<br>user_event.SDL_CONTROLLERDEVICEREMAPPED</td> 
+        <td>user_event.cdevice</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_ControllerDeviceEvent/" title="SDL_ControllerDeviceEvent">SDL_ControllerDeviceEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_DOLLARGESTURE<br>user_event.SDL_DOLLARGESTURE</td> 
+        <td>user_event.dgesture</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_DollarGestureEvent/" title="SDL_DollarGestureEvent">SDL_DollarGestureEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_DROPFILE<br>user_event.SDL_DROPTEXT<br>user_event.SDL_DROPBEGIN<br>user_event.SDL_DROPCOMPLETE</td> 
+        <td>user_event.drop</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_DropEvent/" title="SDL_DropEvent">SDL_DropEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_FINGERMOTION<br>user_event.SDL_FINGERDOWN<br>user_event.SDL_FINGERUP</td> 
+        <td>user_event.tfinger</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_TouchFingerEvent/" title="SDL_TouchFingerEvent">SDL_TouchFingerEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_KEYDOWN<br>user_event.SDL_KEYUP</td> 
+        <td>user_event.key</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_KeyboardEvent/" title="SDL_KeyboardEvent">SDL_KeyboardEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_JOYAXISMOTION</td> 
+        <td>user_event.jaxis</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyAxisEvent/" title="SDL_JoyAxisEvent">SDL_JoyAxisEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_JOYBALLMOTION</td> 
+        <td>user_event.jball</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyBallEvent/" title="SDL_JoyBallEvent">SDL_JoyBallEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_JOYHATMOTION</td> 
+        <td>user_event.jhat</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyHatEvent/" title="SDL_JoyHatEvent">SDL_JoyHatEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_JOYBUTTONDOWN<br>user_event.SDL_JOYBUTTONUP</td> 
+        <td>user_event.jbutton</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyButtonEvent/" title="SDL_JoyButtonEvent">SDL_JoyButtonEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_JOYDEVICEADDED<br>user_event.SDL_JOYDEVICEREMOVED</td> 
+        <td>user_event.jdevice</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_JoyDeviceEvent/" title="SDL_JoyDeviceEvent">SDL_JoyDeviceEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_MOUSEMOTION</td> 
+        <td>user_event.motion</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_MouseMotionEvent/" title="SDL_MouseMotionEvent">SDL_MouseMotionEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_MOUSEBUTTONDOWN<br>user_event.SDL_MOUSEBUTTONUP</td> 
+        <td>user_event.button</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_MouseButtonEvent/" title="SDL_MouseButtonEvent">SDL_MouseButtonEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_MOUSEWHEEL</td> 
+        <td>user_event.wheel</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_MouseWheelEvent/" title="SDL_MouseWheelEvent">SDL_MouseWheelEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_MULTIGESTURE</td> 
+        <td>user_event.mgesture</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_MultiGestureEvent/" title="SDL_MultiGestureEvent">SDL_MultiGestureEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_QUIT</td> 
+        <td>user_event.quit</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_QuitEvent/" title="SDL_QuitEvent">SDL_QuitEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_SYSWMEVENT</td> 
+        <td>user_event.syswm</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_SysWMEvent/" title="SDL_SysWMEvent">SDL_SysWMEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_TEXTEDITING</td> 
+        <td>user_event.edit</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TextEditingEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_TEXTINPUT</td> 
+        <td>user_event.text</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_TextInputEvent/" title="SDL_TextInputEvent">SDL_TextInputEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_USEREVENT</td> 
+        <td>user_event.user</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_UserEvent/" title="SDL_UserEvent">SDL_UserEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_WINDOWEVENT</td> 
+        <td>user_event.window</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_WindowEvent/" title="SDL_WindowEvent">SDL_WindowEvent</a></td> 
+    </tr>
+    <tr>
+        <td>user_event.SDL_TEXTEDITING</td> 
+        <td>user_event.</td> 
+        <td><a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TextEditingEvent</a></td> 
+    </tr>
 
+</table>
                 
               </div>
             
