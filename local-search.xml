@@ -1898,7 +1898,7 @@
     <link href="/2024/01/10/SDL/Dictionary/SDL_Texture/"/>
     <url>/2024/01/10/SDL/Dictionary/SDL_Texture/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-Renderer"><a href="#SDL-Renderer" class="headerlink" title="SDL_Renderer"></a>SDL_Renderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Renderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含渲染状态的结构。</p><h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><ol><li>Uint32 flags: 内部使用</li><li>SDL_PixelFormat* format: 关于SDL_PixelFormat的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_PixelFormat/" title="SDL_PixelFormat">SDL_PixelFormat</a></li><li>int w,h: 以像素为单位的宽度和高度（只读）</li><li>int pitch: 一行像素的长度（以字节为单位）（只读）</li><li>void* pixels: 指向实际像素数据的指针</li><li>void* userdata: 您可以设置任意指针（读写）</li><li>int locked: 用于需要锁定的surface（内部使用）</li><li>void* lock_data: 用于需要锁定的surface（内部使用）</li><li>SDL_Rect clip_rect: 关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></li><li>SDL_BlitMap* map: 用于快速位块映射到其他surface的信息（内部使用）</li><li>int refcount: 可以由应用程序增加的引用计数</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-Renderer"><a href="#SDL-Renderer" class="headerlink" title="SDL_Renderer"></a>SDL_Renderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Renderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含有效的、特定于驱动程序的像素数据表示的结构。</p><p>SDL_Texture on the other hand, is used in a hardware rendering, textures are stored in VRAM and you don’t have access to it directly as with SDL_Surface. The rendering operations are accelerated by GPU, using, internally, either OpenGL or DirectX (available only on Windows) API, which in turn are using your video hardware, hence hardware rendering name.</p><h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTexture/" title="SDL_CreateTexture">SDL_CreateTexture</a><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTextureFromSurface/" title="SDL_CreateTextureFromSurface">SDL_CreateTextureFromSurface</a><a href="/2024/01/10/SDL/Dictionary/SDL_DestroyTexture/" title="SDL_DestroyTexture">SDL_DestroyTexture</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetTextureAlphaMode/" title="SDL_GetTextureAlphaMod">SDL_GetTextureAlphaMode</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetTextureBlendMode/" title="SDL_GetTextureBlendMode">SDL_GetTextureBlendMode</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetTextureColorMod/" title="SDL_GetTextureColorMod">SDL_GetTextureColorMod</a><a href="/2024/01/10/SDL/Dictionary/SDL_LockTexture/" title="SDL_LockTexture">SDL_LockTexture</a><a href="/2024/01/10/SDL/Dictionary/SDL_QueryTexture/" title="SDL_QueryTexture">SDL_QueryTexture</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopy/" title="SDL_RenderCopy">SDL_RenderCopy</a><a href="/2024/01/10/SDL/Dictionary/SDL_SetTextureAlphaMod/" title="SDL_SetTextureAlphaMod">SDL_SetTextureAlphaMod</a><a href="/2024/01/10/SDL/Dictionary/SDL_SetTextureBlendMode/" title="SDL_SetTextureBlendMode">SDL_SetTextureBlendMode</a><a href="/2024/01/10/SDL/Dictionary/SDL_SetTextureColorMod/" title="SDL_SetTextureColorMod">SDL_SetTextureColorMod</a><a href="/2024/01/10/SDL/Dictionary/SDL_UnlockTexture/" title="SDL_UnlockTexture">SDL_UnlockTexture</a><a href="/2024/01/10/SDL/Dictionary/SDL_UpdateTexture/" title="SDL_UpdateTexture">SDL_UpdateTexture</a>]]></content>
     
     
     <categories>
@@ -1953,6 +1953,330 @@
     <url>/2024/01/10/SDL/Dictionary/SDL_Vertex/</url>
     
     <content type="html"><![CDATA[<h1 id="SDL-Vertex"><a href="#SDL-Vertex" class="headerlink" title="SDL_Vertex"></a>SDL_Vertex</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Vertex">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>顶点结构</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><a href="/2024/01/10/SDL/Dictionary/SDL_FPoint/" title="SDL_FPoint">SDL_FPoint</a> position： 顶点位置，以<a href="/2024/01/10/SDL/Dictionary/SDL_Renderer/" title="SDL_Renderer">SDL_Renderer</a>坐标表示<a href="/2024/01/05/SDL/Dictionary/SDL_Color/" title="SDL_Color">SDL_Color</a> color：顶点颜色<a href="/2024/01/10/SDL/Dictionary/SDL_FPoint/" title="SDL_FPoint">SDL_FPoint</a> tex_coord： 标准化纹理坐标（如果需要）（范围从 0 到 1，即对于 64x64px 纹理，从 32x32px 开始将输入为 0.5,0,5）]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_DestroyTexture</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_DestroyTexture/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_DestroyTexture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-DestroyTexture"><a href="#SDL-DestroyTexture" class="headerlink" title="SDL_DestroyTexture"></a>SDL_DestroyTexture</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_DestroyTexture">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>销毁指定的纹理。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_DestroyTexture</span><span class="hljs-params">(SDL_Texture * texture)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 要破坏的纹理</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回创建的纹理或失败时返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetTextureAlphaMode</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetTextureAlphaMod/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetTextureAlphaMod/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetTextureAlphaMode"><a href="#SDL-GetTextureAlphaMode" class="headerlink" title="SDL_GetTextureAlphaMode"></a>SDL_GetTextureAlphaMode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetTextureAlphaMod">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将额外的 alpha 值乘以渲染复制操作。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetTextureAlphaMod</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                           Uint8 * alpha)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 查询的纹理<br>alpha: 一个用当前 alpha 值的指针</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetTextureColorMod</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetTextureColorMod/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetTextureColorMod/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetTextureColorMod"><a href="#SDL-GetTextureColorMod" class="headerlink" title="SDL_GetTextureColorMod"></a>SDL_GetTextureColorMod</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetTextureColorMod">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将附加颜色值乘以渲染复制操作。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetTextureColorMod</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                           Uint8 * r, Uint8 * g,</span></span><br><span class="hljs-params"><span class="hljs-function">                           Uint8 * b)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 查询的纹理<br>r:用当前红色值的指针<br>g:用当前绿色值的指针<br>b:用当前蓝色值的指针</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetTextureBlendMode</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetTextureBlendMode/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetTextureBlendMode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetTextureBlendMode"><a href="#SDL-GetTextureBlendMode" class="headerlink" title="SDL_GetTextureBlendMode"></a>SDL_GetTextureBlendMode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetTextureBlendMode">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取用于纹理复制操作的混合模式。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetTextureBlendMode</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                            SDL_BlendMode *blendMode)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 查询的纹理<br>blendMode: 当前 <a href="/2024/01/10/SDL/Dictionary/SDL_BlendMode/" title="SDL_BlendMode">SDL_BlendMode</a> 的指针</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_QueryTexture</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_QueryTexture/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_QueryTexture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-QueryTexture"><a href="#SDL-QueryTexture" class="headerlink" title="SDL_QueryTexture"></a>SDL_QueryTexture</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_QueryTexture">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询纹理的属性。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_QueryTexture</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                     Uint32 * format, <span class="hljs-type">int</span> *access,</span></span><br><span class="hljs-params"><span class="hljs-function">                     <span class="hljs-type">int</span> *w, <span class="hljs-type">int</span> *h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 要锁定访问的纹理<br>format：填充纹理原始格式的指针；实际格式可能有所不同，但像素传输将使用此格式（<a href="/2024/01/10/SDL/Dictionary/SDL_PixelFormatEnum/" title="SDL_PixelFormatEnum">SDL_PixelFormatEnum</a> 值之一）。如果您不需要此信息，则此参数可以为 NULL。<br>access：一个指针，填充了对纹理的实际访问（<a href="/2024/01/10/SDL/Dictionary/SDL_TextureAccess/" title="SDL_TextureAccess">SDL_TextureAccess</a> 值之一）。如果您不需要此信息，则此参数可以为 NULL。<br>w:纹理宽度（以像素为单位）的指针。如果您不需要此信息，则此参数可以为 NULL。<br>h:纹理高度（以像素为单位）的指针。如果您不需要此信息，则此参数可以为 NULL。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetTextureAlphaMod</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_SetTextureAlphaMod/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_SetTextureAlphaMod/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetTextureAlphaMod"><a href="#SDL-SetTextureAlphaMod" class="headerlink" title="SDL_SetTextureAlphaMod"></a>SDL_SetTextureAlphaMod</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetTextureAlphaMod">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置一个额外的 alpha 值乘以渲染复制操作。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetTextureAlphaMod</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                           Uint8 alpha)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 要更新的纹理<br>alpha: 源 alpha 值乘以复制操作</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetTextureBlendMode</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_SetTextureBlendMode/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_SetTextureBlendMode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetTextureBlendMode"><a href="#SDL-SetTextureBlendMode" class="headerlink" title="SDL_SetTextureBlendMode"></a>SDL_SetTextureBlendMode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetTextureBlendMode">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置 <a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopy/" title="SDL_RenderCopy">SDL_RenderCopy()</a>使用的纹理混合模式。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetTextureBlendMode</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                            SDL_BlendMode blendMode)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 要更新的纹理<br>alpha: 用于纹理混合的 <a href="/2024/01/10/SDL/Dictionary/SDL_BlendMode/" title="SDL_BlendMode">SDL_BlendMode</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_LockTexture</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_LockTexture/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_LockTexture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-LockTexture"><a href="#SDL-LockTexture" class="headerlink" title="SDL_LockTexture"></a>SDL_LockTexture</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_LockTexture">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>锁定纹理的一部分以进行只写像素访问。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_LockTexture</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> SDL_Rect * rect,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">void</span> **pixels, <span class="hljs-type">int</span> *pitch)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 要锁定访问的纹理，纹理需使用 SDL_TEXTUREACCESS_STREAMING 创建<br>rect：一个<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构，表示要锁定访问的区域； NULL 锁定整个纹理<br>pixels：这由指向锁定像素的指针，并由锁定区域适当偏移<br>pitch： 这用锁定像素的间距；间距是一行的长度（以字节为单位）</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，如果纹理无效或不是使用 SDL_TEXTUREACCESS_STREAMING 创建的，则返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetTextureColorMod</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_SetTextureColorMod/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_SetTextureColorMod/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetTextureColorMod"><a href="#SDL-SetTextureColorMod" class="headerlink" title="SDL_SetTextureColorMod"></a>SDL_SetTextureColorMod</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetTextureColorMode">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置与渲染复制操作相乘的附加颜色值。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetTextureColorMod</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                           Uint8 r, Uint8 g, Uint8 b)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 要更新的纹理<br>r:红色值乘以复制操作<br>g:绿色值乘以复制操作<br>b:蓝色值乘以复制操作</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_UpdateTexture</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_UpdateTexture/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_UpdateTexture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-UpdateTexture"><a href="#SDL-UpdateTexture" class="headerlink" title="SDL_UpdateTexture"></a>SDL_UpdateTexture</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UpdateTexture">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用新的像素数据更新给定的纹理矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_UpdateTexture</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                      <span class="hljs-type">const</span> SDL_Rect * rect,</span></span><br><span class="hljs-params"><span class="hljs-function">                      <span class="hljs-type">const</span> <span class="hljs-type">void</span> *pixels, <span class="hljs-type">int</span> pitch)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 要更新的纹理<br>rect: 一个<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构，表示要更新的区域，或 NULL 来更新整个纹理<br>pixels: 纹理格式的原始像素数据<br>pitch: 一行像素数据中的字节数，包括行之间的填充</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_UnlockTexture</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_UnlockTexture/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_UnlockTexture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-UnlockTexture"><a href="#SDL-UnlockTexture" class="headerlink" title="SDL_UnlockTexture"></a>SDL_UnlockTexture</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UnlockTexture">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>解锁纹理，将更改上传到视频内存（如果需要）。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_UnlockTexture</span><span class="hljs-params">(SDL_Texture * texture)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 由 <a href="/2024/01/10/SDL/Dictionary/SDL_LockTexture/" title="SDL_LockTexture">SDL_LockTexture()</a> 锁定的纹理</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetTextureAlphaMod</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetTextureAlphaMode/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetTextureAlphaMode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetTextureAlphaMod"><a href="#SDL-GetTextureAlphaMod" class="headerlink" title="SDL_GetTextureAlphaMod"></a>SDL_GetTextureAlphaMod</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetTextureAlphaMod">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将额外的 alpha 值乘以渲染复制操作。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetTextureAlphaMod</span><span class="hljs-params">(SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                           Uint8 * alpha)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>texture: 查询的纹理<br>alpha: 一个用当前 alpha 值的指针</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -3780,7 +4104,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_Surface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_Surface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-Surface"><a href="#SDL-Surface" class="headerlink" title="SDL_Surface"></a>SDL_Surface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Surface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>一个结构包含了一系列像素集合，并且会用在软件位块传输中</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ol><li>Uint32 flags: 内部使用</li><li>SDL_PixelFormat* format: 关于SDL_PixelFormat的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_PixelFormat/" title="SDL_PixelFormat">SDL_PixelFormat</a></li><li>int w,h: 以像素为单位的宽度和高度（只读）</li><li>int pitch: 一行像素的长度（以字节为单位）（只读）</li><li>void* pixels: 指向实际像素数据的指针</li><li>void* userdata: 您可以设置任意指针（读写）</li><li>int locked: 用于需要锁定的surface（内部使用）</li><li>void* lock_data: 用于需要锁定的surface（内部使用）</li><li>SDL_Rect clip_rect: 关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></li><li>SDL_BlitMap* map: 用于快速位块映射到其他surface的信息（内部使用）</li><li>int refcount: 可以由应用程序增加的引用计数</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-Surface"><a href="#SDL-Surface" class="headerlink" title="SDL_Surface"></a>SDL_Surface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Surface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>一个结构包含了一系列像素集合，并且会用在软件位块传输中</p><p>SDL_Surface is used in software rendering. With software rendering, thus, in most cases you can access data buffer associated with surface directly, modifying its content, i.e. it is using CPU, hence the software name.</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ol><li>Uint32 flags: 内部使用</li><li>SDL_PixelFormat* format: 关于SDL_PixelFormat的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_PixelFormat/" title="SDL_PixelFormat">SDL_PixelFormat</a></li><li>int w,h: 以像素为单位的宽度和高度（只读）</li><li>int pitch: 一行像素的长度（以字节为单位）（只读）</li><li>void* pixels: 指向实际像素数据的指针</li><li>void* userdata: 您可以设置任意指针（读写）</li><li>int locked: 用于需要锁定的surface（内部使用）</li><li>void* lock_data: 用于需要锁定的surface（内部使用）</li><li>SDL_Rect clip_rect: 关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></li><li>SDL_BlitMap* map: 用于快速位块映射到其他surface的信息（内部使用）</li><li>int refcount: 可以由应用程序增加的引用计数</li></ol>]]></content>
     
     
     <categories>
