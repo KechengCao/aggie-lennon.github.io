@@ -4,6 +4,1977 @@
   
   
   <entry>
+    <title>SDL_BlendMode</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_BlendMode/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_BlendMode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-BlendMode"><a href="#SDL-BlendMode" class="headerlink" title="SDL_BlendMode"></a>SDL_BlendMode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_BlendMode#values">Click to jump</a></p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>SDL_BLENDMODE_NONE：不混合<br>dstRGBA &#x3D; srcRGBA</p><p>SDL_BLENDMODE_BLEND：阿尔法混合<br>dstRGB &#x3D; (srcRGB * srcA) + (dstRGB * (1-srcA))<br>dstA &#x3D; srcA + (dstA * (1-srcA))</p><p>SDL_BLENDMODE_ADD：加法混合<br>dstRGB &#x3D; (srcRGB * srcA) + dstRGB<br>dstA &#x3D; dstA</p><p>SDL_BLENDMODE_MOD：色彩调制<br>dstRGB &#x3D; srcRGB * dstRGB<br>dstA &#x3D; dstA</p><p>SDL_BLENDMODE_MUL：颜色乘法<br>dstRGB &#x3D; (srcRGB * dstRGB) + (dstRGB * (1-srcA))<br>dstA &#x3D; (srcA * dstA) + (dstA * (1-srcA))</p><h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><p>srcRGBA :描画源的混合系数<br>dstRGBA: 描画目的的混合系数<br>srcRGB   :描画源RGB的混合系数<br>srcAlpha ：描画源alpha的混合系数<br>dstRGB: 描画目RGB的混合系数<br>dstAlpha:描画目的的混合系数</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_CreateSoftwareRenderer</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_CreateSoftwareRenderer/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_CreateSoftwareRenderer/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-CreateSoftwareRenderer"><a href="#SDL-CreateSoftwareRenderer" class="headerlink" title="SDL_CreateSoftwareRenderer"></a>SDL_CreateSoftwareRenderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateSoftwareRenderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>为surface创建 2D 软件渲染上下文。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Renderer * <span class="hljs-title">SDL_CreateSoftwareRenderer</span><span class="hljs-params">(SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface: 表示完成渲染的表面的 <a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a>结构</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的渲染上下文，如果出现错误，则返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_CreateRenderer</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_CreateRenderer/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_CreateRenderer/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-CreateRenderer"><a href="#SDL-CreateRenderer" class="headerlink" title="SDL_CreateRenderer"></a>SDL_CreateRenderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateRenderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>为窗口创建 2D 渲染上下文。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Renderer * <span class="hljs-title">SDL_CreateRenderer</span><span class="hljs-params">(SDL_Window * window, <span class="hljs-type">int</span> index, Uint32 flags)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window：显示渲染的窗口<br>index：初始化渲染驱动的索引，或者-1来初始化支持请求标志的第一个<br>flags：0，或一个或多个<a href="/2024/01/10/SDL/Dictionary/SDL_RendererFlags/" title="SDL_RendererFlags">SDL_RendererFlags</a>一起</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的渲染上下文，如果出现错误，则返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_CreateTexture</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_CreateTexture/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_CreateTexture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-CreateTexture"><a href="#SDL-CreateTexture" class="headerlink" title="SDL_CreateTexture"></a>SDL_CreateTexture</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateTexture">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>为渲染上下文创建纹理。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Texture * <span class="hljs-title">SDL_CreateTexture</span><span class="hljs-params">(SDL_Renderer * renderer,Uint32 format,<span class="hljs-type">int</span> access, <span class="hljs-type">int</span> w,<span class="hljs-type">int</span> h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>format: <a href="/2024/01/10/SDL/Dictionary/SDL_PixelFormatEnum/" title="SDL_PixelFormatEnum">SDL_PixelFormatEnum</a> 中的枚举值之一<br>access：one of the enumerated values in <a href="/2024/01/10/SDL/Dictionary/SDL_TextureAccess/" title="SDL_TextureAccess">SDL_TextureAccess</a><br>w: 纹理的宽度（以像素为单位<br>h: 纹理的高度（以像素为单位）</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的渲染上下文，如果出现错误，则返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_CreateTextureFromSurface</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_CreateTextureFromSurface/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_CreateTextureFromSurface/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-CreateTextureFromSurface"><a href="#SDL-CreateTextureFromSurface" class="headerlink" title="SDL_CreateTextureFromSurface"></a>SDL_CreateTextureFromSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateTextureFromSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从现有surface创建纹理。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Texture * <span class="hljs-title">SDL_CreateTextureFromSurface</span><span class="hljs-params">(SDL_Renderer * renderer, SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>surface: <a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a> 中的枚举值之一</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回创建的纹理或失败时返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_CreateWindowAndRenderer</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_CreateWindowAndRenderer/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_CreateWindowAndRenderer/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-CreateWindowAndRenderer"><a href="#SDL-CreateWindowAndRenderer" class="headerlink" title="SDL_CreateWindowAndRenderer"></a>SDL_CreateWindowAndRenderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateWindowAndRenderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>创建一个窗口和默认渲染器。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_CreateWindowAndRenderer</span><span class="hljs-params">(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, Uint32 window_flags,SDL_Window **window, SDL_Renderer **renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 染器的指针，或错误时为 NULL<br>window: 窗口的指针，或错误时为 NULL<br>width: 窗户的宽度<br>height: 窗户的高度<br>window_flags: 用于创建窗口的flag<a href="/2024/01/03/SDL/Dictionary/SDL_CreateWindow/" title="SDL_CreateWindow">SDL_CreateWindow</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_FRect</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_FRect/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_FRect/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-FRect"><a href="#SDL-FRect" class="headerlink" title="SDL_FRect"></a>SDL_FRect</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_FRect">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含矩形定义的结构，原点位于左上角。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ol><li>float x: 矩形左上角的 x 位置</li><li>float y: 矩形左上角的 y 位置</li><li>float w: 矩形的宽度</li><li>float h: 矩形的高度</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_FPoint</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_FPoint/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_FPoint/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-FPoint"><a href="#SDL-FPoint" class="headerlink" title="SDL_FPoint"></a>SDL_FPoint</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_FPoint">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>定义二维点的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ol><li>float x: 点的 x 坐标</li><li>float y: 点的 y 坐标</li></ol><h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><p>待补充</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_DestroyRenderer</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_DestroyRenderer/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_DestroyRenderer/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-DestroyRenderer"><a href="#SDL-DestroyRenderer" class="headerlink" title="SDL_DestroyRenderer"></a>SDL_DestroyRenderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_DestroyRenderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>销毁窗口的渲染上下文并释放关联的纹理。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_DestroyRenderer</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果渲染器为NULL，则该函数将在将SDL错误消息设置为“无效渲染器”后立即返回。请参阅 SDL_GetError()。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetRenderDrawBlendMode</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawBlendMode/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawBlendMode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetRenderDrawBlendMode"><a href="#SDL-GetRenderDrawBlendMode" class="headerlink" title="SDL_GetRenderDrawBlendMode"></a>SDL_GetRenderDrawBlendMode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Renderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取用于绘图操作的混合模式。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetRenderDrawBlendMode</span><span class="hljs-params">(SDL_Renderer * renderer, SDL_BlendMode *blendMode)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>blendMode: <a href="/2024/01/10/SDL/Dictionary/SDL_BlendMode/" title="SDL_BlendMode">SDL_BlendMode</a>的指针</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果渲染器为NULL，则该函数将在将SDL错误消息设置为“无效渲染器”后立即返回。请参阅 SDL_GetError()。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetRenderDrawColor</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawColor/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawColor/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetRenderDrawColor"><a href="#SDL-GetRenderDrawColor" class="headerlink" title="SDL_GetRenderDrawColor"></a>SDL_GetRenderDrawColor</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetRenderDrawColor">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取用于绘图操作（矩形、线条和清除）的颜色。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetRenderDrawColor</span><span class="hljs-params">(SDL_Renderer * renderer,Uint8 * r, Uint8 * g, Uint8 * b,Uint8 * a)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>r：用于在渲染目标上绘制的红色值的指针<br>g: 用于在渲染目标上绘制的绿色值的指针<br>b: 用于在渲染目标上绘制的蓝色值的指针<br>a: 用于在渲染目标上绘制的阿尔法值的指针</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetRenderTarget</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetRenderTarget/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetRenderTarget/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetRenderTarget"><a href="#SDL-GetRenderTarget" class="headerlink" title="SDL_GetRenderTarget"></a>SDL_GetRenderTarget</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetRenderTarget">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取当前渲染目标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Texture * <span class="hljs-title">SDL_GetRenderTarget</span><span class="hljs-params">(SDL_Renderer *renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回当前渲染目标或默认渲染目标 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetRendererInfo</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetRendererInfo/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetRendererInfo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetRendererInfo"><a href="#SDL-GetRendererInfo" class="headerlink" title="SDL_GetRendererInfo"></a>SDL_GetRendererInfo</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetRendererInfo">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取有关渲染上下文的信息。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetRendererInfo</span><span class="hljs-params">(SDL_Renderer * renderer,SDL_RendererInfo * info)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>info：一个 <a href="/2024/01/10/SDL/Dictionary/SDL_RendererInfo/" title="SDL_RendererInfo">SDL_RendererInfo</a> 结构，有关当前渲染器的信息</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetRendererOutputSize</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_GetRendererOutputSize/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_GetRendererOutputSize/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetRendererOutputSize"><a href="#SDL-GetRendererOutputSize" class="headerlink" title="SDL_GetRendererOutputSize"></a>SDL_GetRendererOutputSize</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetRendererOutputSize">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取渲染上下文的输出大小（以像素为单位）。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_GetRendererOutputSize</span><span class="hljs-params">(SDL_Renderer * renderer, <span class="hljs-type">int</span> *w, <span class="hljs-type">int</span> *h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>w: 宽度<br>h: 高度</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Point</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_Point/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_Point/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Point"><a href="#SDL-Point" class="headerlink" title="SDL_Point"></a>SDL_Point</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Point">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>定义二维点的结构。</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ol><li>int x: 点的 x 坐标</li><li>int y: 点的 y 坐标</li></ol><h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><p>待补充</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_PixelFormatEnum</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_PixelFormatEnum/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_PixelFormatEnum/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-PixelFormatEnum"><a href="#SDL-PixelFormatEnum" class="headerlink" title="SDL_PixelFormatEnum"></a>SDL_PixelFormatEnum</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_PixelFormatEnum">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>像素格式的枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>SDL_PIXELTYPE(format)：像素格式的类型<br>SDL_PIXELORDER(format)：像素格式中通道或位的顺序<br>SDL_PIXELLAYOUT(format)：像素格式的通道位模式<br>SDL_BITSPERPIXEL(format)：像素格式中颜色信息的位数<br>SDL_BYTESPERPIXEL(format)：用于表示像素的字节数<br>SDL_ISPIXELFORMAT_INDEXED(format)：对于具有调色板的像素格式为 true<br>SDL_ISPIXELFORMAT_ALPHA(format)：对于具有 Alpha 通道的像素格式为 true<br>SDL_ISPIXELFORMAT_FOURCC(format)：对于表示独特格式的像素格式为 true，例如 YUV 格式</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderClear</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderClear/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderClear/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderClear"><a href="#SDL-RenderClear" class="headerlink" title="SDL_RenderClear"></a>SDL_RenderClear</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderClear">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用绘图颜色清除当前渲染目标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderClear</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderCopy</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderCopy/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderCopy/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderCopy"><a href="#SDL-RenderCopy" class="headerlink" title="SDL_RenderCopy"></a>SDL_RenderCopy</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderCopy">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将纹理的一部分复制到当前渲染目标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderClear</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>texture: 源纹理<br>srcrect: 整个纹理的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a> 结构或 NULL<br>dstrect: 目标 <a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a> 结构或整个渲染目标的 NULL；纹理将被拉伸以填充给定的矩形</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderCopyEx</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyEx/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderCopyEx/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderCopyEx"><a href="#SDL-RenderCopyEx" class="headerlink" title="SDL_RenderCopyEx"></a>SDL_RenderCopyEx</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderCopyEx">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将纹理的一部分复制到当前渲染，并可选择旋转和翻转。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderCopyEx</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                   SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                   <span class="hljs-type">const</span> SDL_Rect * srcrect,</span></span><br><span class="hljs-params"><span class="hljs-function">                   <span class="hljs-type">const</span> SDL_Rect * dstrect,</span></span><br><span class="hljs-params"><span class="hljs-function">                   <span class="hljs-type">const</span> <span class="hljs-type">double</span> angle,</span></span><br><span class="hljs-params"><span class="hljs-function">                   <span class="hljs-type">const</span> SDL_Point *center,</span></span><br><span class="hljs-params"><span class="hljs-function">                   <span class="hljs-type">const</span> SDL_RendererFlip flip)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>texture: 源纹理<br>srcrect: 整个纹理的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a> 结构或 NULL<br>dstrect: 目标 <a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a> 结构或整个渲染目标的 NULL；纹理将被拉伸以填充给定的矩形<br>angle: 一个以度为单位的角度，指示将应用于 dstect 的旋转，以顺时针方向旋转它<br>center: 指向一个点的指针，指示 dstrect 将围绕其旋转的点<br>flip: 一个 <a href="/2024/01/10/SDL/Dictionary/SDL_RendererFlip/" title="SDL_RendererFlip">SDL_RendererFlip</a> 值，说明应在纹理上执行哪些翻转操作</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderCopyExF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyExF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderCopyExF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderCopyExF"><a href="#SDL-RenderCopyExF" class="headerlink" title="SDL_RenderCopyExF"></a>SDL_RenderCopyExF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderCopyExF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以子像素精度将源纹理的一部分复制到当前渲染目标，并进行旋转和翻转。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderCopyExF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                    SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> SDL_Rect * srcrect,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> SDL_FRect * dstrect,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> <span class="hljs-type">double</span> angle,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> SDL_FPoint *center,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> SDL_RendererFlip flip)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 应该复制纹理部分的渲染器。<br>texture: 源纹理<br>srcrect: 整个纹理的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a> 结构或 NULL<br>dstrect: 目标 <a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a> 结构或整个渲染目标的 NULL；纹理将被拉伸以填充给定的矩形<br>angle: 一个以度为单位的角度，指示将应用于 dstect 的旋转，以顺时针方向旋转它<br>center: 指向一个点的指针，指示 dstrect 将围绕其旋转的点<br>flip: 一个 <a href="/2024/01/10/SDL/Dictionary/SDL_RendererFlip/" title="SDL_RendererFlip">SDL_RendererFlip</a> 值，说明应在纹理上执行哪些翻转操作</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderCopyF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderCopyF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderCopyF"><a href="#SDL-RenderCopyF" class="headerlink" title="SDL_RenderCopyF"></a>SDL_RenderCopyF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderCopyF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以子像素精度将纹理的一部分复制到当前渲染目标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderCopyF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                    SDL_Texture * texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> SDL_Rect * srcrect,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">const</span> SDL_FRect * dstrect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 应该复制纹理部分的渲染器。<br>texture: 源纹理<br>srcrect: 指向源矩形的指针，或整个纹理的 NULL。<br>dstrect: 指向目标矩形的指针，或者对于整个渲染目标为 NULL。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawLineF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLineF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawLineF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawLineF"><a href="#SDL-RenderDrawLineF" class="headerlink" title="SDL_RenderDrawLineF"></a>SDL_RenderDrawLineF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawLineF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上画一条线。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawLineF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">float</span> x1, <span class="hljs-type">float</span> y1, <span class="hljs-type">float</span> x2, <span class="hljs-type">float</span> y2)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>x1: 起点的 x 坐标<br>y1: 起点的 y 坐标<br>x2: 终点的 x 坐标<br>y2: 终点的 y 坐标</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawLine</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLine/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawLine/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawLine"><a href="#SDL-RenderDrawLine" class="headerlink" title="SDL_RenderDrawLine"></a>SDL_RenderDrawLine</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawLine">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上画一条线。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawLine</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> y1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> y2)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>x1: 起点的 x 坐标<br>y1: 起点的 y 坐标<br>x2: 终点的 x 坐标<br>y2: 终点的 y 坐标</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawLines</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLines/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawLines/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawLines"><a href="#SDL-RenderDrawLines" class="headerlink" title="SDL_RenderDrawLines"></a>SDL_RenderDrawLines</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawLines">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上绘制一系列连接线。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawLines</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">const</span> SDL_Point * points,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>points: 表示沿线的点的 <a href="/2024/01/10/SDL/Dictionary/SDL_Point/" title="SDL_Point">SDL_Point</a> 结构数组<br>count: 点数，绘制 count-1 条线</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawPoint</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoint/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoint/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawPoint"><a href="#SDL-RenderDrawPoint" class="headerlink" title="SDL_RenderDrawPoint"></a>SDL_RenderDrawPoint</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawPoint">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上绘制一个点。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawPoint</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>x: 点的 x 坐标<br>y: 点的 y 坐标</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawLinesF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLinesF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawLinesF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawLinesF"><a href="#SDL-RenderDrawLinesF" class="headerlink" title="SDL_RenderDrawLinesF"></a>SDL_RenderDrawLinesF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawLinesF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上绘制一系列连接线。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawLinesF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">const</span> SDL_FPoint * points,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>points: 表示沿线的点的 <a href="/2024/01/10/SDL/Dictionary/SDL_FPoint/" title="SDL_FPoint">SDL_FPoint</a> 结构数组<br>count: 点数，绘制 count-1 条线</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawPointF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawPointF"><a href="#SDL-RenderDrawPointF" class="headerlink" title="SDL_RenderDrawPointF"></a>SDL_RenderDrawPointF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawPointF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以亚像素精度在当前渲染目标上绘制一个点</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawPointF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">float</span> x, <span class="hljs-type">float</span> y)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>x: 点的 x 坐标<br>y: 点的 y 坐标</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawPoints</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoints/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoints/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawPoints"><a href="#SDL-RenderDrawPoints" class="headerlink" title="SDL_RenderDrawPoints"></a>SDL_RenderDrawPoints</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawPoints">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上绘制多个点。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawPoints</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">const</span> SDL_Point * points,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>points: 表示要绘制的点的<a href="/2024/01/10/SDL/Dictionary/SDL_Point/" title="SDL_Point">SDL_Point</a>结构数组<br>count: 绘制点数</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawRect</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRect/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawRect/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawRect"><a href="#SDL-RenderDrawRect" class="headerlink" title="SDL_RenderDrawRect"></a>SDL_RenderDrawRect</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawRect">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上绘制一个矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawRect</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> SDL_Rect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect: 一个<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构，表示要绘制的矩形，或 NULL 来勾画整个渲染目标</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawPointsF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointsF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointsF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawPointsF"><a href="#SDL-RenderDrawPointsF" class="headerlink" title="SDL_RenderDrawPointsF"></a>SDL_RenderDrawPointsF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawPointsF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以亚像素精度在当前渲染目标上绘制多个点。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawPointsF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                          <span class="hljs-type">const</span> SDL_FPoint * points,</span></span><br><span class="hljs-params"><span class="hljs-function">                          <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>points: 表示要绘制的点的<a href="/2024/01/10/SDL/Dictionary/SDL_Point/" title="SDL_Point">SDL_Point</a>结构数组<br>count: 绘制点数</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawRectF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawRectF"><a href="#SDL-RenderDrawRectF" class="headerlink" title="SDL_RenderDrawRectF"></a>SDL_RenderDrawRectF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawRectF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以亚像素精度在当前渲染目标上绘制一个矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawRectF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">const</span> SDL_FRect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染器应该绘制一个矩形。<br>rect: 指向目标矩形<a href="/2024/01/10/SDL/Dictionary/SDL_FRect/" title="SDL_FRect">SDL_FRect</a>的指针，或 NULL 来勾画整个渲染目标。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawRects</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRects/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawRects/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawRects"><a href="#SDL-RenderDrawRects" class="headerlink" title="SDL_RenderDrawRects"></a>SDL_RenderDrawRects</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawRects">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在当前渲染目标上绘制一些矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawRects</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">const</span> SDL_Rect * rects,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect: 表示要绘制的矩形的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构数组<br>count: 矩形的数量</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderDrawRectsF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectsF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectsF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderDrawRectsF"><a href="#SDL-RenderDrawRectsF" class="headerlink" title="SDL_RenderDrawRectsF"></a>SDL_RenderDrawRectsF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderDrawRectsF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以亚像素精度在当前渲染目标上绘制一定数量的矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderDrawRectsF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">const</span> SDL_FRect * rects,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect: 表示要绘制的矩形的<a href="/2024/01/10/SDL/Dictionary/SDL_FRect/" title="SDL_FRect">SDL_FRect</a>结构数组<br>count: 矩形的数量</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderFillRectF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRectF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderFillRectF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderFillRectF"><a href="#SDL-RenderFillRectF" class="headerlink" title="SDL_RenderFillRectF"></a>SDL_RenderFillRectF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderFillRectF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用绘图颜色填充当前渲染目标上的矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderFillRect</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> SDL_FRect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect: 表示要绘制的矩形的<a href="/2024/01/10/SDL/Dictionary/SDL_FRect/" title="SDL_FRect">SDL_FRect</a>结构数组</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderFillRect</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRect/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderFillRect/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderFillRect"><a href="#SDL-RenderFillRect" class="headerlink" title="SDL_RenderFillRect"></a>SDL_RenderFillRect</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderFillRect">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用绘图颜色填充当前渲染目标上的矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderFillRect</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> SDL_Rect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect: 表示要绘制的矩形的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构数组</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderFillRectsF</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRectsF/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderFillRectsF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderFillRectsF"><a href="#SDL-RenderFillRectsF" class="headerlink" title="SDL_RenderFillRectsF"></a>SDL_RenderFillRectsF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderFillRectsF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用亚像素精度的绘图颜色填充当前渲染目标上的一定数量的矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderFillRectsF</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">const</span> SDL_FRect * rects,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rects: 表示要绘制的矩形的<a href="/2024/01/10/SDL/Dictionary/SDL_FRect/" title="SDL_FRect">SDL_FRect</a>结构数组<br>count: 矩形的数量</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderFillRects</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRects/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderFillRects/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderFillRects"><a href="#SDL-RenderFillRects" class="headerlink" title="SDL_RenderFillRects"></a>SDL_RenderFillRects</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderFillRects">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用绘图颜色填充当前渲染目标上的一定数量的矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderFillRects</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">const</span> SDL_Rect * rects,</span></span><br><span class="hljs-params"><span class="hljs-function">                        <span class="hljs-type">int</span> count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rects: 表示要绘制的矩形的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构数组<br>count: 矩形的数量</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderFlush</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderFlush/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderFlush/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderFlush"><a href="#SDL-RenderFlush" class="headerlink" title="SDL_RenderFlush"></a>SDL_RenderFlush</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderFlush">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>强制渲染上下文将任何挂起的命令刷新到底层渲染 API。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderFlush</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGeometry</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGeometry/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGeometry/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGeometry"><a href="#SDL-RenderGeometry" class="headerlink" title="SDL_RenderGeometry"></a>SDL_RenderGeometry</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGeometry">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以渲染具有任意数量顶点的多边形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderGeometry</span><span class="hljs-params">(SDL_Renderer *renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       SDL_Texture *texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> SDL_Vertex *vertices, <span class="hljs-type">int</span> num_vertices,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> <span class="hljs-type">int</span> *indices, <span class="hljs-type">int</span> num_indices)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>texture： 要使用的 SDL 纹理<br>vertices： 顶点<a href="/2024/01/10/SDL/Dictionary/SDL_Vertex/" title="SDL_Vertex">SDL_Vertex</a><br>num_vertices：顶点数<br>indices： （可选）“顶点”数组中的整数索引数组，如果为 NULL，则所有顶点将按顺序渲染。<br>num_indices： 索引数量</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功则返回 0，如果不支持该操作则返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGeometryRaw</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGeometryRaw/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGeometryRaw/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGeometryRaw"><a href="#SDL-RenderGeometryRaw" class="headerlink" title="SDL_RenderGeometryRaw"></a>SDL_RenderGeometryRaw</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGeometryRaw">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以渲染具有任意数量顶点的多边形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderGeometryRaw</span><span class="hljs-params">(SDL_Renderer *renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       SDL_Texture *texture,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> <span class="hljs-type">float</span> *xy, <span class="hljs-type">int</span> xy_stride,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> SDL_Color *color, <span class="hljs-type">int</span> color_stride,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> <span class="hljs-type">float</span> *uv, <span class="hljs-type">int</span> uv_stride,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">int</span> num_vertices,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">const</span> <span class="hljs-type">void</span> *indices, <span class="hljs-type">int</span> num_indices, <span class="hljs-type">int</span> size_indices)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>texture： 要使用的 SDL 纹理<br>xy：顶点位置<br>xy_stride：从一个元素移动到下一个元素的字节大小<br>color：顶点颜色（如 <a href="/2024/01/05/SDL/Dictionary/SDL_Color/" title="SDL_Color">SDL_Color</a>）<br>color_stride：从一个元素移动到下一个元素的字节大小<br>uv：顶点归一化纹理坐标<br>uv_stride：从一个元素移动到下一个元素的字节大小<br>num_vertices：顶点数<br>indices：（可选）“顶点”数组的索引数组，如果为 NULL，则所有顶点将按顺序渲染。<br>num_indices：索引数量<br>size_indices：索引大小：1 (byte), 2 (short), 4 (int)</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功则返回 0，如果不支持该操作则返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetClipRect</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetClipRect/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetClipRect/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetClipRect"><a href="#SDL-RenderGetClipRect" class="headerlink" title="SDL_RenderGetClipRect"></a>SDL_RenderGetClipRect</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetClipRect">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取当前目标的剪辑矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RenderGetClipRect</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                           SDL_Rect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 应从中查询剪辑矩形的渲染上下文<br>rect：一个 <a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a> 结构，填充当前剪切区域或一个空矩形（如果禁用剪切）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetD3D12Device</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D12Device/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D12Device/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetD3D12Device"><a href="#SDL-RenderGetD3D12Device" class="headerlink" title="SDL_RenderGetD3D12Device"></a>SDL_RenderGetD3D12Device</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetD3D12Device">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取与渲染器关联的 D3D12 设备。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">ID3D12Device* <span class="hljs-title">SDL_RenderGetD3D12Device</span><span class="hljs-params">(SDL_Renderer* renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 从中获取关联 D3D12 设备的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回与给定渲染器关联的 D3D12 设备，如果不是 D3D12 渲染器，则返回 NULL。调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetD3D11Device</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D11Device/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D11Device/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetD3D11Device"><a href="#SDL-RenderGetD3D11Device" class="headerlink" title="SDL_RenderGetD3D11Device"></a>SDL_RenderGetD3D11Device</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetD3D11Device">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取与渲染器关联的 D3D11 设备。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">ID3D11Device* <span class="hljs-title">SDL_RenderGetD3D11Device</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 从中获取关联 D3D11 设备的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回与给定渲染器关联的 D3D11 设备，如果不是 D3D11 渲染器，则返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetD3D9Device</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D9Device/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D9Device/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetD3D9Device"><a href="#SDL-RenderGetD3D9Device" class="headerlink" title="SDL_RenderGetD3D9Device"></a>SDL_RenderGetD3D9Device</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetD3D9Device">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取与渲染器关联的 D3D9  设备。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">IDirect3DDevice9* <span class="hljs-title">SDL_RenderGetD3D9Device</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 从中获取关联 D3D9  设备的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回与给定渲染器关联的 D3D9  设备，如果不是 D3D9  渲染器，则返回 NULL。调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetLogicalSize</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetLogicalSize/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetLogicalSize/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetLogicalSize"><a href="#SDL-RenderGetLogicalSize" class="headerlink" title="SDL_RenderGetLogicalSize"></a>SDL_RenderGetLogicalSize</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetLogicalSize">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取与设备无关的渲染分辨率。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RenderGetLogicalSize</span><span class="hljs-params">(SDL_Renderer * renderer, <span class="hljs-type">int</span> *w, <span class="hljs-type">int</span> *h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>w: 宽度<br>h: 高度</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetIntegerScale</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetIntegerScale/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetIntegerScale/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetIntegerScale"><a href="#SDL-RenderGetIntegerScale" class="headerlink" title="SDL_RenderGetIntegerScale"></a>SDL_RenderGetIntegerScale</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetIntegerScale">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取是否强制使用整数比例进行与分辨率无关的渲染。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_RenderGetIntegerScale</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 查询整数缩放的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>果强制使用整数缩放，则返回 SDL_TRUE；如果未强制使用整数缩放且失败，则返回 SDL_FALSE；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetMetalCommandEncoder</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalCommandEncoder/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalCommandEncoder/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetMetalCommandEncoder"><a href="#SDL-RenderGetMetalCommandEncoder" class="headerlink" title="SDL_RenderGetMetalCommandEncoder"></a>SDL_RenderGetMetalCommandEncoder</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetMetalCommandEncoder">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取当前帧的 Metal 命令编码器</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span>* <span class="hljs-title">SDL_RenderGetMetalCommandEncoder</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 查询的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 id<MTLRenderCommandEncoder> ，如果渲染器不是 Metal 渲染器或出现错误，则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetMetalLayer</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalLayer/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalLayer/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetMetalLayer"><a href="#SDL-RenderGetMetalLayer" class="headerlink" title="SDL_RenderGetMetalLayer"></a>SDL_RenderGetMetalLayer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetMetalLayer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取与给定 Metal 渲染器关联的 CAMetalLayer。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span>* <span class="hljs-title">SDL_RenderGetMetalLayer</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 查询的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 CAMetalLayer * ，如果渲染器不是 Metal 渲染器则返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetScale</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetScale/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetScale/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetScale"><a href="#SDL-RenderGetScale" class="headerlink" title="SDL_RenderGetScale"></a>SDL_RenderGetScale</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetScale">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取当前目标的绘图比例。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RenderGetScale</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">float</span> *scaleX, <span class="hljs-type">float</span> *scaleY)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 查询绘图比例的渲染器<br>scaleX：指向水平缩放因子的指针<br>scaleY：指向垂直缩放因子填充的指针</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetViewport</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetViewport/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetViewport/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetViewport"><a href="#SDL-RenderGetViewport" class="headerlink" title="SDL_RenderGetViewport"></a>SDL_RenderGetViewport</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetViewport">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取当前目标的绘图区域。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RenderGetViewport</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                           SDL_Rect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect：当前绘图区域的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderGetWindow</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderGetWindow/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderGetWindow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderGetWindow"><a href="#SDL-RenderGetWindow" class="headerlink" title="SDL_RenderGetWindow"></a>SDL_RenderGetWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderGetWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取与渲染器关联的窗口。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Window * <span class="hljs-title">SDL_RenderGetWindow</span><span class="hljs-params">(SDL_Renderer *renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 查询的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回窗口，失败时返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderIsClipEnabled</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderIsClipEnabled/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderIsClipEnabled/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderIsClipEnabled"><a href="#SDL-RenderIsClipEnabled" class="headerlink" title="SDL_RenderIsClipEnabled"></a>SDL_RenderIsClipEnabled</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderIsClipEnabled">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>获取给定渲染器上是否启用了裁剪。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_RenderIsClipEnabled</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 查询剪辑状态的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果启用了裁剪，则返回 SDL_TRUE；如果未启用，则返回 SDL_FALSE；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderLogicalToWindow</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderLogicalToWindow/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderLogicalToWindow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderLogicalToWindow"><a href="#SDL-RenderLogicalToWindow" class="headerlink" title="SDL_RenderLogicalToWindow"></a>SDL_RenderLogicalToWindow</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderLogicalToWindow">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>当给定渲染器中点的逻辑坐标时，获取窗口中点的真实坐标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RenderLogicalToWindow</span><span class="hljs-params">(SDL_Renderer * renderer, </span></span><br><span class="hljs-params"><span class="hljs-function">                                    <span class="hljs-type">float</span> logicalX, <span class="hljs-type">float</span> logicalY,</span></span><br><span class="hljs-params"><span class="hljs-function">                                    <span class="hljs-type">int</span> *windowX, <span class="hljs-type">int</span> *windowY)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 窗口坐标的渲染器<br>logicalX：逻辑 x 坐标<br>logicalY：逻辑 y 坐标<br>windowX：窗口中真实的X坐标的指针<br>windowY：窗口中真实的Y坐标的指针</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderPresent</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderPresent/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderPresent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderPresent"><a href="#SDL-RenderPresent" class="headerlink" title="SDL_RenderPresent"></a>SDL_RenderPresent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderPresent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用自上次调用以来执行的任何渲染更新屏幕。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RenderPresent</span><span class="hljs-params">(SDL_Renderer * renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderReadPixels</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderReadPixels/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderReadPixels/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderReadPixels"><a href="#SDL-RenderReadPixels" class="headerlink" title="SDL_RenderReadPixels"></a>SDL_RenderReadPixels</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderReadPixels">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将像素从当前渲染目标读取到像素数组。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderReadPixels</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">const</span> SDL_Rect * rect,</span></span><br><span class="hljs-params"><span class="hljs-function">                         Uint32 format,</span></span><br><span class="hljs-params"><span class="hljs-function">                         <span class="hljs-type">void</span> *pixels, <span class="hljs-type">int</span> pitch)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect：表示要读取的区域的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构，或者对于整个渲染目标为 NULL<br>format：所需像素数据格式的<a href="/2024/01/10/SDL/Dictionary/SDL_PixelFormatEnum/" title="SDL_PixelFormatEnum">SDL_PixelFormatEnum</a>值，或 0 以使用渲染目标的格式<br>pixels：指向要复制到的像素数据的指针<br>pitch：像素间距参数</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderSetClipRect</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderSetClipRect/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderSetClipRect/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderSetClipRect"><a href="#SDL-RenderSetClipRect" class="headerlink" title="SDL_RenderSetClipRect"></a>SDL_RenderSetClipRect</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderSetClipRect">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置用于在指定目标上渲染的剪辑矩形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderSetClipRect</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                          <span class="hljs-type">const</span> SDL_Rect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 应设置剪辑矩形的渲染上下文<br>rect：相对于视口的剪辑区域的 SDL_Rect 结构，或 NULL 以禁用剪辑</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderSetIntegerScale</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderSetIntegerScale/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderSetIntegerScale/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderSetIntegerScale"><a href="#SDL-RenderSetIntegerScale" class="headerlink" title="SDL_RenderSetIntegerScale"></a>SDL_RenderSetIntegerScale</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderSetIntegerScale">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置是否强制使用整数比例进行与分辨率无关的渲染。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderSetIntegerScale</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                              SDL_bool enable)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 应设置整数缩放的渲染器<br>enable： 启用或禁用渲染的整数缩放</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderSetLogicalSize</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderSetLogicalSize/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderSetLogicalSize/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderSetLogicalSize"><a href="#SDL-RenderSetLogicalSize" class="headerlink" title="SDL_RenderSetLogicalSize"></a>SDL_RenderSetLogicalSize</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderSetLogicalSize">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置与设备无关的渲染分辨率。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderSetLogicalSize</span><span class="hljs-params">(SDL_Renderer * renderer, <span class="hljs-type">int</span> w, <span class="hljs-type">int</span> h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 应设置分辨率的渲染器<br>w: 逻辑分辨率的宽度<br>h: 逻辑分辨率的高度</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderSetScale</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderSetScale/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderSetScale/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderSetScale"><a href="#SDL-RenderSetScale" class="headerlink" title="SDL_RenderSetScale"></a>SDL_RenderSetScale</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderSetScale">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置当前目标上渲染的绘图比例。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderSetScale</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">float</span> scaleX, <span class="hljs-type">float</span> scaleY)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>scaleX: 水平缩放因子<br>scaleY: 垂直缩放因子</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderSetVSync</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderSetVSync/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderSetVSync/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderSetVSync"><a href="#SDL-RenderSetVSync" class="headerlink" title="SDL_RenderSetVSync"></a>SDL_RenderSetVSync</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderSetVSync">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>切换给定渲染器的垂直同步。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderSetVSync</span><span class="hljs-params">(SDL_Renderer* renderer, <span class="hljs-type">int</span> vsync)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 要切换的渲染器<br>vsync: 1 为开，0 为关。所有其他值均保留</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0 int，失败时返回非零</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderTargetSupported</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderTargetSupported/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderTargetSupported/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderTargetSupported"><a href="#SDL-RenderTargetSupported" class="headerlink" title="SDL_RenderTargetSupported"></a>SDL_RenderTargetSupported</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderTargetSupported">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>确定渲染器是否支持使用渲染目标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_RenderTargetSupported</span><span class="hljs-params">(SDL_Renderer *renderer)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 将要检查的渲染器</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果支持则返回 SDL_TRUE，如果不支持则返回 SDL_FALSE。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderSetViewport</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderSetViewport/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderSetViewport/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderSetViewport"><a href="#SDL-RenderSetViewport" class="headerlink" title="SDL_RenderSetViewport"></a>SDL_RenderSetViewport</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderSetViewport">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置在当前目标上渲染的绘图区域。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_RenderSetViewport</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                          <span class="hljs-type">const</span> SDL_Rect * rect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>rect: 表示绘图区域的<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a>结构，或 NULL 将视口设置为整个目标</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RenderWindowToLogical</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RenderWindowToLogical/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RenderWindowToLogical/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RenderWindowToLogical"><a href="#SDL-RenderWindowToLogical" class="headerlink" title="SDL_RenderWindowToLogical"></a>SDL_RenderWindowToLogical</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RenderWindowToLogical">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>当给定窗口中点的实际坐标时，获取渲染器中点的逻辑坐标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_RenderWindowToLogical</span><span class="hljs-params">(SDL_Renderer * renderer, </span></span><br><span class="hljs-params"><span class="hljs-function">                                    <span class="hljs-type">int</span> windowX, <span class="hljs-type">int</span> windowY, </span></span><br><span class="hljs-params"><span class="hljs-function">                                    <span class="hljs-type">float</span> *logicalX, <span class="hljs-type">float</span> *logicalY)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 计算逻辑坐标的渲染器<br>windowX:窗口中真实的X坐标<br>windowY:窗口中真实的Y坐标<br>logicalX:逻辑 x 坐标的指针<br>logicalY:逻辑 y 坐标的指针</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果支持则返回 SDL_TRUE，如果不支持则返回 SDL_FALSE。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Renderer</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_Renderer/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_Renderer/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Renderer"><a href="#SDL-Renderer" class="headerlink" title="SDL_Renderer"></a>SDL_Renderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Renderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含渲染状态的结构。</p><h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><a href="/2024/01/10/SDL/Dictionary/SDL_CreateRenderer/" title="SDL_CreateRenderer">SDL_CreateRenderer</a><a href="/2024/01/10/SDL/Dictionary/SDL_CreateSoftwareRenderer/" title="SDL_CreateSoftwareRenderer">SDL_CreateSoftwareRenderer</a><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTexture/" title="SDL_CreateTexture">SDL_CreateTexture</a><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTextureFromSurface/" title="SDL_CreateTextureFromSurface">SDL_CreateTextureFromSurface</a><a href="/2024/01/10/SDL/Dictionary/SDL_CreateWindowAndRenderer/" title="SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer</a><a href="/2024/01/10/SDL/Dictionary/SDL_DestroyRenderer/" title="SDL_DestroyRenderer">SDL_DestroyRenderer</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawBlendMode/" title="SDL_GetRenderDrawBlendMode">SDL_GetRenderDrawBlendMode</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawColor/" title="SDL_GetRenderDrawColor">SDL_GetRenderDrawColor</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetRendererInfo/" title="SDL_GetRendererInfo">SDL_GetRendererInfo</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetRendererOutputSize/" title="SDL_GetRendererOutputSize">SDL_GetRendererOutputSize</a><a href="/2024/01/10/SDL/Dictionary/SDL_GetRenderTarget/" title="SDL_GetRenderTarget">SDL_GetRenderTarget</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderClear/" title="SDL_RenderClear">SDL_RenderClear</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopy/" title="SDL_RenderCopy">SDL_RenderCopy</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyEx/" title="SDL_RenderCopyEx">SDL_RenderCopyEx</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyExF/" title="SDL_RenderCopyExF">SDL_RenderCopyExF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyF/" title="SDL_RenderCopyF">SDL_RenderCopyF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLine/" title="SDL_RenderDrawLine">SDL_RenderDrawLine</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLineF/" title="SDL_RenderDrawLineF">SDL_RenderDrawLineF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLines/" title="SDL_RenderDrawLines">SDL_RenderDrawLines</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLinesF/" title="SDL_RenderDrawLinesF">SDL_RenderDrawLinesF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoint/" title="SDL_RenderDrawPoint">SDL_RenderDrawPoint</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointF/" title="SDL_RenderDrawPointF">SDL_RenderDrawPointF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoints/" title="SDL_RenderDrawPoints">SDL_RenderDrawPoints</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointsF/" title="SDL_RenderDrawPointsF">SDL_RenderDrawPointsF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRect/" title="SDL_RenderDrawRect">SDL_RenderDrawRect</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectF/" title="SDL_RenderDrawRectF">SDL_RenderDrawRectF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRects/" title="SDL_RenderDrawRects">SDL_RenderDrawRects</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectsF/" title="SDL_RenderDrawRectsF">SDL_RenderDrawRectsF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRect/" title="SDL_RenderFillRect">SDL_RenderFillRect</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRectF/" title="SDL_RenderFillRectF">SDL_RenderFillRectF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRects/" title="SDL_RenderFillRects">SDL_RenderFillRects</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRectsF/" title="SDL_RenderFillRectsF">SDL_RenderFillRectsF</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFlush/" title="SDL_RenderFlush">SDL_RenderFlush</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGeometry/" title="SDL_RenderGeometry">SDL_RenderGeometry</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGeometryRaw/" title="SDL_RenderGeometryRaw">SDL_RenderGeometryRaw</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetClipRect/" title="SDL_RenderGetClipRect">SDL_RenderGetClipRect</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D11Device/" title="SDL_RenderGetD3D11Device">SDL_RenderGetD3D11Device</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D12Device/" title="SDL_RenderGetD3D12Device">SDL_RenderGetD3D12Device</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D9Device/" title="SDL_RenderGetD3D9Device">SDL_RenderGetD3D9Device</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetIntegerScale/" title="SDL_RenderGetIntegerScale">SDL_RenderGetIntegerScale</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetLogicalSize/" title="SDL_RenderGetLogicalSize">SDL_RenderGetLogicalSize</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalCommandEncoder/" title="SDL_RenderGetMetalCommandEncoder">SDL_RenderGetMetalCommandEncoder</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalLayer/" title="SDL_RenderGetMetalLayer">SDL_RenderGetMetalLayer</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetScale/" title="SDL_RenderGetScale">SDL_RenderGetScale</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetViewport/" title="SDL_RenderGetViewport">SDL_RenderGetViewport</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetWindow/" title="SDL_RenderGetWindow">SDL_RenderGetWindow</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderIsClipEnabled/" title="SDL_RenderIsClipEnabled">SDL_RenderIsClipEnabled</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderLogicalToWindow/" title="SDL_RenderLogicalToWindow">SDL_RenderLogicalToWindow</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderPresent/" title="SDL_RenderPresent">SDL_RenderPresent</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderReadPixels/" title="SDL_RenderReadPixels">SDL_RenderReadPixels</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetClipRect/" title="SDL_RenderSetClipRect">SDL_RenderSetClipRect</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetIntegerScale/" title="SDL_RenderSetIntegerScale">SDL_RenderSetIntegerScale</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetLogicalSize/" title="SDL_RenderSetLogicalSize">SDL_RenderSetLogicalSize</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetScale/" title="SDL_RenderSetScale">SDL_RenderSetScale</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetViewport/" title="SDL_RenderSetViewport">SDL_RenderSetViewport</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetVSync/" title="SDL_RenderSetVSync">SDL_RenderSetVSync</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderTargetSupported/" title="SDL_RenderTargetSupported">SDL_RenderTargetSupported</a><a href="/2024/01/10/SDL/Dictionary/SDL_RenderWindowToLogical/" title="SDL_RenderWindowToLogical">SDL_RenderWindowToLogical</a><a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawBlendMode/" title="SDL_SetRenderDrawBlendMode">SDL_SetRenderDrawBlendMode</a><a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawColor/" title="SDL_SetRenderDrawColor">SDL_SetRenderDrawColor</a><a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderTarget/" title="SDL_SetRenderTarget">SDL_SetRenderTarget</a>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RendererFlags</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RendererFlags/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RendererFlags/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RendererFlags"><a href="#SDL-RendererFlags" class="headerlink" title="SDL_RendererFlags"></a>SDL_RendererFlags</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RendererFlags">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>创建渲染上下文时使用的标志枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>SDL_RENDERER_SOFTWARE： 软件渲染<br>SDL_RENDERER_ACCELERATED： 硬件加速渲染<br>SDL_RENDERER_PRESENTVSYNC：与显示器同步<br>SDL_RENDERER_TARGETTEXTURE：渲染到材质</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RendererFlip</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RendererFlip/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RendererFlip/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RendererFlip"><a href="#SDL-RendererFlip" class="headerlink" title="SDL_RendererFlip"></a>SDL_RendererFlip</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RendererFlip">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可在 SDL_RenderCopyEx 的翻转参数中使用的标志枚举。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>SDL_FLIP_NONE： 不要翻转<br>SDL_FLIP_HORIZONTAL： 水平翻转<br>SDL_FLIP_VERTICAL： 垂直翻转</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RendererInfo</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_RendererInfo/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_RendererInfo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RendererInfo"><a href="#SDL-RendererInfo" class="headerlink" title="SDL_RendererInfo"></a>SDL_RendererInfo</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RendererInfo">Click to jump</a></p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>const char* name: 渲染器的名称<br>Uint32 flags: 支持的渲染器标志的掩码<br>Uint32 num_texture_formats: 可用纹理格式的数量<br>Uint32[16] texture_formats: 可用的纹理格式<br>int max_texture_width: 最大纹理宽度<br>int max_texture_height: 最大纹理高度</p><h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><p>带填充</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetRenderDrawBlendMode</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawBlendMode/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawBlendMode/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetRenderDrawBlendMode"><a href="#SDL-SetRenderDrawBlendMode" class="headerlink" title="SDL_SetRenderDrawBlendMode"></a>SDL_SetRenderDrawBlendMode</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetRenderDrawBlendMode">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置用于绘图操作的混合模式（填充和线条）。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetRenderDrawBlendMode</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                               SDL_BlendMode blendMode)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>blendMode: 用于混合的<a href="/2024/01/10/SDL/Dictionary/SDL_BlendMode/" title="SDL_BlendMode">SDL_BlendMode</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetRenderDrawColor</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawColor/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawColor/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetRenderDrawColor"><a href="#SDL-SetRenderDrawColor" class="headerlink" title="SDL_SetRenderDrawColor"></a>SDL_SetRenderDrawColor</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetRenderDrawColor">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置用于绘图操作的颜色（矩形、线条和清除）。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetRenderDrawColor</span><span class="hljs-params">(SDL_Renderer * renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                   Uint8 r, Uint8 g, Uint8 b,</span></span><br><span class="hljs-params"><span class="hljs-function">                   Uint8 a)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>r:用于在渲染目标上绘制的红色值<br>g:用于在渲染目标上绘制的绿色值<br>b:用于在渲染目标上绘制的蓝色值<br>a:用于在渲染目标上绘制的 alpha 值</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetRenderTarget</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_SetRenderTarget/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_SetRenderTarget/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetRenderTarget"><a href="#SDL-SetRenderTarget" class="headerlink" title="SDL_SetRenderTarget"></a>SDL_SetRenderTarget</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetRenderTarget">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将纹理设置为当前渲染目标。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetRenderTarget</span><span class="hljs-params">(SDL_Renderer *renderer,</span></span><br><span class="hljs-params"><span class="hljs-function">                        SDL_Texture *texture)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer: 渲染上下文<br>texture： 目标纹理，必须使用 SDL_TEXTUREACCESS_TARGET 标志创建，或者使用 NULL 来渲染到窗口而不是纹理。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Renderer</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_Texture/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_Texture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Renderer"><a href="#SDL-Renderer" class="headerlink" title="SDL_Renderer"></a>SDL_Renderer</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Renderer">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>包含渲染状态的结构。</p><h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><ol><li>Uint32 flags: 内部使用</li><li>SDL_PixelFormat* format: 关于SDL_PixelFormat的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_PixelFormat/" title="SDL_PixelFormat">SDL_PixelFormat</a></li><li>int w,h: 以像素为单位的宽度和高度（只读）</li><li>int pitch: 一行像素的长度（以字节为单位）（只读）</li><li>void* pixels: 指向实际像素数据的指针</li><li>void* userdata: 您可以设置任意指针（读写）</li><li>int locked: 用于需要锁定的surface（内部使用）</li><li>void* lock_data: 用于需要锁定的surface（内部使用）</li><li>SDL_Rect clip_rect: 关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></li><li>SDL_BlitMap* map: 用于快速位块映射到其他surface的信息（内部使用）</li><li>int refcount: 可以由应用程序增加的引用计数</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_TextureAccess</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_TextureAccess/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_TextureAccess/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-TextureAccess"><a href="#SDL-TextureAccess" class="headerlink" title="SDL_TextureAccess"></a>SDL_TextureAccess</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_TextureAccess">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>纹理访问模式的枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>SDL_TEXTUREACCESS_STATIC：很少改变，不可锁定<br>SDL_TEXTUREACCESS_STREAMING：经常更改，可锁定<br>SDL_TEXTUREACCESS_TARGET：可以用作渲染目标</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_Vertex</title>
+    <link href="/2024/01/10/SDL/Dictionary/SDL_Vertex/"/>
+    <url>/2024/01/10/SDL/Dictionary/SDL_Vertex/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-Vertex"><a href="#SDL-Vertex" class="headerlink" title="SDL_Vertex"></a>SDL_Vertex</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Vertex">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>顶点结构</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><a href="/2024/01/10/SDL/Dictionary/SDL_FPoint/" title="SDL_FPoint">SDL_FPoint</a> position： 顶点位置，以<a href="/2024/01/10/SDL/Dictionary/SDL_Renderer/" title="SDL_Renderer">SDL_Renderer</a>坐标表示<a href="/2024/01/05/SDL/Dictionary/SDL_Color/" title="SDL_Color">SDL_Color</a> color：顶点颜色<a href="/2024/01/10/SDL/Dictionary/SDL_FPoint/" title="SDL_FPoint">SDL_FPoint</a> tex_coord： 标准化纹理坐标（如果需要）（范围从 0 到 1，即对于 64x64px 纹理，从 32x32px 开始将输入为 0.5,0,5）]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode-Day17</title>
     <link href="/2024/01/08/LeetCode/LeetCode-20240108/"/>
     <url>/2024/01/08/LeetCode/LeetCode-20240108/</url>
@@ -1026,7 +2997,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_BlitSurface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_BlitSurface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-BlitSurface"><a href="#SDL-BlitSurface" class="headerlink" title="SDL_BlitSurface"></a>SDL_BlitSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_BlitSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用此功能可以将屏幕快速复制到目标屏幕。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_BlitSurface</span><span class="hljs-params">(SDL_Surface* src, <span class="hljs-type">const</span> SDL_Rect* srcrect, SDL_Surface* dst,SDL_Rect*dstrect)</span></span><br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 要从中复制的 SDL_Surface 结构<br>srcrect: 表示要复制的矩形的 SDL_Rect 结构，或 NULL 来复制整个屏幕<br>dst: 作为 blit 目标的 SDL_Surface 结构<br>dstrect: 表示复制到的矩形的 SDL_Rect 结构</p><p>关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a><br>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果 blit 成功，则返回 0；如果失败，则返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-BlitSurface"><a href="#SDL-BlitSurface" class="headerlink" title="SDL_BlitSurface"></a>SDL_BlitSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_BlitSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用此功能可以将surface快速复制到目标surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_BlitSurface</span><span class="hljs-params">(SDL_Surface* src, <span class="hljs-type">const</span> SDL_Rect* srcrect, SDL_Surface* dst,SDL_Rect*dstrect)</span></span><br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 要从中复制的 SDL_Surface 结构<br>srcrect: 表示要复制的矩形的 SDL_Rect 结构，或 NULL 来复制整个屏幕<br>dst: 作为 blit 目标的 SDL_Surface 结构<br>dstrect: 表示复制到的矩形的 SDL_Rect 结构</p><p>关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a><br>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果 blit 成功，则返回 0；如果失败，则返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1134,7 +3105,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_CreateRGBSurfaceFrom/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_CreateRGBSurfaceFrom/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-CreateRGBSurfaceFrom"><a href="#SDL-CreateRGBSurfaceFrom" class="headerlink" title="SDL_CreateRGBSurfaceFrom"></a>SDL_CreateRGBSurfaceFrom</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateRGBSurfaceFrom">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用现有像素数据分配一个新的 RGB 屏幕。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface* <span class="hljs-title">SDL_CreateRGBSurfaceFrom</span><span class="hljs-params">(<span class="hljs-type">void</span> *pixels,<span class="hljs-type">int</span> width,<span class="hljs-type">int</span> height,<span class="hljs-type">int</span> depth,<span class="hljs-type">int</span> pitch,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>pixels:指向现有像素数据的指针<br>width:屏幕宽度<br>heigth:屏幕的高度<br>depth:屏幕的深度<br>pitch:屏幕的间距<br>Rmask:像素的红色掩码<br>Gmask:像素的绿色掩码<br>Bmask:像素的蓝色掩码<br>Amask:像素的阿尔法掩码</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回创建的新SDL_Surface结构，如果失败则返回NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-CreateRGBSurfaceFrom"><a href="#SDL-CreateRGBSurfaceFrom" class="headerlink" title="SDL_CreateRGBSurfaceFrom"></a>SDL_CreateRGBSurfaceFrom</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateRGBSurfaceFrom">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用现有像素数据分配一个新的 RGB surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface* <span class="hljs-title">SDL_CreateRGBSurfaceFrom</span><span class="hljs-params">(<span class="hljs-type">void</span> *pixels,<span class="hljs-type">int</span> width,<span class="hljs-type">int</span> height,<span class="hljs-type">int</span> depth,<span class="hljs-type">int</span> pitch,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>pixels:指向现有像素数据的指针<br>width:surface宽度<br>heigth:surface的高度<br>depth:surface的深度<br>pitch:surface的间距<br>Rmask:像素的红色掩码<br>Gmask:像素的绿色掩码<br>Bmask:像素的蓝色掩码<br>Amask:像素的阿尔法掩码</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回创建的新SDL_Surface结构，如果失败则返回NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1161,7 +3132,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_CreateRGBSurface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_CreateRGBSurface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-CreateRGBSurface"><a href="#SDL-CreateRGBSurface" class="headerlink" title="SDL_CreateRGBSurface"></a>SDL_CreateRGBSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateRGBSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>分配一个新的 RGB 屏幕。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface* <span class="hljs-title">SDL_CreateRGBSurface</span><span class="hljs-params">(Uint32 flags, <span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>flags:标志未使用，应设置为 0<br>width:屏幕宽度<br>heigth:屏幕的高度<br>depth:屏幕的深度<br>Rmask:像素的红色掩码<br>Gmask:像素的绿色掩码<br>Bmask:像素的蓝色掩码<br>Amask:像素的阿尔法掩码</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回创建的新SDL_Surface结构，如果失败则返回NULL；调用 SDL_GetError() 获取更多信息</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-CreateRGBSurface"><a href="#SDL-CreateRGBSurface" class="headerlink" title="SDL_CreateRGBSurface"></a>SDL_CreateRGBSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_CreateRGBSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>分配一个新的 RGB surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface* <span class="hljs-title">SDL_CreateRGBSurface</span><span class="hljs-params">(Uint32 flags, <span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>flags:标志未使用，应设置为 0<br>width:屏幕宽度<br>heigth:屏幕的高度<br>depth:屏幕的深度<br>Rmask:像素的红色掩码<br>Gmask:像素的绿色掩码<br>Bmask:像素的蓝色掩码<br>Amask:像素的阿尔法掩码</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回创建的新SDL_Surface结构，如果失败则返回NULL；调用 SDL_GetError() 获取更多信息</p>]]></content>
     
     
     <categories>
@@ -1188,7 +3159,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_FreeSurface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_FreeSurface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-FreeSurface"><a href="#SDL-FreeSurface" class="headerlink" title="SDL_FreeSurface"></a>SDL_FreeSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_FreeSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>释放 RGB 屏幕</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_FreeSurface</span><span class="hljs-params">(SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：需要释放的SDL_Surface</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-FreeSurface"><a href="#SDL-FreeSurface" class="headerlink" title="SDL_FreeSurface"></a>SDL_FreeSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_FreeSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>释放 RGB surface</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_FreeSurface</span><span class="hljs-params">(SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：需要释放的SDL_Surface</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
     
     
     <categories>
@@ -1350,7 +3321,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_LoadBMP_RW/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_LoadBMP_RW/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-LoadBMP-RW"><a href="#SDL-LoadBMP-RW" class="headerlink" title="SDL_LoadBMP_RW"></a>SDL_LoadBMP_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_LoadBMP_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从可查找的 SDL 数据流加载 BMP 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface* <span class="hljs-title">SDL_LoadBMP_RW</span><span class="hljs-params">(SDL_RWops * src,<span class="hljs-type">int</span> freesrc)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：屏幕的数据流<br>freesrc：非零， 在读取后关闭流</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回指向新 SDL_Surface 结构的指针，如果出现错误，则返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-LoadBMP-RW"><a href="#SDL-LoadBMP-RW" class="headerlink" title="SDL_LoadBMP_RW"></a>SDL_LoadBMP_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_LoadBMP_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从可查找的 SDL 数据流加载 BMP 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface* <span class="hljs-title">SDL_LoadBMP_RW</span><span class="hljs-params">(SDL_RWops * src,<span class="hljs-type">int</span> freesrc)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：surface的数据流<br>freesrc：非零， 在读取后关闭流</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回指向新 SDL_Surface 结构的指针，如果出现错误，则返回 NULL；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1377,7 +3348,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_LockSurface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_LockSurface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-LockSurface"><a href="#SDL-LockSurface" class="headerlink" title="SDL_LockSurface"></a>SDL_LockSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_LockSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置直接访问像素的屏幕。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_LockSurface</span><span class="hljs-params">(SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要锁定的SDL_Surface结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-LockSurface"><a href="#SDL-LockSurface" class="headerlink" title="SDL_LockSurface"></a>SDL_LockSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_LockSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置直接访问像素的surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_LockSurface</span><span class="hljs-params">(SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要锁定的SDL_Surface结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1404,7 +3375,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_LowerBlit/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_LowerBlit/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-LowerBlit"><a href="#SDL-LowerBlit" class="headerlink" title="SDL_LowerBlit"></a>SDL_LowerBlit</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_LowerBlit">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>仅执行低级屏幕位块传送。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_LowerBlit</span><span class="hljs-params">(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：要从中复制的 SDL_Surface 结构<br>srcrect：表示要复制的矩形的 SDL_Rect 结构，或 NULL 来复制整个屏幕<br>dst：作为 blit 目标的 SDL_Surface 结构<br>dstrect：表示复制到的矩形的 SDL_Rect 结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a><br>关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-LowerBlit"><a href="#SDL-LowerBlit" class="headerlink" title="SDL_LowerBlit"></a>SDL_LowerBlit</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_LowerBlit">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>仅执行低级surface位块传送。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_LowerBlit</span><span class="hljs-params">(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：要从中复制的 SDL_Surface 结构<br>srcrect：表示要复制的矩形的 SDL_Rect 结构，或 NULL 来复制整个surface<br>dst：作为 blit 目标的 SDL_Surface 结构<br>dstrect：表示复制到的矩形的 SDL_Rect 结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a><br>关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1512,7 +3483,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_MUSTLOCK/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_MUSTLOCK/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-MUSTLOCK"><a href="#SDL-MUSTLOCK" class="headerlink" title="SDL_MUSTLOCK"></a>SDL_MUSTLOCK</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MUSTLOCK">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用此函数可以确定是否必须锁定屏幕才能进行访问。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_MUSTLOCK</span><span class="hljs-params">(SDL_Surface* surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface: 要查询的 SDL_Surface 结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果必须锁定表面才能访问，则返回 SDL_TRUE，否则返回 SDL_FALSE。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-MUSTLOCK"><a href="#SDL-MUSTLOCK" class="headerlink" title="SDL_MUSTLOCK"></a>SDL_MUSTLOCK</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_MUSTLOCK">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用此函数可以确定是否必须锁定surface才能进行访问。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_MUSTLOCK</span><span class="hljs-params">(SDL_Surface* surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface: 要查询的 SDL_Surface 结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果必须锁定表面才能访问，则返回 SDL_TRUE，否则返回 SDL_FALSE。</p>]]></content>
     
     
     <categories>
@@ -1701,7 +3672,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_SetSurfaceColorMod/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_SetSurfaceColorMod/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-SetSurfaceColorMod"><a href="#SDL-SetSurfaceColorMod" class="headerlink" title="SDL_SetSurfaceColorMod"></a>SDL_SetSurfaceColorMod</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetSurfaceColorMod">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置一个额外的颜色值乘以 blit 操作。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetSurfaceColorMod</span><span class="hljs-params">(SDL_Surface * surface,Uint8 r, Uint8 g, Uint8 b)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：表示要剪切的屏幕的 SDL_Surface 结构<br>r: 用当前红色值填充的指针<br>g: 用当前绿色值填充的指针<br>b: 用当前蓝色值填充的指针</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-SetSurfaceColorMod"><a href="#SDL-SetSurfaceColorMod" class="headerlink" title="SDL_SetSurfaceColorMod"></a>SDL_SetSurfaceColorMod</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetSurfaceColorMod">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置一个额外的颜色值乘以 blit 操作。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetSurfaceColorMod</span><span class="hljs-params">(SDL_Surface * surface,Uint8 r, Uint8 g, Uint8 b)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：表示要剪切的surface的 SDL_Surface 结构<br>r: 用当前红色值填充的指针<br>g: 用当前绿色值填充的指针<br>b: 用当前蓝色值填充的指针</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1728,7 +3699,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_SetSurfacePalette/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_SetSurfacePalette/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-SetSurfacePalette"><a href="#SDL-SetSurfacePalette" class="headerlink" title="SDL_SetSurfacePalette"></a>SDL_SetSurfacePalette</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetSurfacePalette">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置屏幕使用的调色板。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetSurfacePalette</span><span class="hljs-params">(SDL_Surface * surface,SDL_Palette * palette)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要更新的 SDL_Surface 结构<br>palette: 要使用的 SDL_Palette 结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a><br>关于SDL_Palette的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Palette/" title="SDL_Palette">SDL_Palette</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-SetSurfacePalette"><a href="#SDL-SetSurfacePalette" class="headerlink" title="SDL_SetSurfacePalette"></a>SDL_SetSurfacePalette</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetSurfacePalette">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置surface使用的调色板。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetSurfacePalette</span><span class="hljs-params">(SDL_Surface * surface,SDL_Palette * palette)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要更新的 SDL_Surface 结构<br>palette: 要使用的 SDL_Palette 结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a><br>关于SDL_Palette的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Palette/" title="SDL_Palette">SDL_Palette</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1755,7 +3726,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_SetSurfaceRLE/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_SetSurfaceRLE/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-SetSurfaceRLE"><a href="#SDL-SetSurfaceRLE" class="headerlink" title="SDL_SetSurfaceRLE"></a>SDL_SetSurfaceRLE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetSurfaceRLE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置屏幕的 RLE 加速提示。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetSurfaceRLE</span><span class="hljs-params">(SDL_Surface * surface,<span class="hljs-type">int</span> flag)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要优化的 SDL_Surface 结构<br>flag: 0 禁用，非零启用 RLE 加速</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-SetSurfaceRLE"><a href="#SDL-SetSurfaceRLE" class="headerlink" title="SDL_SetSurfaceRLE"></a>SDL_SetSurfaceRLE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetSurfaceRLE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置surface的 RLE 加速提示。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SetSurfaceRLE</span><span class="hljs-params">(SDL_Surface * surface,<span class="hljs-type">int</span> flag)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要优化的 SDL_Surface 结构<br>flag: 0 禁用，非零启用 RLE 加速</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -1782,7 +3753,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_SoftStretch/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_SoftStretch/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-SoftStretch"><a href="#SDL-SoftStretch" class="headerlink" title="SDL_SoftStretch"></a>SDL_SoftStretch</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SoftStretch">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在相同格式的两个屏幕之间执行快速、低质量的拉伸位块传输。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SoftStretch</span><span class="hljs-params">(SDL_Surface * src,<span class="hljs-type">const</span> SDL_Rect * srcrect,SDL_Surface * dst,<span class="hljs-type">const</span> SDL_Rect * dstrect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：表示要剪切的屏幕的 SDL_Surface 结构<br>r: 用当前红色值填充的指针<br>g: 用当前绿色值填充的指针<br>b: 用当前蓝色值填充的指针</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-SoftStretch"><a href="#SDL-SoftStretch" class="headerlink" title="SDL_SoftStretch"></a>SDL_SoftStretch</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SoftStretch">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在相同格式的两个surface之间执行快速、低质量的拉伸位块传输。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_SoftStretch</span><span class="hljs-params">(SDL_Surface * src,<span class="hljs-type">const</span> SDL_Rect * srcrect,SDL_Surface * dst,<span class="hljs-type">const</span> SDL_Rect * dstrect)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：表示要剪切的surface的 SDL_Surface 结构<br>r: 用当前红色值填充的指针<br>g: 用当前绿色值填充的指针<br>b: 用当前蓝色值填充的指针</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
     
     
     <categories>
@@ -1809,7 +3780,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_Surface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_Surface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-Surface"><a href="#SDL-Surface" class="headerlink" title="SDL_Surface"></a>SDL_Surface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Surface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>一个结构包含了一系列像素集合，并且会用在软件位块传输中</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ol><li>Uint32 flags: 内部使用</li><li>SDL_PixelFormat* format: 关于SDL_PixelFormat的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_PixelFormat/" title="SDL_PixelFormat">SDL_PixelFormat</a></li><li>int w,h: 以像素为单位的宽度和高度（只读）</li><li>int pitch: 一行像素的长度（以字节为单位）（只读）</li><li>void* pixels: 指向实际像素数据的指针</li><li>void* userdata: 您可以设置任意指针（读写）</li><li>int locked: 用于需要锁定的屏幕（内部使用）</li><li>void* lock_data: 用于需要锁定的屏幕（内部使用）</li><li>SDL_Rect clip_rect: 关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></li><li>SDL_BlitMap* map: 用于快速位块映射到其他屏幕的信息（内部使用）</li><li>int refcount: 可以由应用程序增加的引用计数</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-Surface"><a href="#SDL-Surface" class="headerlink" title="SDL_Surface"></a>SDL_Surface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_Surface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>一个结构包含了一系列像素集合，并且会用在软件位块传输中</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ol><li>Uint32 flags: 内部使用</li><li>SDL_PixelFormat* format: 关于SDL_PixelFormat的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_PixelFormat/" title="SDL_PixelFormat">SDL_PixelFormat</a></li><li>int w,h: 以像素为单位的宽度和高度（只读）</li><li>int pitch: 一行像素的长度（以字节为单位）（只读）</li><li>void* pixels: 指向实际像素数据的指针</li><li>void* userdata: 您可以设置任意指针（读写）</li><li>int locked: 用于需要锁定的surface（内部使用）</li><li>void* lock_data: 用于需要锁定的surface（内部使用）</li><li>SDL_Rect clip_rect: 关于SDL_Rect的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Rect/" title="SDL_Rect">SDL_Rect</a></li><li>SDL_BlitMap* map: 用于快速位块映射到其他surface的信息（内部使用）</li><li>int refcount: 可以由应用程序增加的引用计数</li></ol>]]></content>
     
     
     <categories>
@@ -1836,7 +3807,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_UnlockSurface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_UnlockSurface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-UnlockSurface"><a href="#SDL-UnlockSurface" class="headerlink" title="SDL_UnlockSurface"></a>SDL_UnlockSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UnlockSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接访问像素后释放屏幕。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_UnlockSurface</span><span class="hljs-params">(SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：待解锁的SDL_Surface结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-UnlockSurface"><a href="#SDL-UnlockSurface" class="headerlink" title="SDL_UnlockSurface"></a>SDL_UnlockSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UnlockSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接访问像素后释放surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_UnlockSurface</span><span class="hljs-params">(SDL_Surface * surface)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：待解锁的SDL_Surface结构</p><p>关于SDL_Surface的描述可参考<a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
     
     
     <categories>
@@ -2052,7 +4023,7 @@
     <link href="/2024/01/05/SDL/Dictionary/SDL_UpdateWindowSurface/"/>
     <url>/2024/01/05/SDL/Dictionary/SDL_UpdateWindowSurface/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-UpdateWindowSurface"><a href="#SDL-UpdateWindowSurface" class="headerlink" title="SDL_UpdateWindowSurface"></a>SDL_UpdateWindowSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UpdateWindowSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将窗口surface复制到屏幕上。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_UpdateWindowSurface</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window：需要更新的窗口</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-UpdateWindowSurface"><a href="#SDL-UpdateWindowSurface" class="headerlink" title="SDL_UpdateWindowSurface"></a>SDL_UpdateWindowSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UpdateWindowSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将窗口surface复制到surface上。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_UpdateWindowSurface</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window：需要更新的窗口</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
