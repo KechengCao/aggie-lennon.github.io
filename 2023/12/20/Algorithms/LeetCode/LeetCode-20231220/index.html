@@ -16,24 +16,25 @@
   <meta name="author" content="Aggie Lennon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 最大公因数等于 K 的子数组数目给你一个整数数组 nums 和一个整数 k ，请你统计并返回 nums 的子数组中元素的最大公因数等于 k 的子数组数目。 子数组 是数组中一个连续的非空序列。 数组的最大公因数 是能整除数组中所有元素的最大整数。![](&#x2F;img&#x2F;最大公因数等于 K 的子数组数目.png) 12345678910111213141516171819202">
+    <meta name="description" content="1. 最大公因数等于K的子数组数目给你一个整数数组 nums 和一个整数 k ，请你统计并返回 nums 的子数组中元素的最大公因数等于 k 的子数组数目。 子数组 是数组中一个连续的非空序列。 数组的最大公因数 是能整除数组中所有元素的最大整数。 12345678910111213141516171819202122class Solution &#123;public:    int sub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode-Day9">
 <meta property="og:url" content="http://example.com/2023/12/20/Algorithms/LeetCode/LeetCode-20231220/index.html">
 <meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
-<meta property="og:description" content="1. 最大公因数等于 K 的子数组数目给你一个整数数组 nums 和一个整数 k ，请你统计并返回 nums 的子数组中元素的最大公因数等于 k 的子数组数目。 子数组 是数组中一个连续的非空序列。 数组的最大公因数 是能整除数组中所有元素的最大整数。![](&#x2F;img&#x2F;最大公因数等于 K 的子数组数目.png) 12345678910111213141516171819202">
+<meta property="og:description" content="1. 最大公因数等于K的子数组数目给你一个整数数组 nums 和一个整数 k ，请你统计并返回 nums 的子数组中元素的最大公因数等于 k 的子数组数目。 子数组 是数组中一个连续的非空序列。 数组的最大公因数 是能整除数组中所有元素的最大整数。 12345678910111213141516171819202122class Solution &#123;public:    int sub">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0%E7%AD%89%E4%BA%8EK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE.png">
 <meta property="og:image" content="http://example.com/img/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%9B%9E%E6%96%87%E8%B7%AF%E5%BE%84.png">
 <meta property="og:image" content="http://example.com/img/%E7%BB%9F%E8%AE%A1%E6%97%A0%E5%90%91%E5%9B%BE%E4%B8%AD%E6%97%A0%E6%B3%95%E4%BA%92%E7%9B%B8%E5%88%B0%E8%BE%BE%E7%82%B9%E5%AF%B9%E6%95%B0.png">
 <meta property="og:image" content="http://example.com/img/%E8%A1%A8%E7%8E%B0%E8%89%AF%E5%A5%BD%E7%9A%84%E6%9C%80%E9%95%BF%E6%97%B6%E9%97%B4%E6%AE%B5.png">
 <meta property="og:image" content="http://example.com/img/%E5%AF%BB%E6%89%BE%E5%B3%B0%E5%80%BC.png">
 <meta property="og:image" content="http://example.com/img/%E7%BB%9F%E8%AE%A1%E5%8C%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%95%B4%E6%95%B0%E6%95%B0%E7%9B%AE.png">
 <meta property="article:published_time" content="2023-12-19T18:33:00.000Z">
-<meta property="article:modified_time" content="2024-01-11T18:33:31.990Z">
+<meta property="article:modified_time" content="2024-01-12T01:33:56.220Z">
 <meta property="article:author" content="Aggie Lennon">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%9B%9E%E6%96%87%E8%B7%AF%E5%BE%84.png">
+<meta name="twitter:image" content="http://example.com/img/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0%E7%AD%89%E4%BA%8EK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE.png">
   
   
   
@@ -272,9 +273,9 @@
               <div class="markdown-body">
                 
                 <span id="more"></span>
-<h1 id="1-最大公因数等于-K-的子数组数目"><a href="#1-最大公因数等于-K-的子数组数目" class="headerlink" title="1. 最大公因数等于 K 的子数组数目"></a>1. 最大公因数等于 K 的子数组数目</h1><p>给你一个整数数组 nums 和一个整数 k ，请你统计并返回 nums 的子数组中元素的最大公因数等于 k 的子数组数目。</p>
+<h1 id="1-最大公因数等于K的子数组数目"><a href="#1-最大公因数等于K的子数组数目" class="headerlink" title="1. 最大公因数等于K的子数组数目"></a>1. 最大公因数等于K的子数组数目</h1><p>给你一个整数数组 nums 和一个整数 k ，请你统计并返回 nums 的子数组中元素的最大公因数等于 k 的子数组数目。</p>
 <p>子数组 是数组中一个连续的非空序列。</p>
-<p>数组的最大公因数 是能整除数组中所有元素的最大整数。<br>![](&#x2F;img&#x2F;最大公因数等于 K 的子数组数目.png)</p>
+<p>数组的最大公因数 是能整除数组中所有元素的最大整数。<br><img src="/img/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0%E7%AD%89%E4%BA%8EK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">subarrayGCD</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> k)</span> </span>&#123;<br>        <span class="hljs-type">int</span> result = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> left = <span class="hljs-number">0</span>; left&lt;nums.<span class="hljs-built_in">size</span>(); left++)&#123;<br>            <span class="hljs-type">int</span> num = nums[left];<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> right = left; right&lt;nums.<span class="hljs-built_in">size</span>(); right++)&#123;<br>                num = <span class="hljs-built_in">gcd</span>(num,nums[right]);<br>                <span class="hljs-keyword">if</span>(num == k)&#123;result++;&#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;  <br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span>&#123;<br>        <span class="hljs-keyword">while</span>(b != <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-type">int</span> tmp = a%b;<br>            a = b;<br>            b =tmp;<br>        &#125;<br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 <h1 id="2-二叉树中的伪回文路径"><a href="#2-二叉树中的伪回文路径" class="headerlink" title="2.  二叉树中的伪回文路径"></a>2.  二叉树中的伪回文路径</h1><p>给你一棵二叉树，每个节点的值为 1 到 9 。我们称二叉树中的一条路径是 「伪回文」的，当它满足：路径经过的所有节点值的排列中，存在一个回文序列。</p>
