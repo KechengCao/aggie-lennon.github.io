@@ -1489,6 +1489,357 @@
   
   
   <entry>
+    <title>IMG_FreeAnimation</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_FreeAnimation/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_FreeAnimation/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-FreeAnimation"><a href="#IMG-FreeAnimation" class="headerlink" title="IMG_FreeAnimation"></a>IMG_FreeAnimation</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_FreeAnimation">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>处理 IMG_Animation 并释放其资源。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">IMG_FreeAnimation</span><span class="hljs-params">(IMG_Animation *anim)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>anim: 要处理的 IMG_Animation</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_Init</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_Init/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_Init/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-Init"><a href="#IMG-Init" class="headerlink" title="IMG_Init"></a>IMG_Init</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_Init">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>初始化SDL_image。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_Init</span><span class="hljs-params">(<span class="hljs-type">int</span> flags)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>flags: 初始化的标志</p><p>标志包括：<br>IMG_INIT_JPG<br>IMG_INIT_PNG<br>IMG_INIT_TIF<br>IMG_INIT_WEBP<br>IMG_INIT_JXL<br>IMG_INIT_AVIF</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isBMP</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isBMP/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isBMP/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isBMP"><a href="#IMG-isBMP" class="headerlink" title="IMG_isBMP"></a>IMG_isBMP</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isBMP">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的 BMP 图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isBMP</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 BMP 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isAVIF</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isAVIF/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isAVIF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isAVIF"><a href="#IMG-isAVIF" class="headerlink" title="IMG_isAVIF"></a>IMG_isAVIF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isAVIF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的 AVIF 图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_Init</span><span class="hljs-params">(<span class="hljs-type">int</span> flags)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>flags: 初始化的标志</p><p>标志包括：<br>IMG_INIT_JPG<br>IMG_INIT_PNG<br>IMG_INIT_TIF<br>IMG_INIT_WEBP<br>IMG_INIT_JXL<br>IMG_INIT_AVIF</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isCUR</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isCUR/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isCUR/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isCUR"><a href="#IMG-isCUR" class="headerlink" title="IMG_isCUR"></a>IMG_isCUR</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isCUR">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的 CUR 图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isCUR</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 CUR 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isGIF</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isGIF/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isGIF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isGIF"><a href="#IMG-isGIF" class="headerlink" title="IMG_isGIF"></a>IMG_isGIF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isGIF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的 GIF 图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isGIF</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 GIF 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isICO</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isICO/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isICO/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isICO"><a href="#IMG-isICO" class="headerlink" title="IMG_isICO"></a>IMG_isICO</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isICO">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  ICO 图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isICO</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 ICO 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isJXL</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isJXL/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isJXL/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isJXL"><a href="#IMG-isJXL" class="headerlink" title="IMG_isJXL"></a>IMG_isJXL</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isJXL">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  JXL  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isJXL</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 JXL  数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isJPG</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isJPG/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isJPG/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isJPG"><a href="#IMG-isJPG" class="headerlink" title="IMG_isJPG"></a>IMG_isJPG</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isJPG">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  JPG 图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isJPG</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 JPG 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isLBM</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isLBM/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isLBM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isLBM"><a href="#IMG-isLBM" class="headerlink" title="IMG_isLBM"></a>IMG_isLBM</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isLBM">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  LBM   图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isLBM</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 LBM   数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isPNG</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isPNG/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isPNG/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isPNG"><a href="#IMG-isPNG" class="headerlink" title="IMG_isPNG"></a>IMG_isPNG</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isPNG">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  PNG  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isPNG</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 PNG 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isPCX</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isPCX/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isPCX/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isPCX"><a href="#IMG-isPCX" class="headerlink" title="IMG_isPCX"></a>IMG_isPCX</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isPCX">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  PCX  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isPCX</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 PCX 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isPNM</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isPNM/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isPNM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isPNM"><a href="#IMG-isPNM" class="headerlink" title="IMG_isPNM"></a>IMG_isPNM</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isPNM">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  PNM  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isPNM</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 PNM 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MonotonicStack</title>
     <link href="/2024/01/12/Algorithms/MonotonicStack/"/>
     <url>/2024/01/12/Algorithms/MonotonicStack/</url>
@@ -5889,6 +6240,33 @@
     <url>/2024/01/05/SDL/Dictionary/SDL_UpdateWindowSurface/</url>
     
     <content type="html"><![CDATA[<h1 id="SDL-UpdateWindowSurface"><a href="#SDL-UpdateWindowSurface" class="headerlink" title="SDL_UpdateWindowSurface"></a>SDL_UpdateWindowSurface</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_UpdateWindowSurface">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将窗口surface复制到surface上。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_UpdateWindowSurface</span><span class="hljs-params">(SDL_Window * window)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window：需要更新的窗口</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_RWops</title>
+    <link href="/2024/01/05/SDL/Dictionary/SDL_RWops/"/>
+    <url>/2024/01/05/SDL/Dictionary/SDL_RWops/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-RWops"><a href="#SDL-RWops" class="headerlink" title="SDL_RWops"></a>SDL_RWops</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RWops">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>为流 I&#x2F;O 提供抽象接口的结构</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Sint64 (*)(SDL_RWops <em>) size 报告流大小的回调<br>Sint64 (</em>)(SDL_RWops <em>, Sint64, int) seek 在流中寻找的回调<br>size_t (</em>)(SDL_RWops *, void <em>, size_t, size_t) read 从流中读取的回调<br>size_t (</em>)(SDL_RWops *, const void <em>, size_t, size_t) write 写入流的回调<br>int (</em>)(SDL_RWops *) close 关闭流的回调<br>Uint32 type 流类型<br>union hidden 特定类型的数据</p>]]></content>
     
     
     <categories>
