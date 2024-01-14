@@ -4,6 +4,1244 @@
   
   
   <entry>
+    <title>6.Setting up SDL Extension Libraries on CodeBlocks</title>
+    <link href="/2024/01/15/SDL/6.Setting%20up%20SDL%20Extension%20Libraries%20on%20CodeBlocks/"/>
+    <url>/2024/01/15/SDL/6.Setting%20up%20SDL%20Extension%20Libraries%20on%20CodeBlocks/</url>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>参考博客：<a href="https://lazyfoo.net/tutorials/SDL/06_extension_libraries_and_loading_other_image_formats/index.php">Lazy Foo’ Productions</a><br>测试代码取自Lazy Foo’<br><br /></p><h2 id="Loading-other-image-formats"><a href="#Loading-other-image-formats" class="headerlink" title="Loading other image formats"></a>Loading other image formats</h2><p>除了 BMP 图像文件之外，SDL 扩展库还允许我加载其他图像格式，例如 PNG。 那么如何安装SDL扩展库，本教程将一步步教你。</p><h3 id="Setting-up-SDL-Extension-Libraries-on-CodeBlokcs"><a href="#Setting-up-SDL-Extension-Libraries-on-CodeBlokcs" class="headerlink" title="Setting up SDL Extension Libraries on CodeBlokcs"></a>Setting up SDL Extension Libraries on CodeBlokcs</h3><p><img src="/img/SDL/SDL_image.png"><br>SDL_image下载链接：<a href="https://github.com/libsdl-org/SDL_image/releases">click to jump</a><br>由于CB默认使用的是MinGW编译器，所以我们选用下载包中带mingw的压缩包。考虑到兼容性最佳的状态这里我们选择其中的i686-w64-mingw32，并将其重命名为mingw_dev_lib。<br><br /><br><img src="/img/SDL/CB_project_lists.png"><br><img src="/img/SDL/CB_project_property.png"><br>选择原来的SDL项目SDL2。进入project的porperties选项，选择其中的project’s build options<br><br /><br><img src="/img/SDL/CB_search_directories_complier.png"><br>在左侧菜单栏中选择SDL2，注意既不是Debug也不是Release，因为要同时更改两个的选项。选择菜单栏中的Search directories, 选择compiler在其中添加mingw_dev_lib文件的include中SDL2的文件路径。<br><br /><br><img src="/img/SDL/CB_linker_directory.png"><br>完成上述步骤后选择Search directories中的Linker将mingw_dev_lib中的lib路径地址添加进其中。<br><br /><br><img src="/img/SDL/CB_other_linker_SDL_image.png"><br>完成这部后再选择菜单栏中Linker setting，然后在Other linker options中添加-lmingw32 -lSDL2main -lSDL2 -lSDL2_image。<br><br /><br>最后从mingw_dev_lib文件夹的bin中找到SDL2_image.dll将其复制到项目的工作目录之中。<br><br /><br>完成上述步骤之后尝试运行测试代码，如果运行报错，请仔细检查上述步骤，确保操作无误。<br><br /><br><br /><br>完成上述步骤之后尝试运行测试代码，如果运行报错，请仔细检查上述步骤，确保操作无误。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">/*This source code copyrighted by Lazy Foo&#x27; Productions 2004-2024</span><br><span class="hljs-comment">and may not be redistributed without written permission.*/</span><br><br><span class="hljs-comment">//Using SDL, SDL_image, standard IO, and strings</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL_image.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-comment">//Screen dimension constants</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_WIDTH = <span class="hljs-number">640</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_HEIGHT = <span class="hljs-number">480</span>;<br><br><span class="hljs-comment">//Starts up SDL and creates window</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads media</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Frees media and shuts down SDL</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads individual image</span><br><span class="hljs-function">SDL_Surface* <span class="hljs-title">loadSurface</span><span class="hljs-params">( std::string path )</span></span>;<br><br><span class="hljs-comment">//The window we&#x27;ll be rendering to</span><br>SDL_Window* gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//The surface contained by the window</span><br>SDL_Surface* gScreenSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Current displayed PNG image</span><br>SDL_Surface* gPNGSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Initialization flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Initialize SDL</span><br><span class="hljs-keyword">if</span>( <span class="hljs-built_in">SDL_Init</span>( SDL_INIT_VIDEO ) &lt; <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL could not initialize! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Create window</span><br>gWindow = <span class="hljs-built_in">SDL_CreateWindow</span>( <span class="hljs-string">&quot;SDL Tutorial&quot;</span>, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );<br><span class="hljs-keyword">if</span>( gWindow == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Window could not be created! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Initialize PNG loading</span><br><span class="hljs-type">int</span> imgFlags = IMG_INIT_PNG;<br><span class="hljs-keyword">if</span>( !( <span class="hljs-built_in">IMG_Init</span>( imgFlags ) &amp; imgFlags ) )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL_image could not initialize! SDL_image Error: %s\n&quot;</span>, <span class="hljs-built_in">IMG_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Get window surface</span><br>gScreenSurface = <span class="hljs-built_in">SDL_GetWindowSurface</span>( gWindow );<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Loading success flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Load PNG surface</span><br>gPNGSurface = <span class="hljs-built_in">loadSurface</span>( <span class="hljs-string">&quot;loaded.png&quot;</span> );<br><span class="hljs-keyword">if</span>( gPNGSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load PNG image!\n&quot;</span> );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Free loaded image</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( gPNGSurface );<br>gPNGSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Destroy window</span><br><span class="hljs-built_in">SDL_DestroyWindow</span>( gWindow );<br>gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Quit SDL subsystems</span><br><span class="hljs-built_in">IMG_Quit</span>();<br><span class="hljs-built_in">SDL_Quit</span>();<br>&#125;<br><br><span class="hljs-function">SDL_Surface* <span class="hljs-title">loadSurface</span><span class="hljs-params">( std::string path )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//The final optimized image</span><br>SDL_Surface* optimizedSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Load image at specified path</span><br>SDL_Surface* loadedSurface = <span class="hljs-built_in">IMG_Load</span>( path.<span class="hljs-built_in">c_str</span>() );<br><span class="hljs-keyword">if</span>( loadedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to load image %s! SDL_image Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">IMG_GetError</span>() );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Convert surface to screen format</span><br>optimizedSurface = <span class="hljs-built_in">SDL_ConvertSurface</span>( loadedSurface, gScreenSurface-&gt;format, <span class="hljs-number">0</span> );<br><span class="hljs-keyword">if</span>( optimizedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to optimize image %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><br><span class="hljs-comment">//Get rid of old loaded surface</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( loadedSurface );<br>&#125;<br><br><span class="hljs-keyword">return</span> optimizedSurface;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>* args[] )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Start up SDL and create window</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">init</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to initialize!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Load media</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">loadMedia</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load media!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Main loop flag</span><br><span class="hljs-type">bool</span> quit = <span class="hljs-literal">false</span>;<br><br><span class="hljs-comment">//Event handler</span><br>SDL_Event e;<br><br><span class="hljs-comment">//While application is running</span><br><span class="hljs-keyword">while</span>( !quit )<br>&#123;<br><span class="hljs-comment">//Handle events on queue</span><br><span class="hljs-keyword">while</span>( <span class="hljs-built_in">SDL_PollEvent</span>( &amp;e ) != <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-comment">//User requests quit</span><br><span class="hljs-keyword">if</span>( e.type == SDL_QUIT )<br>&#123;<br>quit = <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Apply the PNG image</span><br><span class="hljs-built_in">SDL_BlitSurface</span>( gPNGSurface, <span class="hljs-literal">NULL</span>, gScreenSurface, <span class="hljs-literal">NULL</span> );<br><br><span class="hljs-comment">//Update the surface</span><br><span class="hljs-built_in">SDL_UpdateWindowSurface</span>( gWindow );<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Free resources and close SDL</span><br><span class="hljs-built_in">close</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Game Development</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>7.Texture Loading and Rendering</title>
+    <link href="/2024/01/15/SDL/7.Texture%20Loading%20and%20Rendering/"/>
+    <url>/2024/01/15/SDL/7.Texture%20Loading%20and%20Rendering/</url>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>参考博客：<a href="https://lazyfoo.net/tutorials/SDL/07_texture_loading_and_rendering/index.php">Lazy Foo’ Productions</a><br>示例代码取自Lazy Foo’<br><br /><br>示例代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">/*This source code copyrighted by Lazy Foo&#x27; Productions 2004-2024</span><br><span class="hljs-comment">and may not be redistributed without written permission.*/</span><br><br><span class="hljs-comment">//Using SDL, SDL_image, standard IO, and strings</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL_image.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-comment">//Screen dimension constants</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_WIDTH = <span class="hljs-number">640</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_HEIGHT = <span class="hljs-number">480</span>;<br><br><span class="hljs-comment">//Starts up SDL and creates window</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads media</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Frees media and shuts down SDL</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads individual image as texture</span><br><span class="hljs-function">SDL_Texture* <span class="hljs-title">loadTexture</span><span class="hljs-params">( std::string path )</span></span>;<br><br><span class="hljs-comment">//The window we&#x27;ll be rendering to</span><br>SDL_Window* gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//The window renderer</span><br>SDL_Renderer* gRenderer = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Current displayed texture</span><br>SDL_Texture* gTexture = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Initialization flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Initialize SDL</span><br><span class="hljs-keyword">if</span>( <span class="hljs-built_in">SDL_Init</span>( SDL_INIT_VIDEO ) &lt; <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL could not initialize! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Set texture filtering to linear</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">SDL_SetHint</span>( SDL_HINT_RENDER_SCALE_QUALITY, <span class="hljs-string">&quot;1&quot;</span> ) )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Warning: Linear texture filtering not enabled!&quot;</span> );<br>&#125;<br><br><span class="hljs-comment">//Create window</span><br>gWindow = <span class="hljs-built_in">SDL_CreateWindow</span>( <span class="hljs-string">&quot;SDL Tutorial&quot;</span>, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );<br><span class="hljs-keyword">if</span>( gWindow == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Window could not be created! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Create renderer for window</span><br>gRenderer = <span class="hljs-built_in">SDL_CreateRenderer</span>( gWindow, <span class="hljs-number">-1</span>, SDL_RENDERER_ACCELERATED );<br><span class="hljs-keyword">if</span>( gRenderer == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Renderer could not be created! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Initialize renderer color</span><br><span class="hljs-built_in">SDL_SetRenderDrawColor</span>( gRenderer, <span class="hljs-number">0xFF</span>, <span class="hljs-number">0xFF</span>, <span class="hljs-number">0xFF</span>, <span class="hljs-number">0xFF</span> );<br><br><span class="hljs-comment">//Initialize PNG loading</span><br><span class="hljs-type">int</span> imgFlags = IMG_INIT_PNG;<br><span class="hljs-keyword">if</span>( !( <span class="hljs-built_in">IMG_Init</span>( imgFlags ) &amp; imgFlags ) )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL_image could not initialize! SDL_image Error: %s\n&quot;</span>, <span class="hljs-built_in">IMG_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Loading success flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Load PNG texture</span><br>gTexture = <span class="hljs-built_in">loadTexture</span>( <span class="hljs-string">&quot;texture.png&quot;</span> );<br><span class="hljs-keyword">if</span>( gTexture == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load texture image!\n&quot;</span> );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Free loaded image</span><br><span class="hljs-built_in">SDL_DestroyTexture</span>( gTexture );<br>gTexture = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Destroy window</span><br><span class="hljs-built_in">SDL_DestroyRenderer</span>( gRenderer );<br><span class="hljs-built_in">SDL_DestroyWindow</span>( gWindow );<br>gWindow = <span class="hljs-literal">NULL</span>;<br>gRenderer = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Quit SDL subsystems</span><br><span class="hljs-built_in">IMG_Quit</span>();<br><span class="hljs-built_in">SDL_Quit</span>();<br>&#125;<br><br><span class="hljs-function">SDL_Texture* <span class="hljs-title">loadTexture</span><span class="hljs-params">( std::string path )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//The final texture</span><br>SDL_Texture* newTexture = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Load image at specified path</span><br>SDL_Surface* loadedSurface = <span class="hljs-built_in">IMG_Load</span>( path.<span class="hljs-built_in">c_str</span>() );<br><span class="hljs-keyword">if</span>( loadedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to load image %s! SDL_image Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">IMG_GetError</span>() );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Create texture from surface pixels</span><br>        newTexture = <span class="hljs-built_in">SDL_CreateTextureFromSurface</span>( gRenderer, loadedSurface );<br><span class="hljs-keyword">if</span>( newTexture == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to create texture fromkeyi %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><br><span class="hljs-comment">//Get rid of old loaded surface</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( loadedSurface );<br>&#125;<br><br><span class="hljs-keyword">return</span> newTexture;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>* args[] )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Start up SDL and create window</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">init</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to initialize!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Load media</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">loadMedia</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load media!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Main loop flag</span><br><span class="hljs-type">bool</span> quit = <span class="hljs-literal">false</span>;<br><br><span class="hljs-comment">//Event handler</span><br>SDL_Event e;<br><br><span class="hljs-comment">//While application is running</span><br><span class="hljs-keyword">while</span>( !quit )<br>&#123;<br><span class="hljs-comment">//Handle events on queue</span><br><span class="hljs-keyword">while</span>( <span class="hljs-built_in">SDL_PollEvent</span>( &amp;e ) != <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-comment">//User requests quit</span><br><span class="hljs-keyword">if</span>( e.type == SDL_QUIT )<br>&#123;<br>quit = <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Clear screen</span><br><span class="hljs-built_in">SDL_RenderClear</span>( gRenderer );<br><br><span class="hljs-comment">//Render texture to screen</span><br><span class="hljs-built_in">SDL_RenderCopy</span>( gRenderer, gTexture, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span> );<br><br><span class="hljs-comment">//Update screen</span><br><span class="hljs-built_in">SDL_RenderPresent</span>( gRenderer );<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Free resources and close SDL</span><br><span class="hljs-built_in">close</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>在之前的例子中我们用到的是基于软件的渲染，其中用到的结构体是Surface。这期教程我们将使用到的是基于硬件加速渲染的Texture结构。在将如何使用texture之前，很是有必要先讨论一下surface和texture的区别, Renderer, 以及SDL_Surface和SDL_Texture的区别<br><br /><br><br /></p><h3 id="Renderer"><a href="#Renderer" class="headerlink" title="Renderer"></a>Renderer</h3><p>渲染器为3D引擎的核心，它负责将3D物体投射到屏幕上。渲染还分为硬件渲染和软件渲染。下面是从网上摘录下来的对于硬件渲染器和软件渲染器的描述。<br>硬件渲染器：<br>硬件渲染器通常基于底层图形API(应用程序接口)构建，采用适合硬件架构的光栅化方法进行渲染。图形API负责与硬件的通信，常用的图形API包括DirectX和OpenGL。 OpenGL API通过OpenGL图形库来使用3D硬件，多数3D卡支持这种方法。而DirectX API使用微软的DirectX库——归并到 Windows操作系统中。在老的3D卡上面，OpenGL一般绘制速度较快一些，而在现代的3D卡上面，DirectX表现则更加出色。OpenGL版本只有一个，而DirectX版本有很多。DirectX通过提供更新版本的方式来扩展功能，而OpenGL通过一个通用的扩展（OpenGL Ext）来对功能进行扩展。</p><p>软件渲染器：<br>软件渲染器则纯粹利用CPU的能力进行计算，通常采用光线追踪的方法进行渲染。软件渲染器没有统一的应用程序标准，但是有很多通用的渲染算法，如光子映射，蒙特卡洛，辐射度等等。<br><br /><br><br /></p><h3 id="Surface-和-Texture"><a href="#Surface-和-Texture" class="headerlink" title="Surface 和 Texture"></a>Surface 和 Texture</h3><p>首先我们先从使用场景讲起，surface通常用于表示模型的基本形状，一般就是指模型的大小，位置，方向等信息。<br>Texture一般是用来提高模型逼真度的，模拟模型的细节纹理信息，如木纹，石纹和皮肤纹理。<br><br /><br><br /></p><h3 id="SDL-Surface-和-SDL-Texture"><a href="#SDL-Surface-和-SDL-Texture" class="headerlink" title="SDL_Surface 和 SDL_Texture"></a>SDL_Surface 和 SDL_Texture</h3><p>SDL_Surface是一个像素的集合，适用于软件渲染，其图像数据储存于常规的RAM中，由CPU参与计算。<br>SDL_Texture是像素数据，适用于硬件加速渲染，其数据存储于VRAM，由GPU加速运算。<br>正是由于GPU参与运算，使得硬件渲染的速度高于软件渲染。但软件渲染也不是一无是处，由于数据存储于RAM中，使得数据可以直接写入，整个过程都可以由程序员掌控，但对于GPU而言，许多访问存在限制，灵活性不足，这也使得其经常犯一些愚蠢的错误。</p><h3 id="SDL-Renderer"><a href="#SDL-Renderer" class="headerlink" title="SDL_Renderer"></a>SDL_Renderer</h3><a href="/2024/01/10/SDL/Dictionary/SDL_CreateRenderer/" title="SDL_CreateRenderer">SDL_CreateRenderer</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_CreateSoftwareRenderer/" title="SDL_CreateSoftwareRenderer">SDL_CreateSoftwareRenderer</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTexture/" title="SDL_CreateTexture">SDL_CreateTexture</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTextureFromSurface/" title="SDL_CreateTextureFromSurface">SDL_CreateTextureFromSurface</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_CreateWindowAndRenderer/" title="SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_DestroyRenderer/" title="SDL_DestroyRenderer">SDL_DestroyRenderer</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawBlendMode/" title="SDL_GetRenderDrawBlendMode">SDL_GetRenderDrawBlendMode</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetRenderDrawColor/" title="SDL_GetRenderDrawColor">SDL_GetRenderDrawColor</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetRendererInfo/" title="SDL_GetRendererInfo">SDL_GetRendererInfo</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetRendererOutputSize/" title="SDL_GetRendererOutputSize">SDL_GetRendererOutputSize</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetRenderTarget/" title="SDL_GetRenderTarget">SDL_GetRenderTarget</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderClear/" title="SDL_RenderClear">SDL_RenderClear</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopy/" title="SDL_RenderCopy">SDL_RenderCopy</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyEx/" title="SDL_RenderCopyEx">SDL_RenderCopyEx</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyExF/" title="SDL_RenderCopyExF">SDL_RenderCopyExF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopyF/" title="SDL_RenderCopyF">SDL_RenderCopyF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLine/" title="SDL_RenderDrawLine">SDL_RenderDrawLine</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLineF/" title="SDL_RenderDrawLineF">SDL_RenderDrawLineF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLines/" title="SDL_RenderDrawLines">SDL_RenderDrawLines</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawLinesF/" title="SDL_RenderDrawLinesF">SDL_RenderDrawLinesF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoint/" title="SDL_RenderDrawPoint">SDL_RenderDrawPoint</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointF/" title="SDL_RenderDrawPointF">SDL_RenderDrawPointF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPoints/" title="SDL_RenderDrawPoints">SDL_RenderDrawPoints</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawPointsF/" title="SDL_RenderDrawPointsF">SDL_RenderDrawPointsF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRect/" title="SDL_RenderDrawRect">SDL_RenderDrawRect</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectF/" title="SDL_RenderDrawRectF">SDL_RenderDrawRectF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRects/" title="SDL_RenderDrawRects">SDL_RenderDrawRects</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderDrawRectsF/" title="SDL_RenderDrawRectsF">SDL_RenderDrawRectsF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRect/" title="SDL_RenderFillRect">SDL_RenderFillRect</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRectF/" title="SDL_RenderFillRectF">SDL_RenderFillRectF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRects/" title="SDL_RenderFillRects">SDL_RenderFillRects</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFillRectsF/" title="SDL_RenderFillRectsF">SDL_RenderFillRectsF</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderFlush/" title="SDL_RenderFlush">SDL_RenderFlush</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGeometry/" title="SDL_RenderGeometry">SDL_RenderGeometry</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGeometryRaw/" title="SDL_RenderGeometryRaw">SDL_RenderGeometryRaw</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetClipRect/" title="SDL_RenderGetClipRect">SDL_RenderGetClipRect</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D11Device/" title="SDL_RenderGetD3D11Device">SDL_RenderGetD3D11Device</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D12Device/" title="SDL_RenderGetD3D12Device">SDL_RenderGetD3D12Device</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetD3D9Device/" title="SDL_RenderGetD3D9Device">SDL_RenderGetD3D9Device</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetIntegerScale/" title="SDL_RenderGetIntegerScale">SDL_RenderGetIntegerScale</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetLogicalSize/" title="SDL_RenderGetLogicalSize">SDL_RenderGetLogicalSize</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalCommandEncoder/" title="SDL_RenderGetMetalCommandEncoder">SDL_RenderGetMetalCommandEncoder</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetMetalLayer/" title="SDL_RenderGetMetalLayer">SDL_RenderGetMetalLayer</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetScale/" title="SDL_RenderGetScale">SDL_RenderGetScale</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetViewport/" title="SDL_RenderGetViewport">SDL_RenderGetViewport</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderGetWindow/" title="SDL_RenderGetWindow">SDL_RenderGetWindow</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderIsClipEnabled/" title="SDL_RenderIsClipEnabled">SDL_RenderIsClipEnabled</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderLogicalToWindow/" title="SDL_RenderLogicalToWindow">SDL_RenderLogicalToWindow</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderPresent/" title="SDL_RenderPresent">SDL_RenderPresent</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderReadPixels/" title="SDL_RenderReadPixels">SDL_RenderReadPixels</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetClipRect/" title="SDL_RenderSetClipRect">SDL_RenderSetClipRect</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetIntegerScale/" title="SDL_RenderSetIntegerScale">SDL_RenderSetIntegerScale</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetLogicalSize/" title="SDL_RenderSetLogicalSize">SDL_RenderSetLogicalSize</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetScale/" title="SDL_RenderSetScale">SDL_RenderSetScale</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetViewport/" title="SDL_RenderSetViewport">SDL_RenderSetViewport</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderSetVSync/" title="SDL_RenderSetVSync">SDL_RenderSetVSync</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderTargetSupported/" title="SDL_RenderTargetSupported">SDL_RenderTargetSupported</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderWindowToLogical/" title="SDL_RenderWindowToLogical">SDL_RenderWindowToLogical</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawBlendMode/" title="SDL_SetRenderDrawBlendMode">SDL_SetRenderDrawBlendMode</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawColor/" title="SDL_SetRenderDrawColor">SDL_SetRenderDrawColor</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderTarget/" title="SDL_SetRenderTarget">SDL_SetRenderTarget</a><br /><br /><h3 id="SDL-Texture"><a href="#SDL-Texture" class="headerlink" title="SDL_Texture"></a>SDL_Texture</h3><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTexture/" title="SDL_CreateTexture">SDL_CreateTexture</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_CreateTextureFromSurface/" title="SDL_CreateTextureFromSurface">SDL_CreateTextureFromSurface</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_DestroyTexture/" title="SDL_DestroyTexture">SDL_DestroyTexture</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetTextureAlphaMode/" title="SDL_GetTextureAlphaMod">SDL_GetTextureAlphaMode</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetTextureBlendMode/" title="SDL_GetTextureBlendMode">SDL_GetTextureBlendMode</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_GetTextureColorMod/" title="SDL_GetTextureColorMod">SDL_GetTextureColorMod</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_LockTexture/" title="SDL_LockTexture">SDL_LockTexture</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_QueryTexture/" title="SDL_QueryTexture">SDL_QueryTexture</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopy/" title="SDL_RenderCopy">SDL_RenderCopy</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_SetTextureAlphaMod/" title="SDL_SetTextureAlphaMod">SDL_SetTextureAlphaMod</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_SetTextureBlendMode/" title="SDL_SetTextureBlendMode">SDL_SetTextureBlendMode</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_SetTextureColorMod/" title="SDL_SetTextureColorMod">SDL_SetTextureColorMod</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_UnlockTexture/" title="SDL_UnlockTexture">SDL_UnlockTexture</a><br /><a href="/2024/01/10/SDL/Dictionary/SDL_UpdateTexture/" title="SDL_UpdateTexture">SDL_UpdateTexture</a><br /><br /><p>讲完了一些前置知识，我们来进入今天的正题。按照惯例，我们还是采用代码分块分析的方式。</p><h3 id="示例代码分析"><a href="#示例代码分析" class="headerlink" title="示例代码分析"></a>示例代码分析</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//Using SDL, SDL_image, standard IO, and strings</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL_image.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-comment">//Screen dimension constants</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_WIDTH = <span class="hljs-number">640</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_HEIGHT = <span class="hljs-number">480</span>;<br><br><span class="hljs-comment">//Starts up SDL and creates window</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads media</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Frees media and shuts down SDL</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure><p>这段代码和之前的区别就在于include &lt;SDL_image.h&gt;，原因就是我们在这边博文中将使用到的新渲染技术。<br><br /><br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//Loads individual image as texture</span><br><span class="hljs-function">SDL_Texture* <span class="hljs-title">loadTexture</span><span class="hljs-params">( std::string path )</span></span>;<br><br><span class="hljs-comment">//The window we&#x27;ll be rendering to</span><br>SDL_Window* gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//The window renderer</span><br>SDL_Renderer* gRenderer = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Current displayed texture</span><br>SDL_Texture* gTexture = <span class="hljs-literal">NULL</span>;<br></code></pre></td></tr></table></figure><p>loadTexture是加载SDL_Texture的函数，其余的是SDL变量的声明。<br><br /><br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Initialization flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Initialize SDL</span><br><span class="hljs-keyword">if</span>( <span class="hljs-built_in">SDL_Init</span>( SDL_INIT_VIDEO ) &lt; <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL could not initialize! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Set texture filtering to linear</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">SDL_SetHint</span>( SDL_HINT_RENDER_SCALE_QUALITY, <span class="hljs-string">&quot;1&quot;</span> ) )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Warning: Linear texture filtering not enabled!&quot;</span> );<br>&#125;<br><br><span class="hljs-comment">//Create window</span><br>gWindow = <span class="hljs-built_in">SDL_CreateWindow</span>( <span class="hljs-string">&quot;SDL Tutorial&quot;</span>, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );<br><span class="hljs-keyword">if</span>( gWindow == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Window could not be created! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Create renderer for window</span><br>gRenderer = <span class="hljs-built_in">SDL_CreateRenderer</span>( gWindow, <span class="hljs-number">-1</span>, SDL_RENDERER_ACCELERATED );<br><span class="hljs-keyword">if</span>( gRenderer == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Renderer could not be created! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Initialize renderer color</span><br><span class="hljs-built_in">SDL_SetRenderDrawColor</span>( gRenderer, <span class="hljs-number">0xFF</span>, <span class="hljs-number">0xFF</span>, <span class="hljs-number">0xFF</span>, <span class="hljs-number">0xFF</span> );<br><br><span class="hljs-comment">//Initialize PNG loading</span><br><span class="hljs-type">int</span> imgFlags = IMG_INIT_PNG;<br><span class="hljs-keyword">if</span>( !( <span class="hljs-built_in">IMG_Init</span>( imgFlags ) &amp; imgFlags ) )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL_image could not initialize! SDL_image Error: %s\n&quot;</span>, <span class="hljs-built_in">IMG_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br></code></pre></td></tr></table></figure><p>现在我们来分析init函数，首先通过SDL_init初始化视频子系统。然后这里通过<a href="/2024/01/14/SDL/Dictionary/SDL_SetHint/" title="SDL_SetHint">SDL_SetHint</a>函数来设置提示的值。其中将<a href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_SCALE_QUALITY/" title="SDL_HINT_RENDER_SCALE_QUALITY">SDL_HINT_RENDER_SCALE_QUALITY</a>函设置为1，表示将采用opengl和direct3d支持的线性滤波。下一步便是创建窗口，这一步和之前一样，这里不多赘述。在创建成功窗口之后便是创建窗口对应的渲染器，根据<a href="/2024/01/10/SDL/Dictionary/SDL_CreateRenderer/" title="SDL_CreateRenderer">SDL_CreateRenderer</a>的参数设置可知，这里初始化的渲染器对应的是硬件加速渲染器列表的第一种渲染器。再创建完渲染器便使用<a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawColor/" title="SDL_SetRenderDrawColor">SDL_SetRenderDrawColor</a>来设置渲染器所使用的颜色值。之后一部就是初始化图片，在之前我们新添了SDL_image mode， 我们这里就不采用bmp格式，而是采用png的格式。以上这些就是init函数完成的工作。<br><br /><br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Texture* <span class="hljs-title">loadTexture</span><span class="hljs-params">( std::string path )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//The final texture</span><br>SDL_Texture* newTexture = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Load image at specified path</span><br>SDL_Surface* loadedSurface = <span class="hljs-built_in">IMG_Load</span>( path.<span class="hljs-built_in">c_str</span>() );<br><span class="hljs-keyword">if</span>( loadedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to load image %s! SDL_image Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">IMG_GetError</span>() );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Create texture from surface pixels</span><br>        newTexture = <span class="hljs-built_in">SDL_CreateTextureFromSurface</span>( gRenderer, loadedSurface );<br><span class="hljs-keyword">if</span>( newTexture == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to create texture from %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><br><span class="hljs-comment">//Get rid of old loaded surface</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( loadedSurface );<br>&#125;<br><br><span class="hljs-keyword">return</span> newTexture;<br>&#125;<br></code></pre></td></tr></table></figure><p>接下来看的是<a href="/2024/01/15/SDL/Dictionary/IMG_Load/" title="IMG_Load">IMG_Load</a>函数，由于我们装的SDL_image支持的是读取不同图片文件到Surface,所以在调用IMG_Load将图片像素存入surface中之后还需要调用<a href="/2024/01/10/SDL/Dictionary/SDL_CreateTextureFromSurface/" title="SDL_CreateTextureFromSurface">SDL_CreateTextureFromSurface</a>在渲染器的帮助下转换成Texture数据格式。在完成这部后不要忘记清楚中间变量surface的内存。<br><br /><br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Loading success flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Load PNG texture</span><br>gTexture = <span class="hljs-built_in">loadTexture</span>( <span class="hljs-string">&quot;texture.png&quot;</span> );<br><span class="hljs-keyword">if</span>( gTexture == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load texture image!\n&quot;</span> );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br>Loadmedia的定义更多的是对之前loadTexture功能的封装。<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Free loaded image</span><br><span class="hljs-built_in">SDL_DestroyTexture</span>( gTexture );<br>gTexture = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Destroy window</span><br><span class="hljs-built_in">SDL_DestroyRenderer</span>( gRenderer );<br><span class="hljs-built_in">SDL_DestroyWindow</span>( gWindow );<br>gWindow = <span class="hljs-literal">NULL</span>;<br>gRenderer = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Quit SDL subsystems</span><br><span class="hljs-built_in">IMG_Quit</span>();<br><span class="hljs-built_in">SDL_Quit</span>();<br>&#125;<br></code></pre></td></tr></table></figure><p>除了Window需要释放之外，不要忘记释放渲染器和Texture的内存。<br><br /><br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>* args[] )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Start up SDL and create window</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">init</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to initialize!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Load media</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">loadMedia</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load media!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Main loop flag</span><br><span class="hljs-type">bool</span> quit = <span class="hljs-literal">false</span>;<br><br><span class="hljs-comment">//Event handler</span><br>SDL_Event e;<br><br><span class="hljs-comment">//While application is running</span><br><span class="hljs-keyword">while</span>( !quit )<br>&#123;<br><span class="hljs-comment">//Handle events on queue</span><br><span class="hljs-keyword">while</span>( <span class="hljs-built_in">SDL_PollEvent</span>( &amp;e ) != <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-comment">//User requests quit</span><br><span class="hljs-keyword">if</span>( e.type == SDL_QUIT )<br>&#123;<br>quit = <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Clear screen</span><br><span class="hljs-built_in">SDL_RenderClear</span>( gRenderer );<br><br><span class="hljs-comment">//Render texture to screen</span><br><span class="hljs-built_in">SDL_RenderCopy</span>( gRenderer, gTexture, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span> );<br><br><span class="hljs-comment">//Update screen</span><br><span class="hljs-built_in">SDL_RenderPresent</span>( gRenderer );<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Free resources and close SDL</span><br><span class="hljs-built_in">close</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>对于主函数，首先是调用初始化函数，然后便是加载图片，之后进入事件轮询的loop，当收到SDL_QUIT的时候事件轮询结束。通过调用<a href="/2024/01/10/SDL/Dictionary/SDL_RenderClear/" title="SDL_RenderClear">SDL_RenderClear</a>来使用<a href="/2024/01/10/SDL/Dictionary/SDL_SetRenderDrawColor/" title="SDL_SetRenderDrawColor">SDL_SetRenderDrawColor</a>设定的背景色来清理屏幕。调用<a href="/2024/01/10/SDL/Dictionary/SDL_RenderCopy/" title="SDL_RenderCopy">SDL_RenderCopy</a>将当点使用的Texture结构复制到当前的渲染目标（gRenderer）之前已和屏幕相互关联。执行当前的渲染以更新屏幕。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Game Development</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_Linked_Version</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_Linked_Version/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_Linked_Version/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-Linked-Version"><a href="#IMG-Linked-Version" class="headerlink" title="IMG_Linked_Version"></a>IMG_Linked_Version</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_Linked_Version">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>该函数获取动态链接的SDL_image库的版本。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">const</span> SDL_version * <span class="hljs-title">IMG_Linked_Version</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回SDL_image版本</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadAVIF_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadAVIF_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadAVIF_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadAVIF-RW"><a href="#IMG-LoadAVIF-RW" class="headerlink" title="IMG_LoadAVIF_RW"></a>IMG_LoadAVIF_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadAVIF_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 AVIF 图像</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadAVIF_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_Load</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_Load/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_Load/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-Load"><a href="#IMG-Load" class="headerlink" title="IMG_Load"></a>IMG_Load</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_Load">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将图像从文件系统路径加载到软件表面中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_Load</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *file)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>file： 文件系统上加载图像的路径。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 SDL 表面，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadAnimation</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadAnimation/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadAnimation/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadAnimation"><a href="#IMG-LoadAnimation" class="headerlink" title="IMG_LoadAnimation"></a>IMG_LoadAnimation</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadAnimation">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从文件加载动画。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">IMG_Animation * <span class="hljs-title">IMG_LoadAnimation</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *file)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>file：文件系统上包含动画图像的路径。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 IMG_Animation，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadAnimation_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadAnimation_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadAnimation_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadAnimation-RW"><a href="#IMG-LoadAnimation-RW" class="headerlink" title="IMG_LoadAnimation_RW"></a>IMG_LoadAnimation_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadAnimation_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a>加载动画。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">IMG_Animation * <span class="hljs-title">IMG_LoadAnimation_RW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a><br>freesrc：非零表示在返回之前关闭&#x2F;释放 SDL_RWops，零表示使其保持打开状态。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 IMG_Animation，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadAnimationTyped_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadAnimationTyped_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadAnimationTyped_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadAnimationTyped-RW"><a href="#IMG-LoadAnimationTyped-RW" class="headerlink" title="IMG_LoadAnimationTyped_RW"></a>IMG_LoadAnimationTyped_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadAnimationTyped_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从 SDL 数据源加载动画</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">IMG_Animation * <span class="hljs-title">IMG_LoadAnimationTyped_RW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *type)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a><br>freesrc：非零表示在返回之前关闭&#x2F;释放 SDL_RWops，零表示使其保持打开状态。<br>type：表示该数据的文件扩展名（“GIF”等）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 IMG_Animation，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadBMP_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadBMP_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadBMP_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadBMP-RW"><a href="#IMG-LoadBMP-RW" class="headerlink" title="IMG_LoadBMP_RW"></a>IMG_LoadBMP_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadBMP_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 BMP 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadBMP_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadGIFAnimation_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadGIFAnimation_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadGIFAnimation_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadGIFAnimation-RW"><a href="#IMG-LoadGIFAnimation-RW" class="headerlink" title="IMG_LoadGIFAnimation_RW"></a>IMG_LoadGIFAnimation_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadGIFAnimation_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载GIF动画。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">IMG_Animation * <span class="hljs-title">IMG_LoadGIFAnimation_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 IMG_Animation，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadCUR_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadCUR_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadCUR_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadCUR-RW"><a href="#IMG-LoadCUR-RW" class="headerlink" title="IMG_LoadCUR_RW"></a>IMG_LoadCUR_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadCUR_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 CUR 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadCUR_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadGIF_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadGIF_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadGIF_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadGIF-RW"><a href="#IMG-LoadGIF-RW" class="headerlink" title="IMG_LoadGIF_RW"></a>IMG_LoadGIF_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadGIF_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 GIF 图片。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadGIF_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadICO_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadICO_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadICO_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadICO-RW"><a href="#IMG-LoadICO-RW" class="headerlink" title="IMG_LoadICO_RW"></a>IMG_LoadICO_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadICO_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 ICO 镜像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadICO_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadJPG_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadJPG_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadJPG_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadJPG-RW"><a href="#IMG-LoadJPG-RW" class="headerlink" title="IMG_LoadJPG_RW"></a>IMG_LoadJPG_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadJPG_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 JPG 图片。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadJPG_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadJXL_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadJXL_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadJXL_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadJXL-RW"><a href="#IMG-LoadJXL-RW" class="headerlink" title="IMG_LoadJXL_RW"></a>IMG_LoadJXL_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadJXL_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 JXL 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadJXL_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadLBM_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadLBM_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadLBM_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadLBM-RW"><a href="#IMG-LoadLBM-RW" class="headerlink" title="IMG_LoadLBM_RW"></a>IMG_LoadLBM_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadLBM_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载LBM图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadLBM_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadPCX_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadPCX_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadPCX_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadPCX-RW"><a href="#IMG-LoadPCX-RW" class="headerlink" title="IMG_LoadPCX_RW"></a>IMG_LoadPCX_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadPCX_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载PCX图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadPCX_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadPNG_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadPNG_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadPNG_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadPNG-RW"><a href="#IMG-LoadPNG-RW" class="headerlink" title="IMG_LoadPNG_RW"></a>IMG_LoadPNG_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadPNG_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载PNG图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadPNG_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadPNM_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadPNM_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadPNM_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadPNM-RW"><a href="#IMG-LoadPNM-RW" class="headerlink" title="IMG_LoadPNM_RW"></a>IMG_LoadPNM_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadPNM_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 PNM 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadPNM_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadQOI_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadQOI_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadQOI_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadQOI-RW"><a href="#IMG-LoadQOI-RW" class="headerlink" title="IMG_LoadQOI_RW"></a>IMG_LoadQOI_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadQOI_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 QOI 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadQOI_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadSVG_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadSVG_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadSVG_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadSVG-RW"><a href="#IMG-LoadSVG-RW" class="headerlink" title="IMG_LoadSVG_RW"></a>IMG_LoadSVG_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadSVG_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 SVG 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadSVG_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadSizedSVG_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadSizedSVG_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadSizedSVG_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadSizedSVG-RW"><a href="#IMG-LoadSizedSVG-RW" class="headerlink" title="IMG_LoadSizedSVG_RW"></a>IMG_LoadSizedSVG_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadSizedSVG_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>加载缩放至特定尺寸的 SVG 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadSizedSVG_RW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：用于加载 SVG 数据的<a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a><br>width：生成表面的所需宽度（以像素为单位）。<br>height：生成表面的所需高度（以像素为单位）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadTGA_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadTGA_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadTGA_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadTGA-RW"><a href="#IMG-LoadTGA-RW" class="headerlink" title="IMG_LoadTGA_RW"></a>IMG_LoadTGA_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadTGA_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 TGA 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadTGA_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> </p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadTIF_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadTIF_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadTIF_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadTIF-RW"><a href="#IMG-LoadTIF-RW" class="headerlink" title="IMG_LoadTIF_RW"></a>IMG_LoadTIF_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadTIF_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 TIFF 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadTIF_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> </p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadTexture</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadTexture/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadTexture/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadTexture"><a href="#IMG-LoadTexture" class="headerlink" title="IMG_LoadTexture"></a>IMG_LoadTexture</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadTexture">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>图像从文件系统路径加载到 GPU 纹理中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Texture * <span class="hljs-title">IMG_LoadTexture</span><span class="hljs-params">(SDL_Renderer *renderer, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *file)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer：用于创建 GPU 纹理的<a href="/2024/01/10/SDL/Dictionary/SDL_Renderer/" title="SDL_Renderer">SDL_Renderer</a><br>file：文件系统上加载图像的路径。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的纹理，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadTexture_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadTexture_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadTexture_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadTexture-RW"><a href="#IMG-LoadTexture-RW" class="headerlink" title="IMG_LoadTexture_RW"></a>IMG_LoadTexture_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadTexture_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将图像从 SDL 数据源加载到 GPU 纹理中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Texture * <span class="hljs-title">IMG_LoadTexture_RW</span><span class="hljs-params">(SDL_Renderer *renderer, SDL_RWops *src, <span class="hljs-type">int</span> freesrc)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer：用于创建 GPU 纹理的<a href="/2024/01/10/SDL/Dictionary/SDL_Renderer/" title="SDL_Renderer">SDL_Renderer</a><br>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a><br>freesrc：非零表示在返回之前关闭&#x2F;释放 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a>，零表示使其保持打开状态。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的纹理，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadTextureTyped_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadTextureTyped_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadTextureTyped_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadTextureTyped-RW"><a href="#IMG-LoadTextureTyped-RW" class="headerlink" title="IMG_LoadTextureTyped_RW"></a>IMG_LoadTextureTyped_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadTextureTyped_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将图像从 SDL 数据源加载到 GPU 纹理中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Texture * <span class="hljs-title">IMG_LoadTextureTyped_RW</span><span class="hljs-params">(SDL_Renderer *renderer, SDL_RWops *src, <span class="hljs-type">int</span> freesrc, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *type)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>renderer：用于创建 GPU 纹理的<a href="/2024/01/10/SDL/Dictionary/SDL_Renderer/" title="SDL_Renderer">SDL_Renderer</a><br>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a><br>freesrc：非零表示在返回之前关闭&#x2F;释放 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a>，零表示使其保持打开状态。<br>type：表示该数据的文件扩展名（“BMP”、“GIF”、“PNG”等）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的纹理，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadTyped_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadTyped_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadTyped_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadTyped-RW"><a href="#IMG-LoadTyped-RW" class="headerlink" title="IMG_LoadTyped_RW"></a>IMG_LoadTyped_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadTyped_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将图像从 SDL 数据源加载到软件界面中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadTyped_RW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *type)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a><br>freesrc：非零表示在返回之前关闭&#x2F;释放 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a>，零表示使其保持打开状态。<br>type：表示该数据的文件扩展名（“BMP”、“GIF”、“PNG”等）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 SDL 表面，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadWEBPAnimation_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadWEBPAnimation_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadWEBPAnimation_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadWEBPAnimation-RW"><a href="#IMG-LoadWEBPAnimation-RW" class="headerlink" title="IMG_LoadWEBPAnimation_RW"></a>IMG_LoadWEBPAnimation_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadWEBPAnimation_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载WEBP动画。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">IMG_Animation * <span class="hljs-title">IMG_LoadWEBPAnimation_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> </p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 IMG_Animation，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadWEBP_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadWEBP_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadWEBP_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadWEBP-RW"><a href="#IMG-LoadWEBP-RW" class="headerlink" title="IMG_LoadWEBP_RW"></a>IMG_LoadWEBP_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadWEBP_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载WEBP图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadWEBP_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> </p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadXCF_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadXCF_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadXCF_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadXCF-RW"><a href="#IMG-LoadXCF-RW" class="headerlink" title="IMG_LoadXCF_RW"></a>IMG_LoadXCF_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadXCF_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 XCF 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadXCF_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> </p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadXPM_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadXPM_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadXPM_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadXPM-RW"><a href="#IMG-LoadXPM-RW" class="headerlink" title="IMG_LoadXPM_RW"></a>IMG_LoadXPM_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadXPM_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 XPM 图像</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadXPM_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> </p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_LoadXV_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_LoadXV_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_LoadXV_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-LoadXV-RW"><a href="#IMG-LoadXV-RW" class="headerlink" title="IMG_LoadXV_RW"></a>IMG_LoadXV_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_LoadXV_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>直接加载 XV 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_LoadXV_RW</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> </p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 SDL 表面，或出错时返回 NULL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_Load_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_Load_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_Load_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-Load-RW"><a href="#IMG-Load-RW" class="headerlink" title="IMG_Load_RW"></a>IMG_Load_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_Load_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将图像从 SDL 数据源加载到软件界面中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_Load_RW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：将从中读取数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a><br>freesrc：非零表示在返回之前关闭&#x2F;释放 SDL_RWops，零表示使其保持打开状态。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 SDL 表面，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_Quit</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_Quit/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_Quit/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-Quit"><a href="#IMG-Quit" class="headerlink" title="IMG_Quit"></a>IMG_Quit</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_Quit">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>取消初始化SDL_image。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">IMG_Quit</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_ReadXPMFromArray</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_ReadXPMFromArray/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_ReadXPMFromArray/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-ReadXPMFromArray"><a href="#IMG-ReadXPMFromArray" class="headerlink" title="IMG_ReadXPMFromArray"></a>IMG_ReadXPMFromArray</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_ReadXPMFromArray">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从内存阵列加载 XPM 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_ReadXPMFromArray</span><span class="hljs-params">(<span class="hljs-type">char</span> **xpm)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>xpm：包含 XPM 数据的以 null 结尾的字符串数组。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 SDL 表面，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_ReadXPMFromArrayToRGB888</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_ReadXPMFromArrayToRGB888/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_ReadXPMFromArrayToRGB888/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-ReadXPMFromArrayToRGB888"><a href="#IMG-ReadXPMFromArrayToRGB888" class="headerlink" title="IMG_ReadXPMFromArrayToRGB888"></a>IMG_ReadXPMFromArrayToRGB888</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_ReadXPMFromArrayToRGB888">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从内存阵列加载 XPM 图像。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">IMG_ReadXPMFromArrayToRGB888</span><span class="hljs-params">(<span class="hljs-type">char</span> **xpm)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>xpm：包含 XPM 数据的以 null 结尾的字符串数组。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 SDL 表面，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_SaveJPG</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_SaveJPG/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_SaveJPG/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-SaveJPG"><a href="#IMG-SaveJPG" class="headerlink" title="IMG_SaveJPG"></a>IMG_SaveJPG</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_SaveJPG">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将 SDL_Surface 保存到 JPEG 图像文件中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_SaveJPG</span><span class="hljs-params">(SDL_Surface *surface, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *file, <span class="hljs-type">int</span> quality)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要保存的 SDL 表面<br>file：文件系统上要写入新文件的路径。<br>quality：[0; 33] 是最低质量，[34； 66] 是中等质量，[67； 100] 是最高质量</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果错误则返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_SaveJPG_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_SaveJPG_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_SaveJPG_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-SaveJPG-RW"><a href="#IMG-SaveJPG-RW" class="headerlink" title="IMG_SaveJPG_RW"></a>IMG_SaveJPG_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_SaveJPG_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>通过 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 将 <a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a>  保存到 JPEG 图像数据中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_SaveJPG_RW</span><span class="hljs-params">(SDL_Surface *surface, SDL_RWops *dst, <span class="hljs-type">int</span> freedst, <span class="hljs-type">int</span> quality)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要保存的 SDL 表面<br>dst：用于保存图像数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果错误则返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_SavePNG_RW</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_SavePNG_RW/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_SavePNG_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-SavePNG-RW"><a href="#IMG-SavePNG-RW" class="headerlink" title="IMG_SavePNG_RW"></a>IMG_SavePNG_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_SavePNG_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>通过 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 将 <a href="/2024/01/05/SDL/Dictionary/SDL_Surface/" title="SDL_Surface">SDL_Surface</a>  保存到 PNG 图像数据中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_SavePNG_RW</span><span class="hljs-params">(SDL_Surface *surface, SDL_RWops *dst, <span class="hljs-type">int</span> freedst)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要保存的 SDL 表面<br>dst：用于保存图像数据的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a></p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果错误则返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_SavePNG</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_SavePNG/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_SavePNG/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-SavePNG"><a href="#IMG-SavePNG" class="headerlink" title="IMG_SavePNG"></a>IMG_SavePNG</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_SavePNG">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将 SDL_Surface 保存到 PNG 图像文件中。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_SavePNG</span><span class="hljs-params">(SDL_Surface *surface, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *file)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>surface：要保存的 SDL 表面<br>file：文件系统上要写入新文件的路径。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果错误则返回 -1</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isTIF</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_isTIF/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_isTIF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isTIF"><a href="#IMG-isTIF" class="headerlink" title="IMG_isTIF"></a>IMG_isTIF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isTIF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  TIFF  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isTIF</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 TIFF 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isWEBP</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_isWEBP/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_isWEBP/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isWEBP"><a href="#IMG-isWEBP" class="headerlink" title="IMG_isWEBP"></a>IMG_isWEBP</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isWEBP">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  WEBP  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isWEBP</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 WEBP 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isXCF</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_isXCF/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_isXCF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isXCF"><a href="#IMG-isXCF" class="headerlink" title="IMG_isXCF"></a>IMG_isXCF</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isXCF">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  XCF  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isXCF</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 XCF 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isXPM</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_isXPM/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_isXPM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isXPM"><a href="#IMG-isXPM" class="headerlink" title="IMG_isXPM"></a>IMG_isXPM</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isXPM">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  XPM  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isXPM</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 XPM 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isXV</title>
+    <link href="/2024/01/15/SDL/Dictionary/IMG_isXV/"/>
+    <url>/2024/01/15/SDL/Dictionary/IMG_isXV/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isXV"><a href="#IMG-isXV" class="headerlink" title="IMG_isXV"></a>IMG_isXV</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isXV">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  XV  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isXV</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 XV 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION</title>
     <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION/"/>
     <url>/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION/</url>
@@ -1818,6 +3056,60 @@
     <url>/2024/01/14/SDL/Dictionary/IMG_isPNM/</url>
     
     <content type="html"><![CDATA[<h1 id="IMG-isPNM"><a href="#IMG-isPNM" class="headerlink" title="IMG_isPNM"></a>IMG_isPNM</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isPNM">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  PNM  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isPNM</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 PNM 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isSVG</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isSVG/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isSVG/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isSVG"><a href="#IMG-isSVG" class="headerlink" title="IMG_isSVG"></a>IMG_isSVG</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isSVG">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  SVG  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isSVG</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 SVG 数据，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IMG_isQOI</title>
+    <link href="/2024/01/14/SDL/Dictionary/IMG_isQOI/"/>
+    <url>/2024/01/14/SDL/Dictionary/IMG_isQOI/</url>
+    
+    <content type="html"><![CDATA[<h1 id="IMG-isQOI"><a href="#IMG-isQOI" class="headerlink" title="IMG_isQOI"></a>IMG_isQOI</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_image/IMG_isQOI">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检测可读&#x2F;可查找的 <a href="/2024/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 上的  QOI  图像数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">IMG_isQOI</span><span class="hljs-params">(SDL_RWops *src)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: 可查找&#x2F;可读的 SDL_RWops 来提供图像数据。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果这是 QOI 数据，则返回非零，否则返回零。</p>]]></content>
     
     
     <categories>
@@ -4223,31 +5515,6 @@
     <url>/2024/01/08/SDL/5.Optimized%20Surface%20Loading%20and%20Soft%20Strenching/</url>
     
     <content type="html"><![CDATA[<span id="more"></span><p>参考博客：<a href="https://lazyfoo.net/tutorials/SDL/05_optimized_surface_loading_and_soft_stretching/index.php">Lazy Foo’ Productions</a><br>实例代码取自Lazy Foo’<br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">/*This source code copyrighted by Lazy Foo&#x27; Productions 2004-2024</span><br><span class="hljs-comment">and may not be redistributed without written permission.*/</span><br><br><span class="hljs-comment">//Using SDL, standard IO, and strings</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-comment">//Screen dimension constants</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_WIDTH = <span class="hljs-number">640</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_HEIGHT = <span class="hljs-number">480</span>;<br><br><span class="hljs-comment">//Starts up SDL and creates window</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads media</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Frees media and shuts down SDL</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads individual image</span><br><span class="hljs-function">SDL_Surface* <span class="hljs-title">loadSurface</span><span class="hljs-params">( std::string path )</span></span>;<br><br><span class="hljs-comment">//The window we&#x27;ll be rendering to</span><br>SDL_Window* gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//The surface contained by the window</span><br>SDL_Surface* gScreenSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Current displayed image</span><br>SDL_Surface* gStretchedSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Initialization flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Initialize SDL</span><br><span class="hljs-keyword">if</span>( <span class="hljs-built_in">SDL_Init</span>( SDL_INIT_VIDEO ) &lt; <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL could not initialize! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Create window</span><br>gWindow = <span class="hljs-built_in">SDL_CreateWindow</span>( <span class="hljs-string">&quot;SDL Tutorial&quot;</span>, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );<br><span class="hljs-keyword">if</span>( gWindow == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Window could not be created! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Get window surface</span><br>gScreenSurface = <span class="hljs-built_in">SDL_GetWindowSurface</span>( gWindow );<br>&#125;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Loading success flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Load stretching surface</span><br>gStretchedSurface = <span class="hljs-built_in">loadSurface</span>( <span class="hljs-string">&quot;stretch.bmp&quot;</span> );<br><span class="hljs-keyword">if</span>( gStretchedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load stretching image!\n&quot;</span> );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Free loaded image</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( gStretchedSurface );<br>gStretchedSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Destroy window</span><br><span class="hljs-built_in">SDL_DestroyWindow</span>( gWindow );<br>gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Quit SDL subsystems</span><br><span class="hljs-built_in">SDL_Quit</span>();<br>&#125;<br><br><span class="hljs-function">SDL_Surface* <span class="hljs-title">loadSurface</span><span class="hljs-params">( std::string path )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//The final optimized image</span><br>SDL_Surface* optimizedSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Load image at specified path</span><br>SDL_Surface* loadedSurface = <span class="hljs-built_in">SDL_LoadBMP</span>( path.<span class="hljs-built_in">c_str</span>() );<br><span class="hljs-keyword">if</span>( loadedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to load image %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Convert surface to screen format</span><br>optimizedSurface = <span class="hljs-built_in">SDL_ConvertSurface</span>( loadedSurface, gScreenSurface-&gt;format, <span class="hljs-number">0</span> );<br><span class="hljs-keyword">if</span>( optimizedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to optimize image %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><br><span class="hljs-comment">//Get rid of old loaded surface</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( loadedSurface );<br>&#125;<br><br><span class="hljs-keyword">return</span> optimizedSurface;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>* args[] )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Start up SDL and create window</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">init</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to initialize!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Load media</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">loadMedia</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load media!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Main loop flag</span><br><span class="hljs-type">bool</span> quit = <span class="hljs-literal">false</span>;<br><br><span class="hljs-comment">//Event handler</span><br>SDL_Event e;<br><br><span class="hljs-comment">//While application is running</span><br><span class="hljs-keyword">while</span>( !quit )<br>&#123;<br><span class="hljs-comment">//Handle events on queue</span><br><span class="hljs-keyword">while</span>( <span class="hljs-built_in">SDL_PollEvent</span>( &amp;e ) != <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-comment">//User requests quit</span><br><span class="hljs-keyword">if</span>( e.type == SDL_QUIT )<br>&#123;<br>quit = <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Apply the image stretched</span><br>SDL_Rect stretchRect;<br>stretchRect.x = <span class="hljs-number">0</span>;<br>stretchRect.y = <span class="hljs-number">0</span>;<br>stretchRect.w = SCREEN_WIDTH;<br>stretchRect.h = SCREEN_HEIGHT;<br><span class="hljs-built_in">SDL_BlitScaled</span>( gStretchedSurface, <span class="hljs-literal">NULL</span>, gScreenSurface, &amp;stretchRect );<br><br><span class="hljs-comment">//Update the surface</span><br><span class="hljs-built_in">SDL_UpdateWindowSurface</span>( gWindow );<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Free resources and close SDL</span><br><span class="hljs-built_in">close</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>在之前我们的教程中我们图片都是拿来直接用了，这对于少量图片的加载没有什么影响，但面对海量的图片时却会造成低效。因此，我们在显示图片之前会先将转化为优化后的格式，然后再通过拉伸的方式去除图片中不必要的部分。<br><br /><br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface* <span class="hljs-title">loadSurface</span><span class="hljs-params">( std::string path )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//The final optimized image</span><br>SDL_Surface* optimizedSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Load image at specified path</span><br>SDL_Surface* loadedSurface = <span class="hljs-built_in">SDL_LoadBMP</span>( path.<span class="hljs-built_in">c_str</span>() );<br><span class="hljs-keyword">if</span>( loadedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to load image %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Convert surface to screen format</span><br>optimizedSurface = <span class="hljs-built_in">SDL_ConvertSurface</span>( loadedSurface, gScreenSurface-&gt;format, <span class="hljs-number">0</span> );<br><span class="hljs-keyword">if</span>( optimizedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to optimize image %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><br><span class="hljs-comment">//Get rid of old loaded surface</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( loadedSurface );<br>&#125;<br><br><span class="hljs-keyword">return</span> optimizedSurface;<br>&#125;<br></code></pre></td></tr></table></figure><p>在上述这段代码之中，与之前的loadSurface不同，这里调用了<a href="/2024/01/05/SDL/Dictionary/SDL_ConvertSurface/" title="SDL_ConvertSurface">SDL_ConvertSurface</a>来将读取到的图片转换为屏幕所对应的格式。那什么时屏幕所对应的格式呢？关于这一部分的知识涉及到位图的一些知识，本文不做详细讨论，感兴趣的朋友可点下面链接<a href="https://zh.wikipedia.org/wiki/BMP">click to jump</a>。<br>注意到这代码中还有一个细节就是不要忘记在转换格式之后释放原来存储surface的内存。原因在于，在转换过程中原来的surface并没有被影响，一份复制被创建了出来，而我们需要的是那份新的复制。<br><br /><br><br /></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//Apply the image stretched</span><br>SDL_Rect stretchRect;<br>stretchRect.x = <span class="hljs-number">0</span>;<br>stretchRect.y = <span class="hljs-number">0</span>;<br>stretchRect.w = SCREEN_WIDTH;<br>stretchRect.h = SCREEN_HEIGHT;<br><span class="hljs-built_in">SDL_BlitScaled</span>( gStretchedSurface, <span class="hljs-literal">NULL</span>, gScreenSurface, &amp;stretchRect );<br><br><span class="hljs-comment">//Update the surface</span><br><span class="hljs-built_in">SDL_UpdateWindowSurface</span>( gWindow );<br></code></pre></td></tr></table></figure><p>上面这段代码显示的是SDL_BlitScaled()的引用，该函数的作用可以类比于裁剪功能。在裁剪之前我们当然需要决定一个落点，然后在决定之后决定裁剪矩形的长和宽。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Game Development</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>SDL</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>6.Setting up SDL Extension Libraries on CodeBlocks</title>
-    <link href="/2024/01/08/SDL/6.Setting%20up%20SDL%20Extension%20Libraries%20on%20CodeBlocks/"/>
-    <url>/2024/01/08/SDL/6.Setting%20up%20SDL%20Extension%20Libraries%20on%20CodeBlocks/</url>
-    
-    <content type="html"><![CDATA[<span id="more"></span><p>参考博客：<a href="https://lazyfoo.net/tutorials/SDL/06_extension_libraries_and_loading_other_image_formats/index.php">Lazy Foo’ Productions</a><br>测试代码取自Lazy Foo’<br><br /></p><h2 id="Loading-other-image-formats"><a href="#Loading-other-image-formats" class="headerlink" title="Loading other image formats"></a>Loading other image formats</h2><p>除了 BMP 图像文件之外，SDL 扩展库还允许我加载其他图像格式，例如 PNG。 那么如何安装SDL扩展库，本教程将一步步教你。</p><h3 id="Setting-up-SDL-Extension-Libraries-on-CodeBlokcs"><a href="#Setting-up-SDL-Extension-Libraries-on-CodeBlokcs" class="headerlink" title="Setting up SDL Extension Libraries on CodeBlokcs"></a>Setting up SDL Extension Libraries on CodeBlokcs</h3><p><img src="/img/SDL/SDL_image.png"><br>SDL_image下载链接：<a href="https://github.com/libsdl-org/SDL_image/releases">click to jump</a><br>由于CB默认使用的是MinGW编译器，所以我们选用下载包中带mingw的压缩包。考虑到兼容性最佳的状态这里我们选择其中的i686-w64-mingw32，并将其重命名为mingw_dev_lib。<br><br /><br><img src="/img/SDL/CB_project_lists.png"><br><img src="/img/SDL/CB_project_property.png"><br>选择原来的SDL项目SDL2。进入project的porperties选项，选择其中的project’s build options<br><br /><br><img src="/img/SDL/CB_search_directories_complier.png"><br>在左侧菜单栏中选择SDL2，注意既不是Debug也不是Release，因为要同时更改两个的选项。选择菜单栏中的Search directories, 选择compiler在其中添加mingw_dev_lib文件的include中SDL2的文件路径。<br><br /><br><img src="/img/SDL/CB_linker_directory.png"><br>完成上述步骤后选择Search directories中的Linker将mingw_dev_lib中的lib路径地址添加进其中。<br><br /><br><img src="/img/SDL/CB_other_linker_SDL_image.png"><br>完成这部后再选择菜单栏中Linker setting，然后在Other linker options中添加-lmingw32 -lSDL2main -lSDL2 -lSDL2_image。<br><br /><br>最后从mingw_dev_lib文件夹的bin中找到SDL2_image.dll将其复制到项目的工作目录之中。<br><br /><br>完成上述步骤之后尝试运行测试代码，如果运行报错，请仔细检查上述步骤，确保操作无误。<br><br /><br><br /><br>完成上述步骤之后尝试运行测试代码，如果运行报错，请仔细检查上述步骤，确保操作无误。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">/*This source code copyrighted by Lazy Foo&#x27; Productions 2004-2024</span><br><span class="hljs-comment">and may not be redistributed without written permission.*/</span><br><br><span class="hljs-comment">//Using SDL, SDL_image, standard IO, and strings</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SDL_image.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-comment">//Screen dimension constants</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_WIDTH = <span class="hljs-number">640</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> SCREEN_HEIGHT = <span class="hljs-number">480</span>;<br><br><span class="hljs-comment">//Starts up SDL and creates window</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads media</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Frees media and shuts down SDL</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-comment">//Loads individual image</span><br><span class="hljs-function">SDL_Surface* <span class="hljs-title">loadSurface</span><span class="hljs-params">( std::string path )</span></span>;<br><br><span class="hljs-comment">//The window we&#x27;ll be rendering to</span><br>SDL_Window* gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//The surface contained by the window</span><br>SDL_Surface* gScreenSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Current displayed PNG image</span><br>SDL_Surface* gPNGSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Initialization flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Initialize SDL</span><br><span class="hljs-keyword">if</span>( <span class="hljs-built_in">SDL_Init</span>( SDL_INIT_VIDEO ) &lt; <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL could not initialize! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Create window</span><br>gWindow = <span class="hljs-built_in">SDL_CreateWindow</span>( <span class="hljs-string">&quot;SDL Tutorial&quot;</span>, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );<br><span class="hljs-keyword">if</span>( gWindow == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Window could not be created! SDL Error: %s\n&quot;</span>, <span class="hljs-built_in">SDL_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Initialize PNG loading</span><br><span class="hljs-type">int</span> imgFlags = IMG_INIT_PNG;<br><span class="hljs-keyword">if</span>( !( <span class="hljs-built_in">IMG_Init</span>( imgFlags ) &amp; imgFlags ) )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;SDL_image could not initialize! SDL_image Error: %s\n&quot;</span>, <span class="hljs-built_in">IMG_GetError</span>() );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Get window surface</span><br>gScreenSurface = <span class="hljs-built_in">SDL_GetWindowSurface</span>( gWindow );<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">loadMedia</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Loading success flag</span><br><span class="hljs-type">bool</span> success = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">//Load PNG surface</span><br>gPNGSurface = <span class="hljs-built_in">loadSurface</span>( <span class="hljs-string">&quot;loaded.png&quot;</span> );<br><span class="hljs-keyword">if</span>( gPNGSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load PNG image!\n&quot;</span> );<br>success = <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-keyword">return</span> success;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Free loaded image</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( gPNGSurface );<br>gPNGSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Destroy window</span><br><span class="hljs-built_in">SDL_DestroyWindow</span>( gWindow );<br>gWindow = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Quit SDL subsystems</span><br><span class="hljs-built_in">IMG_Quit</span>();<br><span class="hljs-built_in">SDL_Quit</span>();<br>&#125;<br><br><span class="hljs-function">SDL_Surface* <span class="hljs-title">loadSurface</span><span class="hljs-params">( std::string path )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//The final optimized image</span><br>SDL_Surface* optimizedSurface = <span class="hljs-literal">NULL</span>;<br><br><span class="hljs-comment">//Load image at specified path</span><br>SDL_Surface* loadedSurface = <span class="hljs-built_in">IMG_Load</span>( path.<span class="hljs-built_in">c_str</span>() );<br><span class="hljs-keyword">if</span>( loadedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to load image %s! SDL_image Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">IMG_GetError</span>() );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Convert surface to screen format</span><br>optimizedSurface = <span class="hljs-built_in">SDL_ConvertSurface</span>( loadedSurface, gScreenSurface-&gt;format, <span class="hljs-number">0</span> );<br><span class="hljs-keyword">if</span>( optimizedSurface == <span class="hljs-literal">NULL</span> )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Unable to optimize image %s! SDL Error: %s\n&quot;</span>, path.<span class="hljs-built_in">c_str</span>(), <span class="hljs-built_in">SDL_GetError</span>() );<br>&#125;<br><br><span class="hljs-comment">//Get rid of old loaded surface</span><br><span class="hljs-built_in">SDL_FreeSurface</span>( loadedSurface );<br>&#125;<br><br><span class="hljs-keyword">return</span> optimizedSurface;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>* args[] )</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-comment">//Start up SDL and create window</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">init</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to initialize!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Load media</span><br><span class="hljs-keyword">if</span>( !<span class="hljs-built_in">loadMedia</span>() )<br>&#123;<br><span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Failed to load media!\n&quot;</span> );<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br><span class="hljs-comment">//Main loop flag</span><br><span class="hljs-type">bool</span> quit = <span class="hljs-literal">false</span>;<br><br><span class="hljs-comment">//Event handler</span><br>SDL_Event e;<br><br><span class="hljs-comment">//While application is running</span><br><span class="hljs-keyword">while</span>( !quit )<br>&#123;<br><span class="hljs-comment">//Handle events on queue</span><br><span class="hljs-keyword">while</span>( <span class="hljs-built_in">SDL_PollEvent</span>( &amp;e ) != <span class="hljs-number">0</span> )<br>&#123;<br><span class="hljs-comment">//User requests quit</span><br><span class="hljs-keyword">if</span>( e.type == SDL_QUIT )<br>&#123;<br>quit = <span class="hljs-literal">true</span>;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Apply the PNG image</span><br><span class="hljs-built_in">SDL_BlitSurface</span>( gPNGSurface, <span class="hljs-literal">NULL</span>, gScreenSurface, <span class="hljs-literal">NULL</span> );<br><br><span class="hljs-comment">//Update the surface</span><br><span class="hljs-built_in">SDL_UpdateWindowSurface</span>( gWindow );<br>&#125;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//Free resources and close SDL</span><br><span class="hljs-built_in">close</span>();<br><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
