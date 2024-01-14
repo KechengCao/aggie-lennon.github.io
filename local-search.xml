@@ -4,6 +4,1491 @@
   
   
   <entry>
+    <title>SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-ANDROID-APK-EXPANSION-MAIN-FILE-VERSION"><a href="#SDL-HINT-ANDROID-APK-EXPANSION-MAIN-FILE-VERSION" class="headerlink" title="SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION"></a>SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 Android APK 扩展主文件版本的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下不设置此提示。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>X：Android APK 扩展主文件版本（应该是“1”、“2”等字符串数字）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_ACCELEROMETER_AS_JOYSTICK</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_ACCELEROMETER_AS_JOYSTICK/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_ACCELEROMETER_AS_JOYSTICK/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-ACCELEROMETER-AS-JOYSTICK"><a href="#SDL-HINT-ACCELEROMETER-AS-JOYSTICK" class="headerlink" title="SDL_HINT_ACCELEROMETER_AS_JOYSTICK"></a>SDL_HINT_ACCELEROMETER_AS_JOYSTICK</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_ACCELEROMETER_AS_JOYSTICK">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 Android &#x2F; iOS 内置加速度计是否应列为操纵杆设备，而不是仅仅实际操纵杆列表。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将加速计添加到真实的操纵杆列表，就好像它是 3 轴操纵杆一样</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：仅列出真实的操纵杆列表并接受来自它们的输入<br>1：将加速计添加到真实的操纵杆列表，并将它们列出。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-ANDROID-APK-EXPANSION-PATCH-FILE-VERSION"><a href="#SDL-HINT-ANDROID-APK-EXPANSION-PATCH-FILE-VERSION" class="headerlink" title="SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION"></a>SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定Android APK扩展补丁文件版本的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下不设置此提示。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>Android APK扩展补丁文件版本（应该是“1”、“2”等字符串数字）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-ANDROID-SEPARATE-MOUSE-AND-TOUCH"><a href="#SDL-HINT-ANDROID-SEPARATE-MOUSE-AND-TOUCH" class="headerlink" title="SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH"></a>SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定一个变量来控制鼠标和触摸事件是一起处理还是单独处理的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，鼠标事件将作为触摸事件处理，并且触摸将引发假鼠标事件。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：鼠标事件将作为触摸事件处理，触摸将引发假鼠标事件<br>1：鼠标事件将与纯触摸事件分开处理</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-APPLE-TV-CONTROLLER-UI-EVENTS"><a href="#SDL-HINT-APPLE-TV-CONTROLLER-UI-EVENTS" class="headerlink" title="SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS"></a>SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定与 Apple TV 一起使用的控制器是否生成 UI 事件的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，控制器输入不会生成 UI 事件。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：控制器输入不会生成 UI 事件<br>1：控制器输入生成 UI 事件</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-APPLE-TV-REMOTE-ALLOW-ROTATION"><a href="#SDL-HINT-APPLE-TV-REMOTE-ALLOW-ROTATION" class="headerlink" title="SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION"></a>SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 Apple TV 遥控器的操纵杆轴是否自动匹配遥控器旋转的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，远程指向不会影响操纵杆轴。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：远程指向不会影响操纵杆轴<br>1：操纵杆轴基于遥控器的方向</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_BMP_SAVE_LEGACY_FORMAT</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_BMP_SAVE_LEGACY_FORMAT/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_BMP_SAVE_LEGACY_FORMAT/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-BMP-SAVE-LEGACY-FORMAT"><a href="#SDL-HINT-BMP-SAVE-LEGACY-FORMAT" class="headerlink" title="SDL_HINT_BMP_SAVE_LEGACY_FORMAT"></a>SDL_HINT_BMP_SAVE_LEGACY_FORMAT</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_BMP_SAVE_LEGACY_FORMAT">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定在保存 BMP 时， SDL 是否使用点阵图版本 4。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>使用</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：使用<br>1：不使用</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_EMSCRIPTEN_ASYNCIFY</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_EMSCRIPTEN_ASYNCIFY/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_EMSCRIPTEN_ASYNCIFY/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-EMSCRIPTEN-ASYNCIFY"><a href="#SDL-HINT-EMSCRIPTEN-ASYNCIFY" class="headerlink" title="SDL_HINT_EMSCRIPTEN_ASYNCIFY"></a>SDL_HINT_EMSCRIPTEN_ASYNCIFY</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_EMSCRIPTEN_ASYNCIFY">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在使用 asyncify 运行时 SDL 是否应自动将控制权交还给浏览器的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>当使用 asyncify 支持编译应用程序时，SDL 会暂停应用程序并将控制权自动交还给浏览器通过调用<a href="https://emscripten.org/docs/api_reference/emscripten.h.html#pseudo-synchronous-functions">emscripten_sleep</a></p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：禁用 emscripten_sleep 调用<br>1：启用 emscripten_sleep 调用</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-EMSCRIPTEN-KEYBOARD-ELEMENT"><a href="#SDL-HINT-EMSCRIPTEN-KEYBOARD-ELEMENT" class="headerlink" title="SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT"></a>SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定一个值来覆盖 <a href="https://zh.wikipedia.org/wiki/Emscripten">Emscripten</a> 构建的键盘输入的绑定元素</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将使用 JavaScript 窗口对象。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>#window: JavaScript 窗口对象（这是默认值）<br>#document: JavaScript 文档对象<br>#screen: JavaScript window.screen 对象<br>#canvas: 默认的 <a href="https://zh.wikipedia.org/wiki/WebGL">WebGL</a> 画布元素</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_FRAMEBUFFER_ACCELERATION</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_FRAMEBUFFER_ACCELERATION/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_FRAMEBUFFER_ACCELERATION/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-FRAMEBUFFER-ACCELERATION"><a href="#SDL-HINT-FRAMEBUFFER-ACCELERATION" class="headerlink" title="SDL_HINT_FRAMEBUFFER_ACCELERATION"></a>SDL_HINT_FRAMEBUFFER_ACCELERATION</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_FRAMEBUFFER_ACCELERATION">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定如何将 3D 加速与 <a href="/2024/01/05/SDL/Dictionary/SDL_GetWindowSurface/" title="SDL_GetWindowSurface">SDL_GetWindowSurface</a>结合使用的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 会尝试对是否在每个平台上使用加速进行最佳猜测。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用 3D 加速<br>1:启用 3D 加速，使用默认渲染器<br>X:使用 X 启用 3D 加速，其中 X 是有效的渲染驱动程序之一。 （例如“direct3d”、“opengl”等）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_GAMECONTROLLERCONFIG</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_GAMECONTROLLERCONFIG/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_GAMECONTROLLERCONFIG/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-GAMECONTROLLERCONFIG"><a href="#SDL-HINT-GAMECONTROLLERCONFIG" class="headerlink" title="SDL_HINT_GAMECONTROLLERCONFIG"></a>SDL_HINT_GAMECONTROLLERCONFIG</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_GAMECONTROLLERCONFIG">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定额外游戏控制器数据库条目的提示.</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，没有指定额外的游戏控制器数据库条目。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>X:游戏控制器配置数据行，请参阅 SDL_gamecontroller.h</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_GRAB_KEYBOARD</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_GRAB_KEYBOARD/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_GRAB_KEYBOARD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-GRAB-KEYBOARD"><a href="#SDL-HINT-GRAB-KEYBOARD" class="headerlink" title="SDL_HINT_GRAB_KEYBOARD"></a>SDL_HINT_GRAB_KEYBOARD</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_GRAB_KEYBOARD">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定从键盘抓取输入的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 不会占用键盘，因此系统快捷键仍然有效。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:抓取只会影响鼠标<br>1：抓取会影响鼠标和键盘</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_IDLE_TIMER_DISABLED</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_IDLE_TIMER_DISABLED/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_IDLE_TIMER_DISABLED/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-IDLE-TIMER-DISABLED"><a href="#SDL-HINT-IDLE-TIMER-DISABLED" class="headerlink" title="SDL_HINT_IDLE_TIMER_DISABLED"></a>SDL_HINT_IDLE_TIMER_DISABLED</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_IDLE_TIMER_DISABLED">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否在 iOS 上禁用空闲计时器的变量的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，空闲计时器已启用。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:启用空闲定时器<br>1：禁用空闲定时器</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_IME_INTERNAL_EDITING</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_IME_INTERNAL_EDITING/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_IME_INTERNAL_EDITING/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-IME-INTERNAL-EDITING"><a href="#SDL-HINT-IME-INTERNAL-EDITING" class="headerlink" title="SDL_HINT_IME_INTERNAL_EDITING"></a>SDL_HINT_IME_INTERNAL_EDITING</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_IME_INTERNAL_EDITING">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定特定 <a href="https://learn.microsoft.com/zh-cn/windows/apps/design/input/input-method-editors">IME</a> 是否应在内部处理文本编辑而不是发送<a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TEXTEDITING</a>  事件的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，发送 <a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TEXTEDITING</a> 事件，应用程序负责呈现这些事件中的文本，并以某种方式将其与提交的文本区分开来。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:发送 <a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TEXTEDITING</a> 事件，应用程序负责呈现这些事件中的文本并以某种方式将其与提交的文本区分开来。 （默认）<br>1：如果 IME 支持，则不会发送 <a href="/2024/01/07/SDL/Dictionary/SDL_TextEditingEvent/" title="SDL_TextEditingEvent">SDL_TEXTEDITING</a> 事件，并且正在编写的文本将在其自己的 UI 中呈现。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-JOYSTICK-ALLOW-BACKGROUND-EVENTS"><a href="#SDL-HINT-JOYSTICK-ALLOW-BACKGROUND-EVENTS" class="headerlink" title="SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS"></a>SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定即使应用程序位于后台是否启用操纵杆（和游戏控制器）事件的提示</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，当应用程序处于后台时，不会启用操纵杆（和游戏控制器）事件</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:当应用程序在后台时禁用操纵杆和游戏控制器输入事件<br>1:当应用程序在后台时启用操纵杆和游戏控制器输入事件</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-MAC-CTRL-CLICK-EMULATE-RIGHT-CLICK"><a href="#SDL-HINT-MAC-CTRL-CLICK-EMULATE-RIGHT-CLICK" class="headerlink" title="SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK"></a>SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 ctrl+click 是否应在 Mac 上生成右键单击事件的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，在 Mac 上按住 ctrl 的同时单击左键不会生成右键单击事件。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用模拟右键单击<br>1:启用模拟右键单击</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-MOUSE-FOCUS-CLICKTHROUGH"><a href="#SDL-HINT-MOUSE-FOCUS-CLICKTHROUGH" class="headerlink" title="SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH"></a>SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定当单击以聚焦 SDL 窗口时是否发送鼠标单击事件的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，单击焦点时不会发送鼠标单击事件。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:单击聚焦时不发送鼠标单击事件<br>1:单击聚焦时发送鼠标单击事件</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_MAC_BACKGROUND_APP</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_MAC_BACKGROUND_APP/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_MAC_BACKGROUND_APP/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-MAC-BACKGROUND-APP"><a href="#SDL-HINT-MAC-BACKGROUND-APP" class="headerlink" title="SDL_HINT_MAC_BACKGROUND_APP"></a>SDL_HINT_MAC_BACKGROUND_APP</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_MAC_BACKGROUND_APP">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否不应强制 SDL 应用程序成为 Mac OS X 上的前台进程的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 应用程序将被迫成为 Mac OS X 上的前台进程。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:强制 SDL 应用程序成为前台进程（默认）<br>1:不要强制 SDL 应用程序成为前台进程</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_MOUSE_RELATIVE_MODE_WARP</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_MOUSE_RELATIVE_MODE_WARP/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_MOUSE_RELATIVE_MODE_WARP/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-MOUSE-RELATIVE-MODE-WARP"><a href="#SDL-HINT-MOUSE-RELATIVE-MODE-WARP" class="headerlink" title="SDL_HINT_MOUSE_RELATIVE_MODE_WARP"></a>SDL_HINT_MOUSE_RELATIVE_MODE_WARP</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_MOUSE_RELATIVE_MODE_WARP">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否使用鼠标变形实现相对鼠标模式的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将使用原始输入进行相对鼠标模式</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:相对鼠标模式使用原始输入<br>1:相对鼠标模式使用鼠标扭曲</p><p>相对鼠标模式:<br>相对鼠标是一种将鼠标移动转换为距离上一个鼠标位置的增量的方法，而不是移动到屏幕上的绝对位置。 这种类型的鼠标控制用于许多 CAD&#x2F;CAM、视觉效果和第一人称游戏软件。 在 CAD 程序中，您可能希望通过鼠标移动来控制 3D 对象的方向。 向左或向右移动鼠标可绕 Z 轴旋转对象，向上或向下移动鼠标可绕 X 轴旋转对象。 当您继续向左移动鼠标时，对象将继续绕轴旋转，并且旋转不受停在屏幕边框处的鼠标限制。</p><p>在相对鼠标模式下，鼠标光标不可见，因为鼠标正在控制方向移动并且未指向屏幕上的位置。</p><p>使用相对鼠标移动的应用程序通常提供进入或退出相对鼠标模式的方法，例如使用中键单击对象。 当按住中间按钮时，可以使用相对鼠标移动来控制对象。</p><p>所有 PCoIP 客户端都支持相对鼠标模式。 请注意，必须配置 PCoIP 零客户端才能启用它。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_MOUSE_RELATIVE_SCALING</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_MOUSE_RELATIVE_SCALING/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_MOUSE_RELATIVE_SCALING/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-MOUSE-RELATIVE-SCALING"><a href="#SDL-HINT-MOUSE-RELATIVE-SCALING" class="headerlink" title="SDL_HINT_MOUSE_RELATIVE_SCALING"></a>SDL_HINT_MOUSE_RELATIVE_SCALING</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_MOUSE_RELATIVE_SCALING">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定相对运动是否受渲染器缩放影响的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，相对鼠标增量受 DPI 和渲染器缩放的影响</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:相对运动不受 DPI 或渲染器逻辑大小的影响<br>1:相对运动根据 DPI 缩放和逻辑大小进行缩放</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_NO_SIGNAL_HANDLERS</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_NO_SIGNAL_HANDLERS/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_NO_SIGNAL_HANDLERS/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-NO-SIGNAL-HANDLERS"><a href="#SDL-HINT-NO-SIGNAL-HANDLERS" class="headerlink" title="SDL_HINT_NO_SIGNAL_HANDLERS"></a>SDL_HINT_NO_SIGNAL_HANDLERS</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_NO_SIGNAL_HANDLERS">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定不捕获 SIGINT 或 SIGTERM 信号的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下安装 SIGINT 和 SIGTERM 处理程序，当它捕获信号时，将其转换为 SDL_QUIT 事件。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:相对运动不受 DPI 或渲染器逻辑大小的影响<br>1:相对运动根据 DPI 缩放和逻辑大小进行缩放</p><p>SIGINT:<br>SIGINT信号为ctrl+c发送出来的信号，该信号只能结束前台进程，信号被当前进程树接收到，也就是说，不仅当前进程会收到信号，它的子进程也会收到；<br>SIGTERM:<br>SIGTERM可以被阻塞，kill不加任何参数的时候发送的就是这个信号，只有当前进程收到信号，子进程不会收到。如果当前进程被kill了，那么它的子进程的父进程将会是init，也就是pid为1的进程；</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RENDER_DIRECT3D11_DEBUG</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_DIRECT3D11_DEBUG/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_DIRECT3D11_DEBUG/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RENDER-DIRECT3D11-DEBUG"><a href="#SDL-HINT-RENDER-DIRECT3D11-DEBUG" class="headerlink" title="SDL_HINT_RENDER_DIRECT3D11_DEBUG"></a>SDL_HINT_RENDER_DIRECT3D11_DEBUG</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RENDER_DIRECT3D11_DEBUG">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定控制是否启用 Direct3D 11+ 的调试层的变量的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 不使用 Direct3D 调试层。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：禁用调试层使用<br>1：启用调试层使用</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_ORIENTATIONS</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_ORIENTATIONS/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_ORIENTATIONS/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-ORIENTATIONS"><a href="#SDL-HINT-ORIENTATIONS" class="headerlink" title="SDL_HINT_ORIENTATIONS"></a>SDL_HINT_ORIENTATIONS</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_ORIENTATIONS">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定控制iOS 上允许方向的变量的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，允许所有方向。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>LandscapeLeft:左侧<br>LandscapeRight:右侧<br>Portrait:上侧<br>PortraitUpsideDown:下侧</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RENDER_DIRECT3D_THREADSAFE</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_DIRECT3D_THREADSAFE/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_DIRECT3D_THREADSAFE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RENDER-DIRECT3D-THREADSAFE"><a href="#SDL-HINT-RENDER-DIRECT3D-THREADSAFE" class="headerlink" title="SDL_HINT_RENDER_DIRECT3D_THREADSAFE"></a>SDL_HINT_RENDER_DIRECT3D_THREADSAFE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RENDER_DIRECT3D_THREADSAFE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否为Direct3D 设备线程安全操作初始化 的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，创建 Direct3D 设备时禁用线程安全。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0：禁用线程安全（更快）<br>1：启用线程安全（较慢）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RENDER_DRIVER</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_DRIVER/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_DRIVER/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RENDER-DRIVER"><a href="#SDL-HINT-RENDER-DRIVER" class="headerlink" title="SDL_HINT_RENDER_DRIVER"></a>SDL_HINT_RENDER_DRIVER</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RENDER_DRIVER">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定要使用哪个渲染驱动程序的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，选择列表中当前平台上可用的第一个。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>direct3d<br>opengl<br>opengles2<br>opengles<br>metal<br>software</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RENDER_LINE_METHOD</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_LINE_METHOD/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_LINE_METHOD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RENDER-LINE-METHOD"><a href="#SDL-HINT-RENDER-LINE-METHOD" class="headerlink" title="SDL_HINT_RENDER_LINE_METHOD"></a>SDL_HINT_RENDER_LINE_METHOD</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RENDER_LINE_METHOD">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>控制 2D 渲染 API 如何渲染线条的变量。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:使用默认的线条绘制方法（SDL 2.0.20 中的 Bresenham 线条算法）<br>1:使用 Bresenham 线算法的驱动点 API（正确，绘制许多点）<br>2:使用驱动程序线路 API（由于硬件驱动程序，偶尔会错过线路端点，这是 2.0.20 之前的默认设置）<br>3:使用驱动几何API（正确，绘制更粗的对角线）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RENDER_OPENGL_SHADERS</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_OPENGL_SHADERS/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_OPENGL_SHADERS/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RENDER-OPENGL-SHADERS"><a href="#SDL-HINT-RENDER-OPENGL-SHADERS" class="headerlink" title="SDL_HINT_RENDER_OPENGL_SHADERS"></a>SDL_HINT_RENDER_OPENGL_SHADERS</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RENDER_OPENGL_SHADERS">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 OpenGL 渲染驱动程序是否使用着色器的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>如果 OpenGL 支持，则默认使用着色器。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用着色器<br>1:启用着色器（如果可用）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RENDER_SCALE_QUALITY</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_SCALE_QUALITY/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_SCALE_QUALITY/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RENDER-SCALE-QUALITY"><a href="#SDL-HINT-RENDER-SCALE-QUALITY" class="headerlink" title="SDL_HINT_RENDER_SCALE_QUALITY"></a>SDL_HINT_RENDER_SCALE_QUALITY</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RENDER_SCALE_QUALITY">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定缩放质量的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下使用最近像素采样。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0 or nearest:<a href="https://learn.microsoft.com/en-us/windows/uwp/graphics-concepts/nearest-point-sampling">nearest pixel sampling</a><br>1 or linear:<a href="https://medium.com/@rajilini/different-filters-for-image-processing-698e72924101">linear filtering (supported by OpenGL and Direct3D)</a><br>2 or best:<a href="https://zh.wikipedia.org/wiki/%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E8%BF%87%E6%BB%A4">anisotropic filtering (supported by Direct3D)</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RENDER_VSYNC</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_VSYNC/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RENDER_VSYNC/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RENDER-VSYNC"><a href="#SDL-HINT-RENDER-VSYNC" class="headerlink" title="SDL_HINT_RENDER_VSYNC"></a>SDL_HINT_RENDER_VSYNC</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RENDER_VSYNC">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定在 <a href="/2024/01/10/SDL/Dictionary/SDL_CreateRenderer/" title="SDL_CreateRenderer">SDL_CreateRenderer</a> 中启用还是禁用垂直刷新同步以避免撕裂的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 使用传递到 <a href="/2024/01/10/SDL/Dictionary/SDL_CreateRenderer/" title="SDL_CreateRenderer">SDL_CreateRenderer</a> 的 <a href="/2024/01/10/SDL/Dictionary/SDL_RendererFlags/" title="SDL_RendererFlags">SDL_RENDERER_PRESENTVSYNC</a> 标志。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用垂直同步<br>1:启用垂直同步</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_RPI_VIDEO_LAYER</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_RPI_VIDEO_LAYER/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_RPI_VIDEO_LAYER/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-RPI-VIDEO-LAYER"><a href="#SDL-HINT-RPI-VIDEO-LAYER" class="headerlink" title="SDL_HINT_RPI_VIDEO_LAYER"></a>SDL_HINT_RPI_VIDEO_LAYER</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_RPI_VIDEO_LAYER">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 SDL 应在 Raspberry PI 上使用哪个 Dispmanx 层的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，Dispmanx 层为“10000”。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>X:要使用的 Dispmanx 层</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_THREAD_STACK_SIZE</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_THREAD_STACK_SIZE/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_THREAD_STACK_SIZE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-THREAD-STACK-SIZE"><a href="#SDL-HINT-THREAD-STACK-SIZE" class="headerlink" title="SDL_HINT_THREAD_STACK_SIZE"></a>SDL_HINT_THREAD_STACK_SIZE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_THREAD_STACK_SIZE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定一个变量的提示，该变量指定 SDL 的线程堆栈大小（以字节为单位）或“0”表示后端的默认大小。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，使用后端的默认线程堆栈大小。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:使用后端的默认线程堆栈大小<br>X:使用提供的正线程堆栈大小</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_TIMER_RESOLUTION</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_TIMER_RESOLUTION/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_TIMER_RESOLUTION/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-TIMER-RESOLUTION"><a href="#SDL-HINT-TIMER-RESOLUTION" class="headerlink" title="SDL_HINT_TIMER_RESOLUTION"></a>SDL_HINT_TIMER_RESOLUTION</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_TIMER_RESOLUTION">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定计时器分辨率（以毫秒为单位）的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认值为“1”。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>X:计时器分辨率（以毫秒为单位）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_ALLOW_SCREENSAVER</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_ALLOW_SCREENSAVER/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_ALLOW_SCREENSAVER/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-ALLOW-SCREENSAVER"><a href="#SDL-HINT-VIDEO-ALLOW-SCREENSAVER" class="headerlink" title="SDL_HINT_VIDEO_ALLOW_SCREENSAVER"></a>SDL_HINT_VIDEO_ALLOW_SCREENSAVER</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_ALLOW_SCREENSAVER">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否启用屏幕保护程序的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将禁用屏幕保护程序。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用屏幕保护程序（默认）<br>1:启用屏幕保护程序</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-MAC-FULLSCREEN-SPACES"><a href="#SDL-HINT-VIDEO-MAC-FULLSCREEN-SPACES" class="headerlink" title="SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES"></a>SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指示 Mac OS X 上全屏 Spaces 策略的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下启用<a href="https://zh.wikipedia.org/wiki/Spaces">空间支持</a>。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用 Spaces 支持（FULLSCREEN_DESKTOP 不会使用它们，<a href="/2024/01/03/SDL/Dictionary/SDL_CreateWindow/" title="SDL_CreateWindow">SDL_WINDOW_RESIZABLE</a> 窗口不会在标题栏上提供“全屏”按钮）<br>1:启用空间支持（FULLSCREEN_DESKTOP 将使用它们，<a href="/2024/01/03/SDL/Dictionary/SDL_CreateWindow/" title="SDL_CreateWindow">SDL_WINDOW_RESIZABLE</a>  窗口将在其标题栏上提供“全屏”按钮）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-MINIMIZE-ON-FOCUS-LOSS"><a href="#SDL-HINT-VIDEO-MINIMIZE-ON-FOCUS-LOSS" class="headerlink" title="SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS"></a>SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 SDL_Window 在全屏模式下失去按键焦点时是否最小化的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，如果 SDL_Window 在全屏模式下失去关键焦点，则会最小化。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:如果 SDL_Window 在全屏模式下失去焦点，不要最小化 SDL_Window<br>1:如果 SDL_Window 在全屏模式下失去焦点，最小化 SDL_Window</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-WINDOW-SHARE-PIXEL-FORMAT"><a href="#SDL-HINT-VIDEO-WINDOW-SHARE-PIXEL-FORMAT" class="headerlink" title="SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT"></a>SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定另一个 SDL_Window* 地址的提示（作为用“%p”格式化的十六进制字符串）。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下不设置此提示。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>X：SDL_Window* 的地址（作为字符串“%p”），使用 <a href="/2024/01/03/SDL/Dictionary/SDL_CreateWindowFrom/" title="SDL_CreateWindowFrom">SDL_CreateWindowFrom</a> 创建的新窗口应与其共享像素格式</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_HIGHDPI_DISABLED</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_HIGHDPI_DISABLED/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_HIGHDPI_DISABLED/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-HIGHDPI-DISABLED"><a href="#SDL-HINT-VIDEO-HIGHDPI-DISABLED" class="headerlink" title="SDL_HINT_VIDEO_HIGHDPI_DISABLED"></a>SDL_HINT_VIDEO_HIGHDPI_DISABLED</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_HIGHDPI_DISABLED">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否允许<a href="https://zhuanlan.zhihu.com/p/477471475">高 DPI </a>窗口（Mac 和 iOS 上的“Retina”）的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，允许使用高 DPI 窗口（Mac 和 iOS 上的“Retina”）。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:允许高 DPI 窗口<br>1:不允许高 DPI 窗口</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_WIN_D3DCOMPILER</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_WIN_D3DCOMPILER/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_WIN_D3DCOMPILER/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-WIN-D3DCOMPILER"><a href="#SDL-HINT-VIDEO-WIN-D3DCOMPILER" class="headerlink" title="SDL_HINT_VIDEO_WIN_D3DCOMPILER"></a>SDL_HINT_VIDEO_WIN_D3DCOMPILER</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_WIN_D3DCOMPILER">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定在使用 <a href="https://zhuanlan.zhihu.com/p/584578172">Chrome ANGLE</a> 二进制文件时预加载哪个着色器编译器的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，将使用“d3dcompiler_46.dll”。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>d3dcompiler_46.dll:默认，最适合 <a href="https://zhuanlan.zhihu.com/p/467142740">Vista</a> 或更高版本<br>d3dcompiler_43.dll:给 XP使用<br>none:不加载任何库，如果您从源代码编译 ANGLE 并将编译器包含在二进制文件中，则很有用</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_X11_NET_WM_PING</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_NET_WM_PING/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_NET_WM_PING/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-X11-NET-WM-PING"><a href="#SDL-HINT-VIDEO-X11-NET-WM-PING" class="headerlink" title="SDL_HINT_VIDEO_X11_NET_WM_PING"></a>SDL_HINT_VIDEO_X11_NET_WM_PING</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_X11_NET_WM_PING">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否应支持 X11 <a href="https://specifications.freedesktop.org/wm-spec/1.4/ar01s06.html">_NET_WM_PING</a> 协议的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将使用 _NET_WM_PING，但对于知道自己并不总是能够及时响应 ping 请求的应用程序，可以将其关闭以避免窗口管理器认为应用程序已挂起。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用_NET_WM_PING<br>1:启用_NET_WM_PING</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_X11_XINERAMA</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_XINERAMA/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_XINERAMA/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-X11-XINERAMA"><a href="#SDL-HINT-VIDEO-X11-XINERAMA" class="headerlink" title="SDL_HINT_VIDEO_X11_XINERAMA"></a>SDL_HINT_VIDEO_X11_XINERAMA</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_X11_XINERAMA">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否应使用 <a href="https://en.wikipedia.org/wiki/Xinerama">X11 Xinerama</a> 扩展的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将使用 Xinerama（如果可用）。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用Xinerama<br>1:启用Xinerama</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_X11_XRANDR</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_XRANDR/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_XRANDR/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-X11-XRANDR"><a href="#SDL-HINT-VIDEO-X11-XRANDR" class="headerlink" title="SDL_HINT_VIDEO_X11_XRANDR"></a>SDL_HINT_VIDEO_X11_XRANDR</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_X11_XRANDR">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否应使用 X11 <a href="https://wiki.archlinuxcn.org/wiki/Xrandr">XRandR</a> 扩展的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，由于窗口管理器问题，SDL 不会使用 XRandR。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用XRandR<br>1:启用XRandR</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_VIDEO_X11_XVIDMODE</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_XVIDMODE/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_VIDEO_X11_XVIDMODE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-VIDEO-X11-XVIDMODE"><a href="#SDL-HINT-VIDEO-X11-XVIDMODE" class="headerlink" title="SDL_HINT_VIDEO_X11_XVIDMODE"></a>SDL_HINT_VIDEO_X11_XVIDMODE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_VIDEO_X11_XVIDMODE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否应使用 X11 !VidMode(定义待补充) 扩展的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将使用 XVidMode（如果可用）。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用XVidMode<br>1:启用XVidMode</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-WINDOWS-DISABLE-THREAD-NAMING"><a href="#SDL-HINT-WINDOWS-DISABLE-THREAD-NAMING" class="headerlink" title="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING"></a>SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>SDL 是否不应命名 Microsoft Windows 上的线程的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将命名 Microsoft Windows 上的线程。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:线程将被命名<br>1:线程将不被命名</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-WINDOWS-ENABLE-MESSAGELOOP"><a href="#SDL-HINT-WINDOWS-ENABLE-MESSAGELOOP" class="headerlink" title="SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP"></a>SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>Windows消息循环是否由SDL处理的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将处理 Windows 消息循环。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:窗口消息循环未运行<br>1:窗口消息循环在<a href="/2024/01/03/SDL/Dictionary/SDL_PumpEvents/" title="SDL_PumpEvents">SDL_PumpEvents</a>中处理</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-WINDOWS-NO-CLOSE-ON-ALT-F4"><a href="#SDL-HINT-WINDOWS-NO-CLOSE-ON-ALT-F4" class="headerlink" title="SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4"></a>SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 SDL 不应在 Microsoft Windows 上为 Alt+F4 生成 <a href="/2024/01/07/SDL/Dictionary/SDL_WindowEventID/" title="SDL_WindowEventID">SDL_WINDOWEVENT_CLOSE</a> 事件的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，SDL 将为 Alt+F4 生成 SDL_WINDOWEVENT_CLOSE 事件。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:为 Alt+F4 生成 SDL_WINDOWEVENT_CLOSE 事件（默认）<br>1:不生成事件，只对 Alt+F4 进行正常的按键处理</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-WINDOW-FRAME-USABLE-WHILE-CURSOR-HIDDEN"><a href="#SDL-HINT-WINDOW-FRAME-USABLE-WHILE-CURSOR-HIDDEN" class="headerlink" title="SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN"></a>SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定当光标隐藏时窗口框架和标题栏是否交互。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，当光标隐藏时，SDL 将允许与窗口框架进行交互。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:当光标隐藏时，窗口框架不具有交互性（无法移动、调整大小等）<br>1:当光标隐藏时，窗口框架是交互式的</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_WINRT_HANDLE_BACK_BUTTON</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_WINRT_HANDLE_BACK_BUTTON/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_WINRT_HANDLE_BACK_BUTTON/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-WINRT-HANDLE-BACK-BUTTON"><a href="#SDL-HINT-WINRT-HANDLE-BACK-BUTTON" class="headerlink" title="SDL_HINT_WINRT_HANDLE_BACK_BUTTON"></a>SDL_HINT_WINRT_HANDLE_BACK_BUTTON</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINRT_HANDLE_BACK_BUTTON">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>变量以允许 Windows Phone 上的后退按钮按下事件标记为已处理的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，未设置此提示，应用程序将被终止。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>1:将按钮标记为已处理</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_WINRT_PRIVACY_POLICY_LABEL/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_WINRT_PRIVACY_POLICY_LABEL/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-WINRT-PRIVACY-POLICY-LABEL"><a href="#SDL-HINT-WINRT-PRIVACY-POLICY-LABEL" class="headerlink" title="SDL_HINT_WINRT_PRIVACY_POLICY_LABEL"></a>SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINRT_PRIVACY_POLICY_LABEL">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>为 <a href="https://zh.wikipedia.org/wiki/Windows_Runtime">WinRT</a> 应用的隐私策略链接指定标签文本的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，此提示的值为“隐私政策”。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>X:WinRT 应用程序隐私策略链接的标签文本</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_WINRT_PRIVACY_POLICY_URL</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_WINRT_PRIVACY_POLICY_URL/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_WINRT_PRIVACY_POLICY_URL/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-WINRT-PRIVACY-POLICY-URL"><a href="#SDL-HINT-WINRT-PRIVACY-POLICY-URL" class="headerlink" title="SDL_HINT_WINRT_PRIVACY_POLICY_URL"></a>SDL_HINT_WINRT_PRIVACY_POLICY_URL</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINRT_PRIVACY_POLICY_URL">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定 <a href="https://zh.wikipedia.org/wiki/Windows_Runtime">WinRT</a> 应用隐私策略 URL 的提示。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下不设置此提示。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>X:WinRT 应用隐私策略的 URL</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HINT_XINPUT_ENABLED</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HINT_XINPUT_ENABLED/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HINT_XINPUT_ENABLED/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HINT-XINPUT-ENABLED"><a href="#SDL-HINT-XINPUT-ENABLED" class="headerlink" title="SDL_HINT_XINPUT_ENABLED"></a>SDL_HINT_XINPUT_ENABLED</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_XINPUT_ENABLED">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>指定是否检测到 Xinput 游戏手柄设备的提示。 Xinput 仅限 4 个游戏手柄，如果您想要超过 4 个，则需要将其设置为“0”。</p><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><p>默认情况下，会检测到 Xinput 游戏手柄设备。</p><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><p>0:禁用 XInput 检测（仅使用直接输入）<br>1:启用 XInput 检测（默认）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_HintPriority</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_HintPriority/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_HintPriority/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-HintPriority"><a href="#SDL-HintPriority" class="headerlink" title="SDL_HintPriority"></a>SDL_HintPriority</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HintPriority">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>优先级的枚举。</p><h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>SDL_HINT_DEFAULT：低优先级，用于默认值<br>SDL_HINT_NORMAL：中等优先级<br>SDL_HINT_OVERRIDE：高优先级</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_ResetHint</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_ResetHint/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_ResetHint/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-ResetHint"><a href="#SDL-ResetHint" class="headerlink" title="SDL_ResetHint"></a>SDL_ResetHint</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_ResetHint">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将提示重置为默认值。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_ResetHint</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>name：要设置的提示</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果设置了提示，则返回 SDL_TRUE，否则返回 SDL_FALSE。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_ResetHints</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_ResetHints/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_ResetHints/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-ResetHints"><a href="#SDL-ResetHints" class="headerlink" title="SDL_ResetHints"></a>SDL_ResetHints</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_ResetHints">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将所有提示重置为默认值。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_ResetHints</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetHint</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_SetHint/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_SetHint/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetHint"><a href="#SDL-SetHint" class="headerlink" title="SDL_SetHint"></a>SDL_SetHint</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetHint">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置具有正常优先级的提示。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_SetHint</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name,</span></span><br><span class="hljs-params"><span class="hljs-function">                     <span class="hljs-type">const</span> <span class="hljs-type">char</span> *value)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>name：要设置的提示<br>value：提示变量的值</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果设置了提示，则返回 SDL_TRUE，否则返回 SDL_FALSE。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_SetHintWithPriority</title>
+    <link href="/2024/01/14/SDL/Dictionary/SDL_SetHintWithPriority/"/>
+    <url>/2024/01/14/SDL/Dictionary/SDL_SetHintWithPriority/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-SetHintWithPriority"><a href="#SDL-SetHintWithPriority" class="headerlink" title="SDL_SetHintWithPriority"></a>SDL_SetHintWithPriority</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetHintWithPriority">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置具有特定优先级的提示。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_bool <span class="hljs-title">SDL_SetHintWithPriority</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name,</span></span><br><span class="hljs-params"><span class="hljs-function">                                 <span class="hljs-type">const</span> <span class="hljs-type">char</span> *value,</span></span><br><span class="hljs-params"><span class="hljs-function">                                 SDL_HintPriority priority)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>name：要设置的提示<br>value：提示变量的值<br>priority:提示的 <a href="/2024/01/14/SDL/Dictionary/SDL_HintPriority/" title="SDL_HintPriority">SDL_HintPriority</a> 级别</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果设置了提示，则返回 SDL_TRUE，否则返回 SDL_FALSE。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MonotonicStack</title>
     <link href="/2024/01/12/Algorithms/MonotonicStack/"/>
     <url>/2024/01/12/Algorithms/MonotonicStack/</url>
@@ -5052,6 +6537,33 @@
     <url>/2024/01/03/SDL/Dictionary/SDL_SetWindowTitle/</url>
     
     <content type="html"><![CDATA[<h1 id="SDL-SetWindowTitle"><a href="#SDL-SetWindowTitle" class="headerlink" title="SDL_SetWindowTitle"></a>SDL_SetWindowTitle</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_SetWindowTitle">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置窗口的标题。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_SetWindowTitle</span><span class="hljs-params">(SDL_Window * window, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *title)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>window: 需要改变的窗口<br>title：UTF-8 格式的所需窗口标题</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_PumpEvents</title>
+    <link href="/2024/01/03/SDL/Dictionary/SDL_PumpEvents/"/>
+    <url>/2024/01/03/SDL/Dictionary/SDL_PumpEvents/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-PumpEvents"><a href="#SDL-PumpEvents" class="headerlink" title="SDL_PumpEvents"></a>SDL_PumpEvents</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_PumpEvents">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>泵送事件循环，从输入设备收集事件。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SDL_PumpEvents</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
