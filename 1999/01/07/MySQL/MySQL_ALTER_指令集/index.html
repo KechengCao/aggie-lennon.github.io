@@ -24,7 +24,7 @@
 <meta property="og:description" content="MySQL_ALTER_指令集">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="1999-01-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-21T19:27:16.573Z">
+<meta property="article:modified_time" content="2024-01-22T00:19:33.216Z">
 <meta property="article:author" content="Aggie Lennon">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,6 +280,8 @@
 <h2 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ALTER TABLE 表名 DROP 列名;<br></code></pre></td></tr></table></figure>
 
 <h2 id="设置连续编号的初始值"><a href="#设置连续编号的初始值" class="headerlink" title="设置连续编号的初始值"></a>设置连续编号的初始值</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ALTER TABLE 表名 AUTO_INCREMENT=1;<br></code></pre></td></tr></table></figure>
+
+<h2 id="修改列使其获得默认值"><a href="#修改列使其获得默认值" class="headerlink" title="修改列使其获得默认值"></a>修改列使其获得默认值</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ALTER TABLE 表名 MODIFY 列名 数据类型 DEFAULT &#x27;默认值&#x27;;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
