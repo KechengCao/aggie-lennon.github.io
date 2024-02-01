@@ -24,7 +24,7 @@
 <meta property="og:description" content="SQL exercises-SELECT (learning stage)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-29T17:15:00.000Z">
-<meta property="article:modified_time" content="2024-01-29T18:10:20.608Z">
+<meta property="article:modified_time" content="2024-02-01T08:57:52.205Z">
 <meta property="article:author" content="Aggie Lennon">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -268,7 +268,7 @@
                 <p><a target="_blank" rel="noopener" href="https://sql-ex.ru/learn_exercises.php">SQL exercises-SELECT (learning stage)</a></p>
 <span id="more"></span>
 <p>The database of naval ships that took part in World War II is under consideration. The database consists of the following relations:<br>Classes(class, type, country, numGuns, bore, displacement)<br>Ships(name, class, launched)<br>Battles(name, date)<br>Outcomes(ship, battle, result)<br>Ships in classes all have the same general design. A class is normally assigned either the name of the first ship built according to the corresponding design, or a name that is different from any ship name in the database. The ship whose name is assigned to a class is called a lead ship.<br>The Classes relation includes the name of the class, type (can be either bb for a battle ship, or bc for a battle cruiser), country the ship was built in, the number of main guns, gun caliber (bore diameter in inches), and displacement (weight in tons). The Ships relation holds information about the ship name, the name of its corresponding class, and the year the ship was launched. The Battles relation contains names and dates of battles the ships participated in, and the Outcomes relation - the battle result for a given ship (may be sunk, damaged, or OK, the last value meaning the ship survived the battle unharmed).<br>Notes: 1) The Outcomes relation may contain ships not present in the Ships relation. 2) A ship sunk can’t participate in later battles. 3) For historical reasons, lead ships are referred to as head ships in many exercises.4) A ship found in the Outcomes table but not in the Ships table is still considered in the database. This is true even if it is sunk.</p>
-<h1 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise: 1"></a>Exercise: 1</h1><p>For the ships in the Ships table that have at least 10 guns, get the class, name, and country.</p>
+<h1 id="Exercise-14"><a href="#Exercise-14" class="headerlink" title="Exercise: 14"></a>Exercise: 14</h1><p>For the ships in the Ships table that have at least 10 guns, get the class, name, and country.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Ships.class, name , country<br>  <span class="hljs-keyword">FROM</span> Classes<br><span class="hljs-keyword">JOIN</span> Ships<br>  <span class="hljs-keyword">ON</span>(Classes.class <span class="hljs-operator">=</span> Ships.class)<br><span class="hljs-keyword">WHERE</span> numGuns<span class="hljs-operator">&gt;=</span><span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
 
 
