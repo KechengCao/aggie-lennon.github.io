@@ -8966,7 +8966,2221 @@
     <link href="/1999/01/05/SDL/Dictionary/SDL_RWops/"/>
     <url>/1999/01/05/SDL/Dictionary/SDL_RWops/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-RWops"><a href="#SDL-RWops" class="headerlink" title="SDL_RWops"></a>SDL_RWops</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RWops">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>为流 I&#x2F;O 提供抽象接口的结构</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>Sint64 (*)(SDL_RWops <em>) size 报告流大小的回调<br>Sint64 (</em>)(SDL_RWops <em>, Sint64, int) seek 在流中寻找的回调<br>size_t (</em>)(SDL_RWops *, void <em>, size_t, size_t) read 从流中读取的回调<br>size_t (</em>)(SDL_RWops *, const void <em>, size_t, size_t) write 写入流的回调<br>int (</em>)(SDL_RWops *) close 关闭流的回调<br>Uint32 type 流类型<br>union hidden 特定类型的数据</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-RWops"><a href="#SDL-RWops" class="headerlink" title="SDL_RWops"></a>SDL_RWops</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_RWops">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>为流 I&#x2F;O 提供抽象接口的结构</p><h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><table>    <tr>        <td>Sint64 (*)(SDL_RWops *)</td>         <td>size</td>         <td>size 是一个函数指针，用于报告流的总大小（以字节为单位）。如果无法确定流大小（或者因为它对于流类型没有意义，或者存在错误），则此函数返回 -1。</td>     </tr>    <tr>        <td>Sint64 (*)(SDL_RWops *, Sint64, int)</td>         <td>seek</td>         <td>seek 是一个函数指针，用于定位流中的下一个读/写操作。这会寻找字节偏移量。如果流无法查找（或者因为它对流类型没有意义，或者出现错误），则此函数返回 -1，否则返回新位置。</td>     </tr>    <tr>        <td>size_t (*)(SDL_RWops *, void *, size_t, size_t)</td>         <td>read</td>         <td>read 是从流中读取的函数指针。它最多将 num 个对象读取到 ptr 指向的缓冲区指针中，每个对象的大小为字节。返回读取的对象数量，该数量可能少于请求的数量。出错或 EOF 时返回 0。</td>     </tr>    <tr>        <td>size_t (*)(SDL_RWops *, const void *, size_t, size_t)</td>         <td>write</td>         <td>write 是写入流的函数指针。它从缓冲区指针到 ptr 精确写入每个 size 字节的 num 个对象。返回写入的对象数量，出错时该数量将少于请求的数量。</td>     </tr>    <tr>        <td>int (*)(SDL_RWops *)</td>         <td>close</td>         <td>close 是一个清理流的函数指针。它应该释放流使用的所有资源，并使用 SDL_FreeRW() 释放 SDL_RWops 本身。如果成功，则返回 0；如果流无法刷新到磁盘（或其他位置），则返回 -1。即使刷新流失败，SDL_RWops 在此调用后也不再有效。</td>     </tr>    <tr>        <td>Uint32</td>         <td>type</td>         <td>流类型</td>     </tr>    <tr>        <td>union</td>         <td>hidden</td>         <td>特定类型的数据</td>     </tr></table><h4 id="Seek-Function"><a href="#Seek-Function" class="headerlink" title="Seek Function"></a>Seek Function</h4><table>    <tr>        <td>Identifier</td>         <td>Value</td>         <td>Explanation</td>     </tr>    <tr>        <td>RW_SEEK_SET</td>         <td>0</td>         <td>从数据开头查找</td>     </tr>    <tr>        <td>RW_SEEK_CUR</td>         <td>1</td>         <td>相对于当前读取点进行查找</td>     </tr>    <tr>        <td>RW_SEEK_END</td>         <td>2</td>         <td>相对于数据末尾查找</td>     </tr>    </table><h4 id="Stream-Type"><a href="#Stream-Type" class="headerlink" title="Stream Type"></a>Stream Type</h4><table>    <tr>        <td>Identifier</td>         <td>Value</td>         <td>Explanation</td>     </tr>    <tr>        <td>SDL_RWOPS_UNKNOWN</td>         <td>0</td>         <td>未知的流类型或应用程序定义的</td>     </tr>    <tr>        <td>SDL_RWOPS_WINFILE</td>         <td>1</td>         <td>Win32 文件句柄</td>     </tr>    <tr>        <td>SDL_RWOPS_STDFILE</td>         <td>2</td>         <td>stdio.h 文件*</td>     </tr>    <tr>        <td>SDL_RWOPS_JNIFILE</td>         <td>3</td>         <td>Android asset</td>     </tr>    <tr>        <td>SDL_RWOPS_MEMORY</td>         <td>4</td>         <td>内存流（读/写）</td>     </tr>    <tr>        <td>SDL_RWOPS_MEMORY_RO</td>         <td>5</td>         <td>内存流（只读）</td>     </tr>    </table>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_ByteSwappedUNICODE</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_ByteSwappedUNICODE/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_ByteSwappedUNICODE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-ByteSwappedUNICODE"><a href="#TTF-ByteSwappedUNICODE" class="headerlink" title="TTF_ByteSwappedUNICODE"></a>TTF_ByteSwappedUNICODE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_ByteSwappedUNICODE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>告诉 SDL_ttf UNICODE 文本是否通常进行字节交换。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_ByteSwappedUNICODE</span><span class="hljs-params">(SDL_bool swapped)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>swapped：布尔值，指示文本是否进行字节交换</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>在计算机科学领域，”byteswapped” 是指对字节顺序进行交换或重新排列。字节顺序是指在多字节数据类型（如整数或浮点数）中字节的存储顺序。在不同的系统架构中，字节顺序可能不同，有大端序（Big-endian）和小端序（Little-endian）两种。</p><p>“Byteswapped” 的上下文取决于具体的应用和语境。它可能表示在不同字节顺序之间进行转换，以确保数据在不同系统之间的兼容性。在网络通信中，字节顺序的一致性对于正确解释数据是非常重要的。还可能涉及到文件格式之间的转换，尤其是在跨平台或跨系统的情况下。</p><p>总的来说，”byteswapped” 涉及到对字节序进行修改或调整，以满足特定的需求或确保数据在不同环境中的正确处理。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_CloseFont</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_CloseFont/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_CloseFont/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-CloseFont"><a href="#TTF-CloseFont" class="headerlink" title="TTF_CloseFont"></a>TTF_CloseFont</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_CloseFont">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>丢弃以前创建的字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_CloseFont</span><span class="hljs-params">(TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要处理的字体</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontAscent</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontAscent/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontAscent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontAscent"><a href="#TTF-FontAscent" class="headerlink" title="TTF_FontAscent"></a>TTF_FontAscent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontAscent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体基线到顶部的偏移量。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_FontAscent</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的上升高度。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%B7%9A">基线</a>:字体排印学中，基线（英语：Baseline）指的是多数拉丁字母排列的基线。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontDescent</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontDescent/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontDescent/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontDescent"><a href="#TTF-FontDescent" class="headerlink" title="TTF_FontDescent"></a>TTF_FontDescent</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontDescent">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体基线到底部的偏移量。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_FontDescent</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>字体基线到底部的偏移量。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%B7%9A">基线</a>:字体排印学中，基线（英语：Baseline）指的是多数拉丁字母排列的基线。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontFaceFamilyName</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontFaceFamilyName/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontFaceFamilyName/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontFaceFamilyName"><a href="#TTF-FontFaceFamilyName" class="headerlink" title="TTF_FontFaceFamilyName"></a>TTF_FontFaceFamilyName</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontFaceFamilyName">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体的家族名称。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">char</span> * <span class="hljs-title">TTF_FontFaceFamilyName</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的家族名称。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E4%BD%93%E5%AE%B6%E6%97%8F">字体家族</a>:网页上的字体设定，指定的是字体家族（英语：font family，也译字族），对应排印学中的字体概念。一个字体家族包含多个字体（也叫字模；通用英语称font，CSS称font face），字体之间以字重（粗细）、风格（正斜体）等设置区分开来。字体设定给定的是几个字族的列表，浏览器会依序尝试使用并配合其他设置找出对应的字体，用于显示或打印。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontFaceIsFixedWidth</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontFaceIsFixedWidth/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontFaceIsFixedWidth/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontFaceIsFixedWidth"><a href="#TTF-FontFaceIsFixedWidth" class="headerlink" title="TTF_FontFaceIsFixedWidth"></a>TTF_FontFaceIsFixedWidth</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontFaceIsFixedWidth">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体是否为等宽字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">char</span> * <span class="hljs-title">TTF_FontFaceFamilyName</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的家族名称。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><a href="https://zh.wikipedia.org/zh-cn/%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93">等宽字体</a>:等宽字体（英语：Monospaced Font）是指字符阔度相同的电脑字体。相反，比例字体字符阔度不同。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontFaceStyleName</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontFaceStyleName/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontFaceStyleName/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontFaceStyleName"><a href="#TTF-FontFaceStyleName" class="headerlink" title="TTF_FontFaceStyleName"></a>TTF_FontFaceStyleName</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontFaceStyleName">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体的样式名称。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">char</span> * <span class="hljs-title">TTF_FontFaceStyleName</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的样式名称。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontFaces</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontFaces/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontFaces/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontFaces"><a href="#TTF-FontFaces" class="headerlink" title="TTF_FontFaces"></a>TTF_FontFaces</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontFaces">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体面的数。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-title">TTF_FontFaces</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 FreeType 字体面的数量。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>字体面：是指文字在页面或屏幕上的外观和排列方式，包括字体的大小、颜色、行间距、字间距等方面。在设计和排版中，字体面的调整可以影响文本的可读性和整体视觉效果。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontLineSkip</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontLineSkip/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontLineSkip/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontLineSkip"><a href="#TTF-FontLineSkip" class="headerlink" title="TTF_FontLineSkip"></a>TTF_FontLineSkip</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontLineSkip">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体的建议文本行间距。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_FontLineSkip</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的建议间距。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GetFontKerning</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GetFontKerning/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GetFontKerning/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GetFontKerning"><a href="#TTF-GetFontKerning" class="headerlink" title="TTF_GetFontKerning"></a>TTF_GetFontKerning</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetFontKerning">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体是否允许字距调整。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GetFontKerning</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果启用字距调整，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_FontHeight</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_FontHeight/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_FontHeight/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-FontHeight"><a href="#TTF-FontHeight" class="headerlink" title="TTF_FontHeight"></a>TTF_FontHeight</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontHeight">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体的总高度。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_FontHeight</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的高度。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GetFontHinting</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GetFontHinting/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GetFontHinting/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GetFontHinting"><a href="#TTF-GetFontHinting" class="headerlink" title="TTF_GetFontHinting"></a>TTF_GetFontHinting</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetFontHinting">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体的当前提示设置。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GetFontHinting</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。<br>hinting：新的提示设置。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>TTF_HINTING_NORMAL：表示使用正常的 Hinting 设置，这通常是默认设置，旨在在各种显示设备上提供平衡的显示效果。<br>TTF_HINTING_LIGHT：TTF_HINTING_LIGHT选项允许开发者调整TrueType字体的渲染方式，以获得更好的显示效果。此选项的使用可能涉及到在SDL应用程序中设置字体渲染的相关参数。<br>TTF_HINTING_MONO：项用于控制在使用TrueType字体渲染单色文本时的字形微调（hinting）。字形微调是一种技术，通过微调字形的位置和形状，以在低分辨率设备上获得更好的显示效果。<br>TTF_HINTING_NONE：表示不使用字体提示（hinting），即字体渲染引擎不会根据显示器的特性进行微调，直接使用字体文件中的轮廓信息进行渲染。<br>TTF_HINTING_LIGHT_SUBPIXEL：是其中一种方式，它通常用于改善小字体的显示效果，使其在亚像素级别上更加平滑和清晰。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GetFontOutline</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GetFontOutline/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GetFontOutline/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GetFontOutline"><a href="#TTF-GetFontOutline" class="headerlink" title="TTF_GetFontOutline"></a>TTF_GetFontOutline</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetFontOutline">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体的当前轮廓。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GetFontOutline</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的当前轮廓值。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>字体的轮廓是指字体的外部边界或形状，通常由矢量图形表示。在字体设计中，轮廓定义了每个字符的形状、大小和结构。字体的轮廓由一系列曲线和直线组成，这些曲线和直线描述了字符的整体形状。在计算机图形和印刷领域，字体轮廓通常使用矢量图形格式，如TrueType或OpenType来存储和呈现。这使得字体可以在不失真的情况下调整大小，确保在不同的分辨率和设备上都能够清晰显示。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GetFontStyle</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GetFontStyle/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GetFontStyle/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GetFontStyle"><a href="#TTF-GetFontStyle" class="headerlink" title="TTF_GetFontStyle"></a>TTF_GetFontStyle</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetFontStyle">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体当前的样式。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GetFontStyle</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>以一组位标志的形式返回当前字体样式。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>位标志：<br>TTF_STYLE_NORMAL (is zero)：是TrueType字体（TTF）中的一种样式，代表正常字体样式。<br>TTF_STYLE_BOLD：是指TrueType字体中的一种样式，表示粗体字。<br>TTF_STYLE_ITALIC：是指 TrueType 字体（TTF）的斜体样式。<br>TTF_STYLE_UNDERLINE：是 TrueType 字体中的一种文本样式，用于在文本下方添加下划线。<br>TTF_STYLE_STRIKETHROUGH：是指TrueType字体中的删除线样式。在字体设计中，删除线样式用于在文本中添加删除线或横穿线。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GetFontWrappedAlign</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GetFontWrappedAlign/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GetFontWrappedAlign/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GetFontWrappedAlign"><a href="#TTF-GetFontWrappedAlign" class="headerlink" title="TTF_GetFontWrappedAlign"></a>TTF_GetFontWrappedAlign</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetFontWrappedAlign">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体的当前换行对齐选项。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GetFontWrappedAlign</span><span class="hljs-params">(<span class="hljs-type">const</span> TTF_Font *font)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的当前换行对齐选项。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>TTF_WRAPPED_ALIGN_LEFT：是TrueType字体（TTF）文件中的一个标志，用于指定文本的对齐方式。ALIGN_LEFT表示文本左对齐，即文本的左侧将与指定的位置对齐，而文本的右侧将根据文本的长度自动调整位置。这通常用于定义文本在图形或界面中的位置和对齐方式。</p><p>TTF_WRAPPED_ALIGN_CENTER：是 TrueType 字体文件（TTF）中的一个参数或标志，表示文本在水平方向上居中对齐。在使用此参数时，文本将在给定的区域内水平方向上居中显示，而不是靠左或靠右对齐。</p><p>TTF_WRAPPED_ALIGN_RIGHT：是指TrueType字体（TTF）中的一个参数，用于指定文本在绘制时的对齐方式。具体而言，它表示文本在绘制时以右侧对齐的方式呈现。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GetFreeTypeVersion</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GetFreeTypeVersion/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GetFreeTypeVersion/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GetFreeTypeVersion"><a href="#TTF-GetFreeTypeVersion" class="headerlink" title="TTF_GetFreeTypeVersion"></a>TTF_GetFreeTypeVersion</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetFreeTypeVersion">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询正在使用的<a href="https://zh.wikipedia.org/wiki/FreeType">FreeType</a>库的版本。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_GetFreeTypeVersion</span><span class="hljs-params">(<span class="hljs-type">int</span> *major, <span class="hljs-type">int</span> *minor, <span class="hljs-type">int</span> *patch)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>major：填写主版本号。可以为 NULL。<br>minor：填写次版本号。可以为 NULL。<br>patch：填写参数版本号。可以为 NULL。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GlyphIsProvided</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GlyphIsProvided/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GlyphIsProvided/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GlyphIsProvided"><a href="#TTF-GlyphIsProvided" class="headerlink" title="TTF_GlyphIsProvided"></a>TTF_GlyphIsProvided</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GlyphIsProvided">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检查字体是否为 16 位代码点提供了字形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GlyphIsProvided</span><span class="hljs-params">(TTF_Font *font, Uint16 ch)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font:要查询的字体。<br>ch:要检查的字符代码。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果字体提供此字符的字形，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GlyphIsProvided32</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GlyphIsProvided32/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GlyphIsProvided32/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GlyphIsProvided32"><a href="#TTF-GlyphIsProvided32" class="headerlink" title="TTF_GlyphIsProvided32"></a>TTF_GlyphIsProvided32</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GlyphIsProvided32">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检查字体是否为 32 位代码点提供了字形。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GlyphIsProvided32</span><span class="hljs-params">(TTF_Font *font, Uint32 ch)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font:要查询的字体。<br>ch:要检查的字符代码。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果字体提供此字符的字形，则返回非零，否则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GetHarfBuzzVersion</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GetHarfBuzzVersion/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GetHarfBuzzVersion/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GetHarfBuzzVersion"><a href="#TTF-GetHarfBuzzVersion" class="headerlink" title="TTF_GetHarfBuzzVersion"></a>TTF_GetHarfBuzzVersion</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetHarfBuzzVersion">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询正在使用的<a href="https://zh.wikipedia.org/wiki/HarfBuzz">HarfBuzz</a>库的版本。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_GetHarfBuzzVersion</span><span class="hljs-params">(<span class="hljs-type">int</span> *major, <span class="hljs-type">int</span> *minor, <span class="hljs-type">int</span> *patch)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>major：填写主版本号。可以为 NULL。<br>minor：填写次版本号。可以为 NULL。<br>patch：填写参数版本号。可以为 NULL。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GlyphMetrics</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GlyphMetrics/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GlyphMetrics/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GlyphMetrics"><a href="#TTF-GlyphMetrics" class="headerlink" title="TTF_GlyphMetrics"></a>TTF_GlyphMetrics</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GlyphMetrics">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体 16 位字形的度量（尺寸）。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GlyphMetrics</span><span class="hljs-params">(TTF_Font *font, Uint16 ch,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">int</span> *minx, <span class="hljs-type">int</span> *maxx,</span></span><br><span class="hljs-params"><span class="hljs-function">                    <span class="hljs-type">int</span> *miny, <span class="hljs-type">int</span> *maxy, <span class="hljs-type">int</span> *advance)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font:要查询的字体。<br>ch:要检查的字符代码。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时为 0，所有非 NULL 参数根据情况设置为字形度量。 -1 错误，</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><a href="https://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html">Glyphmetrics</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_Init</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_Init/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_Init/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-Init"><a href="#TTF-Init" class="headerlink" title="TTF_Init"></a>TTF_Init</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_Init">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>初始化SDL_ttf。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_Init</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_GlyphMetrics32</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_GlyphMetrics32/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_GlyphMetrics32/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-GlyphMetrics32"><a href="#TTF-GlyphMetrics32" class="headerlink" title="TTF_GlyphMetrics32"></a>TTF_GlyphMetrics32</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GlyphMetrics32">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询字体 32 位字形的度量（尺寸）。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_GlyphMetrics32</span><span class="hljs-params">(TTF_Font *font, Uint32 ch,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">int</span> *minx, <span class="hljs-type">int</span> *maxx,</span></span><br><span class="hljs-params"><span class="hljs-function">                       <span class="hljs-type">int</span> *miny, <span class="hljs-type">int</span> *maxy, <span class="hljs-type">int</span> *advance)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font:要查询的字体。<br>ch:要检查的字符代码。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时为 0，所有非 NULL 参数根据情况设置为字形度量。 -1 错误，</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><a href="https://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html">Glyphmetrics</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_MeasureText</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_MeasureText/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_MeasureText/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-MeasureText"><a href="#TTF-MeasureText" class="headerlink" title="TTF_MeasureText"></a>TTF_MeasureText</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_MeasureText">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>计算给定宽度可以容纳 <a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 字符串。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_MeasureText</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, <span class="hljs-type">int</span> measure_width, <span class="hljs-type">int</span> *extent, <span class="hljs-type">int</span> *count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font:要查询的字体。<br>text:要计算的文本，采用 Latin1 编码。<br>measure_width:字符串可用的最大宽度（以像素为单位）。<br>count:返回时，填充可呈现的字符数。<br>extent:返回时，填充最新计算的宽度。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果出错则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_Linked_Version</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_Linked_Version/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_Linked_Version/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-Linked-Version"><a href="#TTF-Linked-Version" class="headerlink" title="TTF_Linked_Version"></a>TTF_Linked_Version</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_Linked_Version">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>查询程序链接的 SDL_ttf 版本。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">const</span> SDL_version * <span class="hljs-title">TTF_Linked_Version</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回指向版本信息的指针。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_MeasureUNICODE</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_MeasureUTF8/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_MeasureUTF8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-MeasureUNICODE"><a href="#TTF-MeasureUNICODE" class="headerlink" title="TTF_MeasureUNICODE"></a>TTF_MeasureUNICODE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_MeasureUNICODE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>计算给定宽度可以容纳多少 <a href="https://zh.wikipedia.org/wiki/UTF-8">UTF-8</a> 字符串。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_MeasureUTF8</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, <span class="hljs-type">int</span> measure_width, <span class="hljs-type">int</span> *extent, <span class="hljs-type">int</span> *count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font:要查询的字体。<br>text:要计算的文本，采用 UTF-8 编码。<br>measure_width:字符串可用的最大宽度（以像素为单位）。<br>count:返回时，填充可呈现的字符数。<br>extent:返回时，填充最新计算的宽度。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果出错则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_MeasureUNICODE</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_MeasureUNICODE/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_MeasureUNICODE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-MeasureUNICODE"><a href="#TTF-MeasureUNICODE" class="headerlink" title="TTF_MeasureUNICODE"></a>TTF_MeasureUNICODE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_MeasureUNICODE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>计算给定宽度可以容纳多少 <a href="https://www.ibm.com/docs/zh/i/7.5?topic=type-ucs-2-format">UCS-2</a> 字符串。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_MeasureUNICODE</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">const</span> Uint16 *text, <span class="hljs-type">int</span> measure_width, <span class="hljs-type">int</span> *extent, <span class="hljs-type">int</span> *count)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font:要查询的字体。<br>text:要计算的文本，采用 UCS-2 编码。<br>measure_width:字符串可用的最大宽度（以像素为单位）。<br>count:返回时，填充可呈现的字符数。<br>extent:返回时，填充最新计算的宽度。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果出错则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFont</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFont/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFont/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFont"><a href="#TTF-OpenFont" class="headerlink" title="TTF_OpenFont"></a>TTF_OpenFont</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFont">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用指定的大小从文件创建字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFont</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *file, <span class="hljs-type">int</span> ptsize)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>file：字体文件的路径。<br>ptsize：用于新打开的字体的大小。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFontDPI</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFontDPI/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFontDPI/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFontDPI"><a href="#TTF-OpenFontDPI" class="headerlink" title="TTF_OpenFontDPI"></a>TTF_OpenFontDPI</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontDPI">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用目标分辨率（以 DPI 为单位）从文件创建字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFontDPI</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *file, <span class="hljs-type">int</span> ptsize, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> hdpi, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> vdpi)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>file：字体文件的路径。<br>ptsize：用于新打开的字体的大小。<br>hdpi：目标水平 DPI。<br>vdpi：目标垂直 DPI。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFontDPIRW</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFontDPIRW/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFontDPIRW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFontDPIRW"><a href="#TTF-OpenFontDPIRW" class="headerlink" title="TTF_OpenFontDPIRW"></a>TTF_OpenFontDPIRW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontDPIRW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从具有目标分辨率（以 DPI 为单位）的 <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 打开字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFontDPIRW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc, <span class="hljs-type">int</span> ptsize, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> hdpi, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> vdpi)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 提供字体文件的数据。<br>freesrc: 非零表示在字体关闭时关闭 RWops，零表示使其保持打开状态。<br>ptsize: 用于新打开的字体的大小。<br>hdpi: 目标水平 DPI。<br>vdpi: 目标垂直 DPI。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFontIndex</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFontIndex/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFontIndex/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFontIndex"><a href="#TTF-OpenFontIndex" class="headerlink" title="TTF_OpenFontIndex"></a>TTF_OpenFontIndex</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontIndex">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用指定的面索引从文件创建字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFontIndex</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *file, <span class="hljs-type">int</span> ptsize, <span class="hljs-type">long</span> index)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>file：字体文件的路径。<br>ptsize：用于新打开的字体的大小。<br>index： 字体文件中面索引。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFontIndexDPIRW</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFontIndexDPIRW/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFontIndexDPIRW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFontIndexDPIRW"><a href="#TTF-OpenFontIndexDPIRW" class="headerlink" title="TTF_OpenFontIndexDPIRW"></a>TTF_OpenFontIndexDPIRW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontIndexDPIRW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从具有目标分辨率（以 DPI 为单位）的 <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 打开字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFontIndexDPIRW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc, <span class="hljs-type">int</span> ptsize, <span class="hljs-type">long</span> index, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> hdpi, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> vdpi)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 提供字体文件的数据。<br>freesrc: 非零表示在字体关闭时关闭 RWops，零表示使其保持打开状态。<br>ptsize: 用于新打开的字体的大小。<br>index： 字体文件中面索引。<br>hdpi: 目标水平 DPI。<br>vdpi: 目标垂直 DPI。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFontIndexDPI</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFontIndexDPI/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFontIndexDPI/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFontIndexDPI"><a href="#TTF-OpenFontIndexDPI" class="headerlink" title="TTF_OpenFontIndexDPI"></a>TTF_OpenFontIndexDPI</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontIndexDPI">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用目标分辨率（以 DPI 为单位）从文件创建字体。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFontIndexDPI</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *file, <span class="hljs-type">int</span> ptsize, <span class="hljs-type">long</span> index, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> hdpi, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> vdpi)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>file：字体文件的路径。<br>ptsize：用于新打开的字体的大小。<br>index： 字体文件中面索引。<br>hdpi：目标水平 DPI。<br>vdpi：目标垂直 DPI。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFontIndexRW</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFontIndexRW/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFontIndexRW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFontIndexRW"><a href="#TTF-OpenFontIndexRW" class="headerlink" title="TTF_OpenFontIndexRW"></a>TTF_OpenFontIndexRW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontIndexRW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用指定的面索引从 <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 创建字体。 </p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFontIndexRW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc, <span class="hljs-type">int</span> ptsize, <span class="hljs-type">long</span> index)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 提供字体文件的数据。<br>freesrc: 非零表示在字体关闭时关闭 RWops，零表示使其保持打开状态。<br>ptsize: 用于新打开的字体的大小。<br>index： 字体文件中面索引。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_OpenFontRW</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_OpenFontRW/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_OpenFontRW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-OpenFontRW"><a href="#TTF-OpenFontRW" class="headerlink" title="TTF_OpenFontRW"></a>TTF_OpenFontRW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontRW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用指定的大小值从 <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 创建字体。 </p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TTF_Font * <span class="hljs-title">TTF_OpenFontRW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc, <span class="hljs-type">int</span> ptsize)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src: <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 提供字体文件的数据。<br>freesrc: 非零表示在字体关闭时关闭 RWops，零表示使其保持打开状态。<br>ptsize: 用于新打开的字体的大小。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回有效的 TTF_Font，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph32_Blended</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_Blended/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_Blended/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph32-Blended"><a href="#TTF-RenderGlyph32-Blended" class="headerlink" title="TTF_RenderGlyph32_Blended"></a>TTF_RenderGlyph32_Blended</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph32_Blended">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将单个 32 位字形以高质量渲染到新的 ARGB 表面。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph32_Blended</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                                        Uint32 ch, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>前景色（Foreground Color）： 前景色是图像或界面中被视为前置元素的颜色，通常是文本、图标或其他前置对象的颜色。这是用户主要关注的颜色，因为它代表了元素的主要内容或表现。</p><p>背景色（Background Color）： 背景色是与前景色相对应的颜色，用于填充整个图像或界面的背景。背景色通常用于提供对比，使前景元素更为突出，同时为整体设计提供平衡和美感。</p><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_Quit</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_Quit/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_Quit/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-Quit"><a href="#TTF-Quit" class="headerlink" title="TTF_Quit"></a>TTF_Quit</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_Quit">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>取消初始化 SDL_ttf</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_Quit</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph32_LCD</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_LCD/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_LCD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph32-LCD"><a href="#TTF-RenderGlyph32-LCD" class="headerlink" title="TTF_RenderGlyph32_LCD"></a>TTF_RenderGlyph32_LCD</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph32_LCD">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将单个 32 位字形渲染到新的 ARGB 表面。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph32_Blended</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                                        Uint32 ch, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>LCD subpixel是液晶显示器上的最小显示单元，它由红、绿、蓝三个子像素组成。这些子像素排列在一个像素内，每个子像素负责显示特定颜色。通过控制这些子像素的亮度，可以合成出全彩图像，从而提高显示的表观分辨率。亚像素渲染（Sub-pixel Rendering）是一种技术，利用LCD和OLED屏幕上的子像素，通过微调每个子像素的亮度来提升显示的清晰度和细节，尤其在文字和图形渲染上效果显著。这种技术在改善字体渲染方面尤为重要。</p><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph32_Shaded</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_Shaded/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_Shaded/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph32-Shaded"><a href="#TTF-RenderGlyph32-Shaded" class="headerlink" title="TTF_RenderGlyph32_Shaded"></a>TTF_RenderGlyph32_Shaded</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph32_Shaded">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将单个 32 位字形以高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph32_Shaded</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                Uint32 ch, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph32_Solid</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_Solid/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph32_Solid/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph32-Solid"><a href="#TTF-RenderGlyph32-Solid" class="headerlink" title="TTF_RenderGlyph32_Solid"></a>TTF_RenderGlyph32_Solid</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph32_Solid">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将单个 32 位字形以高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph32_Solid</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                Uint32 ch, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph_Blended</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_Blended/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_Blended/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph-Blended"><a href="#TTF-RenderGlyph-Blended" class="headerlink" title="TTF_RenderGlyph_Blended"></a>TTF_RenderGlyph_Blended</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph_Blended">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将单个 16 位字形以高质量渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph_Blended</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                Uint16 ch, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph_Shaded</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_Shaded/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_Shaded/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph-Shaded"><a href="#TTF-RenderGlyph-Shaded" class="headerlink" title="TTF_RenderGlyph_Shaded"></a>TTF_RenderGlyph_Shaded</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph_Shaded">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将单个 16 位字形以高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph_Shaded</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                Uint16 ch, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph_LCD</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_LCD/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_LCD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph-LCD"><a href="#TTF-RenderGlyph-LCD" class="headerlink" title="TTF_RenderGlyph_LCD"></a>TTF_RenderGlyph_LCD</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph_LCD">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将单个 16 位字形渲染到新的 ARGB 表面。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph_LCD</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                Uint16 ch, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>LCD subpixel是液晶显示器上的最小显示单元，它由红、绿、蓝三个子像素组成。这些子像素排列在一个像素内，每个子像素负责显示特定颜色。通过控制这些子像素的亮度，可以合成出全彩图像，从而提高显示的表观分辨率。亚像素渲染（Sub-pixel Rendering）是一种技术，利用LCD和OLED屏幕上的子像素，通过微调每个子像素的亮度来提升显示的清晰度和细节，尤其在文字和图形渲染上效果显著。这种技术在改善字体渲染方面尤为重要。</p><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_Blended</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_Blended/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_Blended/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-Blended"><a href="#TTF-RenderText-Blended" class="headerlink" title="TTF_RenderText_Blended"></a>TTF_RenderText_Blended</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderText_Blended">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将 <a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本高质量渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_Blended</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text: 要呈现的文本，采用 Latin1 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderGlyph_Solid</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_Solid/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderGlyph_Solid/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderGlyph-Solid"><a href="#TTF-RenderGlyph-Solid" class="headerlink" title="TTF_RenderGlyph_Solid"></a>TTF_RenderGlyph_Solid</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph_Solid">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将单个 16 位字形以高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderGlyph_Solid</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                Uint16 ch, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_Blended_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_Blended_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_Blended_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-Blended-Wrapped"><a href="#TTF-RenderText-Blended-Wrapped" class="headerlink" title="TTF_RenderText_Blended_Wrapped"></a>TTF_RenderText_Blended_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderText_Blended_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的<a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本高质量渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_Blended_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text: 要呈现的文本，采用 Latin1 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_LCD</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_LCD/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_LCD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-LCD"><a href="#TTF-RenderText-LCD" class="headerlink" title="TTF_RenderText_LCD"></a>TTF_RenderText_LCD</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderText_LCD">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将 <a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_LCD</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>LCD subpixel是液晶显示器上的最小显示单元，它由红、绿、蓝三个子像素组成。这些子像素排列在一个像素内，每个子像素负责显示特定颜色。通过控制这些子像素的亮度，可以合成出全彩图像，从而提高显示的表观分辨率。亚像素渲染（Sub-pixel Rendering）是一种技术，利用LCD和OLED屏幕上的子像素，通过微调每个子像素的亮度来提升显示的清晰度和细节，尤其在文字和图形渲染上效果显著。这种技术在改善字体渲染方面尤为重要。</p><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_LCD_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_LCD_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_LCD_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-LCD-Wrapped"><a href="#TTF-RenderText-LCD-Wrapped" class="headerlink" title="TTF_RenderText_LCD_Wrapped"></a>TTF_RenderText_LCD_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderText_LCD_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将自动换行的<a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_LCD_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>ch：要渲染的角色。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>LCD subpixel是液晶显示器上的最小显示单元，它由红、绿、蓝三个子像素组成。这些子像素排列在一个像素内，每个子像素负责显示特定颜色。通过控制这些子像素的亮度，可以合成出全彩图像，从而提高显示的表观分辨率。亚像素渲染（Sub-pixel Rendering）是一种技术，利用LCD和OLED屏幕上的子像素，通过微调每个子像素的亮度来提升显示的清晰度和细节，尤其在文字和图形渲染上效果显著。这种技术在改善字体渲染方面尤为重要。</p><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_Shaded</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_Shaded/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_Shaded/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-Shaded"><a href="#TTF-RenderText-Shaded" class="headerlink" title="TTF_RenderText_Shaded"></a>TTF_RenderText_Shaded</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderText_Shaded">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将 <a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_Shaded</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 Latin1 编码。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_Solid</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_Solid/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_Solid/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-Solid"><a href="#TTF-RenderText-Solid" class="headerlink" title="TTF_RenderText_Solid"></a>TTF_RenderText_Solid</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderGlyph_Solid">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以快速质量将 <a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_Solid</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 Latin1 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_Shaded_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_Shaded_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_Shaded_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-Shaded-Wrapped"><a href="#TTF-RenderText-Shaded-Wrapped" class="headerlink" title="TTF_RenderText_Shaded_Wrapped"></a>TTF_RenderText_Shaded_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderText_Shaded_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的<a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_Shaded</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 Latin1 编码。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_Blended</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Blended/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Blended/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-Blended"><a href="#TTF-RenderUNICODE-Blended" class="headerlink" title="TTF_RenderUNICODE_Blended"></a>TTF_RenderUNICODE_Blended</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_Blended">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将高质量的 <a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a> 文本渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_Blended</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_Blended</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Blended_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Blended_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-Blended"><a href="#TTF-RenderUNICODE-Blended" class="headerlink" title="TTF_RenderUNICODE_Blended"></a>TTF_RenderUNICODE_Blended</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_Blended">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的<a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a> 文本高质量地渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_Blended_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderText_Solid_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderText_Solid_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderText_Solid_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderText-Solid-Wrapped"><a href="#TTF-RenderText-Solid-Wrapped" class="headerlink" title="TTF_RenderText_Solid_Wrapped"></a>TTF_RenderText_Solid_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderText_Solid_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以快速质量将自动换行的<a href="https://zh.wikipedia.org/wiki/ISO/IEC_8859-1">Latin1</a> 文本渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderText_Solid_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 Latin1 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_LCD</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_LCD/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_LCD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-LCD"><a href="#TTF-RenderUNICODE-LCD" class="headerlink" title="TTF_RenderUNICODE_LCD"></a>TTF_RenderUNICODE_LCD</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_LCD">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将 <a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a> 文本渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_LCD</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_Shaded</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Shaded/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Shaded/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-Shaded"><a href="#TTF-RenderUNICODE-Shaded" class="headerlink" title="TTF_RenderUNICODE_Shaded"></a>TTF_RenderUNICODE_Shaded</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_Shaded">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将<a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a>文本高质量地渲染到新的 8 位表面。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_Shaded</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_LCD_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_LCD_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_LCD_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-LCD-Wrapped"><a href="#TTF-RenderUNICODE-LCD-Wrapped" class="headerlink" title="TTF_RenderUNICODE_LCD_Wrapped"></a>TTF_RenderUNICODE_LCD_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_LCD_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将自动换行的<a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a> 文本渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_LCD_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg, SDL_Color bg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_Solid</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Solid/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Solid/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-Solid"><a href="#TTF-RenderUNICODE-Solid" class="headerlink" title="TTF_RenderUNICODE_Solid"></a>TTF_RenderUNICODE_Solid</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_Solid">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将<a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a>文本以快速质量渲染到新的 8 位表面。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_Solid</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_Shaded_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Shaded_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Shaded_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-Shaded-Wrapped"><a href="#TTF-RenderUNICODE-Shaded-Wrapped" class="headerlink" title="TTF_RenderUNICODE_Shaded_Wrapped"></a>TTF_RenderUNICODE_Shaded_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_Shaded_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的 <a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a>文本高质量地渲染到新的 8 位表面。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_Shaded_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg, SDL_Color bg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_Blended</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Blended/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Blended/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-Blended"><a href="#TTF-RenderUTF8-Blended" class="headerlink" title="TTF_RenderUTF8_Blended"></a>TTF_RenderUTF8_Blended</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_Blended">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将 UTF-8 文本高质量渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_Blended</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUNICODE_Solid_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Solid_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUNICODE_Solid_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUNICODE-Solid-Wrapped"><a href="#TTF-RenderUNICODE-Solid-Wrapped" class="headerlink" title="TTF_RenderUNICODE_Solid_Wrapped"></a>TTF_RenderUNICODE_Solid_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_Solid_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的<a href="https://www.ibm.com/docs/zh-tw/i/7.5?topic=type-ucs-2-format">UCS-2</a>文本以快速质量渲染到新的 8 位表面。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUNICODE_Solid_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> Uint16 *text, SDL_Color fg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_Blended_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Blended_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Blended_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-Blended-Wrapped"><a href="#TTF-RenderUTF8-Blended-Wrapped" class="headerlink" title="TTF_RenderUTF8_Blended_Wrapped"></a>TTF_RenderUTF8_Blended_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_Blended_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的 UTF-8 文本以高质量渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_Blended_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 UTF-8 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_LCD_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_LCD_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_LCD_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-LCD-Wrapped"><a href="#TTF-RenderUTF8-LCD-Wrapped" class="headerlink" title="TTF_RenderUTF8_LCD_Wrapped"></a>TTF_RenderUTF8_LCD_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_LCD_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将自动换行的 UTF-8 文本渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_LCD_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 UTF-8 编码。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_LCD</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_LCD/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_LCD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-LCD"><a href="#TTF-RenderUTF8-LCD" class="headerlink" title="TTF_RenderUTF8_LCD"></a>TTF_RenderUTF8_LCD</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_LCD">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>以 LCD 子像素质量将 UTF-8 文本渲染到新的 ARGB Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_LCD</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 UTF-8 编码。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回新的 32 位 ARGB Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>ARGB Surface通常指的是一个图形处理中的概念，其中的ARGB代表Alpha（透明度）、Red（红色）、Green（绿色）和Blue（蓝色）。ARGB Surface是一个图形表面，它存储每个像素的颜色信息，包括红色、绿色、蓝色以及透明度。这种表面类型通常在计算机图形编程、游戏开发和图形处理单元（GPU）等领域中使用，用于表示和处理图像的颜色和透明度信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_Shaded</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Shaded/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Shaded/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-Shaded"><a href="#TTF-RenderUTF8-Shaded" class="headerlink" title="TTF_RenderUTF8_Shaded"></a>TTF_RenderUTF8_Shaded</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_Shaded">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将 UTF-8 文本高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_Shaded</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 UTF-8 编码。<br>fg：文本的前景色。<br>bg: 文本的背景颜色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_Shaded_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Shaded_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Shaded_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-Shaded-Wrapped"><a href="#TTF-RenderUTF8-Shaded-Wrapped" class="headerlink" title="TTF_RenderUTF8_Shaded_Wrapped"></a>TTF_RenderUTF8_Shaded_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_Shaded_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的 UTF-8 文本以高质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_Shaded_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, SDL_Color bg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 UTF-8 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_Solid</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Solid/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Solid/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-Solid"><a href="#TTF-RenderUTF8-Solid" class="headerlink" title="TTF_RenderUTF8_Solid"></a>TTF_RenderUTF8_Solid</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_Solid">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将 UTF-8 文本以快速质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_Solid</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要要呈现的文本，采用 UCS-2 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_RenderUTF8_Solid_Wrapped</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Solid_Wrapped/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_RenderUTF8_Solid_Wrapped/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-RenderUTF8-Solid-Wrapped"><a href="#TTF-RenderUTF8-Solid-Wrapped" class="headerlink" title="TTF_RenderUTF8_Solid_Wrapped"></a>TTF_RenderUTF8_Solid_Wrapped</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUTF8_Solid_Wrapped">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>将自动换行的 UTF-8 文本以快速质量渲染到新的 8 位Surface。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">SDL_Surface * <span class="hljs-title">TTF_RenderUTF8_Solid_Wrapped</span><span class="hljs-params">(TTF_Font *font,</span></span><br><span class="hljs-params"><span class="hljs-function">                <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, SDL_Color fg, Uint32 wrapLength)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：用于渲染的字体。<br>text：要呈现的文本，采用 UTF-8 编码。<br>fg：文本的前景色。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的 8 位调色板Surface，如果出现错误则返回 NULL。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>palettized surface 指的是调色板表面。在图形编程中，这是一种表示图像的方式，其中颜色信息存储在调色板中，而图像本身则使用指向调色板的索引表示。</p><ol><li><p>palettized surface 是一种图像表示方法，其中颜色信息存储在调色板中，而图像使用调色板中的索引表示。</p></li><li><p>通过调色板，8位 palettized surfaces 可以以更节省内存的方式表示图像，特别在一些嵌入式系统和游戏编程中经常使用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetDirection</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetDirection/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetDirection/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetDirection"><a href="#TTF-SetDirection" class="headerlink" title="TTF_SetDirection"></a>TTF_SetDirection</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetDirection">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于设置 TrueType 字体的渲染方向。这个函数通常用于在绘制文本时指定文本的方向，例如从左到右或从右到左。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SetDirection</span><span class="hljs-params">(<span class="hljs-type">int</span> direction)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>direction: hb_direction_t 值。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 0，如果 SDL_ttf 未使用 HarfBuzz 支持进行编译，则返回 -1。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>hb_direction_t 是指 HarfBuzz 库中的一个数据类型。HarfBuzz 是一个用于处理文本布局和字形调整的开源字体引擎。hb_direction_t 是用于表示文本方向的枚举类型，它定义了文本的基本方向，如从左到右（HB_DIRECTION_LTR）、从右到左（HB_DIRECTION_RTL）等。此类型通常用于在处理双向文本（例如阿拉伯文或希伯来文）时确定文本的排列方向。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontDirection</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontDirection/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontDirection/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontDirection"><a href="#TTF-SetFontDirection" class="headerlink" title="TTF_SetFontDirection"></a>TTF_SetFontDirection</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontDirection">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于设置TrueType字体的方向。这个函数的目的是控制文本的显示方向，可以将文本水平或垂直显示。通过调用这个函数，你可以在SDL应用程序中更灵活地处理文本的方向，以满足不同的显示需求。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SetFontDirection</span><span class="hljs-params">(TTF_Font *font, TTF_Direction direction)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要指定方向的字体。<br>direction: 文本流动的新方向。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>Possible direction values are:<br>TTF_DIRECTION_LTR (Left to Right)<br>TTF_DIRECTION_RTL (Right to Left)<br>TTF_DIRECTION_TTB (Top to Bottom)<br>TTF_DIRECTION_BTT (Bottom to Top)</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontHinting</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontHinting/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontHinting/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontHinting"><a href="#TTF-SetFontHinting" class="headerlink" title="TTF_SetFontHinting"></a>TTF_SetFontHinting</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontHinting">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>设置字体的当前提示设置。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_SetFontHinting</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">int</span> hinting)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font：要查询的字体。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回字体的当前提示值。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>TTF_HINTING_NORMAL：表示使用正常的 Hinting 设置，这通常是默认设置，旨在在各种显示设备上提供平衡的显示效果。<br>TTF_HINTING_LIGHT：TTF_HINTING_LIGHT选项允许开发者调整TrueType字体的渲染方式，以获得更好的显示效果。此选项的使用可能涉及到在SDL应用程序中设置字体渲染的相关参数。<br>TTF_HINTING_MONO：项用于控制在使用TrueType字体渲染单色文本时的字形微调（hinting）。字形微调是一种技术，通过微调字形的位置和形状，以在低分辨率设备上获得更好的显示效果。<br>TTF_HINTING_NONE：表示不使用字体提示（hinting），即字体渲染引擎不会根据显示器的特性进行微调，直接使用字体文件中的轮廓信息进行渲染。<br>TTF_HINTING_LIGHT_SUBPIXEL：是其中一种方式，它通常用于改善小字体的显示效果，使其在亚像素级别上更加平滑和清晰。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontOutline</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontOutline/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontOutline/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontOutline"><a href="#TTF-SetFontOutline" class="headerlink" title="TTF_SetFontOutline"></a>TTF_SetFontOutline</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontOutline">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>这个函数用于设置TrueType字体的轮廓宽度。在SDL_ttf中，TrueType字体是一种矢量字体，TTF_SetFontOutline允许你为文本添加轮廓，使其在屏幕上更为突出。通过调整轮廓宽度，你可以控制文本显示的外观，增强其可读性或视觉效果。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_SetFontOutline</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">int</span> outline)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 设置新轮廓的字体。<br>outline: 正轮廓值，默认为 0。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontKerning</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontKerning/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontKerning/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontKerning"><a href="#TTF-SetFontKerning" class="headerlink" title="TTF_SetFontKerning"></a>TTF_SetFontKerning</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontKerning">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>这个函数用于设置 TrueType 字体的字距（kerning）。字距是指字符之间的空隙，而字距调整则是调整这些字符之间的空隙，以改善它们在视觉上的排列和间距。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SetFontDirection</span><span class="hljs-params">(TTF_Font *font, TTF_Direction direction)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 设置字距调整的字体。<br>allowed: 非零表示允许字距调整，零表示不允许。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontScriptName</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontScriptName/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontScriptName/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontScriptName"><a href="#TTF-SetFontScriptName" class="headerlink" title="TTF_SetFontScriptName"></a>TTF_SetFontScriptName</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontScriptName">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF_SetFontScriptName是SDL_ttf库中的一个函数，用于设置TrueType字体的脚本名称。这个函数的目的是为了允许应用程序为特定的字体设置脚本名称，以便在多语言环境中正确显示文本。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SetFontScriptName</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *script)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要指定方向的字体。<br>script: 正好包含以 null 结尾的 4 个字符的字符串。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontSize</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontSize/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontSize/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontSize"><a href="#TTF-SetFontSize" class="headerlink" title="TTF_SetFontSize"></a>TTF_SetFontSize</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontSize">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF SetFontSize 不是一个标准的函数或命令，而是可能是一种自定义或特定上下文中使用的命名约定。通常情况下，TTF 可能指的是 TrueType 字体，而 SetFontSize 可能表示设置字体大小的操作。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SetFontSize</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">int</span> ptsize)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要调整大小的字体。<br>ptsize: 新的大小。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontSizeDPI</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontSizeDPI/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontSizeDPI/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontSizeDPI"><a href="#TTF-SetFontSizeDPI" class="headerlink" title="TTF_SetFontSizeDPI"></a>TTF_SetFontSizeDPI</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontSizeDPI">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF_SetFontSizeDPI 函数的作用是设置字体的大小和 DPI（每英寸像素数），以便更精确地控制字体在屏幕上的显示大小。这对于需要在不同分辨率的屏幕上显示文本的应用程序是很有用的。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SetFontSizeDPI</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">int</span> ptsize, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> hdpi, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> vdpi)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要调整大小的字体。<br>ptsize: 新的大小。<br>hdpi：目标的水平 DPI。<br>vdpi：目标的垂直 DPI。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontStyle</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontStyle/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontStyle/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontStyle"><a href="#TTF-SetFontStyle" class="headerlink" title="TTF_SetFontStyle"></a>TTF_SetFontStyle</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontStyle">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于设置TrueType字体的样式。这个函数通常用于在文本渲染时改变字体的外观，例如设置为粗体、斜体或正常样式。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_SetFontStyle</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">int</span> style)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要设置新样式的字体。<br>style：要设置的新样式值，或运算在一起。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>style:<br>TTF_STYLE_NORMAL (is zero)：是TrueType字体（TTF）中的一种样式，代表正常字体样式。<br>TTF_STYLE_BOLD：是指TrueType字体中的一种样式，表示粗体字。<br>TTF_STYLE_ITALIC：是指 TrueType 字体（TTF）的斜体样式。<br>TTF_STYLE_UNDERLINE：是 TrueType 字体中的一种文本样式，用于在文本下方添加下划线。<br>TTF_STYLE_STRIKETHROUGH：是指TrueType字体中的删除线样式。在字体设计中，删除线样式用于在文本中添加删除线或横穿线。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetFontWrappedAlign</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetFontWrappedAlign/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetFontWrappedAlign/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetFontWrappedAlign"><a href="#TTF-SetFontWrappedAlign" class="headerlink" title="TTF_SetFontWrappedAlign"></a>TTF_SetFontWrappedAlign</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetFontWrappedAlign">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF_SetFontWrappedAlign 是 SDL_ttf 库中的一个函数，用于设置文本的字体、换行和对齐方式。这个函数通常用于在使用SDL渲染文本时，控制文本的显示格式。具体而言，这个函数用于设置包含字体、换行和对齐信息的 TTF_Font 结构体，以影响后续文本的渲染。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">TTF_SetFontWrappedAlign</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">int</span> align)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 设置新换行对齐选项的字体。<br>align: 新的换行对齐选项。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>TTF_WRAPPED_ALIGN_LEFT：是TrueType字体（TTF）文件中的一个标志，用于指定文本的对齐方式。ALIGN_LEFT表示文本左对齐，即文本的左侧将与指定的位置对齐，而文本的右侧将根据文本的长度自动调整位置。这通常用于定义文本在图形或界面中的位置和对齐方式。</p><p>TTF_WRAPPED_ALIGN_CENTER：是 TrueType 字体文件（TTF）中的一个参数或标志，表示文本在水平方向上居中对齐。在使用此参数时，文本将在给定的区域内水平方向上居中显示，而不是靠左或靠右对齐。</p><p>TTF_WRAPPED_ALIGN_RIGHT：是指TrueType字体（TTF）中的一个参数，用于指定文本在绘制时的对齐方式。具体而言，它表示文本在绘制时以右侧对齐的方式呈现。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SetScript</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SetScript/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SetScript/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SetScript"><a href="#TTF-SetScript" class="headerlink" title="TTF_SetScript"></a>TTF_SetScript</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetScript">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>而PostScript是一种页面描述语言，用于描述页面内容的排版和打印。TTF PostScript通常指的是将TrueType字体与PostScript语言结合使用的一种技术。这种技术允许在PostScript打印机上使用TrueType字体，以便更好地处理和打印文本。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SetScript</span><span class="hljs-params">(<span class="hljs-type">int</span> script)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回 0，如果 SDL_ttf 未使用 HarfBuzz 支持进行编译，则返回 -1。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SizeUNICODE</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SizeUNICODE/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SizeUNICODE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SizeUNICODE"><a href="#TTF-SizeUNICODE" class="headerlink" title="TTF_SizeUNICODE"></a>TTF_SizeUNICODE</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SizeUNICODE">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF_SizeUNICODE是FreeType库中的一个函数，用于获取Unicode字符串在TrueType字体中的尺寸。这个函数通常用于计算文本在屏幕上的宽度和高度，以便进行布局和渲染。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SizeUNICODE</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">const</span> Uint16 *text, <span class="hljs-type">int</span> *w, <span class="hljs-type">int</span> *h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要查询的字体。<br>text: 要计算的文本，采用 UCS-2 编码。<br>w: 返回时将填充宽度（以像素为单位）。<br>h: 返回时将填充高度（以像素为单位）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果出错则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SizeText</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SizeText/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SizeText/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SizeText"><a href="#TTF-SizeText" class="headerlink" title="TTF_SizeText"></a>TTF_SizeText</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SizeText">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF_SizeText是FreeType库中的一个函数，用于获取指定字体和字号的文本的大小。通过调用这个函数，你可以获得文本在指定字体和字号下的宽度和高度信息。这对于在图形应用程序中进行布局和渲染文本时非常有用。 TTF_SizeText函数通常与FreeType库一起使用，这是一个用于处理字体的开源库，支持跨平台。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SizeText</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, <span class="hljs-type">int</span> *w, <span class="hljs-type">int</span> *h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要查询的字体。<br>text: 要计算的文本，采用 Latin1 编码。<br>w: 返回时将填充宽度（以像素为单位）。<br>h: 返回时将填充高度（以像素为单位）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果出错则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_SizeUTF8</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_SizeUTF8/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_SizeUTF8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-SizeUTF8"><a href="#TTF-SizeUTF8" class="headerlink" title="TTF_SizeUTF8"></a>TTF_SizeUTF8</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SizeUTF8">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF_SizeUTF8是FreeType库中的一个函数，用于获取以UTF-8编码的字符串在TrueType字体中显示时的尺寸。该函数主要用于计算文本在屏幕上的宽度和高度，以便进行布局和渲染。在使用FreeType库进行字体渲染时，TTF_SizeUTF8可以帮助确定文本的显示大小，以便更好地管理文本布局和显示效果。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_SizeUTF8</span><span class="hljs-params">(TTF_Font *font, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *text, <span class="hljs-type">int</span> *w, <span class="hljs-type">int</span> *h)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>font: 要查询的字体。<br>text: 要计算的文本，采用 UTF-8 编码。<br>w: 返回时将填充宽度（以像素为单位）。<br>h: 返回时将填充高度（以像素为单位）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果出错则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TTF_WasInit</title>
+    <link href="/1999/01/05/SDL/Dictionary/TTF_WasInit/"/>
+    <url>/1999/01/05/SDL/Dictionary/TTF_WasInit/</url>
+    
+    <content type="html"><![CDATA[<h1 id="TTF-WasInit"><a href="#TTF-WasInit" class="headerlink" title="TTF_WasInit"></a>TTF_WasInit</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_WasInit">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>TTF_WasInit 是 SDL_ttf 库中的一个函数，用于检查 TrueType 字体支持是否已经初始化。如果 TTF_WasInit 返回非零值，表示 TrueType 字体支持已经成功初始化，否则表示尚未初始化。这个函数通常用于确保在使用 TrueType 字体之前已经正确初始化了相关的库。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">TTF_WasInit</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回当前初始化调用的数量，这些调用最终需要与对 TTF_Quit() 的多次调用配对。</p>]]></content>
     
     
     <categories>
