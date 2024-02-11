@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Aggie Lennon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="关于C++单调栈的定义可以参考以下资料click to jump 简单中等1. 设计自助结算系统请设计一个自助结账系统，该系统需要通过一个队列来模拟顾客通过购物车的结算过程，需要实现的功能有：  get_max()：获取结算商品中的最高价格，如果队列为空，则返回 -1 add(value)：将价格为 value 的商品加入待结算商品队列的尾部 remove()：移除第一个待结算的商品价格，如果队">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MonotonicQueue">
+<meta property="og:url" content="http://example.com/2024/01/12/Algorithms/MonotonicQueue/index.html">
+<meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
+<meta property="og:description" content="关于C++单调栈的定义可以参考以下资料click to jump 简单中等1. 设计自助结算系统请设计一个自助结账系统，该系统需要通过一个队列来模拟顾客通过购物车的结算过程，需要实现的功能有：  get_max()：获取结算商品中的最高价格，如果队列为空，则返回 -1 add(value)：将价格为 value 的商品加入待结算商品队列的尾部 remove()：移除第一个待结算的商品价格，如果队">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Leetcode/%E8%AE%BE%E8%AE%A1%E8%87%AA%E5%8A%A9%E7%BB%93%E7%AE%97%E7%B3%BB%E7%BB%9F.png">
+<meta property="og:image" content="http://example.com/img/Leetcode/%E9%AD%94%E5%A1%94%E6%B8%B8%E6%88%8F.png">
+<meta property="og:image" content="http://example.com/img/Leetcode/%E7%8E%AF%E5%BD%A2%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C.png">
+<meta property="og:image" content="http://example.com/img/Leetcode/%E7%BB%9D%E5%AF%B9%E5%B7%AE%E4%B8%8D%E8%B6%85%E8%BF%87%E9%99%90%E5%88%B6%E7%9A%84%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84.png">
+<meta property="og:image" content="http://example.com/img/Leetcode/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8FVI.png">
+<meta property="og:image" content="http://example.com/img/Leetcode/%E4%B8%8D%E9%97%B4%E6%96%AD%E5%AD%90%E6%95%B0%E7%BB%84.png">
+<meta property="og:image" content="http://example.com/img/Leetcode/%E8%B4%AD%E4%B9%B0%E6%B0%B4%E6%9E%9C%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E5%B0%91%E9%87%91%E5%B8%81%E6%95%B0.png">
+<meta property="article:published_time" content="2024-01-12T01:06:00.000Z">
+<meta property="article:modified_time" content="2024-02-10T07:51:27.408Z">
+<meta property="article:author" content="Aggie Lennon">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Leetcode/%E8%AE%BE%E8%AE%A1%E8%87%AA%E5%8A%A9%E7%BB%93%E7%AE%97%E7%B3%BB%E7%BB%9F.png">
+  
+  
+  
+  <title>MonotonicQueue - Aggie Lennon&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">MonotonicQueue</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-12 09:06" pubdate>
+          2024年1月12日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MonotonicQueue</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
+<p>关于C++单调栈的定义可以参考以下资料<a target="_blank" rel="noopener" href="https://www.dotcpp.com/course/115">click to jump</a></p>
+<h1 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h1><h1 id="中等"><a href="#中等" class="headerlink" title="中等"></a>中等</h1><h1 id="1-设计自助结算系统"><a href="#1-设计自助结算系统" class="headerlink" title="1. 设计自助结算系统"></a>1. 设计自助结算系统</h1><p>请设计一个自助结账系统，该系统需要通过一个队列来模拟顾客通过购物车的结算过程，需要实现的功能有：</p>
+<ul>
+<li>get_max()：获取结算商品中的最高价格，如果队列为空，则返回 -1</li>
+<li>add(value)：将价格为 value 的商品加入待结算商品队列的尾部</li>
+<li>remove()：移除第一个待结算的商品价格，如果队列为空，则返回 -1<br>注意，为保证该系统运转高效性，以上函数的均摊时间复杂度均为 O(1)<br><img src="/img/Leetcode/%E8%AE%BE%E8%AE%A1%E8%87%AA%E5%8A%A9%E7%BB%93%E7%AE%97%E7%B3%BB%E7%BB%9F.png" srcset="/img/loading.gif" lazyload><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Checkout</span> &#123;<br>    <span class="hljs-type">int</span> max_num = <span class="hljs-number">-1</span>;<br>    deque&lt;<span class="hljs-type">int</span>&gt; deq;<br>    deque&lt;<span class="hljs-type">int</span>&gt; mono;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Checkout</span>() &#123;<br><br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get_max</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(deq.<span class="hljs-built_in">empty</span>())&#123;<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;&#125;<br>        <span class="hljs-keyword">else</span>&#123;<span class="hljs-keyword">return</span> mono.<span class="hljs-built_in">front</span>();&#125;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span> </span>&#123;<br>        deq.<span class="hljs-built_in">push_back</span>(value);<br>        <span class="hljs-keyword">while</span>(!mono.<span class="hljs-built_in">empty</span>() &amp;&amp; value&gt;mono.<span class="hljs-built_in">back</span>())&#123;mono.<span class="hljs-built_in">pop_back</span>();&#125;<br>        mono.<span class="hljs-built_in">push_back</span>(value);<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">remove</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-type">int</span> tmp;<br>        <span class="hljs-keyword">if</span>(deq.<span class="hljs-built_in">empty</span>())&#123;<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;&#125;<br>        <span class="hljs-keyword">if</span>(deq.<span class="hljs-built_in">front</span>() == mono.<span class="hljs-built_in">front</span>())&#123;mono.<span class="hljs-built_in">pop_front</span>();&#125;<br>        tmp = deq.<span class="hljs-built_in">front</span>();<br>        deq.<span class="hljs-built_in">pop_front</span>();<br><br>        <span class="hljs-keyword">return</span> tmp;<br>    &#125;<br>&#125;;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Your Checkout object will be instantiated and called as such:</span><br><span class="hljs-comment"> * Checkout* obj = new Checkout();</span><br><span class="hljs-comment"> * int param_1 = obj-&gt;get_max();</span><br><span class="hljs-comment"> * obj-&gt;add(value);</span><br><span class="hljs-comment"> * int param_3 = obj-&gt;remove();</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="2-魔塔游戏"><a href="#2-魔塔游戏" class="headerlink" title="2. 魔塔游戏"></a>2. 魔塔游戏</h1><p>小扣当前位于魔塔游戏第一层，共有 N 个房间，编号为 0 ~ N-1。每个房间的补血道具&#x2F;怪物对于血量影响记于数组 nums，其中正数表示道具补血数值，即血量增加对应数值；负数表示怪物造成伤害值，即血量减少对应数值；0 表示房间对血量无影响。</p>
+<p>小扣初始血量为 1，且无上限。假定小扣原计划按房间编号升序访问所有房间补血&#x2F;打怪，为保证血量始终为正值，小扣需对房间访问顺序进行调整，每次仅能将一个怪物房间（负数的房间）调整至访问顺序末尾。请返回小扣最少需要调整几次，才能顺利访问所有房间。若调整顺序也无法访问完全部房间，请返回 -1。<br><img src="/img/Leetcode/%E9%AD%94%E5%A1%94%E6%B8%B8%E6%88%8F.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">magicTower</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        priority_queue&lt;<span class="hljs-type">int</span>,vector&lt;<span class="hljs-type">int</span>&gt;, greater&lt;<span class="hljs-type">int</span>&gt;&gt; minheap;<br>        <span class="hljs-type">int</span> n=nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> result = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> hp = <span class="hljs-number">1</span>;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> remain = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> num:nums)&#123;<br>            <span class="hljs-keyword">if</span>(num&lt;<span class="hljs-number">0</span>)&#123;minheap.<span class="hljs-built_in">push</span>(num);&#125;<br>            hp += num;<br>            <span class="hljs-keyword">while</span>(!minheap.<span class="hljs-built_in">empty</span>() &amp;&amp; hp&lt;=<span class="hljs-number">0</span>)&#123;<br>                result++;<br>                remain += minheap.<span class="hljs-built_in">top</span>();<br>                hp -= minheap.<span class="hljs-built_in">top</span>();<br>                minheap.<span class="hljs-built_in">pop</span>();<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(hp+remain&lt;=<span class="hljs-number">0</span>)&#123;<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;&#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-环形子数组的最大和"><a href="#3-环形子数组的最大和" class="headerlink" title="3. 环形子数组的最大和"></a>3. 环形子数组的最大和</h1><p>给定一个长度为 n 的环形整数数组 nums ，返回 nums 的非空 子数组 的最大可能和 。</p>
+<p>环形数组 意味着数组的末端将会与开头相连呈环状。形式上， nums[i] 的下一个元素是 nums[(i + 1) % n] ， nums[i] 的前一个元素是 nums[(i - 1 + n) % n] 。</p>
+<p>子数组 最多只能包含固定缓冲区 nums 中的每个元素一次。形式上，对于子数组 nums[i], nums[i + 1], …, nums[j] ，不存在 i &lt;&#x3D; k1, k2 &lt;&#x3D; j 其中 k1 % n &#x3D;&#x3D; k2 % n 。<br><img src="/img/Leetcode/%E7%8E%AF%E5%BD%A2%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxSubarraySumCircular</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> result = INT_MIN;<br>        <span class="hljs-type">int</span> min_num = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> max_num = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> max_total = INT_MIN;<br>        <span class="hljs-type">int</span> min_total = INT_MAX;<br>        <span class="hljs-type">int</span> total_num = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> num:nums)&#123;<br>            max_num = <span class="hljs-built_in">max</span>(max_num+num,num);<br>            max_total = <span class="hljs-built_in">max</span>(max_total,max_num);<br>            min_num = <span class="hljs-built_in">min</span>(min_num+num, num);<br>            min_total = <span class="hljs-built_in">min</span>(min_total,min_num);<br>            total_num +=num;<br>        &#125;<br>        result = <span class="hljs-built_in">max</span>(max_total, total_num-min_total);<br>        <span class="hljs-keyword">if</span>(total_num == min_total)&#123;result = max_total;&#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>单调栈方法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxSubarraySumCircular</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> result = INT_MIN;<br>        deque&lt;<span class="hljs-type">int</span>&gt; deq;<br>        <span class="hljs-type">int</span> n_tmp = nums.<span class="hljs-built_in">size</span>();<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n_tmp; i++)&#123;nums.<span class="hljs-built_in">push_back</span>(nums[i]);&#125;<br><br>        <span class="hljs-type">int</span> n=nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">presum</span><span class="hljs-params">(n+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)</span></span>;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; i++)&#123;presum[i] = presum[i<span class="hljs-number">-1</span>]+nums[i<span class="hljs-number">-1</span>];&#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)&#123;<br>            <span class="hljs-keyword">if</span>(!deq.<span class="hljs-built_in">empty</span>() &amp;&amp; deq.<span class="hljs-built_in">front</span>()&lt;=i-n_tmp)&#123;deq.<span class="hljs-built_in">pop_front</span>();&#125;<br>            deq.<span class="hljs-built_in">push_back</span>(i);<br>            result = <span class="hljs-built_in">max</span>(result, presum[deq.<span class="hljs-built_in">back</span>()+<span class="hljs-number">1</span>]-presum[deq.<span class="hljs-built_in">front</span>()]);<br>            <span class="hljs-keyword">while</span>(!deq.<span class="hljs-built_in">empty</span>() &amp;&amp; presum[deq.<span class="hljs-built_in">back</span>()]&gt;presum[i+<span class="hljs-number">1</span>])&#123;<br>                deq.<span class="hljs-built_in">pop_back</span>();<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-绝对差不超过限制的最长连续子数组"><a href="#4-绝对差不超过限制的最长连续子数组" class="headerlink" title="4. 绝对差不超过限制的最长连续子数组"></a>4. 绝对差不超过限制的最长连续子数组</h1><p>给你一个整数数组 nums ，和一个表示限制的整数 limit，请你返回最长连续子数组的长度，该子数组中的任意两个元素之间的绝对差必须小于或者等于 limit 。</p>
+<p>如果不存在满足条件的子数组，则返回 0 。<br><img src="/img/Leetcode/%E7%BB%9D%E5%AF%B9%E5%B7%AE%E4%B8%8D%E8%B6%85%E8%BF%87%E9%99%90%E5%88%B6%E7%9A%84%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">longestSubarray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> limit)</span> </span>&#123;<br>        <span class="hljs-type">int</span> result = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>;<br>        deque&lt;<span class="hljs-type">int</span>&gt; maxheap, minheap;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)&#123;<br>            <span class="hljs-keyword">while</span>(!maxheap.<span class="hljs-built_in">empty</span>() &amp;&amp; nums[i]&gt;maxheap.<span class="hljs-built_in">back</span>())&#123;<br>                maxheap.<span class="hljs-built_in">pop_back</span>();<br>            &#125;<br>            <span class="hljs-keyword">while</span>(!minheap.<span class="hljs-built_in">empty</span>() &amp;&amp; nums[i]&lt;minheap.<span class="hljs-built_in">back</span>())&#123;<br>                minheap.<span class="hljs-built_in">pop_back</span>();<br>            &#125;<br>            maxheap.<span class="hljs-built_in">push_back</span>(nums[i]);<br>            minheap.<span class="hljs-built_in">push_back</span>(nums[i]);<br>            <span class="hljs-keyword">while</span>(!maxheap.<span class="hljs-built_in">empty</span>() &amp;&amp; !minheap.<span class="hljs-built_in">empty</span>() &amp;&amp; maxheap.<span class="hljs-built_in">front</span>()-minheap.<span class="hljs-built_in">front</span>()&gt;limit)&#123;<br>                <span class="hljs-keyword">if</span>(nums[left] == maxheap.<span class="hljs-built_in">front</span>())&#123;<br>                    maxheap.<span class="hljs-built_in">pop_front</span>();<br>                &#125;<br>                <span class="hljs-keyword">if</span>(nums[left] == minheap.<span class="hljs-built_in">front</span>())&#123;<br>                    minheap.<span class="hljs-built_in">pop_front</span>();<br>                &#125;<br>                left++;<br>            &#125;<br>            result = <span class="hljs-built_in">max</span>(result,i-left+<span class="hljs-number">1</span>);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="5-跳跃游戏VI"><a href="#5-跳跃游戏VI" class="headerlink" title="5. 跳跃游戏VI"></a>5. 跳跃游戏VI</h1><p>给你一个下标从 0 开始的整数数组 nums 和一个整数 k 。</p>
+<p>一开始你在下标 0 处。每一步，你最多可以往前跳 k 步，但你不能跳出数组的边界。也就是说，你可以从下标 i 跳到 [i + 1， min(n - 1, i + k)] 包含 两个端点的任意位置。</p>
+<p>你的目标是到达数组最后一个位置（下标为 n - 1 ），你的 得分 为经过的所有数字之和。</p>
+<p>请你返回你能得到的 最大得分 。<br><img src="/img/Leetcode/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8FVI.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxResult</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> k)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> result = <span class="hljs-number">0</span>;<br>        deque&lt;<span class="hljs-type">int</span>&gt; deq = &#123;<span class="hljs-number">0</span>&#125;;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">dp</span><span class="hljs-params">(n)</span></span>;<br><br>        dp[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;n; i++)&#123;<br>            <span class="hljs-keyword">if</span>(deq.<span class="hljs-built_in">front</span>() &lt; i-k)&#123;<br>                deq.<span class="hljs-built_in">pop_front</span>();<br>            &#125;<br>            dp[i] = dp[deq.<span class="hljs-built_in">front</span>()] + nums[i];<br>            <span class="hljs-keyword">while</span>(!deq.<span class="hljs-built_in">empty</span>() &amp;&amp; dp[deq.<span class="hljs-built_in">back</span>()] &lt;= dp[i])&#123;<br>                deq.<span class="hljs-built_in">pop_back</span>();<br>            &#125;<br>            deq.<span class="hljs-built_in">push_back</span>(i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> dp[n<span class="hljs-number">-1</span>];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="6-不间断子数组"><a href="#6-不间断子数组" class="headerlink" title="6. 不间断子数组"></a>6. 不间断子数组</h1><p>给你一个下标从 0 开始的整数数组 nums 。nums 的一个子数组如果满足以下条件，那么它是 不间断 的：</p>
+<ul>
+<li>i，i + 1 ，…，j  表示子数组中的下标。对于所有满足 i &lt;&#x3D; i1, i2 &lt;&#x3D; j 的下标对，都有 0 &lt;&#x3D; |nums[i1] - nums[i2]| &lt;&#x3D; 2 。<br>请你返回 不间断 子数组的总数目。</li>
+</ul>
+<p>子数组是一个数组中一段连续 非空 的元素序列。<br><img src="/img/Leetcode/%E4%B8%8D%E9%97%B4%E6%96%AD%E5%AD%90%E6%95%B0%E7%BB%84.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">continuousSubarrays</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> result = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>;<br>        deque&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt; minheap;<br>        deque&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt; maxheap;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>; j&lt;n; j++)&#123;<br>            <span class="hljs-keyword">while</span>(!minheap.<span class="hljs-built_in">empty</span>() &amp;&amp; minheap.<span class="hljs-built_in">back</span>()&gt;nums[j])&#123;minheap.<span class="hljs-built_in">pop_back</span>();&#125;<br>            <span class="hljs-keyword">while</span>(!maxheap.<span class="hljs-built_in">empty</span>() &amp;&amp; maxheap.<span class="hljs-built_in">back</span>()&lt;nums[j])&#123;maxheap.<span class="hljs-built_in">pop_back</span>();&#125;<br>            minheap.<span class="hljs-built_in">push_back</span>(nums[j]);<br>            maxheap.<span class="hljs-built_in">push_back</span>(nums[j]);<br>            <span class="hljs-keyword">while</span>(!maxheap.<span class="hljs-built_in">empty</span>() &amp;&amp; !minheap.<span class="hljs-built_in">empty</span>() &amp;&amp; maxheap.<span class="hljs-built_in">front</span>()-minheap.<span class="hljs-built_in">front</span>()&gt;<span class="hljs-number">2</span>)&#123;<br>                <span class="hljs-keyword">if</span>(nums[left] == maxheap.<span class="hljs-built_in">front</span>())&#123;maxheap.<span class="hljs-built_in">pop_front</span>();&#125;<br>                <span class="hljs-keyword">if</span>(nums[left] == minheap.<span class="hljs-built_in">front</span>())&#123;minheap.<span class="hljs-built_in">pop_front</span>();&#125;<br>                left++;<br>            &#125;<br>            result += j-left+<span class="hljs-number">1</span>;<br>        &#125;<br>        <br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-购买水果需要的最少金币数"><a href="#7-购买水果需要的最少金币数" class="headerlink" title="7. 购买水果需要的最少金币数"></a>7. 购买水果需要的最少金币数</h1><p>你在一个水果超市里，货架上摆满了玲琅满目的奇珍异果。</p>
+<p>给你一个下标从 1 开始的数组 prices ，其中 prices[i] 表示你购买第 i 个水果需要花费的金币数目。</p>
+<p>水果超市有如下促销活动：</p>
+<ul>
+<li>如果你花费 price[i] 购买了水果 i ，那么接下来的 i 个水果你都可以免费获得。<br>注意 ，即使你 可以 免费获得水果 j ，你仍然可以花费 prices[j] 个金币去购买它以便能免费获得接下来的 j 个水果。</li>
+</ul>
+<p>请你返回获得所有水果所需要的 最少 金币数。<br><img src="/img/Leetcode/%E8%B4%AD%E4%B9%B0%E6%B0%B4%E6%9E%9C%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E5%B0%91%E9%87%91%E5%B8%81%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minimumCoins</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = prices.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> result = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> num;<br>        deque&lt;pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt;&gt; deq = &#123;&#123;n+<span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;&#125;;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=n; i&gt;<span class="hljs-number">0</span>; i--)&#123;<br>            <span class="hljs-keyword">while</span>(!deq.<span class="hljs-built_in">empty</span>() &amp;&amp; deq.<span class="hljs-built_in">back</span>().first&gt;<span class="hljs-number">2</span>*i+<span class="hljs-number">1</span>)&#123;deq.<span class="hljs-built_in">pop_back</span>();&#125;<br>            num = prices[i<span class="hljs-number">-1</span>] + deq.<span class="hljs-built_in">back</span>().second;<br>            <span class="hljs-keyword">while</span>(!deq.<span class="hljs-built_in">empty</span>() &amp;&amp; deq.<span class="hljs-built_in">front</span>().second&gt;=num)&#123;deq.<span class="hljs-built_in">pop_front</span>();&#125;<br>            deq.<span class="hljs-built_in">push_front</span>(&#123;i,num&#125;);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> deq.<span class="hljs-built_in">front</span>().second;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h1 id="困难"><a href="#困难" class="headerlink" title="困难"></a>困难</h1><p>@题目版权归Leetcode所有</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Daily-Algorithm/" class="category-chain-item">Daily Algorithm</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Daily-Algorithm/LeetCode/" class="category-chain-item">LeetCode</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Algorithm/" class="print-no-link">#Algorithm</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MonotonicQueue</div>
+      <div>http://example.com/2024/01/12/Algorithms/MonotonicQueue/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Aggie Lennon</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/01/12/Algorithms/MonotonicStack/" title="MonotonicStack">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MonotonicStack</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/01/12/Algorithms/LeetCode/LeetCode-20240112/" title="LeetCode-Day18">
+                        <span class="hidden-mobile">LeetCode-Day18</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
