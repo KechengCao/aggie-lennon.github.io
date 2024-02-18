@@ -11872,7 +11872,7 @@
     <link href="/1999/01/05/SDL/Dictionary/SDL_HapticRumblePlay/"/>
     <url>/1999/01/05/SDL/Dictionary/SDL_HapticRumblePlay/</url>
     
-    <content type="html"><![CDATA[<h1 id="SDL-HapticRumblePlay"><a href="#SDL-HapticRumblePlay" class="headerlink" title="SDL_HapticRumblePlay"></a>SDL_HapticRumblePlay</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HapticRumblePlay">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>函数用于播放简单的振动效果，通常在游戏控制器中使用。该函数需要一个已初始化的haptic设备，并且该设备必须支持振动功能。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_HapticRumblePlay</span><span class="hljs-params">(SDL_Haptic * haptic, <span class="hljs-type">float</span> strength, Uint32 length )</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>haptic:用于初始化振动的触觉设备<br>strength：振动强度振动的时间长度（以毫秒为单位）</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="SDL-HapticRumblePlay"><a href="#SDL-HapticRumblePlay" class="headerlink" title="SDL_HapticRumblePlay"></a>SDL_HapticRumblePlay</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_HapticRumblePlay">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>函数用于播放简单的振动效果，通常在游戏控制器中使用。该函数需要一个已初始化的haptic设备，并且该设备必须支持振动功能。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_HapticRumblePlay</span><span class="hljs-params">(SDL_Haptic * haptic, <span class="hljs-type">float</span> strength, Uint32 length )</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>haptic:用于初始化振动的触觉设备<br>strength：振动强度<br>length: 振动的时间长度（以毫秒为单位）</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
     
     
     <categories>
@@ -12197,6 +12197,519 @@
     <url>/1999/01/05/SDL/Dictionary/SDL_NumJoysticks/</url>
     
     <content type="html"><![CDATA[<h1 id="SDL-NumJoysticks"><a href="#SDL-NumJoysticks" class="headerlink" title="SDL_NumJoysticks"></a>SDL_NumJoysticks</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_NumJoysticks">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>它用于获取当前连接到计算机上的游戏手柄（或者称为游戏杆）的数量。在调用此函数之前，您需要使用SDL_Init函数来初始化SDL库。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SDL_NumJoysticks</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回连接的操纵杆的数量，失败时返回负错误代码；调用 SDL_GetError() 获取更多信息。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_FreeMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_FreeMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_FreeMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-FreeMusic"><a href="#Mix-FreeMusic" class="headerlink" title="Mix_FreeMusic"></a>Mix_FreeMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_FreeMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>通过调用 Mix_FreeMusic 函数，可以释放之前加载的音乐文件，以便释放内存并避免资源泄漏。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Mix_FreeMusic</span><span class="hljs-params">(Mix_Music *music)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>music: 需要释放的音乐对象</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_FadeInMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_FadeInMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_FadeInMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-FadeInMusic"><a href="#Mix-FadeInMusic" class="headerlink" title="Mix_FadeInMusic"></a>Mix_FadeInMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_FadeInMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>常用于音乐制作和音频编辑中。它用于将音乐逐渐淡入，使过渡更加平滑。通过将音量从零逐渐增加到所需的音量水平，可以实现渐入效果。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_FadeInMusic</span><span class="hljs-params">(Mix_Music *music, <span class="hljs-type">int</span> loops, <span class="hljs-type">int</span> ms)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>music：要播放的新音乐对象。<br>loops：应该循环的次数，-1 表示无限循环（实际上不是）。<br>ms：音乐逐渐淡入所花费的毫秒数。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回零，错误时返回-1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_FadeOutMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_FadeOutMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_FadeOutMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-FadeOutMusic"><a href="#Mix-FadeOutMusic" class="headerlink" title="Mix_FadeOutMusic"></a>Mix_FadeOutMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_FadeOutMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于让音乐或音频轨途中逐渐减弱直至完全消失，也就是淡出效果。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_FadeOutMusic</span><span class="hljs-params">(<span class="hljs-type">int</span> ms)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>ms：可以指定音乐淡出的时间，单位通常是毫秒。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果音乐被计划淡出，则返回非零，否则返回零。如果当前没有播放音乐，则返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_LoadMUS</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_LoadMUS/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_LoadMUS/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-LoadMUS"><a href="#Mix-LoadMUS" class="headerlink" title="Mix_LoadMUS"></a>Mix_LoadMUS</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_LoadMUS">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于加载音乐文件。<br>以下是 Mix_LoadMUS 可以加载的音乐格式列表：</p><p>MIDI (.mid, .midi)<br>Ogg Vorbis (.ogg)<br>MP3 (.mp3)<br>FLAC (.flac)<br>WAVE (.wav)<br>MOD (.mod, .xm, .s3m, .669, .it, .med 等模块文件格式)<br>请注意，某些格式可能需要额外的库支持，例如加载 MP3 文件可能需要 libmpg123 库。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">Mix_Music * <span class="hljs-title">Mix_LoadMUS</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *file)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>file: 加载音乐数据的文件路径。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个新的音乐对象，如果出错则返回 NULL。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_HaltMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_HaltMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_HaltMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-HaltMusic"><a href="#Mix-HaltMusic" class="headerlink" title="Mix_HaltMusic"></a>Mix_HaltMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_HaltMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>Mix_HaltMusic函数的作用是立即停止任何当前正在播放的音乐。如果您正在开发一个使用SDL库的游戏或应用程序，并且需要控制背景音乐的播放，您可能会用到这个函数。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_HaltMusic</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>无论是否有任何音乐停止，都返回零。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_LoadWAV_RW</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_LoadWAV_RW/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_LoadWAV_RW/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-LoadWAV-RW"><a href="#Mix-LoadWAV-RW" class="headerlink" title="Mix_LoadWAV_RW"></a>Mix_LoadWAV_RW</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_LoadWAV_RW">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>数用于从 <a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a> 数据源加载一个WAV格式的音频文件</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">Mix_Chunk * <span class="hljs-title">Mix_LoadWAV_RW</span><span class="hljs-params">(SDL_RWops *src, <span class="hljs-type">int</span> freesrc)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>src：一个指向<a href="/1999/01/05/SDL/Dictionary/SDL_RWops/" title="SDL_RWops">SDL_RWops</a>结构的指针，代表音频数据源。<br>freesrc：一个整数，当设置为1时，函数会在加载音频数据后关闭数据源。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回一个可以用于播放的 Mix_Chunk 结构指针。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_OpenAudio</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_OpenAudio/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_OpenAudio/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-OpenAudio"><a href="#Mix-OpenAudio" class="headerlink" title="Mix_OpenAudio"></a>Mix_OpenAudio</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_OpenAudio">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>Mix_OpenAudio 函数是 SDL_mixer 库中的一个函数，它用于初始化音频设备并设置音频播放参数。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_OpenAudio</span><span class="hljs-params">(<span class="hljs-type">int</span> frequency, Uint16 format, <span class="hljs-type">int</span> channels, <span class="hljs-type">int</span> chunksize)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>frequency:表示音频采样率，常见的采样率有22050Hz, 44100Hz等。较高的采样率可以提供更好的音质，但也会占用更多的处理能力和内存。<br>format:<a href="/1999/01/05/SDL/Dictionary/SDL_AudioFormat/" title="SDL_AudioFormat">SDL_AudioFormat</a><br>channels: 指定了声道数，1代表单声道，2代表立体声。<br>chunksize: 表示每次处理的音频数据块大小。较小的块可以减少音频播放的延迟，但可能会增加CPU的负载。通常设置为4096或更小</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果出错则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_HaltChannel</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_HaltChannel/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_HaltChannel/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-HaltChannel"><a href="#Mix-HaltChannel" class="headerlink" title="Mix_HaltChannel"></a>Mix_HaltChannel</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_HaltChannel">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于停止特定音频通道的播放。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_HaltChannel</span><span class="hljs-params">(<span class="hljs-type">int</span> channel)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>channel:要停止的通道，或 -1 以停止所有通道。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回 0，错误时返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_PlayChannel</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_PlayChannel/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_PlayChannel/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-PlayChannel"><a href="#Mix-PlayChannel" class="headerlink" title="Mix_PlayChannel"></a>Mix_PlayChannel</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_PlayChannel">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于播放指定声音通道的音频，可以通过指定声音通道的索引来控制不同的音频播放。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_PlayChannel</span><span class="hljs-params">(<span class="hljs-type">int</span> channel, Mix_Chunk *chunk, <span class="hljs-type">int</span> loops)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>channel：声音通道的索引，范围从0到（MIX_CHANNELS-1）。MIX_CHANNELS是SDL_mixer库中定义的最大声音通道数。参数指定了要播放音频的通道。如果设置为 -1，SDL_mixer 会选择第一个空闲的通道。<br>chunk：要播放的音频数据，类型为Mix_Chunk结构体指针。Mix_Chunk结构体包含了音频数据的指针和长度等信息<br>loops：指定音频循环播放的次数，-1表示无限循环播放。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回用于播放声音的通道，如果无法播放声音则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_FreeChunk</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_FreeChunk/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_FreeChunk/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-FreeChunk"><a href="#Mix-FreeChunk" class="headerlink" title="Mix_FreeChunk"></a>Mix_FreeChunk</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_FreeChunk">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>释放 Mix_Chunk 占用的内存。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Mix_FreeChunk</span><span class="hljs-params">(Mix_Chunk *chunk)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>chunk：要释放的块。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_SetMusicPosition</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_SetMusicPosition/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_SetMusicPosition/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-SetMusicPosition"><a href="#Mix-SetMusicPosition" class="headerlink" title="Mix_SetMusicPosition"></a>Mix_SetMusicPosition</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_SetMusicPosition">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>Mix_SetMusicPosition函数用于调整当前播放的音乐的位置。它通常用于音乐跳转到一个特定的播放点，比如实现音乐的快进或者回放到某个特定的位置。这个函数接受一个双精度浮点数作为参数，代表音乐的位置，单位通常是秒。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_SetMusicPosition</span><span class="hljs-params">(<span class="hljs-type">double</span> position)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>position：新位置，以秒为单位（作为双精度）。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果成功则返回 0，如果失败或未实现则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_Playing</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_Playing/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_Playing/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-Playing"><a href="#Mix-Playing" class="headerlink" title="Mix_Playing"></a>Mix_Playing</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_Playing">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于检查音频通道是否正在播放声音。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_Playing</span><span class="hljs-params">(<span class="hljs-type">int</span> channel)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>channel:即音频通道的编号</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果该通道当前正在播放声音，则返回1；如果该通道没有播放声音，则返回0。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_VolumeChunk</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_VolumeChunk/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_VolumeChunk/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-VolumeChunk"><a href="#Mix-VolumeChunk" class="headerlink" title="Mix_VolumeChunk"></a>Mix_VolumeChunk</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_VolumeChunk">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>允许开发者改变特定音频样本的播放音量。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_VolumeChunk</span><span class="hljs-params">(Mix_Chunk *chunk, <span class="hljs-type">int</span> volume)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>chunk：要调整其音量的块。<br>volume：新的音量，介于 0 和 MIX_MAX_VOLUME 之间，或 -1 进行现在的音量查询。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回上一个音量。如果指定的音量为 -1，则返回当前音量。如果 chunk 为 NULL，则返回 -1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_VolumeMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_VolumeMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_VolumeMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-VolumeMusic"><a href="#Mix-VolumeMusic" class="headerlink" title="Mix_VolumeMusic"></a>Mix_VolumeMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_VolumeMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>如果您是指在音乐制作或音频编辑中的混音音量，那么这是一个涉及调整不同音轨或声源音量以达到理想听感平衡的过程。在混音中，音量是一个关键的因素，因为它影响着歌曲的动态范围、能量感以及各个元素之间的相互关系。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_VolumeMusic</span><span class="hljs-params">(<span class="hljs-type">int</span> volume)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>volume：该函数接受一个整数参数，范围从0到128，其中0表示静音，128表示最大音量</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回上一个音量。如果指定的音量为 -1，则返回当前音量。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_AudioFormat</title>
+    <link href="/1999/01/05/SDL/Dictionary/SDL_AudioFormat/"/>
+    <url>/1999/01/05/SDL/Dictionary/SDL_AudioFormat/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-AudioFormat"><a href="#SDL-AudioFormat" class="headerlink" title="SDL_AudioFormat"></a>SDL_AudioFormat</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_AudioFormat">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>音频格式的枚举。</p><h3 id="Audio-Format-Macros"><a href="#Audio-Format-Macros" class="headerlink" title="Audio Format Macros"></a>Audio Format Macros</h3><table>    <tr>        <td>SDL_AUDIO_MASK_BITSIZE</td>         <td>(0xFF)</td>         <td>它帮助你从音频格式中提取出位深度(bit size)。在处理音频数据时，了解音频格式的位深度是很重要的，因为它决定了声音的质量和数据的大小。位深度越高，能表现的声音细节越多，但相应的数据量也越大。</td>     </tr>    <tr>        <td>SDL_AUDIO_MASK_DATATYPE</td>         <td>(1<<8)</td>         <td>SDL_AUDIO_MASK_DATATYPE通常与音频格式相关的宏一起使用，以确定音频数据是有符号还是无符号类型，以及它是8位、16位、32位还是浮点数。这个宏可以帮助开发者在处理不同的音频数据流时做出适当的处理决策。</td>     </tr>    <tr>        <td>SDL_AUDIO_MASK_ENDIAN</td>         <td>(1<<12)</td>         <td>用于表示音频数据的字节序。在处理音频数据时，不同的平台可能会使用大端（Big-Endian）或小端（Little-Endian）的方式来存储数据。这个宏可以帮助开发者识别当前平台的字节序，并据此进行相应的处理。</td>     </tr>    <tr>        <td>SDL_AUDIO_MASK_SIGNED</td>         <td>(1<<15)</td>         <td>SDL_AUDIO_MASK_SIGNED 宏用来判断音频数据是否是有符号的。当你获取到 SDL 音频格式时，可以通过与这个宏进行位操作来检查音频样本是否是有符号的。</td>     </tr>    <tr>        <td>SDL_AUDIO_BITSIZE(x)</td>         <td>(x & SDL_AUDIO_MASK_BITSIZE)</td>         <td>SDL_AUDIO_BITSIZE 是一个宏，用于从SDL音频格式标志中提取音频样本的位大小。当您使用SDL库进行音频处理时，您可能会遇到包含SDL_AUDIO_BITSIZE的音频格式标志。这些标志定义了音频数据的具体格式，包括样本的位深度（如8位、16位等），是否有符号以及是否为大端字节序。</td>     </tr>    <tr>        <td>SDL_AUDIO_ISFLOAT(x)</td>         <td>(x & SDL_AUDIO_MASK_DATATYPE)</td>         <td>用于检查SDL（Simple DirectMedia Layer）库中的音频格式是否为浮点格式。使用 SDL_AUDIO_ISFLOAT 宏可以帮助开发者确定SDL_AudioFormat变量是否表示浮点数据。如果音频格式是浮点的，该宏将返回非零值；否则返回零。这在处理音频流时非常有用，因为你可能需要根据数据类型采取不同的处理方法。</td>     </tr>    <tr>        <td>SDL_AUDIO_ISBIGENDIAN(x)</td>         <td>(x & SDL_AUDIO_MASK_ENDIAN)</td>         <td>在处理音频数据时，不同的系统可能会采用不同的字节序。字节序是指多字节数据的存储顺序问题，主要有大端（Big-endian）和小端（Little-endian）两种格式。大端模式下，数据的高位字节存储在内存的低地址端，而小端模式下，数据的高位字节存储在内存的高地址端。</td>     </tr>    <tr>        <td>SDL_AUDIO_ISSIGNED(x)</td>         <td>(x & SDL_AUDIO_MASK_SIGNED)</td>         <td>用于确定音频样本是否为有符号的。</td>     </tr>    <tr>        <td>SDL_AUDIO_ISINT(x)</td>         <td>(!SDL_AUDIO_ISFLOAT(x))</td>         <td>SDL_AUDIO_ISINT宏可以用于判断该结构中的音频格式是否为整数格式。整数格式是指采样值以整数形式表示，而不是浮点数形式。</td>     </tr>    <tr>        <td>SDL_AUDIO_ISLITTLEENDIAN(x)</td>         <td>(!SDL_AUDIO_ISBIGENDIAN(x))</td>         <td>它用于在SDL（Simple DirectMedia Layer）库中确定当前音频系统的字节序是否为小端模式。</td>     </tr>    <tr>        <td>SDL_AUDIO_ISUNSIGNED(x)</td>         <td>(!SDL_AUDIO_ISSIGNED(x))</td>         <td>宏通常接受一个音频格式参数，并返回一个布尔值，指示该格式是否为无符号类型。</td>     </tr></table><h3 id="Audio-Format-Values"><a href="#Audio-Format-Values" class="headerlink" title="Audio Format Values"></a>Audio Format Values</h3><table>    <tr>        <td></td>         <td>8-bit support</td>     </tr>    <tr>        <td>AUDIO_S8</td>         <td>signed 8-bit samples</td>     </tr>    <tr>        <td>AUDIO_U8</td>         <td>unsigned 8-bit samples</td>     </tr>    <tr>        <td></td>         <td>16-bit support</td>     </tr>    <tr>        <td>AUDIO_S16LSB</td>         <td>signed 16-bit samples in little-endian byte order</td>     </tr>    <tr>        <td>AUDIO_S16MSB</td>         <td>signed 16-bit samples in big-endian byte order</td>     </tr>    <tr>        <td>AUDIO_S16SYS</td>         <td>signed 16-bit samples in native byte order</td>     </tr>    <tr>        <td>AUDIO_S16</td>         <td>AUDIO_S16LSB</td>     </tr>    <tr>        <td>AUDIO_U16LSB</td>         <td>unsigned 16-bit samples in little-endian byte order</td>     </tr>    <tr>        <td>AUDIO_U16MSB</td>         <td>unsigned 16-bit samples in big-endian byte order</td>     </tr>    <tr>        <td>AUDIO_U16SYS</td>         <td>unsigned 16-bit samples in native byte order</td>     </tr>    <tr>        <td>AUDIO_U16</td>         <td>AUDIO_U16LSB</td>     </tr>    <tr>        <td></td>         <td>32-bit support (new to SDL 2.0)</td>     </tr>    <tr>        <td>AUDIO_S32LSB</td>         <td>32-bit integer samples in little-endian byte order</td>     </tr>    <tr>        <td>AUDIO_S32MSB</td>         <td>32-bit integer samples in big-endian byte order</td>     </tr>    <tr>        <td>AUDIO_S32SYS</td>         <td>32-bit integer samples in native byte order</td>     </tr>    <tr>        <td>AUDIO_S32</td>         <td>AUDIO_S32LSB</td>     </tr>    <tr>        <td></td>         <td>float support (new to SDL 2.0)</td>     </tr>    <tr>        <td>AUDIO_F32LSB</td>         <td>32-bit floating point samples in little-endian byte order</td>     </tr>    <tr>        <td>AUDIO_F32MSB</td>         <td>32-bit floating point samples in big-endian byte order</td>     </tr>    <tr>        <td>AUDIO_F32SYS</td>         <td>32-bit floating point samples in native byte order</td>     </tr>    <tr>        <td>AUDIO_F32</td>         <td>AUDIO_F32LSB</td>     </tr></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_PauseMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_PauseMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_PauseMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-PauseMusic"><a href="#Mix-PauseMusic" class="headerlink" title="Mix_PauseMusic"></a>Mix_PauseMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_PauseMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于暂停正在播放的音乐。当调用该函数时，正在播放的音乐将暂停播放，直到调用<a href="/1999/01/05/SDL/Dictionary/Mix_ResumeMusic/" title="Mix_ResumeMusic">Mix_ResumeMusic</a>函数恢复播放。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Mix_PauseMusic</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_PlayMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_PlayMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_PlayMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-PlayMusic"><a href="#Mix-PlayMusic" class="headerlink" title="Mix_PlayMusic"></a>Mix_PlayMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_PlayMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用于在使用SDL（Simple DirectMedia Layer）进行游戏或应用程序开发时播放音乐。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Mix_PlayMusic</span><span class="hljs-params">(Mix_Music *music, <span class="hljs-type">int</span> loops)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>music:是一个指向Mix_Music对象的指针，该对象包含了要播放的音乐数据。<br>loops:是一个整数，表示音乐播放的次数。如果设置为-1，则音乐会无限循环播放直到显式停止。</p><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>成功时返回零，错误时返回-1。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mix_ResumeMusic</title>
+    <link href="/1999/01/05/SDL/Dictionary/Mix_ResumeMusic/"/>
+    <url>/1999/01/05/SDL/Dictionary/Mix_ResumeMusic/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mix-ResumeMusic"><a href="#Mix-ResumeMusic" class="headerlink" title="Mix_ResumeMusic"></a>Mix_ResumeMusic</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_ResumeMusic">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>如果您正在使用 SDL_mixer 库，并且您之前使用了<a href="/1999/01/05/SDL/Dictionary/Mix_PauseMusic/" title="Mix_PauseMusic">Mix_PauseMusic</a>函数来暂停音乐，那么您可以使用 Mix_ResumeMusic 来恢复播放之前暂停的音乐。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Mix_ResumeMusic</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>SDL Dictionary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SDL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SDL_GetTicks</title>
+    <link href="/1999/01/05/SDL/Dictionary/SDL_GetTicks/"/>
+    <url>/1999/01/05/SDL/Dictionary/SDL_GetTicks/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SDL-GetTicks"><a href="#SDL-GetTicks" class="headerlink" title="SDL_GetTicks"></a>SDL_GetTicks</h1><span id="more"></span><p>参考链接：<a href="https://wiki.libsdl.org/SDL2/SDL_GetTicks">Click to jump</a></p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>它用于获取自程序启动以来的毫秒数。它可以用于计算时间差，比如计算帧间隔，或者用于游戏和应用程序中的计时功能。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">Uint32 <span class="hljs-title">SDL_GetTicks</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br></code></pre></td></tr></table></figure><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>这个函数返回的是一个32位的无符号整数（Uint32）.</p>]]></content>
     
     
     <categories>
