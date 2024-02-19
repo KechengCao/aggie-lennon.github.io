@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Aggie Lennon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="复合类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++PrimerPlus-3">
+<meta property="og:url" content="http://example.com/2024/02/20/C++PrimerPlus/C++PrimerPlus-3/index.html">
+<meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
+<meta property="og:description" content="复合类型">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-20T00:25:00.000Z">
+<meta property="article:modified_time" content="2024-02-19T21:36:34.572Z">
+<meta property="article:author" content="Aggie Lennon">
+<meta property="article:tag" content="STL">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C++PrimerPlus-3 - Aggie Lennon&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">C++PrimerPlus-3</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-20 08:25" pubdate>
+          2024年2月20日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">C++PrimerPlus-3</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h1><span id="more"></span>
+<h2 id="4-1-数组"><a href="#4-1-数组" class="headerlink" title="4.1. 数组"></a>4.1. 数组</h2><ul>
+<li>   数组是一种数据格式，能够存储多个同类型的值。</li>
+<li>   数组声明应包括以下三点：存储在每个元素中的值的类型，数组名，数组中的元素数。</li>
+<li>   数组声明通用格式typeneame arrayname[arraysize]</li>
+<li>   Arraysize必须是整型常数或const值，或者常量表达式。不能是变量。</li>
+<li>   数组之所以被称为复合类型是因为其使用其他类型来创建。</li>
+<li>   在使用下标访问数组中的元素时必须要确保下标值的有效性。</li>
+</ul>
+<h3 id="4-1-1-数组的初始化规则"><a href="#4-1-1-数组的初始化规则" class="headerlink" title="4.1.1. 数组的初始化规则"></a>4.1.1. 数组的初始化规则</h3><ul>
+<li>   只能在定义数组的时候初始化数组，以后就不能再初始化了，也不能将一个数组的值赋给另一个数组。</li>
+<li>   初始化数组的时候提供的值可以少于数组元素的数目。剩余的元素将为0。</li>
+<li>   如果初始化数组时中括号内为空，C++编译器将更具初始化的内容计算元素的个数。</li>
+</ul>
+<h3 id="4-1-2-C-11数组的初始化的方法"><a href="#4-1-2-C-11数组的初始化的方法" class="headerlink" title="4.1.2. C++11数组的初始化的方法"></a>4.1.2. C++11数组的初始化的方法</h3><ul>
+<li>   列表初始化，可省略等号，可省略大括号中的内容</li>
+<li>   列表初始化禁止缩窄转换<br /></li>
+</ul>
+<h2 id="4-2-字符串"><a href="#4-2-字符串" class="headerlink" title="4.2. 字符串"></a>4.2. 字符串</h2><ul>
+<li>   字符串是存储在内存中的连续字节中的一系列字符。</li>
+<li>   有两种处理字符串的方法：C风格字符串和另一种基于string类库的方法。</li>
+<li>   C风格字符串是将字符串存放在char数组之中，以空字符结尾\0。这也是区分char数组是否是字符串的关键。在使用cout打印char数组时，答应过程会在遇到空字符串时停止。</li>
+<li>   基于string类库的方式产生的字符串称为字符串常量或字符串字面值，这种字符串表示起来相对于C风格字符串更简洁。它会在结尾处隐式地加上空字符，因此，不必显示地添加。</li>
+<li>   将字符串读入char数组时会自动加上空字符。因此在确定最短数组长度时别忘了预留空字符。</li>
+<li>   字符串常量（双引号）和字符常量（单引号）不能互换。原因在于字符串常量多一个空字符并且值代表字符串所在的内存地址。</li>
+</ul>
+<h3 id="4-2-1-拼接字符串常量"><a href="#4-2-1-拼接字符串常量" class="headerlink" title="4.2.1. 拼接字符串常量"></a>4.2.1. 拼接字符串常量</h3><ul>
+<li>   任何两个由空格，制表符和换行符分隔的字符串常量都将自动拼接成一个。</li>
+<li>   拼接字符串之间没有空格，上一个字符串的空字符将被下一个字符串第一个字符取代。</li>
+</ul>
+<h3 id="4-2-2-在数组中使用字符串"><a href="#4-2-2-在数组中使用字符串" class="headerlink" title="4.2.2. 在数组中使用字符串"></a>4.2.2. 在数组中使用字符串</h3><ul>
+<li>   在数组中使用字符串的方法有两种：将一个数组初始化为用引号括起来的字符串，或使用cin将一个输入的字符串放入数组中。</li>
+<li>   Sizeof返回的是数组的长度。strlen返回的是数组中实际字符串的长度，不包括空字符。<br>数组的长度至少是strlen+1。</li>
+</ul>
+<h3 id="4-2-3-字符串输入"><a href="#4-2-3-字符串输入" class="headerlink" title="4.2.3. 字符串输入"></a>4.2.3. 字符串输入</h3><ul>
+<li>   在使用cin将用户输入的字符串存入char数组中时，cin将会使用空格，制表符和换行符来确定字符串结束的位置。这些符号会保留在输入队列之中。</li>
+</ul>
+<h3 id="4-2-4-每次读取一行字符串输入"><a href="#4-2-4-每次读取一行字符串输入" class="headerlink" title="4.2.4. 每次读取一行字符串输入"></a>4.2.4. 每次读取一行字符串输入</h3><ul>
+<li>   那如何避免4.2.3中出现的问题呢？istream提供了一些面向行的函数:getline()和get()。</li>
+<li>   getline和get都将读取一行的输入，通过回车键输入的换行符来确定输入结尾。区别在于getline将丢弃换行符而get将保留换行符在输入序列之中。</li>
+<li>   getline函数有两个参数，数组名称和读取的额字符数，实际读取的比设定的少一，因为需要在结尾处添加空字符。遇到换行符时停止读取。</li>
+<li>   get函数如果不借助帮助将不能跨过换行符。解决方式是使用cin.get()来读取换行符。</li>
+<li>   get和getline都可以采用连续调用的额方式将两个类成员函数拼接起来。</li>
+<li>   get相比于getline的优势在于适应老式实现并且能通过get()知道读取因何停止。</li>
+<li>   当读取到空行时，get的读取将中止。</li>
+<li>   当输入字符串比分配空间长，多余的字符将留在输入队列之中，并且getline的读取将会停止。<br /></li>
+</ul>
+<h2 id="4-3-string-类简介"><a href="#4-3-string-类简介" class="headerlink" title="4.3. string 类简介"></a>4.3. string 类简介</h2><ul>
+<li>   可以使用C风格字符串初始化string。可以使用cin来将键盘输入存储到string 对象。可以使用cout来显示string对象。可以使用数组表示法访问string对象中的字符。</li>
+</ul>
+<h3 id="4-3-1-C-字符串初始化"><a href="#4-3-1-C-字符串初始化" class="headerlink" title="4.3.1. C++字符串初始化"></a>4.3.1. C++字符串初始化</h3><ul>
+<li>   对于C风格字符串和string对象字符串都可以使用列表初始化。</li>
+</ul>
+<h3 id="4-3-2-赋值，拼接和附加"><a href="#4-3-2-赋值，拼接和附加" class="headerlink" title="4.3.2. 赋值，拼接和附加"></a>4.3.2. 赋值，拼接和附加</h3><ul>
+<li>   对于string 对象可以将一个对象赋值给另一个对象。但对于C风格字符串数组就不支持。</li>
+<li>   String类可以用+合并。</li>
+</ul>
+<h3 id="4-3-3-string类的其他操作"><a href="#4-3-3-string类的其他操作" class="headerlink" title="4.3.3. string类的其他操作"></a>4.3.3. string类的其他操作</h3><ul>
+<li>   对于C风格字符串使用strcpy()将字符串赋值到字符数组中。使用strcat()将字符串附加到字符数组尾。当目标数组过小时可能会导致程序终止或者数据破坏。</li>
+<li>   为了避免上述情况，strncat()和strncpy()接受指出目标数组最大允许长度的第三个参数。</li>
+<li>   C风格字符串中的strlen和string类中的size功能相似。</li>
+</ul>
+<h3 id="4-3-4-string类I-O"><a href="#4-3-4-string类I-O" class="headerlink" title="4.3.4. string类I&#x2F;O"></a>4.3.4. string类I&#x2F;O</h3><ul>
+<li>   对于没有初始化的C风格字符串，strlen的大小可能比sizeof大。</li>
+<li>   对于C风格的字符串来说cin.getline(数组名，大小)，而对于string 类getline(cin, string名)。</li>
+</ul>
+<h3 id="4-3-5-其他形式的字符串字面值"><a href="#4-3-5-其他形式的字符串字面值" class="headerlink" title="4.3.5. 其他形式的字符串字面值"></a>4.3.5. 其他形式的字符串字面值</h3><ul>
+<li>   对于wchar_t类型字符串字面值使用L前缀（放在引号外面）。对于char16_t使用u前缀。对于char32_t使用U前缀。</li>
+<li>   对于原始字符串，字符表示的就是自己，所以无需转义，需要在加上R前缀。但(和)除外，使用R”+*(表示开头，使用)+*”表示结尾。<br /></li>
+</ul>
+<h2 id="4-4-struct-类简介"><a href="#4-4-struct-类简介" class="headerlink" title="4.4. struct 类简介"></a>4.4. struct 类简介</h2><ul>
+<li>   Struct的组成部分：struct关键字， 标记成为新类型的名称，左右大括号， 结构成员， 结束结构声明。</li>
+<li>   在C++中省略struct关键词不会出错。</li>
+<li>   使用成员运算符.来访问各个成员。</li>
+<li>   访问类成员函数的方式是从访问struct成员变量的方式衍生而来。</li>
+<li>   C++提倡使用外部结构声明。</li>
+<li>   struct的结构初始化使用都好分隔值列表，并将这些值用花括号括起。</li>
+</ul>
+<h3 id="4-4-1-C-11结构初始化"><a href="#4-4-1-C-11结构初始化" class="headerlink" title="4.4.1. C++11结构初始化"></a>4.4.1. C++11结构初始化</h3><ul>
+<li>   支持列表初始化，等号可以忽略。花括号中可以不包含任何东西。</li>
+</ul>
+<h3 id="4-4-2-其他结构属性"><a href="#4-4-2-其他结构属性" class="headerlink" title="4.4.2. 其他结构属性"></a>4.4.2. 其他结构属性</h3><ul>
+<li>   可以将结构作为函数参数或者函数返回值。</li>
+<li>   可以使用&#x3D;将一个结构赋值给另一个结构，这种赋值方式称为成员赋值。</li>
+</ul>
+<h3 id="4-4-3-结构数组"><a href="#4-4-3-结构数组" class="headerlink" title="4.4.3. 结构数组"></a>4.4.3. 结构数组</h3><ul>
+<li>   初始化基金二狗数组的方式是使用一个被括在花括号中用逗号分隔的值列表，每个值又是被括在花括号中，每个结构成员的初始化各占一行。<br /></li>
+</ul>
+<h2 id="4-5-共用体"><a href="#4-5-共用体" class="headerlink" title="4.5. 共用体"></a>4.5. 共用体</h2><ul>
+<li>   共用体是一种数据结构，能存储不同的数据类型，但只能同时存储其中的一种类型。在存储另一种数据类型之后，原有的数据会丢失。</li>
+<li>   必须有空间存储最大的成员。共用体的长度是其最大成员的长度。</li>
+<li>   匿名共用体没有名称，其成员的地址相同，由程序员决定当前哪个成员是活动的。</li>
+<li>   共用体的主要作用是节省内存。<br /></li>
+</ul>
+<h2 id="4-6-枚举"><a href="#4-6-枚举" class="headerlink" title="4.6. 枚举"></a>4.6. 枚举</h2><ul>
+<li>   Enum的句法使用与结构的句法使用相似。</li>
+<li>   默认情况下整数将被赋值给枚举量，从0开始。</li>
+<li>   在没有强制转换的情况下，只能将定义时使用的枚举量赋值给枚举变量。</li>
+<li>   枚举变量除了赋值运算不支持其他算数运算。</li>
+<li>   枚举量能提升为整型int但是int不能变为枚举量。</li>
+</ul>
+<h3 id="4-6-1-设置枚举量的值"><a href="#4-6-1-设置枚举量的值" class="headerlink" title="4.6.1. 设置枚举量的值"></a>4.6.1. 设置枚举量的值</h3><ul>
+<li>   使用赋值运算符显示地设置，但值是int,long,甚至时long long。没设置的值从设置的值开始+1递增。</li>
+</ul>
+<h3 id="4-6-2-枚举量的取值范围"><a href="#4-6-2-枚举量的取值范围" class="headerlink" title="4.6.2. 枚举量的取值范围"></a>4.6.2. 枚举量的取值范围</h3><ul>
+<li>   每个枚举都有取值范围，通过强制类型转换，可将取值范围内的任何整数赋给枚举变量，即使不是枚举值。上限是大于最大值的最小2的幂，然后-1。对于下限的寻找分两种情况：不小于0则下限直接是0， 小于0是小于最小值的最大2的幂，然后+1。</li>
+<li>   对于C++11，存在作用域内枚举。<br /></li>
+</ul>
+<h2 id="4-7-指针和自由存储空间"><a href="#4-7-指针和自由存储空间" class="headerlink" title="4.7. 指针和自由存储空间"></a>4.7. 指针和自由存储空间</h2><ul>
+<li>   指针是一个变量，其存储的是值的地址。通过在变量前面加上&amp;来获取变量的地址。</li>
+<li>   cout使用16进制来显示出变量的地址。</li>
+<li>   *运算被称为间接值或者解除引用运算符</li>
+</ul>
+<h3 id="4-7-1-声明和初始化指针"><a href="#4-7-1-声明和初始化指针" class="headerlink" title="4.7.1. 声明和初始化指针"></a>4.7.1. 声明和初始化指针</h3><ul>
+<li>   由于不同的数据类型存储时使用的内部格式不同，因此，声明指针必须指定指针指向的数据类型。</li>
+<li>   对于每个指针变量名都需要使用一个*。</li>
+<li>   指针的大小取决于存储一个地址需要的大小，而地址的大小可为2或者4，这主要看计算机系统。</li>
+</ul>
+<h3 id="4-7-2-指针的危险"><a href="#4-7-2-指针的危险" class="headerlink" title="4.7.2. 指针的危险"></a>4.7.2. 指针的危险</h3><ul>
+<li>   指针需要被初始化，不然可能为任何值，这将导致一些很隐匿的bug。</li>
+</ul>
+<h3 id="4-7-3-指针和数字"><a href="#4-7-3-指针和数字" class="headerlink" title="4.7.3. 指针和数字"></a>4.7.3. 指针和数字</h3><ul>
+<li>   对于C++来说，如果想使用数字值作为地址使用，应通过强制类型转换将数字转换为适当的地址类型。</li>
+</ul>
+<h3 id="4-7-4-使用new来分配内存"><a href="#4-7-4-使用new来分配内存" class="headerlink" title="4.7.4. 使用new来分配内存"></a>4.7.4. 使用new来分配内存</h3><ul>
+<li>   指针的很常用的做法是在运行阶段分配未命名的内存以存储值。那这种未命名的内存通过使用new来分配内存。通用格式为 typename * pointer_name &#x3D; new typename。</li>
+<li>   与常用的额变量声明分配时使用栈不同，new从被称为堆或者自由存储区的内存区域分配内存。</li>
+</ul>
+<h3 id="4-7-5-使用delete释放内存"><a href="#4-7-5-使用delete释放内存" class="headerlink" title="4.7.5. 使用delete释放内存"></a>4.7.5. 使用delete释放内存</h3><ul>
+<li>   使用delete运算符，在使用完内存后将其归还给内存池。通用写法时delete pointer_name。</li>
+<li>   使用delete不会删除指针本身，指针可以再利用。</li>
+<li>   需要注意的一点是new和delete必须配对使用，否则会导致内存泄漏。</li>
+<li>   不要将两个指针分配给同一个内存块，因为这违反了new和delete需要配对的原则。</li>
+</ul>
+<h3 id="4-7-6-使用new来创建动态数组"><a href="#4-7-6-使用new来创建动态数组" class="headerlink" title="4.7.6. 使用new来创建动态数组"></a>4.7.6. 使用new来创建动态数组</h3><ul>
+<li>   在编译时分配内存被称为静态联编，但使用new能在程序运行的时候分配内存，这被称为动态联编。使用动态联编创建出来的数组称为动态数组。</li>
+<li>   创建动态数组的通用格式type_name * pointer_name &#x3D; newtype_name[num_elements];其中new运算符返回的是第一个元素地址。</li>
+<li>   释放动态数组内存的格式为delete [] pointer_name；</li>
+<li>   使用new和delete时因遵守以下规则：不要使用delete释放不是new分配的内存，不要使用delete释放同一个内存块两次，new[]对应delete[]，new无方括号delete也没有方括号，对空指针使用delete是安全的。</li>
+<li>   对于动态数组的大小，这种数据不是公用的，例如，不能使用sizeof来获取动态分配的数组包含的字节数。</li>
+<li>   那么如何使用动态数组呢？通过将动态数组的指针当作数组名来使用。可通过加上整数来调整指针在数组中的指向。<br /></li>
+</ul>
+<h2 id="4-8-指针，数组和指针算术"><a href="#4-8-指针，数组和指针算术" class="headerlink" title="4.8. 指针，数组和指针算术"></a>4.8. 指针，数组和指针算术</h2><ul>
+<li>   从上面我们看到C++对于指针的使用和数组的使用如此相似，那背后的原因在于指针算术。Arrayname[i] &#x3D;&#x3D; *(arrayname + i)</li>
+<li>   这里有一点需要注意，对于数组名是第一个元素的地址而数组名加上前缀&amp;表示的是整个数组的地址。Array+1 !&#x3D; &amp;array + 1。</li>
+<li>   需要注意的是typename <em>pointer_name[size] &#x3D; &amp;arrayname与typename （</em>pointer_name）[size] &#x3D; &amp;arrayname不同。前者是一个typename指针数组包含size个元素，而后者是一个指针指向size个typename。</li>
+</ul>
+<h3 id="4-8-1-指针小结"><a href="#4-8-1-指针小结" class="headerlink" title="4.8.1. 指针小结"></a>4.8.1. 指针小结</h3><ul>
+<li>   声明指针格式：typename * pointername;</li>
+<li>   给指针赋值分两种：&amp;来获得被命名的内存地址，new运算符返回未命名的内存地址。</li>
+<li>   对指针使用*或者数组表示法pointer_name[0]来解除引用。</li>
+<li>   C++将数组名视为数组的第1个元素地址。</li>
+<li>   声明数组创建数组为静态编译，使用new[]创建数组为动态编译。</li>
+<li>   数组表示法和指针表示法胡同arrayname[index] &#x3D; *(arrayname + index)。</li>
+</ul>
+<h3 id="4-8-2-指针和字符串"><a href="#4-8-2-指针和字符串" class="headerlink" title="4.8.2. 指针和字符串"></a>4.8.2. 指针和字符串</h3><ul>
+<li>   在C++的多数表达式中，char数组名，char指针和引号阔气的字符串常量都可解释为字符串的第一个字符地址。</li>
+</ul>
+<h3 id="4-8-3-使用new创建动态结构"><a href="#4-8-3-使用new创建动态结构" class="headerlink" title="4.8.3. 使用new创建动态结构"></a>4.8.3. 使用new创建动态结构</h3><ul>
+<li>   在创建时需要同时使用结构类型和new</li>
+<li>   由于使用了new，结构未命名，不能使用运算符(.)来访问成员，一种替代方法是使用-&gt;</li>
+</ul>
+<h3 id="4-8-4-自动存储，静态存储和动态存储"><a href="#4-8-4-自动存储，静态存储和动态存储" class="headerlink" title="4.8.4. 自动存储，静态存储和动态存储"></a>4.8.4. 自动存储，静态存储和动态存储</h3><ul>
+<li>   自动存储：常规变量使用自动存储空间，也被称为自动变量，在其所在函数调用时产生，结束时消亡，其通常存储在栈中，后进先出。内存为连续的。</li>
+<li>   静态存储：定义静态变量的方式有两种：在函数外定义或加上关键词static</li>
+<li>   动态存储：它们管理着一个内存池也被称为自由存储空间或堆，堆和静态存储，自动存储的内存分开。内存不连续。<br /></li>
+</ul>
+<h2 id="4-9-数组的替代品"><a href="#4-9-数组的替代品" class="headerlink" title="4.9. 数组的替代品"></a>4.9. 数组的替代品</h2><h3 id="4-9-1-模板类vector"><a href="#4-9-1-模板类vector" class="headerlink" title="4.9.1. 模板类vector"></a>4.9.1. 模板类vector</h3><ul>
+<li>   Vector类似于string类，是一种动态数组。创建的通用表达式vector<typename> vt(n_elem)。</li>
+</ul>
+<h3 id="4-9-2-模板类array"><a href="#4-9-2-模板类array" class="headerlink" title="4.9.2. 模板类array"></a>4.9.2. 模板类array</h3><ul>
+<li>   相比于vector，array的效率高，但代价是不方便和不安全</li>
+</ul>
+<h3 id="4-9-3-对比数组，array和vector"><a href="#4-9-3-对比数组，array和vector" class="headerlink" title="4.9.3. 对比数组，array和vector"></a>4.9.3. 对比数组，array和vector</h3><ul>
+<li>   Array存在于栈而vector对象存储在堆中</li>
+<li>   数组必须逐个元素复制而array和vector可以直接将一个对象赋值到一个对象。</li>
+<li>   使用array和vector的时候可以使用成员函数at()来捕获运行时的非法索引，但代价时运行时间更长。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/C-PrimerPlus/" class="category-chain-item">C++PrimerPlus</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/STL/" class="print-no-link">#STL</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C++PrimerPlus-3</div>
+      <div>http://example.com/2024/02/20/C++PrimerPlus/C++PrimerPlus-3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Aggie Lennon</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/19/C++PrimerPlus/C++PrimerPlus-1/" title="C++PrimerPlus-1">
+                        <span class="hidden-mobile">C++PrimerPlus-1</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
