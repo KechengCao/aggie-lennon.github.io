@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Aggie Lennon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基本结构1. 线性表定义是一种基本的数据结构，它是由零个或多个数据元素组成的有限序列。在线性表中，每个数据元素都有一个唯一的前驱（除了第一个元素）和一个唯一的后继（除了最后一个元素）。线性表的元素之间是一对一的关系，这种数据结构非常适合表示具有顺序关系的数据集合。 图例代码实现分类顺序存储结构线性表的所有元素在内存中占据连续的存储单元，通过数组下标可以直接访问任意元素，这种方式称为顺序表。顺序表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Structure">
+<meta property="og:url" content="http://example.com/2024/02/21/Algorithms/Data%20Structure/index.html">
+<meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
+<meta property="og:description" content="基本结构1. 线性表定义是一种基本的数据结构，它是由零个或多个数据元素组成的有限序列。在线性表中，每个数据元素都有一个唯一的前驱（除了第一个元素）和一个唯一的后继（除了最后一个元素）。线性表的元素之间是一对一的关系，这种数据结构非常适合表示具有顺序关系的数据集合。 图例代码实现分类顺序存储结构线性表的所有元素在内存中占据连续的存储单元，通过数组下标可以直接访问任意元素，这种方式称为顺序表。顺序表">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-21T11:52:00.000Z">
+<meta property="article:modified_time" content="2024-02-22T08:53:43.872Z">
+<meta property="article:author" content="Aggie Lennon">
+<meta property="article:tag" content="Data Structure">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Data Structure - Aggie Lennon&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Data Structure</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-21 19:52" pubdate>
+          2024年2月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Data Structure</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
+<h1 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h1><h2 id="1-线性表"><a href="#1-线性表" class="headerlink" title="1. 线性表"></a>1. 线性表</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>是一种基本的数据结构，它是由零个或多个数据元素组成的有限序列。在线性表中，每个数据元素都有一个唯一的前驱（除了第一个元素）和一个唯一的后继（除了最后一个元素）。线性表的元素之间是一对一的关系，这种数据结构非常适合表示具有顺序关系的数据集合。</p>
+<h3 id="图例"><a href="#图例" class="headerlink" title="图例"></a>图例</h3><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h4><p>线性表的所有元素在内存中占据连续的存储单元，通过数组下标可以直接访问任意元素，这种方式称为顺序表。顺序表的优点是访问速度快，但扩展容量时可能需要移动大量元素。</p>
+<h4 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h4><p>线性表的元素在内存中不一定连续存储，每个元素可能散布在内存的不同位置，通过指针连接每个元素。这种方式称为链表。链表的优点是插入和删除操作方便，不需要移动其他元素，但访问速度相对较慢，因为需要通过指针逐个访问。<br><br /></p>
+<h1 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h1><h2 id="1-顺序栈"><a href="#1-顺序栈" class="headerlink" title="1. 顺序栈"></a>1. 顺序栈</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>也称为顺序存储的栈，是栈这种数据结构的一种实现方式。在数据结构中，栈是一种遵循后进先出（Last In First Out, LIFO）原则的线性表。在顺序栈中，所有元素按照线性的顺序存储，通常使用数组来实现。<br>在顺序栈的实现中，通常会设定一个固定大小的 <strong>数组</strong> 和一个 __指针__（或索引），该指针指向栈顶元素的位置。当有新元素入栈时，指针会递增；当有元素出栈时，指针会递减。</p>
+<h3 id="图例-1"><a href="#图例-1" class="headerlink" title="图例"></a>图例</h3><h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h3><p>在C++中实现顺序栈，你可以定义一个类来封装相关的操作和属性。这个类通常包含以下几个部分：</p>
+<p>存储空间：一个用于存储栈元素的数组。<br>栈顶指针：一个表示栈顶位置的整数。<br>栈的大小：一个整数，表示栈的最大容量。<br>构造函数：用于初始化栈的大小和栈顶指针。<br>入栈操作（push）：在栈顶添加新元素。<br>出栈操作（pop）：移除栈顶元素并返回。<br>查看栈顶元素（top）：返回栈顶元素但不移除。<br>判断栈空：检查栈是否为空。<br>判断栈满：检查栈是否已满。</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>顺序栈的基本操作包括：</p>
+<p>入栈（Push）：在栈顶添加一个元素。<br>出栈（Pop）：从栈顶移除一个元素，并返回该元素的值。<br>获取栈顶元素（Top&#x2F;Peek）：返回栈顶元素的值，但不移除它。<br>判断栈空（IsEmpty）：检查栈是否为空。<br>获取栈的大小（Size）：返回栈中元素的个数。</p>
+<h3 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h3><p>由于顺序栈使用数组存储数据，因此它的最大容量是固定的。当栈满时，即数组已经存满元素，无法再添加新元素。<br>为了避免栈溢出，可以通过 <strong>动态数组</strong> 或 <strong>链表</strong> 来实现可动态扩容的栈。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：实现简单，访问速度快<br>缺点：大小固定，可能会造成空间浪费或存储空间不足<br>与之相对的是链式栈，即使用链表来实现的栈，它可以动态地扩展存储空间，但访问速度相对较慢。<br><br /></p>
+<h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2. 队列"></a>2. 队列</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>是一种数据结构，它遵循先进先出（FIFO, First In First Out）的原则，即在队列中最先进入的元素将会最先被移除。<br>队列可以通过不同的方式实现，比如使用 <strong>链表</strong> 或 __数组__。</p>
+<h3 id="图例-2"><a href="#图例-2" class="headerlink" title="图例"></a>图例</h3><h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="C-实现-1"><a href="#C-实现-1" class="headerlink" title="C++实现"></a>C++实现</h3><p>在C++中，std::queue容器适配器提供了队列的基本操作，例如：</p>
+<p>push：在队列尾部添加一个元素。<br>pop：移除队列头部的一个元素。<br>front：访问队列头部的第一个元素。<br>back：访问队列尾部的最后一个元素。<br>empty：检查队列是否为空。<br>size：返回队列中的元素数量。</p>
+<h3 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h3><p>队列的基本操作通常包括：</p>
+<p>入队（Enqueue）：将一个元素添加到队列的末尾。<br>出队（Dequeue）：移除队列最前面的元素。<br>查看队首（Front 或 Peek）：查看队列最前面的元素，但不移除它。<br>判断队列是否为空（IsEmpty）：检查队列中是否还有元素。</p>
+<h3 id="队列的特殊类型"><a href="#队列的特殊类型" class="headerlink" title="队列的特殊类型"></a>队列的特殊类型</h3><h4 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h4><p>在这种队列中，当达到队列的末尾时会循环回到开始的位置。</p>
+<h4 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h4><p>在这种队列中，元素会根据它们的优先级出队，而不是严格按照入队的顺序。</p>
+<h4 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h4><p>这种队列允许在两端都进行入队和出队操作。<br><br /></p>
+<h2 id="3-顺序表"><a href="#3-顺序表" class="headerlink" title="3. 顺序表"></a>3. 顺序表</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p>是一种基本的数据结构，它是将元素按照线性的顺序排列，每个元素都有一个固定的位置，即索引。在顺序表中，元素是 <strong>连续存储</strong> 的，通常使用 <strong>数组</strong> 来实现。由于这种存储方式，顺序表可以快速地通过索引访问任何元素，也就是说它支持 __随机访问__。</p>
+<h3 id="图例-3"><a href="#图例-3" class="headerlink" title="图例"></a>图例</h3><h3 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="C-实现-2"><a href="#C-实现-2" class="headerlink" title="C++实现"></a>C++实现</h3><p>在C++标准库中，顺序表可以通过数组（array）或者向量（vector）来实现。</p>
+<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><p>随机访问：可以在常数时间内访问任何位置的元素。<br>空间连续性：所有元素都存储在连续的内存空间中。<br>插入和删除操作：在顺序表的中间或开始位置插入或删除元素需要移动后续的元素，因此操作的时间复杂度通常为O(n)，其中n是顺序表的长度。<br>扩容问题：当数组容量不足以存储更多元素时，需要进行扩容操作，这通常涉及到创建一个更大的数组并将所有元素复制过去，这个过程的时间复杂度为O(n)。<br><br /></p>
+<h1 id="链式结构"><a href="#链式结构" class="headerlink" title="链式结构"></a>链式结构</h1><h2 id="1-链队列"><a href="#1-链队列" class="headerlink" title="1. 链队列"></a>1. 链队列</h2><h3 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h3><p>是一种基于链表实现的队列数据结构。在计算机科学中，队列是一种先进先出（First In First Out, FIFO）的线性数据结构，它有两个主要操作：入队（enqueue），即在队列的末尾添加一个元素；出队（dequeue），即移除队列开头的元素。<br>链队列的特点是它通过节点（Node）的形式存储数据，每个节点包含数据部分和一个指向下一个节点的指针。链队列的前端用于出队操作，后端用于入队操作。链队列不需要预先分配固定的存储空间，它可以动态地增长和缩减，这是它与基于数组实现的顺序队列的主要区别。</p>
+<h3 id="图例-4"><a href="#图例-4" class="headerlink" title="图例"></a>图例</h3><h3 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="C-实现-3"><a href="#C-实现-3" class="headerlink" title="C++实现"></a>C++实现</h3><p>在C++中实现顺序栈，你可以定义一个类来封装相关的操作和属性。</p>
+<h3 id="基本组成部分"><a href="#基本组成部分" class="headerlink" title="基本组成部分"></a>基本组成部分</h3><p>节点（Node）：包含数据元素以及一个或多个指向其他节点的指针。<br>队头指针（Front）：指向链队列的第一个节点。<br>队尾指针（Rear）：指向链队列的最后一个节点。<br>链队列的大小或长度：表示队列中元素的数量</p>
+<h3 id="基本操作-2"><a href="#基本操作-2" class="headerlink" title="基本操作"></a>基本操作</h3><p>初始化（InitQueue）：创建一个空的链队列。<br>入队（EnQueue）：在队尾插入一个新元素。<br>出队（DeQueue）：删除并返回队头元素。<br>判断空（IsEmpty）：检查链队列是否为空。<br>获取队头元素（GetFront）：获取但不删除队头元素。<br><br /></p>
+<h2 id="2-线性表的链式表示"><a href="#2-线性表的链式表示" class="headerlink" title="2. 线性表的链式表示"></a>2. 线性表的链式表示</h2><h3 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h3><p>线性表的链式表示是线性表的一种物理存储方式，它通过一系列的节点来实现，每个节点包含数据元素和一个或多个指向其他节点的指针（通常是下一个节点），这样就形成了一个链式结构。</p>
+<h3 id="图例-5"><a href="#图例-5" class="headerlink" title="图例"></a>图例</h3><h3 id="代码实现-5"><a href="#代码实现-5" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="C-实现-4"><a href="#C-实现-4" class="headerlink" title="C++实现"></a>C++实现</h3><p>在C++中，可以使用结构体（struct）或类（class）来实现链式线性表。</p>
+<h3 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h3><h4 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h4><p>每个节点只有一个指针指向下一个节点，最后一个节点指向一个空地址表示链表的结束。</p>
+<h4 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h4><p>每个节点有两个指针，一个指向前一个节点，一个指向下一个节点，这样可以从任何一个节点开始向前或向后遍历。</p>
+<h4 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h4><p>类似单链表或双向链表，但是最后一个节点的“下一个”指针不是指向空地址，而是指向第一个节点，形成一个环。<br><br /><br><br /></p>
+<h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><h2 id="1-链队列-1"><a href="#1-链队列-1" class="headerlink" title="1. 链队列"></a>1. 链队列</h2><h3 id="定义-6"><a href="#定义-6" class="headerlink" title="定义"></a>定义</h3><p>哈希函数：H(key): K -&gt; D , key ∈ K<br>又称散列表，是根据关键码值（Key value）而直接进行访问的数据结构。它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫作散列函数（Hash Function），存放记录的数组叫作哈希表（或散列表）。</p>
+<h3 id="图例-6"><a href="#图例-6" class="headerlink" title="图例"></a>图例</h3><h3 id="代码实现-6"><a href="#代码实现-6" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="C-实现-5"><a href="#C-实现-5" class="headerlink" title="C++实现"></a>C++实现</h3><p>unordered_map：一个关联容器，它使用哈希表来存储键值对。它允许基于键快速查找值。</p>
+<p>unordered_set：一个集合容器，它使用哈希表来存储元素。它允许快速检查一个值是否存在于集合中。</p>
+<p>unordered_multimap和unordered_multiset：这两种容器与unordered_map和unordered_set类似，但它们允许键重复，即它们可以存储多个相同键的元素。</p>
+<h3 id="基本操作-3"><a href="#基本操作-3" class="headerlink" title="基本操作"></a>基本操作</h3><p>插入（Insert）：向哈希表中添加一个新的元素。<br>删除（Delete）：从哈希表中移除元素。<br>查找（Search）：在哈希表中查找一个特定的元素。</p>
+<h3 id="哈希冲突"><a href="#哈希冲突" class="headerlink" title="哈希冲突"></a>哈希冲突</h3><p>两个不同的关键码值经过散列函数处理后得到了相同的结果。</p>
+<h4 id="开放寻址法"><a href="#开放寻址法" class="headerlink" title="开放寻址法"></a>开放寻址法</h4><p>当插入一个新的元素时，如果通过哈希函数计算得到的位置已经被占用，那么就根据某种探测序列去寻找下一个空闲的位置。这个探测序列可以是线性探测、二次探测或者双重散列等。</p>
+<h5 id="线性探测"><a href="#线性探测" class="headerlink" title="线性探测"></a>线性探测</h5><p>当发生冲突时，按照顺序检查表中的下一个位置，直到找到一个空位。<br>不能简单地将要删除元素的位置置为空，因为这可能会中断查找其他元素时的探测序列。通常的解决方案是使用一个特殊标记来表示该位置曾经有元素但现在被删除了，这样查找操作在遇到这样的标记时可以继续探测下一个位置。</p>
+<h5 id="二次探测"><a href="#二次探测" class="headerlink" title="二次探测"></a>二次探测</h5><p>当发生冲突时，使用一个二次函数来计算下一个探测的位置。</p>
+<h5 id="双重散列"><a href="#双重散列" class="headerlink" title="双重散列"></a>双重散列</h5><p>使用第二个哈希函数来计算下一个探测的位置，这个第二个哈希函数与第一个不同。</p>
+<h5 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h5><p>优：不需要额外的存储空间来维护元素之间的关系，因为所有元素都存储在哈希表本身内部。<br>缺：当哈希表填充度较高时，可能需要进行多次探测才能找到空位，这会导致性能下降。因此，为了保持高效的操作性能，通常需要维护较低的装载因子（Load Factor），即元素数量与哈希表大小的比例。<br><br /></p>
+<h4 id="链表法"><a href="#链表法" class="headerlink" title="链表法"></a>链表法</h4><p>链表法是通过将具有相同哈希值的所有元素放在同一个链表中来解决这个问题的。<br>为了提高效率，通常需要选择一个好的哈希函数，并且根据数据量动态地调整哈希表的大小，以保持较低的装载因子（load factor），即元素个数与槽位数的比值。装载因子越小，发生冲突的可能性就越低，链表法的效率也就越高。</p>
+<h5 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h5><ol>
+<li><p>初始化哈希表：创建一个数组，数组的每个槽位（slot）对应一个链表的头指针。初始时，所有槽位都为空。</p>
+</li>
+<li><p>插入元素：当要插入一个新元素时，首先使用哈希函数计算该元素的哈希值，然后根据这个哈希值找到对应的槽位。如果该槽位为空，则直接在该槽位创建一个新的链表，并将元素作为链表的第一个节点；如果槽位已经有链表，则将新元素添加到链表的末尾或头部。</p>
+</li>
+<li><p>查找元素：要查找一个元素时，同样先计算其哈希值，然后访问对应槽位的链表，并在链表中顺序查找该元素。</p>
+</li>
+<li><p>删除元素：删除操作也需要先计算元素的哈希值，然后在对应槽位的链表中找到并删除该元素。</p>
+</li>
+</ol>
+<h5 id="优缺点-2"><a href="#优缺点-2" class="headerlink" title="优缺点"></a>优缺点</h5><p>优：实现简单，且在冲突不多时插入和查找操作的速度较快。<br>缺：如果哈希函数选得不好，或者数据分布不均匀，导致某些槽位的链表过长，则会影响哈希表的性能，使得查找和插入操作的时间复杂度接近于O(n)。<br><br /></p>
+<h3 id="哈希函数构造方法"><a href="#哈希函数构造方法" class="headerlink" title="哈希函数构造方法"></a>哈希函数构造方法</h3><h4 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h4><p>给定一个正整数m，对于任意的关键字key，通过计算key被m除后所得的余数r来作为这个关键字的哈希值，即哈希函数H(key) &#x3D; key mod m，其中”mod”表示求余数的数学运算。<br>这里的m通常被称为哈希表的大小，选取一个合适的m对于哈希表的性能至关重要。如果m选得不好，会导致许多关键字映射到同一个哈希值，这种现象称为“冲突”（Collision）。为了减少冲突，m通常选取为一个质数，并且与数据分布有关的特定模式无关。</p>
+<h4 id="数字分析法"><a href="#数字分析法" class="headerlink" title="数字分析法"></a>数字分析法</h4><p>取数据元素关键字中某些取值较均匀的数字位作为哈希地址的方法。 即当关键字的位数很多时，可以通过对关键字的各位进行分析，丢掉分布不均匀的位，作为哈希值。 它只适合于所有关键字值已知的情况。 通过分析分布情况把关键字取值区间转化为一个较小的关键字取值区间。</p>
+<h4 id="折叠法"><a href="#折叠法" class="headerlink" title="折叠法"></a>折叠法</h4><p>折叠法的基本思想是将输入分割成几个部分，然后将这些部分以某种方式组合起来（通常是相加），以产生哈希值。</p>
+<ol>
+<li><p>将输入数据（如一个较长的数字或字符串）分割成几个长度相等的部分。如果输入数据的长度不是划分长度的整数倍，则可以在最后一个部分不足的位置上补零。</p>
+</li>
+<li><p>将这些部分进行相加或其他运算（如异或运算），得到一个总和或结果。</p>
+</li>
+<li><p>如果得到的总和或结果长度超过了哈希表大小，可以继续将其分割并折叠，直到其长度满足哈希表的要求。</p>
+</li>
+<li><p>最终得到的结果就是输入数据对应的哈希值。</p>
+</li>
+</ol>
+<h4 id="平方取中法"><a href="#平方取中法" class="headerlink" title="平方取中法"></a>平方取中法</h4><ol>
+<li><p>选择关键字：首先确定一个数字关键字（Key），这个关键字是将要被哈希处理的原始数据。</p>
+</li>
+<li><p>计算关键字的平方：将关键字乘以它自己，得到一个平方数。</p>
+</li>
+<li><p>取中间几位：从这个平方数中取出中间的几位数字。取多少位通常取决于所需哈希值的大小。</p>
+</li>
+<li><p>得到哈希值：所取出的这几位数字就是关键字的哈希值。</p>
+<br /></li>
+</ol>
+<h3 id="如何衡量哈希表的性能"><a href="#如何衡量哈希表的性能" class="headerlink" title="如何衡量哈希表的性能"></a>如何衡量哈希表的性能</h3><p>散列函数的设计<br>哈希表的大小<br>冲突解决方法的效率<br>负载因子（即表中已填充位置的比例）<br><br /><br><br /></p>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><h2 id="定义-7"><a href="#定义-7" class="headerlink" title="定义"></a>定义</h2><p>允许一个函数调用自己。在递归过程中，问题被分解为更小、更易于解决的问题，直到达到一个基本情况（base case），该基本情况可以直接解决而不需要进一步递归。</p>
+<h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><h3 id="定义-8"><a href="#定义-8" class="headerlink" title="定义"></a>定义</h3><p>分治策略则是将一个复杂的问题分解成若干个规模较小的、相互独立的子问题来解决。分治策略通常包括三个步骤：分解（Divide）、解决（Conquer）和合并（Combine）。首先，原问题被分解成若干个规模较小的子问题；然后，这些子问题被递归地解决；最后，这些子问题的解被合并为原问题的解。</p>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><h5 id="折半查找（二分查找）"><a href="#折半查找（二分查找）" class="headerlink" title="折半查找（二分查找）"></a>折半查找（二分查找）</h5><h6 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h6><p>通过不断地将待查找区间分成两半并排除掉不可能包含目标值的一半，从而缩小搜索范围，直到找到目标值或确定目标值不存在。</p>
+<h6 id="C-实现-6"><a href="#C-实现-6" class="headerlink" title="C++实现"></a>C++实现</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(<span class="hljs-type">const</span> std::vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> target)</span> </span>&#123;<br>    <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>; <span class="hljs-comment">// 定义左边界</span><br>    <span class="hljs-type">int</span> right = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; <span class="hljs-comment">// 定义右边界</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123; <span class="hljs-comment">// 当左边界不大于右边界时循环</span><br>        <span class="hljs-type">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>; <span class="hljs-comment">// 防止溢出的方式计算中间位置</span><br>        <span class="hljs-keyword">if</span> (nums[mid] == target) &#123;<br>            <span class="hljs-keyword">return</span> mid; <span class="hljs-comment">// 找到目标值，返回对应的索引</span><br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[mid] &lt; target) &#123;<br>            left = mid + <span class="hljs-number">1</span>; <span class="hljs-comment">// 目标值在中间值的右侧，移动左边界</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right = mid - <span class="hljs-number">1</span>; <span class="hljs-comment">// 目标值在中间值的左侧，移动右边界</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 没有找到目标值，返回-1</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h5><h6 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h6><p>基本思想是将两个或两个以上的有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。</p>
+<h6 id="C-实现-7"><a href="#C-实现-7" class="headerlink" title="C++实现"></a>C++实现</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 归并两个子向量</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(std::vector&lt;<span class="hljs-type">int</span>&gt;&amp; arr, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> mid, <span class="hljs-type">int</span> right)</span> </span>&#123;<br>    <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">temp</span><span class="hljs-params">(right - left + <span class="hljs-number">1</span>)</span></span>;<br>    <span class="hljs-type">int</span> i = left, j = mid + <span class="hljs-number">1</span>, k = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">// 合并两个子向量</span><br>    <span class="hljs-keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= right) &#123;<br>        <span class="hljs-keyword">if</span> (arr[i] &lt;= arr[j]) &#123;<br>            temp[k++] = arr[i++];<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            temp[k++] = arr[j++];<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 将剩余的元素添加到临时向量中</span><br>    <span class="hljs-keyword">while</span> (i &lt;= mid) &#123;<br>        temp[k++] = arr[i++];<br>    &#125;<br>    <span class="hljs-keyword">while</span> (j &lt;= right) &#123;<br>        temp[k++] = arr[j++];<br>    &#125;<br><br>    <span class="hljs-comment">// 将临时向量中的元素复制回原向量</span><br>    <span class="hljs-keyword">for</span> (i = left, k = <span class="hljs-number">0</span>; i &lt;= right; ++i, ++k) &#123;<br>        arr[i] = temp[k];<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 归并排序函数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">mergeSort</span><span class="hljs-params">(std::vector&lt;<span class="hljs-type">int</span>&gt;&amp; arr, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (left &lt; right) &#123;<br>        <span class="hljs-type">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>;<br>        <span class="hljs-comment">// 递归排序左半部分</span><br>        <span class="hljs-built_in">mergeSort</span>(arr, left, mid);<br>        <span class="hljs-comment">// 递归排序右半部分</span><br>        <span class="hljs-built_in">mergeSort</span>(arr, mid + <span class="hljs-number">1</span>, right);<br>        <span class="hljs-comment">// 合并两部分</span><br>        <span class="hljs-built_in">merge</span>(arr, left, mid, right);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><h6 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h6><p>基本思想是通过一趟排序将待排记录分割成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。</p>
+<h6 id="C-实现-8"><a href="#C-实现-8" class="headerlink" title="C++实现"></a>C++实现</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(<span class="hljs-type">int</span> s[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (l&lt; r)<br>	&#123;      <br>		<span class="hljs-type">int</span> i = l, j = r, x = s[l];<br>		<span class="hljs-keyword">while</span> (i &lt; j)<br>		&#123;<br>			<span class="hljs-keyword">while</span>(i &lt; j &amp;&amp; s[j]&gt;= x) <span class="hljs-comment">// 从右向左找第一个小于x的数</span><br>				j--; <br>			<span class="hljs-keyword">if</span>(i &lt; j)<br>				s[i++] = s[j];<br>			<span class="hljs-keyword">while</span>(i &lt; j &amp;&amp; s[i]&lt; x) <span class="hljs-comment">// 从左向右找第一个大于等于x的数</span><br>				i++; <br>			<span class="hljs-keyword">if</span>(i &lt; j)<br>				s[j--] = s[i];<br>		&#125;<br>		s[i] = x;<br>		<span class="hljs-built_in">quickSort</span>(s, l, i - <span class="hljs-number">1</span>); <span class="hljs-comment">// 递归调用</span><br>		<span class="hljs-built_in">quickSort</span>(s, i + <span class="hljs-number">1</span>, r);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Data-Structure/" class="category-chain-item">Data Structure</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Data-Structure/" class="print-no-link">#Data Structure</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Data Structure</div>
+      <div>http://example.com/2024/02/21/Algorithms/Data Structure/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Aggie Lennon</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/22/C++_Design%20Patterns/Singleton_Pattern/" title="Singleton_Pattern">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Singleton_Pattern</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/20/C++PrimerPlus/C++PrimerPlus-3/" title="C++PrimerPlus-3">
+                        <span class="hidden-mobile">C++PrimerPlus-3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Aggie Lennon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="建造者模式（Singleton Pattern）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Singleton_Pattern">
+<meta property="og:url" content="http://example.com/2024/02/22/C++_Design%20Patterns/Builder_Pattern/index.html">
+<meta property="og:site_name" content="Aggie Lennon&#39;s Blog">
+<meta property="og:description" content="建造者模式（Singleton Pattern）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-22T15:02:00.000Z">
+<meta property="article:modified_time" content="2024-02-23T18:55:50.835Z">
+<meta property="article:author" content="Aggie Lennon">
+<meta property="article:tag" content="Design Patterns">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Singleton_Pattern - Aggie Lennon&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Singleton_Pattern</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-22 23:02" pubdate>
+          2024年2月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Singleton_Pattern</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="建造者模式（Singleton-Pattern）"><a href="#建造者模式（Singleton-Pattern）" class="headerlink" title="建造者模式（Singleton Pattern）"></a>建造者模式（Singleton Pattern）</h1><span id="more"></span>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>建造者模式（Builder Pattern）是一种创建型设计模式，用于解决复杂对象的构建过程。它允许你分步骤创建复杂对象，并且可以使得同样的构建过程可以创建不同表示形式的对象。建造者模式通常涉及以下四个角色：</p>
+<ol>
+<li>产品（Product）: 最终要创建的复杂对象。</li>
+<li>建造者（Builder）: 提供创建产品对象各个部件的接口。</li>
+<li>具体建造者（Concrete Builder）: 实现Builder接口，提供构建和装配产品各部件的具体实现，提供获取产品的方法。</li>
+<li>指挥者（Director）: 构建一个使用Builder接口的对象。</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>现在我们考虑一个模拟场景，假设我们要建一个文档编辑器，包含了文本，图片这些不同的元素。如果对应我们上面说到的四个角色。文档就是产品，而文本，图片和表格是产品的构成。</p>
+<ol>
+<li>首先我们需要定义我们的产品，即文档<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Document</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    vector&lt;string&gt; elements;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addElement</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; element)</span></span>&#123;<br>        elements.<span class="hljs-built_in">push_back</span>(element);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showDocument</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> <span class="hljs-type">const</span></span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; element:elements)&#123;<br>            cout &lt;&lt; element &lt;&lt; endl;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+<li>接下来是建造者接口，定义构建文档所需的各种步骤。由于文档包含两种文本和图片，那么文档的构建可以分为两步：构建文档和构建图片。对于构建时使用的方法，我们在定义产品的时候已经设计好。下面是代码：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">DocumentBuilder</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">DocumentBuilder</span>()&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">buildText</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; text)</span> </span>= <span class="hljs-number">0</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">buildImage</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; path)</span> </span>= <span class="hljs-number">0</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> Document* <span class="hljs-title">getDocument</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+<li>下面就是构建具体的建造者了，这个过程具体来说就是实现上述DocumentBuilder的接口和装配其各个部件，并且在最后必须提供一个获取产品对象的接口<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RichTextDocumentBuilder</span>:<span class="hljs-keyword">public</span> DocumentBuilder&#123;<br><span class="hljs-keyword">private</span>:<br>    Document* document;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">RichTextDocumentBuilder</span>()&#123;document = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Document</span>();&#125;<br>    ~<span class="hljs-built_in">RichTextDocumentBuilder</span>()&#123;<span class="hljs-keyword">delete</span> document;&#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">buildText</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; text)</span> <span class="hljs-keyword">override</span></span>&#123;<br>        document-&gt;<span class="hljs-built_in">addElement</span>(<span class="hljs-string">&quot;RichText:&quot;</span> + text);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">buildImage</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; path)</span> <span class="hljs-keyword">override</span></span>&#123;<br>        document-&gt;<span class="hljs-built_in">addElement</span>(<span class="hljs-string">&quot;Image:&quot;</span> + path);<br>    &#125;<br><br>    <span class="hljs-function">Document* <span class="hljs-title">getDocument</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span></span>&#123;<br>        <span class="hljs-keyword">return</span> document;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+<li>接下来就是指挥官了，从字面意思上就可以看出指挥官在这里的作用是一个使用建造者接口的对象，它需要有能力指挥所有的建造者而不是只能指挥某个具体的建造者。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Director</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    DocumentBuilder* builder;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Director</span>(DocumentBuilder* builder):<span class="hljs-built_in">builder</span>(builder)&#123;&#125;<br>    <span class="hljs-comment">//使用建造者接口对象的构造函数构造</span><br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">construct</span><span class="hljs-params">()</span></span>&#123;<br>        builder-&gt;<span class="hljs-built_in">buildText</span>(<span class="hljs-string">&quot;Hello&quot;</span>);<br>        builder-&gt;<span class="hljs-built_in">buildImage</span>(<span class="hljs-string">&quot;logo.png&quot;</span>);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+<li>通过指挥指挥官来指挥他手底下的建造者<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-comment">//选择合适的建造者</span><br>    RichTextDocumentBuilder* builder = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RichTextDocumentBuilder</span>();<br>    <span class="hljs-comment">//给这个建造者分派指挥官</span><br>    <span class="hljs-function">Director <span class="hljs-title">director</span><span class="hljs-params">(builder)</span>；</span><br><span class="hljs-function"></span><br><span class="hljs-function">    <span class="hljs-comment">//指挥官指挥开始建造</span></span><br><span class="hljs-function">    director.<span class="hljs-title">construct</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-comment">//返回建造出来的产品</span><br>    Document* document =  builder-&gt;<span class="hljs-built_in">getDocument</span>();<br>    <span class="hljs-comment">//展示建造出来的产品</span><br>    document-&gt;<span class="hljs-built_in">showDocument</span>();<br><br>    <span class="hljs-keyword">delete</span> builder;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h2><p>Document 类代表复杂对象的最终产品，具有添加元素和显示文档的功能。<br>DocumentBuilder 是一个抽象类（或接口），定义了构建产品各部分的抽象方法。<br>RichTextDocumentBuilder 实现了 DocumentBuilder，负责创建具体的产品部件。它包含一个指向正在构建的产品的指针。<br>Director 控制构建过程，它知道建造者的接口并通过建造者接口来构建所需的产品。它可以接受一个建造者对象，指导构建过程，以获得最终的产品对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs cpp">        +-------------------+<br>        |    Document       |<br>        +-------------------+<br>        | -elements: string |<br>        +-------------------+<br>        | +<span class="hljs-built_in">addElement</span>(...)  |<br>        | +<span class="hljs-built_in">showDocument</span>()   |<br>        +-------------------+<br>                 ^<br>                 |<br>                 |<br>    +------------------------+<br>    |   DocumentBuilder      |<br>    +------------------------+<br>    | +<span class="hljs-built_in">buildText</span>(text): <span class="hljs-type">void</span> |<br>    | +<span class="hljs-built_in">buildImage</span>(path): <span class="hljs-type">void</span>|<br>    | +<span class="hljs-built_in">getDocument</span>(): Document*|<br>    +------------------------+<br>                 ^<br>                 |<br>                 |<br>+-------------------------------+<br>| RichTextDocumentBuilder       |<br>+-------------------------------+<br>| -document: Document*          |<br>+-------------------------------+<br>| +<span class="hljs-built_in">buildText</span>(text): <span class="hljs-type">void</span>        |<br>| +<span class="hljs-built_in">buildImage</span>(path): <span class="hljs-type">void</span>       |<br>| +<span class="hljs-built_in">getDocument</span>(): Document*     |<br>+-------------------------------+<br>                 |<br>                 |<br>                 v<br>        +-------------------+<br>        |     Director      |<br>        +-------------------+<br>        | -builder: DocumentBuilder*|<br>        +-------------------+<br>        | +<span class="hljs-built_in">construct</span>(): <span class="hljs-type">void</span>|<br>        +-------------------+<br></code></pre></td></tr></table></figure>
+
+<h2 id="UML有色图"><a href="#UML有色图" class="headerlink" title="UML有色图"></a>UML有色图</h2><p>待补</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/Design-Patterns/" class="category-chain-item">Design Patterns</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Design-Patterns/" class="print-no-link">#Design Patterns</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Singleton_Pattern</div>
+      <div>http://example.com/2024/02/22/C++_Design Patterns/Builder_Pattern/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Aggie Lennon</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/23/C++_Design%20Patterns/Factory_Method_Pattern/" title="Factory_Method_Pattern">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Factory_Method_Pattern</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/22/C++_Design%20Patterns/Abstract_Factory/" title="Abstract_Factory">
+                        <span class="hidden-mobile">Abstract_Factory</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
